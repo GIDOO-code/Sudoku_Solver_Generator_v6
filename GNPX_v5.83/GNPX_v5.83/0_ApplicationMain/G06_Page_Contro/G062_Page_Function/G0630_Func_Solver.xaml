@@ -1,0 +1,100 @@
+﻿<Page x:Class="GNPX_space.Func_Solve"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GNPX_space"
+      xmlns:properties="clr-namespace:GNPX_space.Properties"
+      
+      mc:Ignorable="d" 
+      d:DesignWidth="572" d:DesignHeight="428"
+      Title="Page1" Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/RoundCornerButtonStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF0A081A" Offset="0" />
+                <GradientStop Color="#FF1B2133" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="btn_SolveSingle" Click="btn_Page_Clicked"
+            Margin="29,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="24"
+            Content="{Binding Resources.tabASolve, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+            Foreground="White" BorderBrush="#FF160F7A" FontSize="12" FontFamily="MS Gothic" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9EA8ED" Offset="1"/>
+                    <GradientStop Color="#FF9EA8ED" Offset="0"/>
+                    <GradientStop Color="#FF0C1133" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_SolveMulti" Click="btn_Page_Clicked"
+            Margin="113,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="24"
+            Content="{Binding Resources.tabBMultiSolve, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+            Foreground="White" BorderBrush="#FF160F7A" FontSize="12" FontFamily="MS Gothic" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF9EA8ED" Offset="1"/>
+                    <GradientStop Color="#FF9EA8ED" Offset="0"/>
+                    <GradientStop Color="#FF090B1B" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="btn_SolveMethod" Click="btn_Page_Clicked"
+           Margin="197,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="24"
+           Content="{Binding Resources.tabBMethod, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+           Foreground="White" BorderBrush="#FF160F7A" FontSize="12" FontFamily="MS Gothic" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFBBBBD2" Offset="0.0"/>
+                    <GradientStop Color="#FFBBBBD2" Offset="1"/>
+                    <GradientStop Color="#FF06060A" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_SolveMethodOption" Click="btn_Page_Clicked"
+           Margin="280,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="84" Height="24"
+           Content="{Binding Resources.tabBMethodOption, Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+           Foreground="White" BorderBrush="#FF160F7A" FontSize="12" FontFamily="MS Gothic" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFBBBBD2" Offset="0.0"/>
+                    <GradientStop Color="#FFBBBBD2" Offset="1"/>
+                    <GradientStop Color="#FF06060A" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="btn_SolvePuzzleSelection" 
+                Click="btn_Page_Clicked" MouseDoubleClick="btn_SolvePuzzleSelection_MouseDoubleClick"
+                Margin="367,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Height="24"
+                Content="{Binding Resources.btn_SolvePuzzleSelection , Mode=OneWay, Source={x:Static local:ResourceService.Current}}"
+                Foreground="White" BorderBrush="#FF160F7A" FontSize="12" FontFamily="MS Gothic"  >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA0DCD6" Offset="1"/>
+                    <GradientStop Color="#FFA0DCD6" Offset="0"/>
+                    <GradientStop Color="#FF09180B" Offset="0.495"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Grid Background="#FF171A31" Margin="10,40,10,10">
+            <Frame x:Name="frame_GNPX_Solve"  NavigationUIVisibility="Hidden" />
+        </Grid>
+    </Grid>
+
+
+
+
+</Page>

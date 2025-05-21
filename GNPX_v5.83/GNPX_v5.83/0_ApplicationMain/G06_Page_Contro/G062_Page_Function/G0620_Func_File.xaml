@@ -1,0 +1,118 @@
+﻿<Page x:Class="GNPX_space.Func_File"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GNPX_space"
+
+      xmlns:app="clr-namespace:GNPX_space"    
+      xmlns:properties="clr-namespace:GNPX_space.Properties"
+      mc:Ignorable="d" 
+                          
+      d:DesignWidth="572" d:DesignHeight="428"
+      FontFamily="MS Gothic" 
+      Loaded="Page_Loaded" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="93*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF3A3948" Offset="0" />
+                <GradientStop Color="#FF65646F" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Button x:Name="btn_OpenPuzzleFile" Click="btn_OpenPuzzleFile_Click"
+                Content="{Binding Resources.btn_OpenPuzzleFile, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"
+                Width="120" Height="30" VerticalAlignment="Bottom" Margin="42,0,0,1"
+                Foreground="White" HorizontalAlignment="Left" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD1E8FF" Offset="0" />
+                    <GradientStop x:Name="GradientStop00" Color="#FF3653BE" Offset="0.977" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label x:Name="lbl_ShortMessage" Content="Label" HorizontalAlignment="Left" Margin="423,29,0,0" Grid.Row="1" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFE62B2B" Panel.ZIndex="1" Visibility="Hidden"/>
+        <Button x:Name="btn_Initialize_PuzzleFile" 
+            Content="Clear"
+            Width="67" Height="22" VerticalAlignment="Top" Margin="470,41,0,0"
+            Foreground="White" HorizontalAlignment="Left" Panel.ZIndex="1" Click="btn_Initialize_PuzzleFile_Click" Grid.RowSpan="2" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD1E8FF" Offset="0" />
+                    <GradientStop x:Name="GradientStop2" Color="DarkBlue" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <TextBox x:Name="txtFileName" Text="Puzzle File" VerticalAlignment="Top"
+                 Height="50" HorizontalAlignment="Left" Margin="48,5,0,0" 
+                 Width="492" TextWrapping="WrapWithOverflow" FontSize="12" Background="#FF121529" Foreground="White" Grid.Row="1" />
+
+
+        <Button x:Name="btn_SavePuzzle" Click="btn_SavePuzzle_Click"
+            Content="{Binding Resources.btn_SavePuzzle, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"
+            Foreground="White" Height="25" HorizontalAlignment="Left" Margin="42,100,0,0" VerticalAlignment="Top"
+            Width="100"  FontSize="12" Grid.Row="1">
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB0B0CA" Offset="0" />
+                    <GradientStop Color="#FF0D0D1A" Offset="1" />
+                    <GradientStop Color="#FF434399" Offset="0.508" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!--
+         Content="{Binding Resources.chb_AddtionalSave, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"   
+        -->
+        <CheckBox x:Name="chb_Additional_Save"
+                  Content="Addtional Save"   
+                  HorizontalAlignment="Left" Margin="49,127,0,0" VerticalAlignment="Top" Foreground="White" FontSize="12" Grid.Row="1" IsChecked="True"/>
+
+        <CheckBox x:Name="chb_File81Nocsv"
+              Content="{Binding Resources.chb_FormatLine, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"                          
+              Foreground="White" Margin="49,143,0,0" IsChecked="True" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center" 
+              Height="23" Width="185" HorizontalAlignment="Left" IsEnabled="False" Grid.Row="1" />
+
+        <CheckBox x:Name="chb_File81Plus"                            
+              Foreground="White" Margin="61,167,0,0" IsChecked="False" VerticalAlignment="Top" FontSize="12" VerticalContentAlignment="Center"
+              Width="185" HorizontalAlignment="Left" Content="+ Blank" FontFamily="MS Gothic" IsEnabled="{Binding IsChecked, ElementName=chb_File81Nocsv}" Grid.Row="1" />
+        <CheckBox x:Name="chb_SolutionSort"
+                Content="{Binding Resources.chb_SortByDiffOrder, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"                           
+                Foreground="White" Height="16" Margin="49,183,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="176" FontSize="12" VerticalContentAlignment="Bottom" Grid.Row="1" />
+        <CheckBox x:Name="cbx_ProbSolSetOutput" 
+                Content="{Binding Resources.chbSaveWithAnswer, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"                  
+                Foreground="White" Margin="49,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="153" FontSize="12" VerticalContentAlignment="Bottom" Grid.Row="1" />
+        <CheckBox x:Name="chb_AddAlgorithmList"
+                Content="{Binding Resources.chb_AddAlgorithmList, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"
+                Foreground="Gray" Height="17" HorizontalAlignment="Left" Margin="61,214,0,0" VerticalAlignment="Top" Width="150" FontSize="12" VerticalContentAlignment="Bottom" IsEnabled="False" Grid.Row="1" />
+
+        <Button x:Name="btn_SaveToFavorites"  Click="btn_SaveToFavorites_Click"
+            Width="119"  Height="25" Margin="264,100,0,0" HorizontalAlignment="Left"  VerticalAlignment="Top" 
+            Content="{Binding Resources.btn_SaveToFavorites, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"           
+            Foreground="White" FontSize="12" Grid.Row="1"            >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCACACA" Offset="0" />
+                    <GradientStop Color="#FF6F6F85" Offset="1" />
+                    <GradientStop Color="#FF4C31A0" Offset="0.508" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Content="{Binding Resources.lblSaveCurrentPuzzle, Mode=OneWay, Source={x:Static app:ResourceService.Current}}"           
+               Foreground="White" Height="28" HorizontalAlignment="Left" Margin="266,123,0,0" VerticalAlignment="Top" FontSize="12" Width="138" Grid.Row="1" />
+
+        <Rectangle Height="1" Margin="10,274,10,0" Stroke="#FF0C1225" VerticalAlignment="Top" Fill="#FF0C1225" Grid.Row="1"/>
+        <Label Content="Application definition file :" HorizontalAlignment="Left" Margin="43,281,0,0" VerticalAlignment="Top" Foreground="White" FontSize="12" Grid.Row="1"/>
+        <TextBlock x:Name="txb_AppDefFilePath" Margin="0,302,0,0" TextWrapping="Wrap" Text="Application definition file" VerticalAlignment="Top" Height="50" Width="492" Background="#FF1D1F21" Foreground="White" FontSize="12" HorizontalAlignment="Center" Grid.Row="1"/>
+
+
+    </Grid>
+</Page>

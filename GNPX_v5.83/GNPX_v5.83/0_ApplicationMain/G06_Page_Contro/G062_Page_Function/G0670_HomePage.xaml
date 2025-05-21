@@ -1,0 +1,40 @@
+﻿<Page x:Class="GNPX_space.Func_HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GNPX_space"
+      mc:Ignorable="d" 
+      d:DesignWidth="572" d:DesignHeight="428"
+      Title="Page1"
+      Loaded="Page_Loaded" >
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/RoundCornerButtonStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
+    <Grid Width="515" Margin="0,-1,0,10">
+        <Button x:Name="btn_HomePageGitHub" Content="GitHub HomePage" FontSize="12"  Foreground="White"
+                            Height="28" Width="123"  Margin="37,27,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Click="btnHomePageGitHub_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFC1B5B5" Offset="0" />
+                    <GradientStop Color="#FF161D6C" Offset="0.5" />
+                    <GradientStop Color="Black" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="txtCopyrightDisclaimer" HorizontalAlignment="Left" Margin="10,94,0,0" TextWrapping="Wrap" 
+                               Text="TextBlock" VerticalAlignment="Top" Height="300" Width="505" Foreground="#FFF7FCFD" 
+                               Background="#FF080808" FontFamily="MS Gothic" FontSize="12"/>
+        <TextBlock x:Name="HP_address" HorizontalAlignment="Left" Margin="27,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF8EBAB9" Text="HP address"/>
+        <TextBlock x:Name="CopiedHP" HorizontalAlignment="Left" Margin="180,34,0,0" Text="copied hp to the clipboard" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" Background="{x:Null}" Foreground="#FF93DBDA" />
+    </Grid>
+
+
+</Page>
