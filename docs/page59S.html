@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>SuDoKu Senior Exocet</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 6.0</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>	
+    </section>
+	<!-- -------------------------------------------------------------------------- -->
+
+	<article id="main">
+		<section>
+			<span style="color:red">... Senior Exocet is under development ... </span><br><br><br>
+
+			<H3 id="head_bg_Blue">&nbsp;Exocet</H3>
+
+			<p>
+				Exocet is a solution algorithm that combines constraints such as house, locked, and coverline.
+				Here is an explanation of how Exocet works.
+				The following explanation assumes knowledge of Exocet terms and definitions.
+				If you are unfamiliar with it, please refer to <a href="page59A_JE2.html">Junior Exocet</a>. <br><br>
+
+				<i>[Provisional version] This section may contain ambiguities or errors.
+					Please don't just take it at face value, but read it critically.<br>
+					The GNPX V6 application project(C#) will also be helpful for understanding.
+				</i>
+			</p>
+
+			<H3 id="head_bg_Light2Blue">&nbsp;(1)Basic form of Exocet</H3>
+			<p>
+				<ul style="list-style:none; padding-left:10px;">
+					<li>&nbsp;1) The base has 3 to 4 base digits.</li>
+					<li>&nbsp;2) In the S-Area determined by the Base and Object, each Base digits are covered by two Houses.</li>
+					<li>&nbsp;3) For each Base digit(#a), #a is in the Object.</li>
+					<li>&nbsp;4) For any two base digits(#ab), #ab is contained in two objects.</li>
+					<li>&nbsp;5) The Base digits is in the Locked state.</li>
+					<li>&nbsp; (There are several types of Base and Object placement and shapes.)<br>
+				<img src="images/img59S/image59S_Logoic1.svg" style="margin-left: 20px;" width="40%" alt="Exocet"><br><br><br>
+			</li>
+
+
+			<H3 id="head_bg_Light2Blue">&nbsp;(2)Select Base and CrossLines ... (Basic Senior-Exocet)</H3>
+			<p>
+				<ul style="list-style:none; padding-left:10px;">
+					<li>&nbsp;1) Select any cell(Stem Cell) and direction(row direction/column direction)</li>
+					<li>&nbsp;2) Determine two Base cells in the same block as the Stem.
+								The Base cells are in the same miniline as the Stem, and both are undetermined cells. </li>
+					<li>&nbsp;3) Determine CrossLine0 by the Stem and cross direction.
+								Select CrossLine-1 from CrossBand-1. Select CrossLine-2 from CrossBand-2. <br>
+					&nbsp; &nbsp; &nbsp; (Band is a collection of Blocks with the same direction)</li>
+				</ul>
+				<img src="images/img59S/image59S_Logoic2.svg" style="margin-left: 20px;" width="60%" alt="Exocet"><br><br>
+			</p>
+
+			<H3 id="head_bg_Light2Blue">&nbsp;(3) Target/Object を選ぶ</H3>
+			<p>
+				<ul style="list-style:none; padding-left:10px;">
+					<li>&nbsp;1) Select two Targets/Objects on CrossLine-0, CrossLine-1, and CrossLine-2.
+						Since the selection is done by 2/3, there are no Objects on one CrossLine.
+						(In the following, we will use Object. Target is a 1-cell Object.)
+						
+					</li>
+					<li>&nbsp;2) The object is in one block.</li>
+				</ul>
+					<img src="images/img59S/image59S_Logoic3.svg" style="margin-left: 20px;" width="60%" alt="Exocet"><br><br>
+			</p>
+
+
+			<H3 id="head_bg_Light2Blue">&nbsp;(4) Sline, Companion</H3>
+			<p>
+				<ul style="list-style:none; padding-left:10px;">
+					<li>&nbsp;1) Companion are the cells where the CrossLine and the Object's ParallelHouse intersect.</li>
+					<li>&nbsp;2) Determine the SLine from the CrossLine, Object, and Companion.<br>
+						&nbsp; &nbsp; &nbsp;SLine = CrossLine - (Object &cup; CompanionCompanion)  (&cup;:union set  &nbsp;-:difference set)
+					</li>
+				</ul>
+					<img src="images/img59S/image59S_Logoic4.svg" style="margin-left: 20px;" width="60%" alt="Exocet"><br><br>
+			</p>
+
+
+			<H3 id="head_bg_Light2Blue">&nbsp;(5) Exocet conditions</H3>
+			<p>
+				&nbsp; &nbsp;When the following R1-R4 are met, the Base digits is in the Target/Object.
+					<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 80%;" >
+					<tr>
+						<td class="table_itemName" style="width: 5%" >R1</td>
+						<td class="table_item">&nbsp;The base cells (B1, B2) are both undetermined cells, contain the same numbers, 
+							and the number of Base's ​​is 3 or 4 (#abc/#abcd).</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R2</td>
+						<td class="table_item">&nbsp;Both the Target and Object are undetermined cells and together have two or more Base digitss.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R3</td>
+						<td class="table_item">&nbsp;Companion cells do not contain a Base digits.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R4</td>
+						<td class="table_item">&nbsp;For two or more digits in Base, the Base digits of
+							"Problem, Solved, Candidate" in the S domain {SLine-0, SLine-1, SLine-2} are covered by two Cover-Lines.</td>
+					</tr>
+				</table><br>
+				
+				These conditions will now be explained in more detail.<br>
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 80%;" >
+					<tr>
+						<td class="table_itemName" style="width: 5%" >R1</td>
+						<td class="table_item">&nbsp;A Base cell with a Base digits of 2 is a LockedSet. 
+							A Base digita of 5 or more is a prediction that "there will be more constraints, and probably none."<br>
+							&nbsp;Therefore, the number of Base's ​​is 3 or 4</td>
+					</tr>
+					<tr>
+						<td class="table_itemName" >R2</td>
+						<td class="table_item">&nbsp;Target/Object may contain candidate digits other than the Base digits.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R3</td>
+						<td class="table_item" style="width: 90%" >&nbsp;Companion cells can be either fixed or unfixed. <br>
+							The absence of a Base digits in the Companion implies that the Object has a Base digits.
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R4</td>
+						<td class="table_item">&nbsp;If the S area is "confirmed, resolved", it can be interpreted as either "Parallel/Cross Cover Line".
+							(Hereafter, this will be referred to as "Parallel")</tr>
+				</table><br>
+			</p>
+
+
+			<h4 id="head_bg_Light2Blue">&nbsp;(6) Exocet logic ... Proof of Locked</h4>
+			<p>
+				Base digits that satisfy R1 to R4 are Locked. <br>
+				When any two digits are selected from the Base candidate digits, the following proposition holds for these two digits. <br>
+				&nbsp; &nbsp; <b>Proposition: If it is positive in Base, it is also positive in Object1 and Object2.</b><br>
+
+				<ol style="list-style:none; padding-left:10px;"><b>Proof</b>
+					<li>L1. In the Base cell, the base digits #ab is positive.</li>
+					<li>L2. In the S area (SLine-0, SLine-1, SLine-2), there are three instances of #ab each (according to the rules of Sudoku), 
+						for a total of six instances.</li>
+					<li>L3. From R3, there is no instance of #ab in Companion.</li>
+					<li>L4. From R4, there are two #a CoverLines and two #b CoverLines in the S region {SLine-0, SLine-1, SLine-2}.</li>
+					<li>L5. Since "6-4=2", the #a and #b instances are in Object1 and Object2, respectively.<br>
+						(#a and #b cannot exist in the same Object at the same time. It is not certain which is which.)</li>
+				</ol>
+			</p><br><br><br>
+
+
+			<h4 id="head_bg_Blue">&nbsp;Extended Exocet</h4>
+
+			<h4 id="head_bg_Light2Blue">&nbsp;(1) Single Exocet</h4>
+			<p>
+				A Single Exocet is a case where one of the Objects <b>"cannot have a Base digits" = "confirmed cell(s)"</b>.<br>
+				The Base cell, Base digits, and CrossLine settings are the same as the standard Exocet.<br>
+				The following figure is an example. One Object is a fixed cells, and the shape of the SLine and Companion at that time.<br>
+				Whether these patterns actually exist remains to be seen.
+				The rightmost pattern is an invalid pattern in which no candidate digits can be placed.<br>
+				The Object and Companion settings are the same as in a standard Exocet.
+			</p>
+			<img src="images/img59S/image59S_SingleExocet.svg" style="margin-left: 20px;" width="60%" alt="Single Exocet"> <br><br>
+			<p>
+				<ol style="list-style:none; padding-left:10px;"><b>Conditions for Single Exocet</b>
+					<li>1) Among the Base digits, one candidate digits has three CoverLines in the S region (this is called "wildcard"). </li>
+					<li>2) Base digits other than the wildcard cover the S region with two CoverLines. </li>
+					<li>3) In a normal Object, all Bases, including the wildcard, are candidates (other digits may also be included. </li>
+				</ol><br>
+				<ol style="list-style:none; padding-left:10px;"><b>Results of Single Exocet</b>
+					<li>1) In the Base, the wildcard is positive. </li>
+					<li>2) In a normal Object, the wildcard is positive. </li>
+					<li>33) In a cell that connects the Base and a normal Object, the candidate number wildcard is negative. </li>
+				</ol>
+				<br><br><br>
+			</p>
+
+
+
+
+			<h4 id="head_bg_Light2Blue">&nbsp;(2) Single-Base Exocet</h4>
+			<p>
+				Single-Base Exocetは、Single Exocet の Base が <b>1セル 2候補数字</b> の ケースです。<br>
+				Single-Base Exocetが成立したときは、BaseとTargetの数字が確定し、それらの連結するセルが確定します。
+			</p>
+			<img src="images/img59S/image59S_SingleBaseExocet.svg" style="margin-left: 20px;" width="60%" alt="Single Exocet"> <br><br>
+
+		</section>
+		<section>
+			<br><br><br>
+			<H3 id="head_bg_Blue">&nbsp;Additional Information (for understanding Exocet)</H3>
+			<H4 id="head_bg_Light2Blue">&nbsp;The logic of the Exocet algorithm</H4>
+			<p>
+				Exocet is an algorithm that is somewhat difficult to understand its mechanism and effects, as it combines several logics.
+				For the same reason, the Exocet family can be expanded in various ways by replacing or extending the mechanism.<br>
+
+				The following diagram shows one of the logics used in Exocet.
+				<ol style="list-style:none; padding-left:10px;"><b>One of the mechanisms of Exocet</b>
+					<li>1) In a Sudoku house, a number from 1 to 9 (for example, #a) is positive in only one place. </li>
+					<li>2) When the house is divided into three areas, if #a is not in area C, it is in area A or area B. If it is not in areas A and C,
+						it is in area B. </li>
+					<li>3) When applied to the elements of Exocet, A, B, and C become SLine, Object, and [Escape, Companion], respectively. </li>
+				</ol>
+			</p>
+			<img src="images/img59S/image59S_Additional1.svg" style="margin-left: 20px;" width="50%" alt="Exocet"><br><br>
+
+			<H4 id="head_bg_Light2Blue">&nbsp;Companion</H4>
+			<p>
+				Companion is an area that does not contain candidate digits in Base. <br>
+				<b>The constraints of the S-Area</b> and the fact that <b>there are no Base digits in Companion</b> lead to the conclusion that <b>there are candidate digits in Object</b>.
+				Companion, together with the covering conditions of the S-Area, plays a role in the establishment of Exocet.
+			</p>
+			<img src="images/img59S/image59S_Additional2.svg" style="margin-left: 20px;" width="50%" alt="Exocet"><br><br>
+
+
+
+
+			<H4 id="head_bg_Light2Blue">&nbsp;Mirror</H4>
+			<p>
+				Exocet Mirror has different functions and roles from other components. <br>
+				First, need to understand the following points:<br>
+				&nbsp; &nbsp;<b>Mirror is not involved in the establishment of Exocet Locked. <br>
+				&nbsp; &nbsp;Mirror is defined when Exocet-Locked is established, and exclusion by Mirror occurs. </b><br>
+				&nbsp; &nbsp;(There is no effect even if it is defined together with Companion, etc.)
+
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 70%;" ><b>Mirrorの構成と機能</b>
+					<tr>
+						<td class="table_itemName" style="width: 5%" >M1</td>
+						<td class="table_item"><b>Conditions for Mirror to work</b><br>
+							When Locked is established for Exocet and the number of candidate numbers for Base is determined to be two (by exclusion), Mirror works. <br>
+							The number #ab for Base is determined to be in two Targets/Objects. However, it is not determined which is in which Target/Object. </td>
+					</tr>
+					<tr>
+						<td class="table_itemName" >M2</td>
+						<td class="table_item"><b>Candidate digits included in Mirror/Candidate digits not included</b><br>
+							Mirror is defined for each block that has a Target/Object. <br>
+							Mirror1 of Object1 is in Block2. Mirror2 of Object2 is in Block1. <br><br>
+							Therefore, Mirror1 has the base digits of Object1, but does not have the Base digits of Object2.
+							The same can be said for Mirror2. <br><br>
+							<img src="images/img59S/image59S_Mirror1.svg" style="margin-left: 20px;" width="80%" alt="Exocet Mirror">
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">M3</td>
+						<td class="table_item"><b>Mirror Shape</b><br>
+							If Target1 and Target2 are in the same Band, the connected House of Target1 and Block2 will overlap,
+							and the overlapping part will be excluded from the definition of Mirror1. The same applies to Mirror2. <br>
+							In JE2(Ex1,Ex2), the Target is in the Base Band, and Escape is also excluded.
+							Note that in Object, connected Houses are not excluded. <br>
+							If the Target and Block are not connected, there is no exclusion in the Mirror definition (Ex3,Ex4). <br><br>
+							<img src="images/img59S/image59S_Mirror2.svg" style="margin-left: 20px;" width="50%" alt="Exocet Mirror Form">
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">M4</td>
+						<td class="table_item"><b>Mirror Exclusion</b><br>
+							1) Base digits that are not true in the Mirror are false in that Object cell. <br>
+							2) When one cell in the Mirror contains only non-Base digits,
+							the other cell is limited to the Base digits of the paired Object. <br>
+							3) If the Mirror contains only one non-Base digits, it is true and false in cells where it is visible. <br>
+							4) If the Mirror contains a Locked digits, digits of the same type (Base digits/non-Base digits) in the Mirror are false.
+						</td>
+					</tr>
+				</table><br>
+			</p>
+
+			<span style="color:red">[TD] ... Adding real samples ... </span>
+		</section>
+	</article>
+
+    <a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>

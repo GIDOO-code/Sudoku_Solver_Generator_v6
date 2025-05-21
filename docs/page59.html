@@ -1,0 +1,632 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>SuDoKu Junior Exocet</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 6.0</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>	
+    </section>
+
+
+	<!-- -------------------------------------------------------------------------- -->
+
+	<article id="main">
+		<section>
+			<p>Currently under study. Provisional version ......<br>
+			<span style="color:red">There are contradictions, insufficient explanations, logical inconsistencies,
+				ambiguity, errors, inconsistencies, etc.</span></p>
+			
+			<p style="background-color:rgb(173, 245, 166) ">
+				This page is based on <br>
+				&nbsp;&nbsp;by:David P Bird &nbsp;&nbsp;"JExocet Compendium"<br>
+				&nbsp;&nbsp;http://forum.enjoysudoku.com/jexocet-compendium-t32370.html<br>
+
+				Most of it is "reorganization of this page, adding some originals". <br>
+				Many thanks to David P Bird.
+			</p>
+			
+			<p>
+				<ol style="list-style:none; padding-left:10px;">Junior Exocet(JE)
+					<li><a href="#ID_JE2">&nbsp; JE2</a></li>
+					<li><a href="page59B_JE2_Object.html">&nbsp; JE2+,JE++</a></li>
+					<li><a href="page59C_JEn.html">&nbsp; JE1</a></li>
+					<br>
+					Senior Exocet ... Currently under development
+				<!--
+					<li><a href="page59S.html">&nbsp; SE_Standard</a></li>
+					<li><a href="page59S.html">&nbsp; SE_Single</a></li>
+					<li><a href="page59S.html">&nbsp; SE_SingleBase</a></li>
+					<li><a href="page59S.html">&nbsp; SE_...</a></li>
+					<li><a href="page59S.html">&nbsp; SE_...</a></li>
+				-->
+				</ol>
+			</p>
+		</section>
+
+		<section>
+			<H3 id="head_bg_Blue">&nbsp;Exocetの基本</H3>
+			<p>
+				Exocet is a "different type of Locked" from other algorithms, and is a fascinating and profound algorithm. <br>
+				There are a wide variety of situations that it can be applied to and number patterns that can be excluded,
+				and some situations can be solved with Exocet alone. <br>
+				The addition of Exocet, a new powerful algorithm for solving Sudoku puzzles, 
+				has opened up new directions for analytical algorithms.
+				It foreshadows the discovery of even more new methods.<br><br>
+
+				There are various types of Exocet, from basic and simple types to extended types, and Exocet is the general term for them.<br>
+				Exocet uses somewhat complicated logic. First, let's look at the basic types.<br>
+				The first one is Junior Exocet (JE2). <br>
+				<br>
+				<span style="color:red">JExocet sample ...</span><br><br>
+			<!--
+				<img src="images/img59/image59_Exocet_Sample0.png" style="margin-left: 40px;" width="20%" ><br>
+			-->
+			</p>
+			<br>
+
+
+
+
+			<a id="ID_JE2"></a>
+			<h4 id="head_bg_Blue">&nbsp;Definition of JExocet ... for JE2</h4>
+			<p>
+				JExocet is <span style="color:Blue">Locked</span> due to the relationship between <b>Base, S area, and Target</b>. <br><br>
+				The two cells in Base have two or more candidate digits.
+				If there are two, it is a LockSet, so three or more.
+
+				JExocet lock: Any two digits selected from the candidate digits will be positive in T<small>1</small> and T<small>2</small>.
+				</span><br><br>
+				<img src="images/img59/image59_Exocet_Base.svg" style="margin-left: 40px;" width="40%" ><br><br>
+
+				JExocet Locked is based on the <b></b>shape definition</b> and <b>candidate digit conditions</b> shown below.<br><br>
+			</p>
+
+
+
+			<h4 id="head_bg_LightBlue">&nbsp;(1) JE2 shape definition</h4>
+			
+			<p>
+				Exocet has multiple role cells, arranged as shown in the following diagram:
+				<ul style="padding-left:20px;" >
+					<li>There are two types of target cell arrangement: diagonal and aligned.</li>
+					<li>Companion cells and Mirror cells are placed in relation to the position of the Target cell.</li>
+					<li>Escape(*) is a cell where no Base candidate digits exist.</li>
+				</ul>
+				The diagonal and aligned types are classifications for determining cell placement,
+				and the following logic is the same.<br><br>
+				<img src="images/img59/image59_Exocet_def01.svg" style="margin-left: 40px;" width="70%" ><br>
+			</p>
+
+			<p style="background-color:rgba(203, 232, 255, 0.5) ">
+				*To understand how Exocet works, it's helpful to distinguish between <b>directions</b>.<br>
+				&nbsp;&nbsp;The <b>Base alignment</b> is used as the reference, and the direction parallel to this is <b>Parallel</b>.<br>
+				&nbsp; &nbsp;and the direction that crosses it is <b>Cross</b>. These are often omitted when it is clear from the context.<br>
+			</p>
+
+			<p>
+				The shape of JExocet can be derived in the following steps (for JE2). 
+				These steps can also be used as a reference for creating the solution code for JExocet.
+				<ul style="padding-left:20px;">
+					<li>Step 1: Select one cell (Stem cell) on the board and the direction (row, column). This determines the mini-line. <br>
+						The two Base (B1, B2) cells, Band, and two blocks (Block1, Block2) of the mini-line are determined.
+						The Cross-Line-b (S<small>0</small>) is also determined by the Stem cell and direction.
+						<p style="background-color:rgba(203, 232, 255, 0.5) ">
+						*A mini-line is three cells in a row or column within a block. <br>
+						*The Stem cell is used to guide the shape and is not involved in the definition or logic of the Exocet.
+						The Stem cell can be either fixed(given/solved) or unfixed. <br>
+						</p>
+					</li>
+					<li>
+						Step 2: There are 6 cells in each of blocks 1 and 2 that are not connected to the Base.
+						From each block, select a Target cell with an undetermined number (T1, T2). <br>
+						The Companion cell, Mirror cell, Cross-Line-x, S<small>1</small>, and S<small>2</small> 
+						are determined from the direction and the Target cell (T1, T2).
+						These cells can be in either a fixed or unfixed state. 
+					</li>
+				</ul>
+			</p>
+			<img src="images/img59/image59_Exocet_def02.svg" style="margin-left: 40px;" width="70%"><br><br>
+			
+
+
+
+			<h4 id="head_bg_LightBlue">&nbsp;(2) JE2 candidate digit conditions</h4>
+			<p>
+				Based on the definition of the JExocet shape, the following conditions (R1 to R4) are tested for the Base digits. <br>
+				When there are two or more digits that pass the test, <b>the candidate digits that meet the R1 to R4 conditions are marked as Locked</b>. <br>
+				In addition, candidate digits that meet the R1 to R4 conditions are referred to as "Locked digits".<br><br>
+
+				<b>JE2 Conditions for candidate digits</b>
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 95%;" >
+					<tr>
+						<td class="table_itemName" style="width: 5%" >R1</td>
+						<td class="table_item">The Base cells(B1, B2) are both unfixed cells, contain the same digits,
+							and have a total base digits of 3 or 4 (#abc/#abcd).</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R2</td>
+						<td class="table_item">The target cells(T1, T2) are both unfixed cells and together have two or more base digits.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R3</td>
+						<td class="table_item">Companion cells do not contain a Base digit.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R4</td>
+						<td class="table_item">For every Base digits, the Base digits of "Given, Solved, Candidate" in the S domain {S0, S1, S2}
+							are covered by two Cover-Lines.</td>
+					</tr>
+				</table><br>
+
+				<img src="images/img59/image59_Exocet_CoverLine.svg" style="margin-left: 20px;" width="90%"><br><br>
+	
+				These conditions will now be explained in more detail.<br><br>
+
+				<b>補足:</b>
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 95%;" >
+					<tr>
+						<td class="table_itemName" style="width: 5%" >R1</td>
+						<td class="table_item">If the number of base digits is 2, it is a LockedSet.
+							If it is 5 or more, it is predicted that there will be more constraints and it is probably not possible to have any.
+							Therefore, R1 is a "the number of base digits between 3 and 4".
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName" >R2</td>
+						<td class="table_item">Candidate digits other than the base digits may be included</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R3</td>
+						<td class="table_item" style="width: 90%" >Companion cells can be fixed or unfixed.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R4</td>
+						<td class="table_item">If what is in the S area is fixed, it can be interpreted as either "Parallel/Cross Cover Line".
+							(use "Parallel" below)</tr>
+					<tr>
+						<td class="table_itemName">-</td>
+						<td class="table_item">Mirror has no conditions regarding Locked.<br>
+							Even if the Base digit is Locked, this is still a <b>possible solution</b> state.
+							Depending on the arrangement of Base digits and non-Base digits in the Base-Target-Mirror,
+							this may result in an irrational state.</td>
+					</tr>
+				</table><br>
+				If two or more Base digits satisfy R1 to R4, JExocet Locked is established. <br><br>
+				The following <b>exclusion</b> checks the position and number of digits to find and exclude irrational states and candidate digits.
+			</p>
+
+
+
+
+			<h4 id="head_bg_LightBlue">&nbsp;(3) JExocet logic ... Proof of Locked</h4>
+			<p>
+				Base digits that satisfy R1 to R4 are Locked.<br>
+				When any two digits are selected from the Base candidate digits, the following proposition holds for these two digits.<br>
+				&nbsp; &nbsp; <b>Proposition: If it is positive in Base, then it is also positive in Target1 and Target2.</b><br><br>
+
+				<ol style="list-style:none; padding-left:10px;"><>Proof of JE2 Locked</b>  (CL:Cross-Line)
+					<li>L1. In the Base cell, the base digits #ab is positive.</li>
+					<li>L2. CL-b, CL-1, and CL-2 each have three instances of #ab (Sudoku rules), for a total of six instances.</li>
+					<li>L3. From R4, S cell (S0, S1, S2) has two #a CoverLines and two #b CoverLines.</li>
+					<li>L4. Because "6-4=2", there are instances of #a and #b in the Band area of ​​CL-1 and CL-2.</li>
+					<li>L5. The #a and #b instances are not in Escape or Companion, so they are in Target1 and Target2, respectively. 
+						(It is not clear which one.)</li>
+				</ol>
+
+				<p style="background-color:rgba(157, 236, 190, 0.329)">
+					* Proof of this is from the following site/post:<br>
+					&nbsp; SudokuWiki.org<br>
+					&nbsp; https://www.sudokuwiki.org/exocet<br>
+					&nbsp; &nbsp; ... by: Anonymous &nbsp; &nbsp; Saturday 8-Jan-2022<br>
+					* To distinguish the truth or falsity of a proposition,
+					use positive/negative to indicate the truth or falsity of the content of the proposition.<br>
+				</p>
+				<img src="images/img59/image59_Exocet_def05.svg" style="margin-left: 40px;" width="50%" ><br><br><br>
+			</p>
+
+
+		</section>
+
+
+		<section>
+			<h4 id="head_bg_Blue">&nbsp;Excluded</h4>
+
+			<p>
+				<b>This is where Exocet really takes off, and it gets dynamic and exciting.</b><br><br>
+
+				Exclusions 1-12 are those listed in the Bird document, 
+				and the numbers and conditions follow those in the original document.
+				As stated in the Bird document,
+				it is important to note that there are prerequisites for the application of the exclusion rule.<br><br>
+							
+				<img src="images/img59/image59_Exocet_Property_of_BaseDigits.svg" style="margin-left: 40px;" width="50%" ><br>
+
+				<ol style="padding-left:4ch;">
+					<li><b>[JExocet Locked] When R1 to R4 of JExocet are true:</b><br>
+						<b>If choose any digit(#a) from the Base and assume it is positive,</b> then #a will be positive in the Target.
+						It can also be deduced that Mirror contains #a and non-#a. However, this is a conclusion derived from a hypothesis and is not definite. <br>
+						In the case of Locked, the Target candidate digit also include "locked digits but non-determined digits",
+						so the constraint relationship of Base-Target-Mirror is not definite. Therefore, (in principle) the exclusion rule regarding Target-Mirror cannot be applied. <br><br>
+						The following inference (contrapositive) is true. <br>
+						&nbsp; <b>When choose any digit(#a) from the Base, if #a is negative in the Target, then #a is not the Base. </b>
+					</li><br>
+					
+					<li><b>[2-Digits Locked] When the 2 base digits are determined:</b><br>
+						When the 2 Base digits are determined, the Target digit is also determined. The other Base candidate digits become negative, and the Target is also determined to be negative.
+						(It is not determined which digit is which Target). <br>
+						The Base-Target-Mirror relationship is a constraint, and all of the following exclusion rules can be applied.
+					</li>
+				</ol>
+
+				Also, exclusion rules may be able to take advantage of the results of preceding rules. <b>GNPX</b> employs an iterative approach.
+				<br><br>
+			</p>
+
+
+			<h4 id="head_bg_LightBlue">&nbsp;Excluded type-1 [JExocet Locked]</h4>
+			<p>
+				These are exclusion rules that can be applied when R1 to R4 of JExocet are met.
+			</p>
+				
+			<ol style="list-style:none; padding-left:10px;">
+			<!-- E1 -->
+					<li>
+						<p class="PColor01">
+							E1. For the Base digit #a, if the S cell (S0, S1, S2) has one cover line, 
+							#a can be excluded in the Base cell (B1, B2) and Target (T<small>1</small>, T<small>2</small>).
+						</p>
+						<p>
+							Assume that there are two or more candidate digits in Base with two CoverLines,
+							which establishes JExocet Locked.
+							If there is another candidate digit <b>#x</b> in Base with one CoverLine,
+							<b>#x</b> can be excluded. <br>
+							Since the candidate digit with two CoverLines occupy Target,
+							there is no room for a candidate digit with one CoverLine.
+						</p>
+						<img src="images/img59/image59_Exocet_Rule-01.svg" style="margin-left:5px;" width="70%" >
+					</li><br>
+
+
+
+			<!-- E2 -->
+					<li>
+						<p class="PColor01">
+							E2. Any Base digits that cannot be positive for at least one target and its mirror at the same time can be eliminated.
+						</p>
+						<p>
+							Looking at the Base digits #a in "JExocet Locked", at least one target has #a.
+							If the mirror corresponding to the Target does not have #a, #a is not a Base digit.
+						</p>
+					</li><br>
+
+
+
+
+			<!-- E3 -->
+					<li>
+						<p class="PColor01">
+							E3. Non-Base digits in Target are negated.
+						</p>
+						In the Exocet Locked state, the Target will contain one of the Base candidate digits. 
+						Therefore, there is no room for non-base digits cannot be a target.<br><br>
+
+						<img src="images/img59/image59_Exocet_Rule-03.svg" style="margin-left:5px;" width="70%" >
+					</li><br><br>
+
+
+
+
+			<!-- E4 -->
+					<li>
+						<p class="PColor01">
+							E4. If the Base Digits are determined to be positive in one Target, it is negative in the other Target.
+						</p>
+						Each Target has a different Base Digits.
+						If one Target is positive, the other Target will be negative.<br>
+						If the other is an Object and there are determined digits in two cells, the numbers in scope will be excluded.<br><br>
+
+						<img src="images/img59/image59_Exocet_Rule-04.svg" style="margin-left:5px;" width="85%" >
+						<br><br>
+					</li><br>
+
+
+
+
+
+			<!-- E13 -->
+			<!--
+					<li>
+						<p class="PColor01">
+							E13. If a digit is positively determined in the Target, it is the Base determined digit. If only one of the Mirrors has that determined digit, it is determined and the other digits are excluded.
+						</p>
+							Target で数字が肯定に確定したら、対応する Mirror にはその数字が入る。その数字が一方の Mirror にのみあればそれは確定し、その他の数字は除外できる。<br><br>
+
+						<img src="images/img59/image59_Exocet_Rule-13.svg" style="margin-left: 20px;" width="50%" ><br><br>
+						
+					</li>
+			-->
+			</ol>
+
+
+
+
+			
+			<h4 id="head_bg_LightBlue">&nbsp;Excluded type-2 [2-Digits Locked]</h4>
+			<p>
+				Exclusion type2 is an exclusion rule that can be applied when the two Base candidate digits are determined. The two Base digits are determined to be positive, and the Target is determined to be positive.
+				This can be at the beginning of a position, or as a result of applying an exclusion rule.
+			</p><br><br>
+
+
+
+			<ol style="list-style:none; padding-left:10px;">
+
+				<!-- E5 -->
+				<li>
+					<p class="PColor01">
+						E5. A Base digits with Cross Cover-Line is Negated with the corresponding Target.
+					</p>
+					This can be derived as follows:
+					<ol style="list-style:none; padding-left:10px;">
+						<li>(1) Suppose S<small>1</small> has a Cross-Cover-Line of #a .</li>
+						<li>(2) Proposition: In T<small>1</small>, Base candidate digit #a is positive.<br>
+						<li>(3)	The #a in Base is positive.</li>
+						<li>(4) S<small>0</small> has instance #a.</li>
+						<li>(5)	There is no #a instance in S<small>2</small>.</li>
+						<li>(6)	T<small>2</small> has +#a.</li>
+						<li>(7)	T<small>1</small>#a and T<small>2</small>#a are contradictory (other Base Ditits cannot be placed in Target).<br>
+						&nbsp; &nbsp; &nbsp;Therefore, proposition(2) is false and #a in T<small>1</small> is negative.</li>
+					</ol>
+					<br>
+					<img src="images/img59/image59_Exocet_Rule-05.svg" style="margin-left: 5px;" width="80%" ><br><br>
+				</li><br>
+
+				<!-- E6 -->
+				<li>
+					<p class="PColor01">
+						E6. Any base digits that cannot be positive in the Mirror corresponding to the Target is negative in the Target.
+					</p>
+					By the definition of JExocet, the proposition: <span style="color:blue">Any Base digit that is positive in Target is also positive in Mirror. </span> <br>
+					Rule-6 is the contrapositive of this proposition.<br>
+					A Mirror cell can also be a fixed value. If it is a fixed value that is different from the Base digit.
+					<br><br>
+
+					<img src="images/img59/image59_Exocet_Rule-06.svg" style="margin-left: 20px;" width="80%" ><br><br>
+				</li><br>
+
+
+				<!-- E7 -->
+				<li>
+					<p class="PColor01">
+						E7. If one of the Mirror Cells does not contain the Base digit in the corresponding Target,
+						then the other Cell of the same Mirror contains the Base digit in the corresponding Target.
+					</p>
+					Based on the position of the Mirror and the spheres of influence of the Base and Target, 
+					the Mirror has a Base digits that is in the Target.<br>
+					If a base digit is not in M<small>1</small>A, it is in M<small>1</small>B.
+					Therefore, non-base digits can be excluded from M<small>1</small>B.<br><br>
+
+					<img src="images/img59/image59_Exocet_Rule-07.svg" style="margin-left: 5px;" width="80%" ><br><br>
+				</li><br>
+
+
+
+
+				<!-- E8 -->
+				<li>
+					<p class="PColor01">
+						E8. "Assume the Base digits is determined." 
+						If the mirror cell contains one <span style="color:red">non-Base digits</span>, it is positive.
+					</p>
+					The Mirror cell contains a Base digit and a non-Base digit.<br><br>
+					Assume that the Base digit is determined.
+					<ul style="padding-left:10px;">For non-Base digit included in the mirror,
+						<li>If there is one cell: The non-Base digit  is determined, and the non-Base digit  can be excluded from referenced cells.</li>
+						<li>If there are two cells: The non-Base digit can be excluded from cells that commonly reference two mirrors. </li>
+					</ul>
+					<br>
+					<img src="images/img59/image59_Exocet_Rule-08.svg" style="margin-left: 20px;" width="80%" ><br><br>
+				</li><br><br>
+				
+
+
+				<!-- E9 -->
+				<li>
+					<p class="PColor01">
+						E9. When a Mirror has a Locked digit, if that digits is a Base digitt, other Base digits can be excluded in the Mirror.
+						Alternatively, if that digit is a non-Base digit, other non-Base digit can be excluded from the Mirror.
+					</p>
+					<p>
+						<p style="background-color:rgba(253, 62, 62, 0.11) ">
+							Rule-9: Distinguish between Base_Locked and Mirror_Locked.<br>
+							In the case where the Mirror_Locked digit is a <span style="color:red">non-Base digits</span>, this can be applied even if the base digit is non-Locked.
+						</p>
+						<p>
+							Mirror contains Base digits and non-Base digits. <br>
+							When Mirror contains locked digits [Mirror_Locked], the locked digits are constrained to contain both base and non-base digits.<br>
+							No two mirror cells can contain two <span style="color:blue">Base digitss</span>.
+							Similarly, no two mirror cells can contain two <span style="color:red">non-Base digitss</span>.
+						<ol style="padding-left:2pc;">
+							<li>When the Mirror_Locked digits is a <span style="color:blue">Base digits</span> and is
+								<span style="color:rgb(20, 141, 75)">Base_Locked</span>, 
+								the other <span style="color:blue">Base digit</span> in the Mirror is negated.
+							</li>
+						</ol><br>
+						
+						Note that the precondition "Locked" for E9 is ALS (one digit in two cells), 
+						which means there is no digit of interest (#x) in the cell with the gray background in the image below.
+						When combined with the exclusion condition, it becomes "Locked".<br><br>
+						<img src="images/img59/image59_Exocet_Rule-09.svg" style="margin-left:5px;" width="40%" >
+
+					</p>
+						<p style="background-color:rgba(161, 255, 161, 0.5) ">
+							<small>
+							[補足]<br>
+							[Notes]<br>
+							The "row, column, block constraint" and "digit 1-9 constraint" in Sudoku rules are equivalent to "row, column, block, digit constraint". <br>
+							General Logic is an analysis algorithm based on this. <br>
+							ALS (Almost Locked Set) is generally "n+1 digits in n cells", but "n digits in n+1 cells" is also "ALS".<br>
+							&nbsp;&nbsp;<a href="page60.html">General Logic</a> is an analytical algorithm based on this.<br>
+							&nbsp;&nbsp;<a href="page26.html">ALS(Almost Locked Set) </a> is generally "n+1 digits in n cells," but "n digits in n+1 cells" is also ALS.
+						</small>
+					</p>
+				</li><br><br>
+
+
+
+				<!-- E10 -->
+				<li>
+					<p class="PColor01">
+						E10. A known base digits can be excluded by two Base spheres of influence or two Target spheres of influence.
+					</p>
+					A known Base digits is a number that is confirmed to be Positive in the Base cells.
+					For example, two digits in two cells, i.e. a LockedSet, is in a known state.
+					Since the two Bases are confirmed to be Positive, they are Negative in their sphere of influence.
+					Also, if the Base digits is known, the Target will be Positive and Negative in their common sphere of influence.<br><br>
+					<img src="images/img59/image59_Exocet_Rule-10.svg" style="margin-left: 20px;" width="70%" ><br><br>
+				</li><br><br>
+
+
+
+				<!-- E11 -->
+				<li>
+					<p class="PColor01">
+						E11. A digit that appears only once in the Escape Cell of a Cross-Line is negated in all cells of the Cover House other than the "S".
+					</p>
+					<p style="background-color:rgb(203, 232, 255) ">
+						&nbsp;&nbsp;&nbsp;We have amended paragraph 11 of the Bird document. If the base figures are finalized, we will change it to paragraph 12.<br>
+					</p>
+					The digit covered in this section must be one of the possible solutions for JExocet. 
+					This rule cannot be applied indefinitely.
+					<ol style="list-style:none; padding-left:10px;">
+						<li>(1) #abx is a candidate solution for JExocet.</li>
+						<li>(2) If #ab is determined to be a solution, #x is not a solution. In this case, #x is in Escape.</li>
+						<li>(3) Since #x is a candidate solution for JExocet,<br>
+							&nbsp;&nbsp;&nbsp;	the conditions of jExocet (the relationship between Base, Target, and S) are valid.</li>
+						<li>(3) Since there are two #x in the S area, their placement is as shown in the following two types.</li>
+						<li>(4) Therefore, #x in (PCL-{S}) is negated.(PCL:Parallel-Cover-Line)</li>
+					</ol><br>
+					<img src="images/img59/image59_Exocet_Rule-11.svg" style="margin-left: 20px;" width="80%" ><br><br>
+				</li><br><br>
+
+
+				<!-- E12 -->
+				<li>
+					<p class="PColor01">
+						E12. If two base candidate digits are determined to be positive, then any digit instance in the S domain that prevents the two instances from being positive is negative.
+					</p>
+					Assume that two base candidate digits(#ab) are positively determined.
+					<ol style="list-style:none; padding-left:10px;">
+						<li>(1) Let T<small>1</small>=#a. There is no #a in S<small>1</small>. </li>
+						<li>(2) According to the basic rules, there is one #a in S<small>0</small>.
+						<li>(3) Condition for candidate digits: According to R4, the candidate digits in the S-Area are covered by two Cover-Lines. There is a #a in S<small>2</small>. </li>
+						<li>(4) An element(▲) that is outside the S-Area of Cover-Line negates the Cover-Line condition(R4).</li>
+					</ol>
+
+					Therefore, elements(▲) outside the S-Area of Cover-Line are negative. <br>
+					&nbsp; (PCL-{S})#a is negative (PCL:Parallel-Cover-Line, -:Difference set)<br><br><br><br>
+				
+					<img src="images/img59/image59_Exocet_Rule-12.svg" style="margin-left: 20px;" width="50%" ><br><br>
+					
+				</li>
+
+			</ol>
+
+			
+
+			
+			<h4 id="head_bg_Blue">&nbsp;&nbsp;Excluded type-3</h4>
+			<p>
+				Exclusion-3 is an exclusion based on two Base digits. In Bird's documentation, this is the "Incomtible Base Pairs" section. <br>
+				The candidate digits in the two bases are free combinations and are not candidates for the Base digits.<br>
+				For example, if the candidate digits in the base are (1,2,3), the combinations are {(1,2),(1,3),(2,3),(2,1),(3,1)(3,2)}.
+				Also, if the candidates in the two Bases are different, this is a possible combination pattern. <br>
+
+				<br>
+				Test each of these combinations. Due to the nature of Exocet, we use the following:
+				<ol style="padding-left:2pc;">
+					<li>The Base digits to be tested are in Target.</li>
+					<li>The instances of the two Base digits are in S0. The instances may be confirmed.</li>
+					<li>The two Cross-Blocks of the two Base Cells have Base digits in the candidate state.</li>
+				</ol>
+				
+				There are three cases of instances in S<small>0</small>:
+				<ol style="list-style:none; padding-left:1pc;">
+					<li>Case-1: Instances in S0 of two Base digits are in the same cell. <br>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+						This pattern is not possible as a Sudoku solution, so this combination pattern can be excluded.
+					</li>
+					<br>
+
+					<li>Case-2: Instances in S<small>0</small> of two Base digits are in the same Cross-Block. <br>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+						This pattern eliminates all Base digits in the Cross-Block. <br>
+						&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;It has no effect on the other Cross-Block. <br>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Therefore, this combination is in a Base-UR relationship, and <br>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;This combination pattern can be excluded due to the uniqueness of the Sudoku solution. 
+					</li>
+					<br>
+
+					<li>Case-3: The instances in S0 of the two Base digits are in different Cross-Blocks. <br>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;This pattern eliminates each Base digit in each Cross-Block. <br>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;In this case, it will not be Base and UR. <br>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Therefore, this combination pattern remains a possible solution.
+					</li>
+				</ol>
+
+				<p style="background-color:rgb(203, 232, 255) ">
+					"Excluded type-3" detects ineligible base digit combinations, which updates the "known base digits".
+					This may expand the areas where the exclusion rule can be applied. <br>
+					For this reason, GNPX tests "Exclusion type-3" before "Exclusion type-1,2".
+				</p>
+
+
+			</p><br>
+			<img src="images/img59/image59_Exocet_incompatible07.svg" style="margin-left: 40px;" width="60%" ><br><br><br>
+
+			<br><br><br>
+		
+		</section>
+	</article>
+
+	</body>
+
+
+    <a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>

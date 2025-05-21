@@ -1,9 +1,9 @@
 # Sudoku_Solver_Generator_v6.0
-  Version6.0 2025.July will be released.
+  Version6.0 2025.September will be released.
 
 # GNPX v5 HP:
-  en : https://gidoo-code.github.io/Sudoku_Solver_Generator_v5/<br>
-  jp : https://gidoo-code.github.io/Sudoku_Solver_Generator_v5_jp/<br>
+  en : https://gidoo-code.github.io/Sudoku_Solver_Generator_v6/<br>
+  jp : https://gidoo-code.github.io/Sudoku_Solver_Generator_v6_jp/<br>
 <br><br>
 
 # Sudoku_Solver_Generator
@@ -24,7 +24,7 @@
   (6) DeathBlossom algorithm consideration<br>
   (7) Subset<br>
   (8) Firework<br>
-  (9) Exocet(junior/Senior) ... now under development.<br>
+  (9) Exocet(junior/Senior) ... Senior Exocet is currently under development.<br>
 
 ## 3. GNPX v6 GNPXGNPX<br>
   (1) Classify and organize the processing contents using pages in the UI.<br>

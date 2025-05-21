@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>How to Create a Sudoku Puzzle</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 6.0</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>	
+    </section>
+	<!-- -------------------------------------------------------------------------- -->
+
+	<article id="main">
+		<section>
+			<H3 id="head_bg_Blue">&nbsp;Puzzle Creation</H3>
+			<p>
+				GNPX has three ways to Create Sudoku puzzles:
+			</p>
+
+			<H4 id="head_bg_LightBlue">&nbsp;(1) Puzzle Creation</H4>
+			<p>
+				Manually create Sudoku puzzles in the 9x9 square.
+				<ol>
+					<li> First, create a strong image in your mind of the Digit you want to enter.</li>
+					<li> When you click on the position in the 9x9 square where you want to enter the digit, 
+						the digit you imagine will appear in the specified position.</li>
+					<li> If the digit different from what you imagined appears, it is because your imagination power was weak.<br>
+						In that case, try to imagine it again more strongly and click. You can try this as many times as you like.</li>
+					<li> To cancel the digit you have already entered, strongly think "disappear" and click on the digit again.</li>
+				</ol>
+			</p><br>
+
+			<H4 id="head_bg_LightBlue">&nbsp;(2) Puzzle auto-generation</H4>
+				GNPX-v6 generates Sudoku puzzles with varying board patterns.<br>
+				In particular, steps 4 and 5 are useful methods for generating Sudoku puzzles.<br>
+				In GNPX ver.6, steps 3 and 5 are executed in <span style="color:rgb(54, 30, 192)">Parallel</span>.
+			<p>
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 95%" >
+					<small>
+					<tr>
+						<td class="table_itemName" style="width: 18%" >step-1<br>Set Pattern</td>
+						<td class="table_item" >
+							Specify the pattern's <b>symmetric type (point symmetry, line symmetry)/asymmetric type</b>
+							and the number of pattern cells to automatically create a pattern.<br>
+							The pattern controls the change with three parameters:<br>
+							&nbsp; 1) Maximum number of puzzles in one pattern<br>
+							&nbsp; 2) Number of Lattin-Square (maximum 3136)
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">step-2<br>LS Frame generation</td>
+						<td class="table_item">(LS:<a href="ppage14.html">&nbsp;Latin Square</a>)<br>
+							Block 1 is fixed to 1 to 9. Select blocks 23 and block 47 (1/3136).<br>
+							<small>(There are 56 patterns in block 23 and 56 patterns in block 47, for a total of 3136 patterns.)</small>>
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">step-3<br>LS generation<span style="color:rgb(54, 30, 192)"> [Parallel]</span></td>
+						<td class="table_item">Generate all LS squares from the LS frame. 
+							The number of LS that can be generated varies depending on the LS frame (2000-4000).
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">step 4<br>Puzzle candidate selection/td>
+						<td class="table_item">Create a list of puzzle candidates by overlaying the pattern from step-1 on the LS from step-3.<br>
+							By overlapping the patterns, the same puzzle can be created. Select only unique patterns from the puzzle candidate list.<br>
+							A puzzle that has duplicates will have more than two patterns when the Sudoku algorithm is applied,
+							which violates the rules of Sudoku puzzles.<br>
+							This selection process eliminates approximately 50%.
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">step 5<br>Try&Error applied<span style="color:rgb(54, 30, 192)"> [Parallel]</span></td>
+						<td class="table_item">Solve the puzzle in step 4 using <b>Try & Error</b> and 
+							select the puzzle that has the unique solution.<br>
+							<small>(T&E patterns with multiple solutions are not Sudoku Puzzles and 
+								cannot be solved by applying Sudoku analysis algorithms.)</small><br>
+							Depending on the pattern, it is quite likely that there is no unique solution.<br>
+							The remaining number, if any, is between 0 and 10%, 
+							and these remaining pieces are guaranteed to be Sudoku Puzzles.
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">step 6<br>Algorithm Application</td>
+						<td class="table_item">Verify that the unique solution puzzle in step 5 can be solved using the Sudoku algorithm.<br>
+							An unsolvable puzzle means that the analysis algorithm is weak.
+						</td>
+					</tr>
+				</small>
+				</table><br><br>
+			</p>
+				
+			<H4 id="head_bg_LightBlue">&nbsp;(3) Generate all puzzles of a specific pattern</H4>
+			<p>
+				GNPX generates all Sudoku puzzles for a given board pattern, 
+				which is relatively simple and therefore parallelizable.<br>
+				Unfortunately, it doesn't take as long as you might think.				
+			</p>
+		</section>
+	</article>
+
+    <a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>
