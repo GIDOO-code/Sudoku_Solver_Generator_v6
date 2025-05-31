@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GNPX_v5.84", "GNPX_v5.84\GNPX_v5.84.csproj", "{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}.Debug|Any CPU.Build.0 = Debug|x64
+		{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}.Debug|x64.ActiveCfg = Debug|x64
+		{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}.Debug|x64.Build.0 = Debug|x64
+		{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}.Release|Any CPU.ActiveCfg = Debug|x64
+		{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}.Release|Any CPU.Build.0 = Debug|x64
+		{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}.Release|x64.ActiveCfg = Debug|x64
+		{E0A9090A-0E6D-49FD-AAFF-EE870EB474DD}.Release|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34118769-A800-4E36-8FA0-4503648C7241}
+	EndGlobalSection
+EndGlobal

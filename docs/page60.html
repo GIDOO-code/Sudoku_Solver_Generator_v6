@@ -42,158 +42,184 @@
 <!-- -------------------------------------------------------------------------- -->
 	<article id="main">
 		<section><br>
-			<h3 id="head_bg_Blue">General Logic【暫定版】</h3>
+			<h3 id="head_bg_Blue">General Logic</h3>
 			<p>
-				General Logicは、数独の解法アルゴリズムのほとんどに共通する手法です。
-				General Logicは BaseSet/CoverSet の一般化なので、
-				まず <a href="page34.html">Fish</a> アルゴリズムを理解してください。
-				Fish拡張の最初の一歩は <a href="page36.html">(Finned)Franken/Mutant Fish</a> です。<br><br>
-				なお、この項は<a href="http://www.sudokuone.com/sweb/general.htm">
-				A General Logic for Sudoku</a>(www.sudokuone.com/sweb/general.htm) に基づいています。
-			</p><br><br><br>
+				General Logic is a common technique in most Sudoku solving algorithms.
+				General Logic is a generalization of BaseSet/CoverSet,
+				so first understand the <a href="page34.html">Fish</a> algorithm.
+				The first step in Fish extension is <a href="page36.html">(Finned)Franken/Mutant Fish</a>. <br><br>
+				This section is based on <a href="http://www.sudokuone.com/sweb/general.htm">
+				A General Logic for Sudoku</a>(www.sudokuone.com/sweb/general.htm).
+			</p><br>
 		
 
-			<h4 id="head_bg_LightBlue">弱いリンク</h4>
+			<h4 id="head_bg_LightBlue">Weak Link</h4>
 			<p>
-				generalLogicの基本は<a href="page25.html">弱いリンク</a>です。<br>
-				Fishは行・列の弱いリンクで構成する解法アルゴリズムです。数独では行・列以外にもブロックの制約条件があり、
-				Franken/Mutant Fishは行・列・ブロックで構成する解法アルゴリズムです。
-				さらに、9x9のセルについても1～9のどれかの数字が入るという数独の性質から、各々のセルも弱いリンクとなっています。
-				合わせると、数独には324の制約があります。<br>
-				general Logicは、行・列・ブロック・セルの弱いリンクで構成する解法アルゴリズムです。<br>
-				（なお、強いリンクは弱いリンクに含まれます。）<br><br>
+				The basis of generalLogic is <a href="page25.html">Weak Link</a>. <br>
+				Fish is a solving algorithm that is composed of Weak Link of rows and columns.
+				Sudoku has block constraints in addition to rows and columns,
+				and Franken/Mutant Fish is a solving algorithm that is composed of rows, columns, and blocks.
+				Furthermore, because of the nature of Sudoku that each 9x9 cell can contain a number from 1 to 9, each cell is also Weak Link.
+				In total, Sudoku has 324 constraints. <br>
+				general Logic is a solving algorithm that is composed of Weak Link of rows, columns, blocks, and cells. <br>
+				(Note that Strong Link is included in the Weak Link.) <br><br>
+
+
 				<img src="images/img60/weakLink.svg" style="margin-left: 20px;" width="50%">
 			</p><br><br><br>
 
 			
-			<h4 id="head_bg_LightBlue">BaseSetとCoverSet、ランク</h4>
+			<h4 id="head_bg_LightBlue">BaseSetとCoverSet、Rank</h4>
 			<ul>
-				<li>BaseSet : n個の弱いリンクを重なりがないように選びます。
-					このn個の弱いリンク群をBaseSetと呼びます（n-BaseSet)。
-					各々の弱いリンクには1つづつ真があり、BaseSet全体でn個の真があります。</li><br>
-				<li>CoverSet : BaseSetとは異なるm個（m≧n)の弱いリンクを、
-					BaseSetを完全に被覆するように選びます。
-					これをCoverSetと呼びます（m-CoverSet)。CoverSetには
-					BaseSetに属さない要素があっても構いません。（実は、<strong">General Logic
-					が成立するためにはBaseSetに属さない要素が必要）
-					CoverSetには重なりがある場合もあります。CoverSet全体での真の数はm個以下です。</li><br>
-				<li>ランク : BaseSetとCoverSetの組（BaseSet/CoverSetと表記）のランクを次のように定義します。<br>
-					<strong>BaseSet/CoverSetのランク=m-n</strong></li>
+				<li>BaseSet: Select n weak links so that they do not overlap.
+					This set of n weak links is called BaseSet (n-BaseSet).
+					Each weak link has one true value, and there are n true values in the entire BaseSet.</li><br>
+					
+				<li>CoverSet: Select m weak links (m≧n) different from BaseSet,
+					so that they completely cover BaseSet.
+					This is called CoverSet (m-CoverSet).
+					A CoverSet can contain elements that do not belong to the BaseSet.
+					(In fact, elements that do not belong to BaseSet are necessary for <strong>General Logic to hold)
+						
+					There may be overlaps between CoverSets. The number of true values in the entire CoverSet is m or less.
+				</li><br>
+
+				<li>Rank: The rank of a pair of BaseSet and CoverSet (written as BaseSet/CoverSet) is defined as follows.<br>
+					<strong>Rank of BaseSet/CoverSet=m-n</strong></li>
+
 			</ul><br><br>
 
 
 
 			<h3 id="head_bg_LightBlue">General Logic</h3>
-			<h4 id="head_bg_LightBlue">(1)ランク0</h4>
+			<h4 id="head_bg_LightBlue">(0) Rank 0</h4>
 			<p>
-				n-CoverSetがn-BaseSetを完全にカバーするとき、
-				CoverSet-BaseSet（差集合）のセル・数字は真ではありません。
-				（差集合が空のときは、ここでの論理は成立しない）<br>
-				もしも真だとすると、それを含むCoverSetの弱いリンクにはBaseSetと共通部分に真がなくなります。
-				したがって、CoverSet∩BaseSet に含まれる真は n-1 個になります。
-				つまり、BaseSetの真が足りなくなります。したがって最初の仮定が誤りです。<br>
-				次の図は最も単純なFishの BaseSet(列)とCoverSet(行) です。
-				BaseSetとCoverSet、BaseSet-CoverSet(差)、BaseSet∩CoverSet(共通)を確認してください。
-				なお、BaseSet-CoverSetは1要素に限りません。複数個あってもそれらすべてが除外できます。<br></p>
+				When n-CoverSet completely covers n-BaseSet,
+				the cells and numbers in CoverSet-BaseSet (difference set) are not true.
+				(When the difference set is empty, the logic here does not hold.)
+				If they were true, the weak links of CoverSet that contain them would have no truth in their intersection with BaseSet.
+				Therefore, BaseSet contains n-1 truths.
+				In other words, BaseSet does not have enough truths. Therefore, the first assumption is incorrect.<br>
+				The following diagram shows the simplest Fish's BaseSet (columns) and CoverSet (rows).
+				Please check BaseSet and CoverSet, BaseSet-CoverSet (difference), and BaseSet∩CoverSet (common).
+				Note that BaseSet-CoverSet is not limited to one element. Even if there are multiple elements, all of them can be excluded.
+				<br></p>
+
 				<img src="images/img60/BCSet1.svg" style="margin-left: 20px;" width="60%" alt="General Logic"><br><br>
 			</p>
 
-			<h4 id="head_bg_LightBlue">(1)ランク1</h4>
+			<h4 id="head_bg_LightBlue">(1) Rank 1</h4>
 			<p>
-				n-BaseSetを(n+1)-CoverSetでカバーするケースを考えます。<br>
-				n-BaseSetをカバーするCoverSetの選び方には自由度があります。
-				解析アルゴリズムとするためには、次の条件が成立する必要があります。<br>
+				Consider the case where n-BaseSet is covered by (n+1)-CoverSet. <br>
+				There is a degree of freedom in how to choose the CoverSet that covers n-BaseSet.
+				To make it an analysis algorithm, the following conditions must be met. <br>
 				<ul>
-					<li>条件1 : (n+1)-CoverSetは、n-BaseSetを完全にカバーしている。</li>
-					<li>条件2 : (n+1)-CoverSetの(n+1)個の弱いリンクのうち2つには共通部分があり、
-							かつn-BaseSetに含まれない要素(共通部分のセル・数字)がある。</li>
+					<li>Condition 1: (n+1)-CoverSet completely covers n-BaseSet. </li>
+					<li>Condition 2: Two of the (n+1) weak links in (n+1)-CoverSet have a common part,
+						and there is an element (a cell or number in the common part) that is not included in n-BaseSet. </li>
 				</ul>
-				これらの条件を満たすとき、条件2の共通部分の要素は真ではありません。<br><br>
-
-				次の図で、共通部分の”要素Xは真”と仮定します。<br>
-				要素XはBasesetに含まれず、かつCoverSetの2つの弱いリンクに含まれているので、
-				BaseSetの真を含むCoverSetの弱いリンクは（n-1）個となります。
-				BaseSetの真が足りなくなるので、最初の仮定が誤りです。<br><br>
+				When these conditions are met, the element in the common part of condition 2 is not true. <br><br>
+				In the following diagram, assume that "element X in the common part is true." <br>
+				Since element X is not included in Baseset and is included in two weak links of CoverSet,
+				the number of weak links in CoverSet that contain truths in BaseSet is (n-1).
+				Since there are not enough truths in BaseSet, the first assumption is incorrect. <br><br>
 
 				<img src="images/img60/BCSet2a.svg" width="40%" alt="General Logic(rank1)"><br><br>
 				<img src="images/img60/BCSet2b.svg" style="margin-left: 40px;" width="80%" alt="General Logic(rank1)"><br><br>
 			</p>
-			<p>次は、BaseSetがセルのランク1の例です。</p>
+			<p>The following is an example where the BaseSet has cell rank 1.</p>
 			<img src="images/img60/BCSet3.svg" style="margin-left: 20px;" width="40%" style="float: center" ><br><br>
 
 
 
-
-			<h4 id="head_bg_LightBlue">(2)ランクk(k≧1）</h4>
+			<h4 id="head_bg_LightBlue">(2) Rank k (k≥1)</h4>
 			<p>
-				n-BaseSetを(n+k)-CoverSetでカバーするケースを考えます。考え方はランク1と同じです。
-				解析アルゴリズムとするためには、次の条件が成立する必要があります。<br>
+				Consider the case where n-BaseSet is covered by (n+k)-CoverSet. The concept is the same as for Rank 1.
+				To make it an analysis algorithm, the following conditions must be met. <br>
 				<ul>
-					<li>>条件1:(n+k)-CoverSetは、n-BaseSetを完全にカバーしている。</li>
-					<li>条件2:(n+k)-CoverSetを構成する弱いリンクのうち（k+1）には共通部分があり、かつn-BaseSetに含まれない要素(共通部分のセル・数字)がある。</li>
+					<li>>Condition 1: (n+k)-CoverSet completely covers n-BaseSet. </li>
+					<li>Condition 2: (k+1) of the weak links that make up (n+k)-CoverSet have a common part, 
+						and there is an element (a cell or number in the common part) that is not included in n-BaseSet. </li>
 				</ul>
-				これらの条件を満たすとき、条件2の共通部分の要素は真ではありません。<br><br>
+				When these conditions are met, the element in the common part of condition 2 is not true. <br><br>
+				Assume that "element X" in the common part is true. <br>
+				Since prime X is not included in the BaseSet and is included in the (k+1) weak links of the CoverSet,
+				the number of weak links in the CoverSet that contain the truth of the BaseSet is (n-1).
+				Since there are not enough truths in the BaseSet, the first assumption is incorrect.
 
-				共通部分の”要素Xは真”と仮定します。<br>
-				素XはBasesetに含まれず、かつCoverSetの（k+1）個の弱いリンクに含まれているので、
-				BaseSetの真を含むCoverSetの弱いリンクは（n-1）個となります。
-				BaseSetの真が足りなくなるので、最初の仮定が誤りです。
+
+
 			</p>
-			<img src="images/img60/BCSet4.svg" style="margin-left: 20px;" width="40%" alt="General Logic(rank>=1)"><br><br><br>		
+			<img src="images/img60/BCSet4.svg" style="margin-left: 20px;" width="40%" alt="General Logic(rank>=1)"><br><br><br>
 
 
-			<h3 id="head_bg_LightBlue">General Logic のプログラムコード</h3>
+			<h3 id="head_bg_LightBlue">General Logic program code</h3>
 			<p>
-				General Logicプログラムコードは、<a href="page17.html">GNPX proj数独解析アプリ ソース・プロジェクト</a> にあります。ダウンロードしてください。
-				アルゴリズムは、Fishを行・列・ブロック・セルに拡張したものなので、比較的簡単です。
-				ただし、次の点には注意してください。<br>
-
+				The General Logic program code can be found in the <a href="page17.html">GNPX proj Sudoku Analysis App Source Project</a>.<br>
+				Please download it.<br>
+				The algorithm is relatively simple, as it is an extension of Fish to rows, columns, blocks, and cells.
+				However, please note the following points. <br>
 				<ol>
-					<li>General Logicは、Lockedを壊す位置のセル・数字を”真ではない”と除外する論理です。
-						候補が唯一となったセル・数字を確定することはしません。General Logicの他に、確定するコード（Single）が必要です。</li>
+					<li>General Logic is a logic that excludes cells and numbers at the position where Locked is broken as "not true".
+						It does not confirm cells and numbers that are the only candidates.
+						In addition to General Logic, a confirmation code (Single) is required. </li>
 					
-					<li>General Logicで数独を解く最小限のプログラムは、【single+General Logic】で構成できます。</li>
+					<li>The minimum program to solve Sudoku with General Logic can be composed of [single + General Logic]. </li>
 				</ol>
-
-				GeneralLogicは従来手法に比べて計算量が多く、実用上の大きな問題です。
-				元祖<a href="http://www.sudokuone.com/sweb/general.htm">
-				A General Logic for Sudoku</a>には、7次ランク3の例が載っているので、GNPXでは開発途上です。<br>
+				
+				General Logic requires a large amount of calculations compared to conventional methods, which is a major practical problem.
+				The original <a href="http://www.sudokuone.com/sweb/general.htm">
+				A General Logic for Sudoku</a> has an example of 7th order rank 3, so GNPX is still developing it. <br>
 			</p>
 		
 
-
-			<h4 id="head_bg_LightBlue">General Logic 解の例</h4>
+			<h4 id="head_bg_LightBlue">Example of a General Logic solution</h4>
 			<p>
-				GeneralLogic解の例を示します。上段は 「LockedTriple[3D] r459c2 #168 r37c2#1 is not True」と除外されるセル・数字は同じですが、従来手法に対応する解法がありません。<br>
-				下段は、ALS-XZ(SinglyLinked)（右下）で同じセル・数字を除外できます。しかし、使われている手法は全く異なります。</p>
+				Here is an example of a General Logic solution. 
+				The top row shows the same cells and numbers to be excluded as "LockedTriple[3D] r459c2 #168 r37c2#1 is not True", 
+				but there is no solution that corresponds to the conventional method. <br>
+				The bottom row shows how the same cells and numbers can be excluded using ALS-XZ (SinglyLinked) (bottom right). However, the method used is completely different.
+			<h4 id="head_bg_LightBlue">General Logic Solution Example</h4>
+			<p>
+				Here is an example of a GeneralLogic solution. In the top row,
+				the cells and numbers to be excluded are the same as "LockedTriple[3D] r459c2 #168 r37c2#1 is not True",
+				but there is no solution that corresponds to the conventional method. <br>
+				In the bottom row, the same cells and numbers can be excluded using ALS-XZ (SinglyLinked) (bottom right).
+				However, the method used is completely different.
+
+				</p>
 					<img src="images/img60/GenerslLogic01.png" width="50%">
 				<p class="newLine">
 						3..5....2.5.2...1.....36.....59.7.31..9...4..23.8.46.....79.....7...8.4.8....2..9<br>
 						5..7....3.3.4...6.....36.....45.1.29..9...4..68.9.27.....27.....1...3.5.7....5..4<br></p>
 			<p>
-				以下の表(General Logicの適用例)に示すように、従来手法の解はGeneralLogicで再解釈できます。<br>
+				As shown in the table below (Examples of the Application of General Logic),
+				solutions from conventional methods can be reinterpreted using General Logic.<br>
 			
-					<a id="GeneralLogic02"></a>
-				次の例は、4次のGeneral Logic(rank0)です。このようにGeneralLogic解に従来手法が対応しないこともあります。GeneralLogicはより一般的な解法であることを示しています。<br>
+			<a id="GeneralLogic02"></a>
+				The following example is a fourth-order General Logic (rank 0).
+				As shown here, conventional methods may not be compatible with the General Logic solution. 
+				This shows that General Logic is a more general solution method.
+				<br>
 				<img src="images/img60/GenerslLogic02.png" width="50%">
 				<p class="newLine">
 					1..4....8.9.1...5.....63.....13.5.79..3...8..76.2.94.....75.....1...6.4.8....4..2</p>
 
-			<p>GeneralLogic解から新解法(従来手法と同様の専用手法）を探ることも課題です。</p><br><br>
+			<p>Another challenge is to find new solutions (dedicated methods similar to conventional methods) from the General Logic solution.</p><br><br>
 
-			<h4 id="head_bg_LightBlue">General Logicの適用例</h4>
+			<h4 id="head_bg_LightBlue">Examples of applying General Logic</h4>
 			<p>
-				通常の数独アルゴリズムで解く場面にGeneral Logicを適用した例を示します。<br>
-				Singleは、候補が唯一となったセル・数字の確定なので、GeneralLogicは必要ないのですが、
-				BaseSet/CoverSet の最小の適用例として示しました。
+				Here is an example of applying General Logic to a situation where the normal Sudoku algorithm can be used to solve the problem. <br>
+				Since Single is a confirmation of a cell/number with only one candidate, General Logic is not required, 
+				but it is shown as a minimal application example of BaseSet/CoverSet.
 			</p>
 			<table border="1" style="border-collapse:collapse;">
 				<tr>
-					<th style="width: 57px">アルゴリズム</th>
-					<th width="200">例</th>
+					<th style="width: 57px">Algorithm</th>
+					<th width="200">Example</th>
 					<th width="200">BaseSet</th>
 					<th width="200">CoverSet</th>
-					<th width="200">解説</th>
+					<th width="200">Commentary</th>
 				</tr>
 		
 				<tr>

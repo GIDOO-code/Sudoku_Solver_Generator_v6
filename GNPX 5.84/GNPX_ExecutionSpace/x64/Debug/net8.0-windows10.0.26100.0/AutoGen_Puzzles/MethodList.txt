@@ -1,0 +1,5 @@
+﻿Reset
+Difficulty_Level 999
+Senior_Exocet_standard
+Senior_Exocet_Single
+Senior_Exocet_SingleBase
