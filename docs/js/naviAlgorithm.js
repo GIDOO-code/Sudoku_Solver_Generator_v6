@@ -98,7 +98,7 @@ function writeNaviAlgorithm(){
 					html += '<li><a href="page59B_JE2_Object.html">JE2+,JE2++</a></li>';
 		        	html += '<li><a href="page59C_JEn.html">JE1</a> </li>';
 					html += '<li><a href="page59C_JEn.html">JE3</a> </li>';
-//		        	html += '<li><a href="page59S.html">Senior Exocet</a></li>';
+		        	html += '<li><a href="page59S.html">Senior Exocet</a></li>';
 			    html += '</ul>';
 			html += '</li>';
 
