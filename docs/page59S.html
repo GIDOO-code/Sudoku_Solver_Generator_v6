@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>数独 SubsetExclude</title>
+	<title>SuDoKu Senior Exocet</title>
 	
     <!-- Prism   https://prismjs.com/download.html -->
 	<script src="prism_js_css/prism.js"></script>
@@ -38,171 +38,170 @@
 
 	<article id="main">
 		<section>
-
 			<span style="color:red">... Senior Exocet is under development ... </span><br><br><br>
 
 			<H3 id="head_bg_Blue">&nbsp;Exocet</H3>
 
 			<p>
-				Exocetは、house、locked、Coverlineなどの制約を組み合わせた 解法アルゴリズム です。ここでは、 Exocet の仕組みを順番に説明します。
-				以下の説明では Exocet の用語や定義の知識を持つことを前提とします。不案内のかたは、<a href="page59A_JE2.html">Junior Exocet</a> を参考にしてください。<br>
-				<br>
-				<i>[暫定版］本項は、曖昧さや誤りを含む可能性がある。鵜呑みにせず批判的な視点から読んでください。<br>
-				また、GNPX V6のアプリケーションプロジェクト(C#)が理解に役立つでしょう。</i>
+				Exocet is a soluving algorithm that combines constraints such as house, locked, and coverline.
+				Here is an explanation of how Exocet works.
+				The following explanation assumes knowledge of Exocet terms and definitions.
+				If you are unfamiliar with it, please refer to <a href="page59A_JE2.html">Junior Exocet</a>. <br><br>
+
+				<i>[Provisional version] This section may contain ambiguities or errors.
+					Please don't just take it at face value, but read it critically.<br>
+					The GNPX V6 application project(C#) will also be helpful for understanding.
+				</i>
 			</p>
 
-			<H3 id="head_bg_Light2Blue">&nbsp;(0) Exocetの仕組み</H3>
+			<H3 id="head_bg_Light2Blue">&nbsp;(0)Basic form of Exocet</H3>
 			<p>
-				Exocetは、つぎのような論理で構成されrています。
 				<ul style="list-style:none; padding-left:10px;">
-					<li>&nbsp;1) Baseには、Base数字が3～4ある。</li>
-					<li>&nbsp;2) BaseとObjectから決まるS領域では、それぞれの Base 数字は 2つのHouseでカバーされる。</li>
-					<li>&nbsp;3) 1つのBase数字(#a)に着目すると、#aは Object にある。</li>
-					<li>&nbsp;4) Base数字のどの2つ(#ab)を選んでも、#abは 2つの Object にある。</li>
-					<li>&nbsp;5) Base数字は、Locked 状態である。</li>
-					<li>&nbsp;（BaseとObjectの配置と形にはいくつかのタイプがある。）</li>
-				</ul>
-				<img src="images/img59S/image59S_Logoic1.svg" style="margin-left: 20px;" width="60%" alt="Exocet"><br><br>
+					<li>&nbsp;1) The base has 3 to 4 base digits.</li>
+					<li>&nbsp;2) In the S-Area determined by the Base and Object, each Base digits are covered by two Houses.</li>
+					<li>&nbsp;3) For each Base digit(#a), #a is in the Object.</li>
+					<li>&nbsp;4) For any two base digits(#ab), #ab is contained in two objects.</li>
+					<li>&nbsp;5) The Base digits is in the Locked state.</li>
+					<li>&nbsp; (There are several types of Base and Object placement and shapes.)<br>
+				<img src="images/img59S/image59S_Logoic1.svg" style="margin-left: 20px;" width="40%" alt="Exocet"><br><br><br>
+			</li>
+			
+			<b><u>Each item is explained in detail below.</u></b><br><br>
 
-
-			<b><u>以下では、それぞれの項目を詳述する。</u></b><br><br>
-
-
-			<H3 id="head_bg_Light2Blue">&nbsp;(1) BaseとCrossLinesを選ぶ ... 基本的な (Senior)Exocetの場合</H3>
+			<H3 id="head_bg_Light2Blue">&nbsp;(1)Select Base and CrossLines ... (basic) Senior Exocet</H3>
 			<p>
-				数独の局面における Exocet 制約の Base と CrossLines は、次のような形で存在しています。
 				<ul style="list-style:none; padding-left:10px;">
-					<li>&nbsp;1) 任意のセル(StemCell)と方向(direction. 行方向/列方向)を選ぶ</li>
-					<li>&nbsp;2) Stemと同じブロック内に2つのBaseセルを定める。Baseセルは、Stemと同じminilineにあって、いずれも未確定セルとする。</li>
-					<li>&nbsp;3) CrossLine0は Stemとクロス方向で定める。
-						CrossLine1は CrossBand1から選ぶ。CrossLine2は CrossBand2から選ぶ。<br>
-						&nbsp; &nbsp; &nbsp;(Bandは、同じ方向のBlockの集合体)</li>
+					<li>&nbsp;1) Select any cell(Stem Cell) and direction(row direction/column direction)</li>
+					<li>&nbsp;2) Determine two Base cells in the same block as the Stem.
+								The Base cells are in the same miniline as the Stem, and both are undetermined cells. </li>
+					<li>&nbsp;3) Determine CrossLine0 by the Stem and cross direction.
+								Select CrossLine-1 from CrossBand-1. Select CrossLine-2 from CrossBand-2. <br>
+					&nbsp; &nbsp; &nbsp; (Band is a collection of Blocks with the same direction)</li>
 				</ul>
-				<img src="images/img59S/image59S_Logoic2.svg" style="margin-left: 20px;" width="90%" alt="Exocet"><br><br>
+				<img src="images/img59S/image59S_Logoic2.svg" style="margin-left: 20px;" width="60%" alt="Exocet"><br><br>
 			</p>
 
-			<H3 id="head_bg_Light2Blue">&nbsp;(2) Target/Object を選ぶ</H3>
+			<H3 id="head_bg_Light2Blue">&nbsp;(2) Select Target/Object</H3>
 			<p>
 				<ul style="list-style:none; padding-left:10px;">
-					<li>&nbsp;1) CrossLine-0、CrossLine-1、CrossLine-2 上に2つの Target/Object を選ぶ。2/3で選ぶので、1つのCrossLine上にはObjectはない。
-				<!--<li>&nbsp;1) CrossLine-1、CrossLine-2 上に2つの Target/Object を選ぶ。-->
-						(以下では、Objectで表記。Targetは1セルのObject。)</li>
-					<li>&nbsp;2) Objectは、一つのブロック内にある。</li>
+					<li>&nbsp;1) Select two Targets/Objects on CrossLine-0, CrossLine-1, and CrossLine-2.
+						Since the selection is done by 2/3, there are no Objects on one CrossLine.
+						(In the following, we will use Object. Target is a 1-cell Object.)	
+					</li>
+					<li>&nbsp;2) The object is in one block.</li>
 				</ul>
-					<img src="images/img59S/image59S_Logoic3.svg" style="margin-left: 20px;" width="90%" alt="Exocet"><br>
-
-					<span style="color:red">CrossLine-0 に Object があるタイプは、検討中です。</span>
-			</p><br>
+					<img src="images/img59S/image59S_Logoic3.svg" style="margin-left: 20px;" width="60%" alt="Exocet"><br><br>
+			</p>
 
 
 			<H3 id="head_bg_Light2Blue">&nbsp;(3) Sline, Companion</H3>
 			<p>
-				Companion は 次の論理が成立するように定めます。<br>
-				・ CrossLine の SLine 以外の部分に Base数字がある。<br>
-				・ Object と Companion は、CrossLine の SLine 以外の部分にある。<br>
-				・ Companion には Base数字 はない。したがって、 Object に Base数字 はある。<br>
+				Companion dictates that the following logic hold:<br>
+				・ The Base digits are located in the part of the CrossLine other than the SLine.<br>
+				・ Object and Companion are in the non-SLine parts of the CrossLine.<br>
+				・ Companion does not have a Base digits, therefore Object has a Base digits.<br>
 
 				<ul style="list-style:none; padding-left:10px;">
-					<li>&nbsp;1) Companionは、CrossLineとObjectのParallelHouseの交差する箇所のセル。</li>
-					<li>&nbsp;2) CrossLineとObject,Companionから SLine を定める。<br>
-						&nbsp; &nbsp; &nbsp;SLine = CrossLine - (Object &cup; Companion)  (&cup;:和集合 &nbsp;-:差集合)
+					<li>&nbsp;1) Companion are the cells where the CrossLine and the Object's ParallelHouse intersect.</li>
+					<li>&nbsp;2) Determine the SLine from the CrossLine, Object, and Companion.<br>
+						&nbsp; &nbsp; &nbsp;SLine = CrossLine - (Object &cup; CompanionCompanion)  (&cup;:union set  &nbsp;-:difference set)
 					</li>
 				</ul>
-					<img src="images/img59S/image59S_Logoic4.svg" style="margin-left: 20px;" width="90%" alt="Exocet"><br>
-					<span style="color:red">CrossLine-0 に Object があるタイプは、検討中です。</span><br>
+					<img src="images/img59S/image59S_Logoic4.svg" style="margin-left: 20px;" width="60%" alt="Exocet"><br><br>
+					<span style="color:red">Types with Object in CrossLine-0 are under consideration.</span><br>
 			</p>
 
 
-			<H3 id="head_bg_Light2Blue">&nbsp;(4) Exocet の成立条件</H3>
+			<H3 id="head_bg_Light2Blue">&nbsp;(4) Exocet conditions</H3>
 			<p>
-				&nbsp; &nbsp;次の R1-R4 を満たすとき、Base数字は Target/Object にある。
-					<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 90%;" >
+				&nbsp; &nbsp;When the following R1-R4 are met, the Base digits is in the Target/Object.
+					<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 80%;" >
 					<tr>
 						<td class="table_itemName" style="width: 5%" >R1</td>
-						<td class="table_item">&nbsp;Baseセル(B1,B2)は、いずれも未確定セルであり、同じ数字を含み、合わせて3～4の Base 数字(#abc/#abcd)をもつ。</td>
+						<td class="table_item">&nbsp;The base cells (B1, B2) are both undetermined cells, contain the same numbers, 
+							and the number of Base's ​​is 3 or 4 (#abc/#abcd).</td>
 					</tr>
 					<tr>
 						<td class="table_itemName">R2</td>
-						<td class="table_item">&nbsp;Target/Objectは、いずれも未確定セルであり、合わせてBase数字を2つ以上もつ。</td>
+						<td class="table_item">&nbsp;Both the Target and Object are undetermined cells and together have two or more Base digitss.</td>
 					</tr>
 					<tr>
 						<td class="table_itemName">R3</td>
-						<td class="table_item">&nbsp;Companionセルは、Base 数字を含まない。</td>
+						<td class="table_item">&nbsp;Companion cells do not contain a Base digits.</td>
 					</tr>
 					<tr>
 						<td class="table_itemName">R4</td>
-						<td class="table_item">&nbsp;Baseの2つ以上の数字について、S領域{SLine-0,SLine-1,SLine-2}にある "問題、解決済み、候補値"のBase数字は、
-							2つの Cover-Line でカバーされる。</td>
+						<td class="table_item">&nbsp;For two or more digits in Base, the Base digits of
+							"Problem, Solved, Candidate" in the S domain {SLine-0, SLine-1, SLine-2} are covered by two Cover-Lines.</td>
 					</tr>
 				</table><br>
 				
-				これらの条件について、若干、補足して解説します。<br>
-				補足:
-				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 90%;" >
+				These conditions will now be explained in more detail.<br>
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 80%;" >
 					<tr>
 						<td class="table_itemName" style="width: 5%" >R1</td>
-						<td class="table_item">&nbsp;Baseセルの Base数字 が 2つの場合は LockedSet です。5以上のケースは、"制約が多くなり、おそらくないであろう"という予測によります。<br>
-							&nbsp;これより、R1は"3～4の Base数字"となっています。<br>
-						</td>
+						<td class="table_item">&nbsp;A Base cell with a Base digits of 2 is a LockedSet. 
+							A Base digita of 5 or more is a prediction that "there will be more constraints, and probably none."<br>
+							&nbsp;Therefore, the number of Base's ​​is 3 or 4</td>
 					</tr>
 					<tr>
 						<td class="table_itemName" >R2</td>
-						<td class="table_item">&nbsp;Target/Objectは Base数字以外の候補数字を含んでよい。
-						</td>
+						<td class="table_item">&nbsp;Target/Object may contain candidate digits other than the Base digits.</td>
 					</tr>
 					<tr>
 						<td class="table_itemName">R3</td>
-						<td class="table_item" style="width: 90%" >&nbsp;Companionセルは、確定セルと未確定セルの場合がある。<br>
-							&nbsp;CompanionにBase数字がないことにより、ObjectにBase数字があることが導かれる。
+						<td class="table_item" style="width: 90%" >&nbsp;Companion cells can be either fixed or unfixed. <br>
+							The absence of a Base digits in the Companion implies that the Object has a Base digits.
 						</td>
 					</tr>
 					<tr>
 						<td class="table_itemName">R4</td>
-						<td class="table_item">&nbsp;S領域にあるのが"確定、解決済み"の場合は、"Parallel/Cross Cover Line" いずれにも解せます。
-							(以下では、"Parallel"を採用します)</tr>
+						<td class="table_item">&nbsp;If the S area is "confirmed, resolved", it can be interpreted as either "Parallel/Cross Cover Line".
+							(Hereafter, this will be referred to as "Parallel")</tr>
 				</table><br>
 			</p>
 
 
-			<h4 id="head_bg_Light2Blue">&nbsp;(5) Exocet の論理 ... Lockedの証明</h4>
+			<h4 id="head_bg_Light2Blue">&nbsp;(5) Exocet logic ... Proof of Locked</h4>
 			<p>
-				R1～R4を満たすBase数字は、Locked です。<br>
-				Base候補数字から任意の2数字を選択したとき、この2数字について次の命題が成り立ちます。<br>
-				&nbsp; &nbsp; <b>命題 : Baseで positive なら、Object1 と Object2 でも positive である。</b><br>
+				Base digits that satisfy R1 to R4 are Locked. <br>
+				When any two digits are selected from the Base candidate digits, the following proposition holds for these two digits. <br>
+				&nbsp; &nbsp; <b>Proposition: If it is positive in Base, it is also positive in Object1 and Object2.</b><br>
 
-				<ol style="list-style:none; padding-left:10px;"><b>Exocet Lockedの証明</b>
-					<li>L1. Baseセルで、ベース数字#ab は positive とする。</li>
-					<li>L2. 3つのCrossLine(CrossLine-0,CrossLine-1,CrossLine-2)には、#abのインスタンスがそれぞれ 3つあり(数独のルール)、合わせて6個のインスタンスがある。</li>
-					<li>L3. R3より、Companionには #ab のインスタンスはない。</li>
-					<li>L4. R4より、S領域{SLine-0,SLine-1,SLine-2} には 2つの #a CoverLine、2つの#b CoverLine がある。</li>
-					<li>L5. "6-4=2"より、#aと#b インスタンスは、それぞれ Object1 と Object2にある。<br>
-						(一方のObjectに #aと#b が同時に入ることはない。どちらにどれかは確定しない。)</li>
+				<ol style="list-style:none; padding-left:10px;"><b>Proof</b>
+					<li>L1. In the Base cell, the base digits #ab is positive.</li>
+					<li>L2. In the S area (SLine-0, SLine-1, SLine-2), there are three instances of #ab each (according to the rules of Sudoku), 
+						for a total of six instances.</li>
+					<li>L3. From R3, there is no instance of #ab in Companion.</li>
+					<li>L4. From R4, there are two #a CoverLines and two #b CoverLines in the S region {SLine-0, SLine-1, SLine-2}.</li>
+					<li>L5. Since "6-4=2", the #a and #b instances are in Object1 and Object2, respectively.<br>
+						(#a and #b cannot exist in the same Object at the same time. It is not certain which is which.)</li>
 				</ol>
 			</p><br><br><br>
 
 
-			<h4 id="head_bg_Blue">&nbsp;拡張 Exocet</h4>
+			<h4 id="head_bg_Blue">&nbsp;Extended Exocet</h4>
 
 			<h4 id="head_bg_Light2Blue">&nbsp;(1) Single Exocet</h4>
 			<p>
-				Single Exocetは、一方のObject が <b>"Base数字を持てない" = "確定済みのセル(群)"</b> のケースです。<br>
-				Baseセル、Base数字、CrossLineの設定は、標準のExocetと同じです。<br>
-				次の図は一例です。一方のObjectが確定済みセルであり、そのときのSLineとCompanionの形です。<br>
-				これらのパターンが実際にあるのかは、今後の検討です。なお、一番右のパターンは、候補数字を配置できない無効なパターンです。<br>
-				ObjectとCompanionの設定方法は、標準的なExocetと同じです。
-
+				A Single Exocet is a case where one of the Objects <b>"cannot have a Base digits" = "confirmed cell(s)"</b>.<br>
+				The Base cell, Base digits, and CrossLine settings are the same as the standard Exocet.<br>
+				The following figure is an example. One Object is a fixed cells, and the shape of the SLine and Companion at that time.<br>
+				Whether these patterns actually exist remains to be seen.
+				The rightmost pattern is an invalid pattern in which no candidate digits can be placed.<br>
+				The Object and Companion settings are the same as in a standard Exocet.
 			</p>
-			<img src="images/img59S/image59S_SingleExocet.svg" style="margin-left: 20px;" width="90%" alt="Single Exocet"> <br><br>
+			<img src="images/img59S/image59S_SingleExocet.svg" style="margin-left: 20px;" width="60%" alt="Single Exocet"> <br><br>
 			<p>
-				<ol style="list-style:none; padding-left:10px;"><b>Single Exocetの成立条件</b>
-					<li>1) Base数字うち、1つの候補数字は S領域に3つのCoverLine をもつ（これを"wildcard"とよぶ）。</li>
-					<li>2) wildcard以外のBase数字(#a)について、S領域にある全ての#aは2つのCoverLineで被覆できる。</li>
-					<li>3) 通常のObjectには、wildcardを含め全てのBase数字が候補としてある（その他の数字も含んでよい)。</li>
+				<ol style="list-style:none; padding-left:10px;"><b>Conditions for Single Exocet</b>
+					<li>1) Among the Base digits, one candidate digits has three CoverLines in the S region (this is called "wildcard"). </li>
+					<li>2) Base digits other than the wildcard cover the S region with two CoverLines. </li>
+					<li>3) In a normal Object, all Bases, including the wildcard, are candidates (other digits may also be included. </li>
 				</ol><br>
-				<ol style="list-style:none; padding-left:10px;"><b>Single Exocetの結果</b>
-					<li>1) Baseでは、wildcard は positive。</li>
-					<li>2) 通常のObjectでは、wildcard は positive。</li>
-					<li>3) Baseと通常のObjectと連結するセルでは、候補数字wildcardは negative。</li>
+				<ol style="list-style:none; padding-left:10px;"><b>Results of Single Exocet</b>
+					<li>1) In the Base, the wildcard is positive. </li>
+					<li>2) In a normal Object, the wildcard is positive. </li>
+					<li>3) In a cell that connects the Base and a normal Object, the candidate number wildcard is negative. </li>
 				</ol>
 				<br><br><br>
 			</p>
@@ -215,87 +214,87 @@
 				Single-Base Exocetは、Single Exocet の Base が <b>1セル 2候補数字</b> の ケースです。<br>
 				Single-Base Exocetが成立したときは、BaseとTargetの数字が確定し、それらの連結するセルが確定します。
 			</p>
-			<img src="images/img59S/image59S_SingleBaseExocet.svg" style="margin-left: 20px;" width="90%" alt="Single Exocet"> <br><br>
+			<img src="images/img59S/image59S_SingleBaseExocet.svg" style="margin-left: 20px;" width="60%" alt="Single Exocet"> <br><br>
 
 		</section>
 		<section>
 			<br><br><br>
-			<H3 id="head_bg_Blue">&nbsp;補足情報(Exocetの理解のために)</H3>
-			<H4 id="head_bg_Light2Blue">&nbsp;Exocetアルゴリズムの論理</H4>
+			<H3 id="head_bg_Blue">&nbsp;Additional Information (for understanding Exocet)</H3>
+			<H4 id="head_bg_Light2Blue">&nbsp;The logic of the Exocet algorithm</H4>
 			<p>
-				Exocetは、いくつかのロジックが組み合わさっているために、その仕組みや効果を理解するのがやや難しいアルゴリズムです。
-				同じ理由から、仕組みを差し替えるあるいは拡張することで、Exocetファミリーは様々に拡大します。<br>
-				次の図は、Exocetに使われている論理の一つです。
-				<ol style="list-style:none; padding-left:10px;"><b>Exocetの仕組みの一つ</b>
-					<li>1) 数独の1つの House には、1～9の1つの数字(例えば#a)は1箇所のみで肯定である。</li>
-					<li>2) Houseを3つの領域にわけたとき、領域Cに#aにないなら、領域Aか領域Bにある。領域AとCにないなら、領域Bにある。</li>
-					<li>3) Exocetの要素に当てはめると、A,B,Cはそれぞれ SLine, Object, [Escape,Companion]になる。</li>
+				Exocet is an algorithm that is somewhat difficult to understand its mechanism and effects, as it combines several logics.
+				For the same reason, the Exocet family can be expanded in various ways by replacing or extending the mechanism.<br>
+
+				The following diagram shows one of the logics used in Exocet.
+				<ol style="list-style:none; padding-left:10px;"><b>One of the mechanisms of Exocet</b>
+					<li>1) In a Sudoku house, a number from 1 to 9 (for example, #a) is positive in only one place. </li>
+					<li>2) When the house is divided into three areas, if #a is not in area C, it is in area A or area B. If it is not in areas A and C,
+						it is in area B. </li>
+					<li>3) When applied to the elements of Exocet, A, B, and C become SLine, Object, and [Escape, Companion], respectively. </li>
 				</ol>
 			</p>
-			<img src="images/img59S/image59S_Additional1.svg" style="margin-left: 20px;" width="80%" alt="Exocet"><br><br>
+			<img src="images/img59S/image59S_Additional1.svg" style="margin-left: 20px;" width="50%" alt="Exocet"><br><br>
 
+
+			<H4 id="head_bg_Light2Blue">&nbsp;Companion</H4>
+			<p>
+				Companion is an area that does not contain candidate digits in Base. <br>
+				<b>The constraints of the S-Area</b> and the fact that <b>there are no Base digits in Companion</b> lead to the conclusion that <b>there are candidate digits in Object</b>.
+				Companion, together with the covering conditions of the S-Area, plays a role in the establishment of Exocet.
+			</p>
+			<img src="images/img59S/image59S_Additional2.svg" style="margin-left: 20px;" width="50%" alt="Exocet"><br><br>
 
 
 			
-			<H4 id="head_bg_Light2Blue">&nbsp;Companion</H4>
-			<p>
-				Companion は、Baseの候補数字を含まない領域です。<br>
-				<b>S領域の制約条件</b>と、<b>CompanionにBase数字はない</b>ことから、<b>Objectに候補数字がある</b>ことが導かれます。
-				Companionは、S領域のカバー条件とともにExocet成立の役割を果たしています。
-			</p>
-			<img src="images/img59S/image59S_Additional2.svg" style="margin-left: 20px;" width="80%" alt="Exocet"><br><br>
-
-
-
 
 			<H4 id="head_bg_Light2Blue">&nbsp;Mirror</H4>
 			<p>
-				Exocet の Mirror は、他の構成要素とは異なる性質を持っています。<br>
-				&nbsp; &nbsp;<b>Mirror は Exocet の Locked 成立に関わらない。<br>
-				&nbsp; &nbsp;Exocet-Locked が成立したとき(Baseの2数字が確定したとき)、Mirrorによる除外が生じます。</b><br>
+				Exocet Mirror has different functions and roles from other components. <br>
+				&nbsp; &nbsp;<b>Mirror is not involved in the establishment of Exocet Locked. <br>
+				&nbsp; &nbsp;Mirror is defined when Exocet-Locked is established, and exclusion by Mirror occurs. </b><br>
 
-
-				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 90%;" ><b>Mirrorの構成と機能</b>
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 70%;" ><b>Mirrorの構成と機能</b>
 					<tr>
 						<td class="table_itemName" style="width: 5%" >M1</td>
-						<td class="table_item"><b>Mirrorが機能する条件</b><br>
-							Exocet の Locked が成立し、かつ、(除外によって)<b>Base の候補数字が2つに確定した</b>とき、MIrror による除外ができる。<br>
-							2つの候補数字の どちらがどちらの Target/Object にあるかは、確定していない。</td>
+						<td class="table_item"><b>Conditions for Mirror to work</b><br>
+							When the Exocet Locked is established and the Base candidate digits are determined to be two,
+							exclusion by MIrror is possible. <br>
+							It is not determined which of the two candidate digits is in which Target/Object.
+						</td>
 					</tr>
 					<tr>
 						<td class="table_itemName" >M2</td>
-						<td class="table_item"><b>Mirrorに 含まれる候補数字 / 含まれない候補数字 </b><br>
-							Mirror は Target/Object のある<b>ブロック</b>に定義される。<br>
-							Object1 の Mirror1 は Block2 にある。Object2 の Mirror2 は Block1 にある。<br>
-							<br>
-
-							<img src="images/img59S/image59S_Mirror1.svg" style="margin-left: 20px;" width="50%" alt="Exocet Mirror">
+						<td class="table_item"><b>Candidate digits included in Mirror/Candidate digits not included</b><br>
+							Mirror is defined for each block that has a Target/Object. <br>
+							Mirror1 of Object1 is in Block2. Mirror2 of Object2 is in Block1. <br><br>
+							<img src="images/img59S/image59S_Mirror1.svg" style="margin-left: 20px;" width="80%" alt="Exocet Mirror">
 						</td>
 					</tr>
 					<tr>
 						<td class="table_itemName">M3</td>
-						<td class="table_item"><b>Mirrorの形</b><br>
-							Target1 と Target2 がおなじ Band にあるなら、Target1の連結Houseと Block2 は重なり、
-							重なり部分は Mirror1 の定義箇所から除外される。Mirror2についても同様である。<br>
-							JE2(ex.1,ex.2) では、Base Band にTargetがあり、さらに Escapeも除外する。<br>
-							Objectでは、連結Houseの除外はない。<br>
-							TargetとBlockが連結しないなら、Mirror定義の除外はない(Ex3,Ex4)。<br><br>
-							<img src="images/img59S/image59S_Mirror2.svg" style="margin-left: 20px;" width="50% alt="Exocet Mirror Form">
+						<td class="table_item"><b>Mirror Shape</b><br>
+							If Target1 and Target2 are in the same Band, the connected House of Target1 and Block2 will overlap,
+							and the overlapping part will be excluded from the definition of Mirror1. The same applies to Mirror2. <br>
+							In JE2(ex.1,ex.2), the Target is in the Base Band, and Escape is also excluded.
+							Note that in Object, connected Houses are not excluded. <br>
+							If the Target and Block are not connected, there is no exclusion in the Mirror definition (ex.3,ex.4). <br><br>
+							<img src="images/img59S/image59S_Mirror2.svg" style="margin-left: 20px;" width="50%" alt="Exocet Mirror Form">
 						</td>
 					</tr>
 					<tr>
 						<td class="table_itemName">M4</td>
-						<td class="table_item"><b>Mirrorの除外</b><br>
-							1) Mirrorで真にならない Base数字 は、そのObjectセルでは偽である。<br>
-							2) Mirrorの1セルに 非Base数字 のみを含むとき、他方のセルには対のObjectの Base数字数字 に限定される。<br>
-							3) MirrorにBase数字以外が1つのみの場合、それは真であり、それが見えるセルでは偽になる。<br>
-							4) MirrorにLockedされた数字が含まれる場合、Mirrorに含まれる同じタイプ（Base数字/非Base数字）の数字は偽になる。
+						<td class="table_item"><b>Mirror Exclusion</b><br>
+							1) Base digits that are not true in the Mirror are false in that Object cell. <br>
+							2) When one cell in the Mirror contains only non-Base digits,
+							the other cell is limited to the Base digits of the paired Object. <br>
+							3) If the Mirror contains only one non-Base digits, it is true and false in cells where it is visible. <br>
+							4) If the Mirror contains a Locked digits, digits of the same type (Base digits/non-Base digits) in the Mirror are false.
 						</td>
 					</tr>
 				</table><br>
 			</p>
 
-			[TD] 実サンプル追加
+			<span style="color:red">[TD] ... Adding real samples ... </span>
 		</section>
 	</article>
 
