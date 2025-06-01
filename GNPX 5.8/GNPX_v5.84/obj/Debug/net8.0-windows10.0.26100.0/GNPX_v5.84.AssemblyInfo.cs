@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GNPX_v5.84")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d076ca238f18211b1c044caf6030e99b49fe1f1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8b78638eb4f2667ee60ae35b0d6b73e0b2d36d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("GNPX_v5.84")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GNPX_v5.84")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
