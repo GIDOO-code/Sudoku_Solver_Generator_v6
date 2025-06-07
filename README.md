@@ -24,7 +24,7 @@
   (6) DeathBlossom algorithm consideration<br>
   (7) Subset<br>
   (8) Firework<br>
-  (9) Exocet(junior/Senior) ... Senior Exocet is currently under development.<br>
+  (9) Exocet(Junior/Senior) ... Senior Exocet is currently under development.<br>
 
 ## 3. GNPX v6 GNPXGNPX<br>
   (1) Classify and organize the processing contents using pages in the UI.<br>

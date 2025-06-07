@@ -1,1 +1,0 @@
-Images must specify "resource" properties. Then compile.
