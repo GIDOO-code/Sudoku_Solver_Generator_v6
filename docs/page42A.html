@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>数独 XY-Wing</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+
+	<!-- jQuery treeview ! -->	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>	
+    </section>
+
+<!-- -------------------------------------------------------------------------- -->
+<article id="main">
+	<section><br>
+		<h3 id="head_bg_Blue"> ALS-Wing</h3>
+		<p>ALS-Wing is an extension of XY-Wing and DeathBlossom,
+			and is an algorithm that uses the effect of ALS spreading when it becomes a LockedSet.
+			<ul>
+				<li>Expanding XY-Wing bivalue cells to ALS => DeathBlossom</li>
+				<li>Connection with stem cells and overlap with ALS possible => DeathBlossomEx</li>
+				<li>Extending the effect of weak links to Stem Cells => ALS-Wing</li>
+			</ul>
+
+			ALS-Wing includes the base algorithm and is an improvement and generalization of the solving method.<br>
+			GNPX uses logical operations based on bit representation.<br><br>
+		</p>
+		<p>The ALS-Wing "lockedSet" is explained in the following diagram.<br>
+			Focus on a cell (stem cell) and select the ALS connected to the cell (weak link).<br>
+			Next, select cell #digit(fake cell digit) to change ALS to LockedSet.<br>
+			<ol>
+				<li>[C]If cell#digit is true,</li>
+				<li>[B]ALS changes to LockedSet,</li>
+				<li>If the effect of LockedSet [B->A] is that all the candidate digits in cell [A] are negative,<br>
+					(The effect of a weak link from B to A may be multiple #digits.)</li>
+				<li>[C]Cell #digit is not true.</li>
+			</ol>
+
+			<img src="images/img42A/img42A0.svg" width="400">
+		</p>
+
+		<p>
+			The basic form of ALS-Wing is shown here, and can be extended as follows.
+			These are independent and can be extended simultaneously.
+
+			<ul>
+				<li>The fake cell digit and the Stem-cell digits are a weak link.[connected type]</li>
+				<li>It consists of multiple ALSs that are weakly linked to the Stem-cell.</li>
+				<li>There is overlap between multiple ALS types[overlapping type]</li>
+			</ul>
+			
+		</p>
+		<img src="images/img42A/img42Aa.svg" width="400">
+		<img src="images/img42A/img42Ab.svg" width="400">
+		<img src="images/img42A/img42Ac.svg" width="400">
+		</p>
+
+		<h4>●ALS-Wing examole</h4>
+		<p>
+			<img src="images/img42A/img42A10.png" width="250" style="float:left;  margin-right:8px;">
+			<strong>ALS_Wing</strong><br>
+				Stem Cell: r4c7<br>
+				ALS_1: r4c4 #68<br>
+				ALS_2: r3c137  #2469<br>
+				Eliminated: r3c4 #6<br>
+			<p style="clear: both" ><br></p>
+			
+			<img src="images/img42A/img42A11.png" width="250" style="float:left;  margin-right:8px;">
+			<strong>ALS_Wing  Connected</strong><br>
+				Stem Cell: r2c6<br>
+				ALS_1: r346c4  #1789<br>
+				ALS_2: r1238c5  #12478<br>
+				Eliminated: r2c4 #8<br>
+			<p style="clear: both" ><br></p>
+
+			<img src="images/img42A/img42A12.png" width="250" style="float:left;  margin-right:8px;">
+			<strong>ALS_Wing overlapping</strong><br>
+				Stem Cell: r3c4<br>
+				ALS_1: r6c4 #78<br>
+				ALS_2: r4c47  #178<br>
+				ALS_3: r134c7  #1789<br>
+				(ALS overlapping cells: r4c7)<br>
+				Eliminated: r4c6 #8<br>
+			<p style="clear: both" ><br></p>
+
+			<img src="images/img42A/img42A13.png" width="250" style="float:left;  margin-right:8px;">
+			<strong>ALS_Wing Connected overlapping</strong><br>
+				Stem Cell: r2c5<br>
+				ALS_1: r137c5  #1478<br>
+				ALS_2: r138c5  #1247<br>
+				(ALS overlapping cells: r13c5)<br>
+				Eliminated: r2c6 #4<br>
+			<p style="clear: both" ><br>
+				7.1..9..8.52...19..8...3.574.3.5.......2.1.......3.7.519.7...3..37...68.8..3..9.1<br>
+				2.9..3..8.17...63..8...6.259.5.6.......3.2.......9.3.114.6...9..53...48.7..4..2.6<br><br><br></p>
+		</p>
+		<a href="#" class="pagetop">Top</a>
+		
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>
