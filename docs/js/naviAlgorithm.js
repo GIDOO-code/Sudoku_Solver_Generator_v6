@@ -53,6 +53,7 @@ function writeNaviAlgorithm(){
 		        	html += '<li><a href="page51.html">ALS XY-Wing</a></li>';
 		        	html += '<li><a href="page52.html">ALS Chain</a></li>';
 					html += '<li><a href="page53.html">ALS DeathBlossom</a></li>';
+					html += '<li><a href="page42A.html">ALS-Wing</a></li>';
 			    html += '</ul>';
 			html += '</li>';
 
