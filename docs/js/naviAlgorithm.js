@@ -99,28 +99,12 @@ function writeNaviAlgorithm(){
 					html += '<li><a href="page59B_JE2_Object.html">JE2+,JE2++</a></li>';
 		        	html += '<li><a href="page59C_JEn.html">JE1</a> </li>';
 					html += '<li><a href="page59C_JEn.html">JE3</a> </li>';
-		        	html += '<li><a href="page59S.html">Senior Exocet</a></li>';
+		        	html += '<li><a href="page59SE.html">Senior Exocet</a></li>';
+					html += '<li><a href="page59SE.html">SE Single</a></li>';
+					html += '<li><a href="page59SE.html">SE_SingleBase</a></li>';
+					html += '<li><a href="page59SE.html">SE_Jelly ... in dev.</a></li>';
 			    html += '</ul>';
 			html += '</li>';
-
-/*
-
-
-				<tr>
-					<td class="table_line">&nbsp;Exocet</td>
-					<td class="table_line">
-						&nbsp;<a href="page59.html">Junior Exocet (JE2)</a> <br>
-						&nbsp;<a href="page59B_JE2_Object.html">Junior Exocet (JE2+,JE2++)</a> <br>
-						&nbsp;<a href="page59C_JEn.html">Junior Exocet-n (JE1,JE3)</a> <br>
-						<br>
-						&nbsp;<a href="page59S.html">Senior Exocet</a> <br>
-					</td>
-					<td class="table_line">&nbsp;ver.6.0-<br> </td>
-				</tr>
-*/
-
-
-
 
 
 		html += '<li><a href="page60.html">General Logic</a></li>';	
