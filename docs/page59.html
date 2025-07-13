@@ -490,14 +490,23 @@
 						<img src="images/img59/image59_Exocet_Rule-09.svg" style="margin-left:5px;" width="40%" >
 
 					</p>
-						<p style="background-color:rgba(161, 255, 161, 0.5) ">
+					<p style="background-color:rgba(161, 255, 161, 0.5) ">
 							<small>
 							[Notes]<br>
 							The "row, column, block constraint" and "digit 1-9 constraint" in Sudoku rules are equivalent to "row, column, block, digit constraint". <br>
 							General Logic is an analysis algorithm based on this. <br>
 							ALS (Almost Locked Set) is generally "n+1 digits in n cells", but "n digits in n+1 cells" is also "ALS".<br>
-							&nbsp;&nbsp;<a href="page60.html">General Logic</a> is an analytical algorithm based on this.<br>
-							&nbsp;&nbsp;<a href="page26.html">ALS(Almost Locked Set) </a> is generally "n+1 digits in n cells," but "n digits in n+1 cells" is also ALS.
+							&nbsp;&nbsp; <a href="page60.html">General Logic</a> is an analytical algorithm based on this.<br>
+							&nbsp;&nbsp; <a href="page26.html">ALS(Almost Locked Set) </a> is generally "n+1 digits in n cells," but "n digits in n+1 cells" is also ALS.
+						</small>
+					</p>
+											
+					<p style="background-color:rgba(161, 255, 161, 0.5) ">
+						<small>
+							[Notes2]<br>
+							&nbsp;&nbsp;"n digits in n+1 cells" is named "AHS (Almost Hidden Set).<br>
+							&nbsp;&nbsp;In the GNPX implementation, it is defined based on ALS with some modifications.<br>
+							&nbsp;&nbsp;The classes ALS and AHS are defined as derived classes with SubSet as the base class.
 						</small>
 					</p>
 				</li><br><br>
