@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sudoku AHS</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+
+	<!-- jQuery treeview ! -->	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 6</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>	
+    </section>
+
+
+
+    <article id="main">
+        <section>
+            
+
+            <h3 id="head_bg_Blue">AHS</h3>
+            <p>The Almost Hidden Set (AHS) is a subset of the House that is created by restricting the candidate digits and cells.
+                This is the counterpart constraint to <a href="page26.html">ALS</a>.<br></p>
+
+            <h4 id="head_bg_LightBlue">(1)AHS</h4>
+            <p>
+                A <b>Locked Set</b> is a state in which "N cells in the same house have N candidate digits",
+                and it is not possible to determine which cell contains which number, but the set as a whole is in a locked state.<br>
+                <b>AHS</b> is in an <b>almost</b> Locked state, with "N candidate digits in N+1 cells" belonging to the same house.
+                When one cell that makes up AHS is removed, it is confirmed and AHS becomes a LockedSet.<br>
+                The smallest AHS is "2 cells, 1 candidate digit".<br><br>
+                <img src="images/img50_AHS/img50AHS_def.svg" alt="AHS" width="50%" >
+                <br><br>
+                このHPでは、次のように簡略化した AHS表現 も用います。<br>
+                <img src="images/img50_AHS/img50AHS_simpllified.svg" alt="AHS" width="50%" > 
+            </p>
+
+        </section>
+
+        <section>
+            <a ID="RCC"></a>
+            <h4 id="head_bg_LightBlue">(2) RCC,nRCC</h4>
+            <p>
+                The analysis algorithm using AHS makes use of the common cell and numerical limiting effects of the two AHS.<br>
+                When two AHS overlap, the cells of the AHS are classified.
+                The cells in the overlapping area of the AHS are RCC (Restricted Common Cell).
+                Also, the cells other than the RCC of the AHS are nRCC (no Restricted Common Cell).<br><br>
+                <img src="images/img50_AHS/img50AHS_RCC_nRCC_def.svg" alt="AHS" width="30%" ><br><br>
+
+                The RCC has multiple cells. Each cell contains candidate digits from two AHSs.
+                However, for simplicity, initially define the RCC cell for one state.<br><br>
+                The candidate digits of two AHSs may be common to both, or unique to each.
+                Therefore, RCC cells will also have combinations of common and unique candidate digits.<br>
+                RCC-cells are classified as "X" and "Z" as follows:<br>
+
+                <table class="table1" style="border-collapse:collapse; border: 1px solid #000099;" >
+					<tr>
+						<td class="table_itemName" style="width: 5%" >X</td>
+						<td class="table_item">The candidate digits of the two AHS are different, 
+                            or the two AHS have the same candidate digits but the RCC-cells do not have the same candidate digits.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName" >Z</td>
+						<td class="table_item">RCC-cells have a common candidate digit ("Z" if it is not "X").</td>
+					</tr>
+				</table><br>
+                <img src="images/img50_AHS/img50AHS_X_Z_def.svg" alt="AHS" width="60%" ><br><br>
+
+                
+                In the diagram above, a cell in an RCC is counted as one cell, but an RCC-cell can be 1 to 3 cells. <br>
+                Also, within an RCC, X and Z are mixed in various ways.<br>
+                It is these particular combinations that result in an analytical algorithm.
+                <img src="images/img50_AHS/img50AHS_X_Z_mix.svg" alt="AHS" width="70%" >
+            </p><br><br>
+
+
+
+
+
+            <h3 id="head_bg_Blue">Analysis Algorithm</h3>
+            <p>
+                AHS-XZ is a bit of an oddball among Sudoku algorithms, but the logic is simple.
+                The GNPX source code is a good reference.<br>
+            </p>
+
+            <h4 id="head_bg_LightBlue">(1) AHS_XZ</h4>
+            <p>
+                <b>AHS_XZ</b> is when the RCC has <b>one or more X and one or more Z</b>.<br><br>
+                If the <b>Z</b> cell becomes invalid in some way in the RCC (minimum 2 cells),
+                one AHS will become LockedSet and the other AHS will run out of cells.
+                Therefore, candidate numbers other than the AHS of the Z cell can be eliminated.
+                <br><br>
+                <img src="images/img50_AHS/img50AHS_AHS_XZ.svg" alt="AHS_xz" width="70%" ><br><br>
+            </p>
+
+            <h4 id="head_bg_LightBlue">(2) AHS_XZ_double</h4>
+            <p>
+                <b>AHS-XZ double</b> is when the RCC has <b>2 or more X</b>.<br><br>
+                Exclusion rules :<br>
+                1) If cell <b>X</b> becomes invalid in some way in the RCC,
+                    one AHS will become LockedSet and the other AHS will have a shortage of cells.
+                    Therefore, AHS candidate digits other than Z cell can be excluded.
+                <br><br>
+                2) The other AHS candidate digit in the nRCC can be excluded.<br>
+                <br>
+                <img src="images/img50_AHS/img50AHS_AHS_XZ_double.svg" alt="AHS_xz" width="70%" ><br><br><br>
+            </p>
+
+
+        </section>
+
+
+
+    <a href="#" class="pagetop">Top</a>
+    <footer id="foot">
+        <p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

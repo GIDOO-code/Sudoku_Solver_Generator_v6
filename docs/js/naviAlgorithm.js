@@ -57,6 +57,13 @@ function writeNaviAlgorithm(){
 			    html += '</ul>';
 			html += '</li>';
 
+			html += '<li><a href="?ALS">AHS</a>';
+				html += '<ul>';
+		        	html += '<li><a href="page50_AHS.html">AHS XZ</a></li>';
+		        	html += '<li><a href="page50_AHS.html">AHS XY double</a></li>';
+			    html += '</ul>';
+			html += '</li>';
+
 			html += '<li><a href="?NiceLoop">Nice Loop</a>';
 				html += '<ul>';
 		        	html += '<li><a href="page54.html">Nice Loop</a></li>';
