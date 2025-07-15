@@ -112,6 +112,13 @@
             <h4 id="head_bg_LightBlue">(1) AHS_XZ</h4>
             <p>
                 <b>AHS_XZ</b> is when the RCC has <b>one or more X and one or more Z</b>.<br><br>
+                Exclusion rules :<br>
+                1) Candidate digits other than AHS in cell Z can be excluded.<br>
+                &nbsp; &nbsp; - Suppose cell <b>Z</b> becomes invalid.<br>
+                &nbsp; &nbsp; - One AHS will be in LockedSet and the other AHS will run out of cells.<br><br>
+                <img src="images/img50_AHS/img50AHS_AHS_XZ.svg" alt="AHS_xz" width="70%" ><br><br>
+
+                
                 If the <b>Z</b> cell becomes invalid in some way in the RCC (minimum 2 cells),
                 one AHS will become LockedSet and the other AHS will run out of cells.
                 Therefore, candidate numbers other than the AHS of the Z cell can be eliminated.
@@ -123,11 +130,17 @@
             <p>
                 <b>AHS-XZ double</b> is when the RCC has <b>2 or more X</b>.<br><br>
                 Exclusion rules :<br>
-                1) If cell <b>X</b> becomes invalid in some way in the RCC,
-                    one AHS will become LockedSet and the other AHS will have a shortage of cells.
-                    Therefore, AHS candidate digits other than Z cell can be excluded.
-                <br><br>
+                1) Candidate digits other than AHS in cell Z can be excluded.<br>
+                &nbsp; &nbsp; - Suppose cell <b>Z</b> becomes invalid.<br>
+                &nbsp; &nbsp; - One AHS will be in LockedSet and the other AHS will run out of cells.<br><br>
+            
                 2) The other AHS candidate digit in the nRCC can be excluded.<br>
+                &nbsp; &nbsp; - This takes advantage of the fact that there are more than two X's.<br>
+                &nbsp; &nbsp; - (When RCC has two Xs) In nAHS-1, assume that the candidate AHS-2 is positive.<br>
+                &nbsp; &nbsp; - This cell is removed and AHS-1 becomes the LockedSet.<br>
+                &nbsp; &nbsp; - The number of cells in AHS-2 is reduced by 2 (the number of RCC cells). 
+                However, the presence of two Xs does not reduce the number of candidate digits in AHS-2.<br>
+                &nbsp; &nbsp; - Therefore, AHS-2 becomes "N digits N-1(=N+1-2) cells" and fails.<br>
                 <br>
                 <img src="images/img50_AHS/img50AHS_AHS_XZ_double.svg" alt="AHS_xz" width="70%" ><br><br><br>
             </p>

@@ -8,7 +8,7 @@
    version="1.1"
    id="svg17372"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
-   sodipodi:docname="image26AHS.svg"
+   sodipodi:docname="image50AHS.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.3323904"
-     inkscape:cx="233.02274"
-     inkscape:cy="788.67587"
+     inkscape:zoom="1.0933522"
+     inkscape:cx="548.31371"
+     inkscape:cy="470.57115"
      inkscape:window-width="2394"
      inkscape:window-height="1821"
-     inkscape:window-x="747"
-     inkscape:window-y="569"
+     inkscape:window-x="1325"
+     inkscape:window-y="127"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:page
@@ -327,7 +327,7 @@
          id="tspan358"
          x="230.06363"
          y="107.57546"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS1 </tspan><tspan
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS-1 </tspan><tspan
          sodipodi:role="line"
          id="tspan359"
          x="230.06363"
@@ -357,7 +357,7 @@
          id="tspan360"
          x="243.80881"
          y="101.88702"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS2 </tspan><tspan
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS-2 </tspan><tspan
          sodipodi:role="line"
          id="tspan361"
          x="243.80881"
@@ -501,7 +501,7 @@
          id="tspan402"
          x="232.46992"
          y="88.798759"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS1 #<tspan
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS-1 #<tspan
    style="fill:#ff0000;fill-opacity:1"
    id="tspan445">abc</tspan> </tspan><tspan
          sodipodi:role="line"
@@ -533,7 +533,7 @@
          id="tspan405"
          x="255.00305"
          y="83.553566"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS2 #<tspan
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS-2 #<tspan
    style="fill:#ff0000;fill-opacity:1"
    id="tspan478">c</tspan><tspan
    style="fill:#009100;fill-opacity:1"
@@ -671,7 +671,7 @@
          id="tspan499"
          x="309.29153"
          y="93.267921"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS1 #<tspan
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS-1 #<tspan
    style="fill:#ff0000;fill-opacity:1"
    id="tspan498">abc</tspan> </tspan><tspan
          sodipodi:role="line"
@@ -703,7 +703,7 @@
          id="tspan503"
          x="332.09872"
          y="88.428246"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS2 #<tspan
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0947604;stroke-opacity:1">AHS-2 #<tspan
    style="fill:#009100;fill-opacity:1"
    id="tspan502">uvw</tspan> </tspan><tspan
          sodipodi:role="line"
