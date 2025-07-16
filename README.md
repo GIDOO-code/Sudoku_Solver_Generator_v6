@@ -10,7 +10,7 @@
 ![GNPX](./images0/GNPX_start.png)<br>
 
 
-## 1. GNPX v5 brings significant improvements to the program.<br>
+## 1. GNPX v6 brings significant improvements to the program.<br>
    GNPX v6 is a development and deployment version of new algorithms. Smartness is secondary.<br>
    There is no continuity with the traditional code in the analysis algorithm part of GNPX.<br>
 
@@ -24,7 +24,8 @@
   (6) DeathBlossom algorithm consideration<br>
   (7) Subset<br>
   (8) Firework<br>
-  (9) Exocet(Junior/Senior) ... Senior Exocet is currently under development.<br>
+  (9) AHS(AHS-XZ)<br>
+  (10) Exocet(Junior/Senior) ... Senior Exocet is currently under development.<br>
 
 ## 3. GNPX v6 GNPXGNPX<br>
   (1) Classify and organize the processing contents using pages in the UI.<br>

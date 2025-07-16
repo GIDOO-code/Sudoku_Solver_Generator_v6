@@ -1,1 +1,3 @@
-Sudoku analysis/generation C# program. The algorithm used is Single, LockedCandidate, LockedSet...Fish,Chain,ALS...NiceLoop...
+Sudoku analysis/generation C# program.
+The algorithm used is Single, LockedCandidate,
+LockedSet...Fish,Chain,ALS...NiceLoop...SubSet,Firework,AHS,JExocet
