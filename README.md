@@ -33,3 +33,7 @@
   (2) Improve many analysis algorithms. All algorithms are expressed in bits (Bit81 changed to UInt128).<br>
   (3) Find solutions in the background and monitor the accuracy of the algorithm (using T/E method).<br>
   (4) Improve problem creation function (generate all Sudoku problems by specifying patterns and fixing block 1. Parallel processing. Approximately 9 million puzzles).<br>
+
+ ## 4. How to execute GNPX
+ (1) Unzip GNPX_App.zip.
+ (2) Click "GNPX_vx.xx.exe - Shortcut"
