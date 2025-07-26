@@ -30,13 +30,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.8594257"
-     inkscape:cx="1233.7143"
-     inkscape:cy="2081.5567"
+     inkscape:zoom="3.7188514"
+     inkscape:cx="307.35296"
+     inkscape:cy="266.34568"
      inkscape:window-width="2473"
      inkscape:window-height="1857"
-     inkscape:window-x="680"
-     inkscape:window-y="180"
+     inkscape:window-x="550"
+     inkscape:window-y="773"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer5"
      inkscape:lockguides="true"
@@ -20607,7 +20607,7 @@
        transform="matrix(0.61816849,0,0,0.71026012,-183.39654,243.74878)"><tspan
          x="358.43585"
          y="312.22403"
-         id="tspan221">-#b</tspan></text><text
+         id="tspan256">-#b</tspan></text><text
        xml:space="preserve"
        style="font-size:1.76713px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';fill:#1d51f2;fill-opacity:1;stroke:none;stroke-width:0.121105;stroke-linecap:square;stroke-dasharray:none;paint-order:fill markers stroke"
        x="38.923126"
@@ -23001,7 +23001,7 @@
              style="line-height:1;fill:#001600;fill-opacity:0.8;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
              x="45.362778"
              y="21.31143"
-             id="tspan744">Base, S-area, and Target</tspan></text></g><g
+             id="tspan744">Base, SArea, and Target</tspan></text></g><g
          id="g760"
          transform="translate(-0.07320013)"><rect
            style="opacity:0.8;fill:#ffffff;fill-opacity:1;stroke:#1c911c;stroke-width:0.173602;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:0.972549"
@@ -25853,7 +25853,7 @@
          inkscape:transform-center-y="-0.10254267"><tspan
            x="203.64294"
            y="359.95172"
-           id="tspan253">-#y</tspan></text></g><text
+           id="tspan268">-#y</tspan></text></g><text
        xml:space="preserve"
        style="font-size:2.02613px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';fill:#ff0000;fill-opacity:0.8;stroke:none;stroke-width:0.0792532;stroke-linecap:square;stroke-dasharray:none;paint-order:fill markers stroke"
        x="216.16223"
@@ -26089,7 +26089,7 @@
          inkscape:transform-center-y="-0.10254267"><tspan
            x="203.64294"
            y="359.95172"
-           id="tspan254">-#a</tspan></text><rect
+           id="tspan270">-#a</tspan></text><rect
          style="opacity:0.8;fill:#58f433;fill-opacity:0.226244;stroke:none;stroke-width:0.146345;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect73"
          width="7.8021779"
@@ -26334,7 +26334,7 @@
          inkscape:transform-center-y="-0.10254267"><tspan
            x="203.64294"
            y="359.95172"
-           id="tspan255">-#a</tspan></text><text
+           id="tspan284">-#a</tspan></text><text
          xml:space="preserve"
          style="font-size:2.38184px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';fill:#ee0000;fill-opacity:0.668148;stroke:none;stroke-width:0.0931671;stroke-linecap:square;stroke-dasharray:none;paint-order:fill markers stroke"
          x="231.17912"

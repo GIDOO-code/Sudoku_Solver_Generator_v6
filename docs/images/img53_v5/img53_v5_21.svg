@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="116.18853mm"
+   height="45.575504mm"
+   viewBox="0 0 116.18853 45.575504"
+   version="1.1"
+   id="svg2501"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="img53_v5_21.svg"
+   inkscape:export-filename="img53_v5_21.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2503"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.93941198"
+     inkscape:cx="711.08312"
+     inkscape:cy="406.63735"
+     inkscape:window-width="2503"
+     inkscape:window-height="1670"
+     inkscape:window-x="392"
+     inkscape:window-y="233"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2498">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect6545"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-162.16237,-84.376562)">
+    <rect
+       x="176.20895"
+       y="94.360664"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.189425"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="6.8192239"
+       height="6.8192949"
+       id="rect6477"
+       inkscape:export-filename="img53b_21.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       x="174.12766"
+       y="107.80745"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.37885"
+       stroke-linejoin="round"
+       stroke="#7263e7"
+       stroke-opacity="1"
+       width="38.642601"
+       height="6.8192949"
+       id="rect6479"
+       style="stroke:#000000;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       x="187.57445"
+       y="94.360664"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.37885"
+       stroke-linejoin="round"
+       stroke="#7263e7"
+       stroke-opacity="1"
+       width="22.730909"
+       height="6.8192949"
+       id="rect6481"
+       style="stroke:#000000;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       id="text6487"
+       x="180.02351"
+       y="97.212196"
+       style="font-size:0.852411px;stroke-width:0.0710342"><tspan
+   style="font-size:3.40965px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan6485">x</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text6491"
+       x="203.20709"
+       y="93.944901"
+       style="font-size:0.852411px;stroke-width:0.0710342">			 <tspan
+   style="font-size:3.40965px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan6489">ALS1</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text6495"
+       x="205.31609"
+       y="107.20222"
+       style="font-size:0.852411px;stroke-width:0.0710342">			 <tspan
+   style="font-size:3.40965px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan6493">ALS2</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text6501"
+       x="200.48138"
+       y="120.28313"
+       style="font-size:0.852411px;stroke-width:0.0710342"><tspan
+   style="font-size:3.40965px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan6499">z</tspan>			</text>
+    <line
+       fill="none"
+       stroke-width="0.242402"
+       stroke-linejoin="round"
+       stroke="#ff0000"
+       stroke-opacity="1"
+       x1="203.53612"
+       y1="117.6311"
+       x2="199.09433"
+       y2="120.90366"
+       id="line6503" />
+    <text
+       xml:space="preserve"
+       id="text6507"
+       x="192.38348"
+       y="97.212196"
+       style="font-size:0.852411px;stroke-width:0.0710342"><tspan
+   style="font-size:3.40965px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan6505">x</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text6511"
+       x="177.75041"
+       y="99.906425"
+       style="font-size:0.852411px;stroke-width:0.0710342"><tspan
+   style="font-size:3.40965px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan6509">y</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text6515"
+       x="177.99544"
+       y="111.70829"
+       style="font-size:0.852411px;stroke-width:0.0710342"><tspan
+   style="font-size:3.40965px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan6513">y</tspan>		</text>
+    <line
+       fill="none"
+       stroke-width="0.19825"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="181.7274"
+       y1="96.21064"
+       x2="191.69443"
+       y2="96.21064"
+       id="line6519"
+       style="stroke:#0000fe;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       id="text6523"
+       x="169.17474"
+       y="93.792389"
+       style="font-size:0.852411px;stroke-width:0.0710342">			 <tspan
+   style="font-size:3.40965px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan6521">Stem Cell</tspan>		</text>
+    <g
+       id="g6531"
+       transform="matrix(0.5273513,0,0,0.5273513,173.9491,49.723691)">
+      <ellipse
+         style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.11007;stroke-linecap:square;stroke-dasharray:2.22014, 2.22014;stroke-opacity:1;paint-order:fill markers stroke"
+         id="ellipse6525"
+         cx="52.320595"
+         cy="91.010445"
+         rx="2.3956609"
+         ry="2.646605" />
+      <text
+         xml:space="preserve"
+         id="text6529"
+         x="50.68829"
+         y="92.807426"
+         style="font-size:1.6164px;fill:#000000;fill-opacity:1;stroke-width:0.1347"><tspan
+   style="font-size:6.46561px;font-family:'メイリオ';fill:#000000;fill-opacity:1"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.02694"
+   stroke-linejoin="round"
+   id="tspan6527">z</tspan>		</text>
+    </g>
+    <g
+       id="g6539"
+       transform="matrix(0.5273513,0,0,0.5273513,173.77788,63.149497)">
+      <ellipse
+         style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.11007;stroke-linecap:square;stroke-dasharray:2.22014, 2.22014;stroke-opacity:1;paint-order:fill markers stroke"
+         id="ellipse6533"
+         cx="52.320595"
+         cy="91.010445"
+         rx="2.3956609"
+         ry="2.646605" />
+      <text
+         xml:space="preserve"
+         id="text6537"
+         x="50.68829"
+         y="92.807426"
+         style="font-size:1.6164px;fill:#000000;fill-opacity:1;stroke-width:0.1347"><tspan
+   style="font-size:6.46561px;font-family:'メイリオ';fill:#000000;fill-opacity:1"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.02694"
+   stroke-linejoin="round"
+   id="tspan6535">z</tspan>		</text>
+    </g>
+    <path
+       style="fill:#0000ff;fill-opacity:1;stroke:#ff0000;stroke-width:0.2;stroke-linecap:square;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+       d="m 193.03061,87.163516 c 0.004,8.976793 0.009,17.952954 0.0133,26.929434"
+       id="path6541"
+       inkscape:path-effect="#path-effect6545"
+       inkscape:original-d="m 193.03061,87.163516 c 0.004,8.976793 0.0133,26.929434 0.0133,26.929434"
+       transform="translate(8.4746287,7.9278784)" />
+    <line
+       fill="none"
+       stroke-width="0.196807"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="178.97504"
+       y1="110.3037"
+       x2="178.97504"
+       y2="100.48126"
+       id="line6565"
+       style="stroke:#0000fe;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       id="text7335"
+       x="223.79662"
+       y="118.95208"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0710342"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0142068"
+   stroke-linejoin="round"
+   id="tspan7333">DeathBlossom</tspan>		</text>
+    <line
+       fill="none"
+       stroke-width="0.357725"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="222.97417"
+       y1="119.47662"
+       x2="255.42586"
+       y2="119.47662"
+       id="line7439"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       style="opacity:0.8;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.202019;stroke-linecap:square;stroke-miterlimit:3.7;stroke-dasharray:none;stroke-dashoffset:0.0755904;stroke-opacity:1;paint-order:fill markers stroke"
+       id="rect8"
+       width="115.98652"
+       height="45.373489"
+       x="162.26338"
+       y="84.47757" />
+  </g>
+</svg>

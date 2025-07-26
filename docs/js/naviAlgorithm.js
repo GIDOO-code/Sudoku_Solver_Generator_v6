@@ -104,20 +104,14 @@ function writeNaviAlgorithm(){
 				html += '<ul>';
 		        	html += '<li><a href="page59.html">JE2</a></li>';
 					html += '<li><a href="page59B_JE2_Object.html">JE2+,JE2++</a></li>';
-		        	html += '<li><a href="page59C_JEn.html">JE1</a> </li>';
-					html += '<li><a href="page59C_JEn.html">JE3</a> </li>';
-		        	html += '<li><a href="page59SE.html">Senior Exocet</a></li>';
-					html += '<li><a href="page59SE.html">SE Single</a></li>';
-					html += '<li><a href="page59SE.html">SE_SingleBase</a></li>';
-					html += '<li><a href="page59SE.html">SE_Jelly ... in dev.</a></li>';
+		        	html += '<li><a href="page59C_JEn.html#JE1">JE1</a> </li>';
+					html += '<li><a href="page59C_JEn.html#JE3">JE3</a> </li>';
+		        	html += '<li><a href="page59SE.html#SE">Senior Exocet</a></li>';
+					html += '<li><a href="page59SE.html#SE_single">SE Single</a></li>';
+					html += '<li><a href="page59SE.html#SE_singleBase">SE_SingleBase</a></li>';
+				//	html += '<li><a href="page59SE.html#Mutant">SE_Mutant</a></li>';
 			    html += '</ul>';
 			html += '</li>';
-
-
-		html += '<li><a href="page60.html">General Logic</a></li>';	
-
-
-
 		html += '</ul>';
 
 	    html += '<h4 style="color:Darkblue">Base Class</h4>';
