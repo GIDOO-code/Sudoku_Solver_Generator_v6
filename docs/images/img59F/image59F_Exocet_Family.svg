@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="145.72084mm"
+   height="45.179157mm"
+   viewBox="0 0 145.72084 45.179157"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="image59F_000.svg"
+   inkscape:export-filename="..\img59B\image59B_Exocet_def_B01.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="2.0989567"
+     inkscape:cx="804.68549"
+     inkscape:cy="276.56597"
+     inkscape:window-width="2772"
+     inkscape:window-height="1967"
+     inkscape:window-x="578"
+     inkscape:window-y="106"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="mm"
+       originx="-129.54583"
+       originy="-13.129166"
+       spacingx="0.26458334"
+       spacingy="0.26458333"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="145.72084"
+       height="45.179157"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect503"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect497"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect493"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect487"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <marker
+       style="overflow:visible"
+       id="DartArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Dart arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         transform="scale(-0.5)"
+         id="path6" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect483"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-129.54583,-13.129166)">
+    <g
+       id="g1">
+      <text
+         xml:space="preserve"
+         style="font-size:3.41169px;line-height:3.25163px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00243692px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0009ea;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="147.2877"
+         y="42.647026"
+         id="text464"
+         transform="scale(0.92104014,1.085729)"
+         inkscape:export-filename="image59F_Exocet_Family.svg"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan464"
+           style="fill:#0009ea;fill-opacity:1;stroke-width:0.2"
+           x="147.2877"
+           y="42.647026">F/M Exocet</tspan></text>
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:0.647059;stroke:#0000e2;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         id="rect465"
+         width="19.94618"
+         height="5.291666"
+         x="133.6151"
+         y="42.333332"
+         ry="1.0583351" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.56029px;line-height:3.39325px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00254306px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0009ea;fill-opacity:1;stroke:none;stroke-width:0.199999;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="188.92708"
+         y="31.984818"
+         id="text458"
+         transform="scale(0.96115548,1.0404144)"><tspan
+           sodipodi:role="line"
+           id="tspan458"
+           style="fill:#0009ea;fill-opacity:1;stroke-width:0.199999"
+           x="188.92708"
+           y="31.984818">JE2</tspan></text>
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:0.647059;stroke:#0000e2;stroke-width:0.199999;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         id="rect469"
+         width="19.745935"
+         height="5.291666"
+         x="179.87891"
+         y="29.206396"
+         ry="1.0583351" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.551px;line-height:3.3844px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00253642px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0009ea;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="189.41441"
+         y="44.388329"
+         id="text460"
+         transform="scale(0.95864675,1.0431371)"><tspan
+           sodipodi:role="line"
+           id="tspan460"
+           style="fill:#0009ea;fill-opacity:1;stroke-width:0.2"
+           x="189.41441"
+           y="44.388329">JE2+/++</tspan></text>
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:0.647059;stroke:#0000e2;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         id="rect470"
+         width="19.642982"
+         height="5.291666"
+         x="179.88104"
+         y="42.333328"
+         ry="1.0583351" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.56577px;line-height:3.39849px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00254697px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0009ea;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="140.72282"
+         y="31.949629"
+         id="text462"
+         transform="scale(0.96263671,1.0388135)"><tspan
+           sodipodi:role="line"
+           id="tspan462"
+           style="fill:#0009ea;fill-opacity:1;stroke-width:0.2"
+           x="140.72282"
+           y="31.949629">Exocet</tspan></text>
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:0.647059;stroke:#0000e2;stroke-width:0.4;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         id="rect471"
+         width="19.848717"
+         height="5.291666"
+         x="133.66383"
+         y="29.104162"
+         ry="1.0583351" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.9971px;line-height:3.80957px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00285506px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0009ea;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="213.05687"
+         y="35.794514"
+         id="text466"
+         transform="scale(1.0790799,0.92671543)"><tspan
+           sodipodi:role="line"
+           id="tspan466"
+           style="fill:#0009ea;fill-opacity:1;stroke-width:0.2"
+           x="213.05687"
+           y="35.794514">JE1/Single</tspan></text>
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:0.647059;stroke:#0000e2;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         id="rect474"
+         width="26.183804"
+         height="5.291666"
+         x="227.53354"
+         y="29.10026"
+         ry="1.0583351" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.6709px;line-height:3.49868px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00262206px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0009ea;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="231.43338"
+         y="46.005657"
+         id="text468"
+         transform="scale(0.99101704,1.0090644)"
+         inkscape:export-filename="image59B_Exocet_Family.svg"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan468"
+           style="fill:#0009ea;fill-opacity:1;stroke-width:0.2"
+           x="231.43338"
+           y="46.005657">Single-Base</tspan></text>
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:0.647059;stroke:#0000e2;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         id="rect475"
+         width="26.38567"
+         height="5.291666"
+         x="227.53717"
+         y="42.453903"
+         ry="1.0583351" />
+      <path
+         style="opacity:0.8;fill:#000200;fill-opacity:1;stroke:#000000;stroke-width:0.257893;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+         d="m 177.27085,34.39583 c 0,2.645834 0,5.291667 0,7.9375"
+         id="path483"
+         inkscape:path-effect="#path-effect483"
+         inkscape:original-d="m 177.27085,34.39583 c 0,2.645834 0,7.9375 0,7.9375"
+         transform="matrix(0.77551381,0,0,0.77551381,46.273844,8.1795223)" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.2349px;line-height:3.08313px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00231063px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#000200;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="211.43982"
+         y="34.277695"
+         id="text483"
+         transform="scale(0.87331181,1.1450664)"><tspan
+           sodipodi:role="line"
+           id="tspan483"
+           style="stroke:none;stroke-width:0.2"
+           x="211.43982"
+           y="34.277695">Extend Target to Object</tspan></text>
+      <path
+         style="opacity:0.8;fill:#000200;fill-opacity:1;stroke:#000000;stroke-width:0.0681497;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+         d="m 177.27085,34.39583 c 0,2.645834 0,5.291667 0,7.9375"
+         id="path484"
+         inkscape:path-effect="#path-effect487"
+         inkscape:original-d="m 177.27085,34.39583 c 0,2.645834 0,7.9375 0,7.9375"
+         transform="matrix(0,-2.9347249,2.9347249,0,52.929602,551.88703)" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.30298px;line-height:3.14801px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00235926px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#000200;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="171.60779"
+         y="23.906757"
+         id="text487"
+         transform="scale(0.89169133,1.1214643)"><tspan
+           sodipodi:role="line"
+           id="tspan487"
+           style="stroke:none;stroke-width:0.2"
+           x="171.60779"
+           y="23.906757">Restrict Target</tspan><tspan
+           sodipodi:role="line"
+           style="stroke:none;stroke-width:0.2"
+           x="171.60779"
+           y="27.054768"
+           id="tspan488"> position to Band</tspan></text>
+      <path
+         style="opacity:0.8;fill:#000200;fill-opacity:1;stroke:#000000;stroke-width:0.257893;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+         d="m 177.27085,34.39583 c 0,2.645834 0,5.291667 0,7.9375"
+         id="path489"
+         inkscape:path-effect="#path-effect493"
+         inkscape:original-d="m 177.27085,34.39583 c 0,2.645834 0,7.9375 0,7.9375"
+         transform="matrix(0.77551381,0,0,0.77551381,2.5622621,8.2659088)" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.25956px;line-height:3.10663px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00232824px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#000200;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="160.16344"
+         y="34.614986"
+         id="text490"
+         transform="scale(0.87996852,1.1364043)"><tspan
+           sodipodi:role="line"
+           id="tspan490"
+           style="stroke:none;stroke-width:0.2"
+           x="160.16344"
+           y="34.614986">Extend Sline position</tspan></text>
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:0.6, 0.6;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect493"
+         width="42.575893"
+         height="23.395361"
+         x="224.79094"
+         y="27.793432"
+         ry="1.2433814" />
+      <path
+         style="opacity:0.8;fill:#000200;fill-opacity:1;stroke:#000000;stroke-width:0.0681497;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+         d="m 177.27085,34.39583 c 0,2.645834 0,5.291667 0,7.9375"
+         id="path493"
+         inkscape:path-effect="#path-effect497"
+         inkscape:original-d="m 177.27085,34.39583 c 0,2.645834 0,7.9375 0,7.9375"
+         transform="matrix(0,-2.9347249,2.9347249,0,99.578326,551.88703)" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.37126px;line-height:3.21309px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00240803px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#000200;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="223.37399"
+         y="24.636827"
+         id="text494"
+         transform="scale(0.91012448,1.0987508)"><tspan
+           sodipodi:role="line"
+           style="stroke:none;stroke-width:0.2"
+           x="223.37399"
+           y="24.636827"
+           id="tspan497">Reduce to </tspan><tspan
+           sodipodi:role="line"
+           style="stroke:none;stroke-width:0.2"
+           x="223.37399"
+           y="27.849916"
+           id="tspan498"> one Target</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:3.37126px;line-height:3.21309px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00240803px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#000200;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="259.0629"
+         y="35.722599"
+         id="text500"
+         transform="scale(0.91012448,1.0987508)"><tspan
+           sodipodi:role="line"
+           style="stroke:none;stroke-width:0.2"
+           x="259.0629"
+           y="35.722599"
+           id="tspan500">Reduce to one Base</tspan></text>
+      <path
+         style="opacity:0.8;fill:#000200;fill-opacity:1;stroke:#000000;stroke-width:0.257893;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+         d="m 177.27085,34.39583 c 0,2.645834 0,5.291667 0,7.9375"
+         id="path500"
+         inkscape:path-effect="#path-effect503"
+         inkscape:original-d="m 177.27085,34.39583 c 0,2.645834 0,7.9375 0,7.9375"
+         transform="matrix(0.77551381,0,0,0.77551381,96.723575,8.0931358)" />
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.199999;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect503"
+         width="145.52084"
+         height="44.97916"
+         x="129.64584"
+         y="13.229165"
+         ry="1.124481" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.94204px;line-height:5.66325px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00424429px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#000200;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="140.54851"
+         y="18.453148"
+         id="text504"
+         transform="scale(0.95775515,1.0441082)"><tspan
+           sodipodi:role="line"
+           style="stroke:none;stroke-width:0.2"
+           x="140.54851"
+           y="18.453148"
+           id="tspan504">Exocet Family</tspan></text>
+      <rect
+         style="opacity:0.8;fill:#8400f1;fill-opacity:0.192475;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         id="rect25"
+         width="23.097548"
+         height="11.594399"
+         x="132.10243"
+         y="40.694622"
+         ry="2.3188841" />
+      <text
+         xml:space="preserve"
+         style="font-size:2.62195px;line-height:2.49893px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00187281px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0002e5;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="140.01941"
+         y="49.680676"
+         id="text34"
+         transform="scale(0.96347737,1.0379071)"><tspan
+           sodipodi:role="line"
+           id="tspan34"
+           style="fill:#0002e5;fill-opacity:1;stroke:none;stroke-width:0.2"
+           x="140.01941"
+           y="49.680676">Future versions</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.62195px;line-height:2.49893px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00187281px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0002e5;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="188.6893"
+         y="49.437775"
+         id="text65"
+         transform="scale(0.96347737,1.0379071)"><tspan
+           sodipodi:role="line"
+           id="tspan65"
+           style="fill:#0002e5;fill-opacity:1;stroke:none;stroke-width:0.2"
+           x="188.6893"
+           y="49.437775">Future versions</tspan></text>
+      <rect
+         style="opacity:0.8;fill:#8400f1;fill-opacity:0.192475;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         id="rect26"
+         width="23.097548"
+         height="11.594399"
+         x="177.60817"
+         y="41.198841"
+         ry="2.3188841" />
+      <text
+         xml:space="preserve"
+         style="font-size:2.62195px;line-height:2.49893px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic, Normal';text-align:start;letter-spacing:-0.00187281px;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.8;fill:#0002e5;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
+         x="140.01941"
+         y="27.58956"
+         id="text1"
+         transform="scale(0.96347737,1.0379071)"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="fill:#0002e5;fill-opacity:1;stroke:none;stroke-width:0.2"
+           x="140.01941"
+           y="27.58956">Basic form</tspan></text>
+    </g>
+  </g>
+</svg>

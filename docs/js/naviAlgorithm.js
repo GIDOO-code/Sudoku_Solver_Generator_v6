@@ -102,14 +102,8 @@ function writeNaviAlgorithm(){
 
 			html += '<li><a href="?ForceChain">Exocet</a>';
 				html += '<ul>';
-		        	html += '<li><a href="page59.html">JE2</a></li>';
-					html += '<li><a href="page59B_JE2_Object.html">JE2+,JE2++</a></li>';
-		        	html += '<li><a href="page59C_JEn.html#JE1">JE1</a> </li>';
-					html += '<li><a href="page59C_JEn.html#JE3">JE3</a> </li>';
-		        	html += '<li><a href="page59SE.html#SE">Senior Exocet</a></li>';
-					html += '<li><a href="page59SE.html#SE_single">SE Single</a></li>';
-					html += '<li><a href="page59SE.html#SE_singleBase">SE_SingleBase</a></li>';
-				//	html += '<li><a href="page59SE.html#Mutant">SE_Mutant</a></li>';
+		        	html += '<li><a href="page59.html">JE2,JE1</a></li>';
+		        	html += '<li><a href="page59B.html">Senior Exocet,Single</a> </li>';
 			    html += '</ul>';
 			html += '</li>';
 		html += '</ul>';
@@ -131,7 +125,7 @@ function writeNaviAlgorithm(){
 	    	html += '<ul class="navigationC">';
 				html += '<li><a href="page11.html">Permutation</a></li>';
 				html += '<li><a href="page12.html">Combination</a></li>';
-				html += '<li><a href="page14.html">Latin Square</a></li>';
+				html += '<li><a href="page14_v6.html">Latin Square</a></li>';
 				html += '<li><a href="page4.html">Conversion/standardization of Sudoku problem</a></li>';
 	    html += '</ul>';
 	//<!-- 	<hr> -->

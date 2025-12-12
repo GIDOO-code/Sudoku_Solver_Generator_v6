@@ -53,10 +53,23 @@
 		The digit z can be excluded from the cell covering all z of the first ALS and the last ALS.
 		If the digit z is true, this cell is a connection of ALS-RCC-ALS,
 		ALSs becomes LockedSet in order, and the last ALS lacks candidate digits.<br>
+		This also applies if there is overlap in the ALS series.
 
 		<p style="text-align:center"/>
-		<img src="images/img52/img52a.png" style="float:left; margin-right:8px;" width="50%" alt="ALS Chain" >
+		<img src="images/img52/img52a.svg" style="float:left; margin-right:8px;" width="50%" alt="ALS Chain" >
 		<p style="clear: both" ><br>
+
+		ALS Chain finds a very large number of chains given the starting cell and digir of a Sudoku Puzzle.<br>
+		Since there are many solutions, GNPX ver6.0 provides several types algorithm.
+
+		<ul>
+			<li>For each starting point, there is one chain pattern (the first pattern found in the search).</li>
+			<li>Overlap is allowed in the ALS chain.</li>
+			<li>All patterns without any constraints on ALS runs.(Sometimes hundreds of solutions are found)</li>
+		</ul>
+
+
+
 	</p>
 	
 

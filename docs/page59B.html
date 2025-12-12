@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sudoku Senior Exocet</title>
+
+	<!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link rel="stylesheet" href="jq_treeview/jquery.treeview.css">
+	<link rel="stylesheet" href="jq_treeview/screen.css">
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 6.0</i></strong>
+		<script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+	<section id="menuList">
+		<script type="text/javascript"> writeNaviAlgorithm(); </script>
+	</section>
+	<!-- -------------------------------------------------------------------------- -->
+
+	<article id="main">
+		<section>
+			<p style="color:blue">
+				The website and GNPX development are progressing in parallel, so there may be inconsistencies between the two.
+				The most up-to-date information is in the GNPX source code. <br><br>
+				The contents of this website may contain errors (high probability), so please view them critically.
+			</p><br>
+
+			<H3 id="head_bg_Blue" id="SE">&nbsp;(Standatd) Exocet</H3>
+			<p>
+				This section explains how Standard Exocet works. <br>
+				Exocet is an algorithm that combines various elements and constraints, such as House, Target, Crossline, Coverline, and Companion. <br>
+				If you are unfamiliar with the format and terminology of Exocet, please refer to <a href="page59.html">Junior Exocet</a>. <br>
+			</p><br><br>
+
+<!--(0)-->
+			<H3 id="head_bg_Light2Blue">&nbsp;(0) ExocetのLocked</H3>
+			<p>
+				Exocet is an algorithm by Locked.
+			<ul style="list-style:none; padding-left:10px;">
+				<li>&nbsp;1) There are three or more Base candidate numbers in the Base.</li>
+				<li>&nbsp;2) The S area determined by the Base, Target, and Companion has restrictions on the placement of Base numbers.</li>
+				<li>&nbsp;3) For any combination of Base candidate digits, that Base digit is in the Target.</li>
+			</ul>
+			<img src="images/img59B/image59B_Logic0.svg" style="margin-left: 20px;" width="50%"
+				alt="Exocet Logic"><br><br><br><br>
+			<b><u>Below explain the logic behind Exocet.</u></b><br><br>
+
+<!--(1)-->
+			<H3 id="head_bg_Light2Blue">&nbsp;(1) Exocet Framework</H3>
+			<p>
+				First, set the <a href="page59.html#base_direction">Base and direction</a>.<br>
+
+				<ul style="list-style:none; padding-left:10px;"><b> Frame :</b>
+					<li>1) Select three CrossLines (CL).<br>
+						&nbsp; &nbsp; There is only one CL-0. There are three candidates for CL-1 and CL-2, and one CL is selected for each.</li>
+					<li>2）Escape is determined by stem, direction, CL-1, and CL-2.</li>
+					<li>3) The stem is used to define the shape and is not related to the logic of the Exocet.</li>
+				</ul>
+				<img src="images/img59B/image59B_Logic1.svg" style="margin-left: 20px;" width="70%"
+					alt="Exocet Frame"><br><br>
+			</p>
+<!--(2)-->
+			<H3 id="head_bg_Light2Blue">&nbsp;(2) Elements of Exocet</H3>
+			<p>
+				Shows the steps to assemble the elements of Exocet and clarifies the function and relationships of each element.<br>
+
+				<ul style="list-style:none; padding-left:10px;">
+					<li><b>Target : </b></li>
+					<li>&nbsp; 1) Focus on CrossLine(CL)-1 and -2 and place Target on CL at a point other than Escape.<br>
+						&nbsp; &nbsp; &nbsp; The Target must contain Base digits.<br>
+						<img src="images/img59B/image59B_Logic2.svg" style="margin-left: 20px;" width="70%"
+							alt="Exocet Target/Target"><br><br>
+					</li>
+
+					<li><b>Companion :</b>
+						<li>&nbsp; 1) Companion is defined in a location other than Target or Escape in CL as shown in the following figure.<br></li>
+						<li>&nbsp; 2) Companions are defined for each Target, and then combined to form the Companion for the current phase.</li>
+						<br>
+						<img src="images/img59B/image59B_companion.svg" style="margin-left: 20px;" width="50%"
+							alt="Exocet Companion"><br><br>
+					</li><br>
+
+					<li><b>SLine :</b><br>
+						<li>&nbsp; 1) <b>SLine</b> is the remaining area after excluding <b>Escape, Target, Companion</b> from CL.</li>
+						<li>&nbsp; 2) Base digits are available on SLine and Target, but not on Escape and Companion.<br>
+							&nbsp; &nbsp; &nbsp; If the SLine doesn't have Base digits, the Target has it.</li>
+					</li>
+				</ul>
+			</p><br>
+
+<!--(3)-->
+			<div id="Companion"></div>
+			<H4 id="head_bg_LightBlue">&nbsp;(3) SLine - Target link ... Companion Role</H4>
+			<p>
+				In Exocet, the Companion serves an important function.<br>
+				Companion can be set to "optional", but if set too high it will filter out legitimate links.
+				<ol>
+					<li> CrossLine has one instance of candidate digit #a.</li>
+					<li> Divide CrossLine into SLine, Companion, Target, and Escape. </li>
+					<li> Escape does not have #a. There are instances of SLine, Companion, and Target #a. </li>
+					<li> The projection point of Target onto another CrossLine is also Companion. </li>
+					<li> Adding <b>Condition: Companion does not have #a</b> makes SLine and Target a link (#a is in either one). </li>
+					<li> If (by some logic) it is determined that SArea does not have #a, #a is in Target. </li>
+				</ol><br>
+
+				<img src="images/img59B/image59B_companionLogic.svg" style="margin-left: 20px;" width="50%" alt="Exocet Companion"><br><br>
+			</p><br>
+
+
+
+<!--(4)-->
+			<h4 id="head_bg_LightBlue">&nbsp;(4) Candidate digits conditions</h4>
+			<p>
+				Under the definition of JExocet, the following conditions (R1 to R4) are tested.<br>
+				When all Base Digits satisfy conditions R1 to R4, it becomes <b>Exocet Locked</b>.<br><br>
+
+				<b>JE2 Candidate digits conditions</b>
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 95%;" >
+					<tr>
+						<td class="table_itemName" style="width: 5%" >R1</td>
+						<td class="table_item">The Base cells(B1, B2) are both undetermined cells and have a total of 3 to 4 base digits.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R2</td>
+						<td class="table_item">The target cells(T1,T2) are both undetermined cells and have a total of three or more base digits.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R3</td>
+						<td class="table_item">The Companion cell does not contain a Base digits.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R4</td>
+						<td class="table_item">For all <b>Base digits</b>, the Base digits in the S region {S0,S1,S2} are covered by two Lines(Houses).</td>
+					</tr>
+				</table><br>
+				
+				<img src="images/img59/image59_Exocet_CoverLine.svg" style="margin-left: 20px;" width="90%"><br><br>
+	
+				Explain these conditions in more detail here.<br><br>
+				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 95%;" >
+					<tr>
+						<td class="table_itemName" style="width: 5%" >R1’</td>
+						<td class="table_item">If there are two base candidate numbers in the base cell, it is a LockedSet.
+							If there are 5 or more, it is predicted that "there are more constraints and it is unlikely to exist."
+							Therefore, R1 is "Base digits between 3 and 4." It will likely expand(3 to 6 in GNPX ver. 6). <br>
+							Two Base cells may not have any digits in common.
+						</td>
+					</tr>
+					<tr>
+						<td class="table_itemName" >R2’</td>
+						<td class="table_item">Target can also include candidate digits other than the Base digits.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R3’</td>
+						<td class="table_item" style="width: 90%" >Companion is fixed or unfixed cells.</td>
+					</tr>
+					<tr>
+						<td class="table_itemName">R4’</td>
+						<td class="table_item">The Base digtis in the S region {S0, S1, S2} can be either candidate digits or fixed digits.</td>
+					</tr>
+				</table><br>
+			</p>
+
+<!--(5)-->
+			<h4 id="head_bg_Light2Blue">&nbsp;(5) Exocet logic... Locked proof</h4>
+			<p>
+				Base digits that satisfy R1 to R4 are Locked.<br>
+				When select any two digits from the Base digits, the following proposition holds true for those two digits:<br>
+				&nbsp; &nbsp; <b>Proposition: If the digits in Base are positive, the digits in Target-1 and Target-2 will also be positive.</b>
+				<ol style="list-style:none; padding-left:10px;"><b>Proof of JE2 Locked</b>  (CL:Cross-Line)
+					<li>L1. In the Base, the Base digits#ab is positive. And in Escape, #ab is negative.</li>
+					<li>L2. CL-b, CL-1, and CL-2 each have three instances of #ab (according to Sudoku rules), for a total of six instances.</li>
+					<li>L3. Since R4, S-Area(S0,S1,S2) have two #a CoverLines and two #b CoverLines.</li>
+					<li>L4. Since "6-4=2", there are instances of #a and #b in the Band area of ​​CL-1 and CL-2.</li>
+					<li>L5. The #a and #b instances are not in Escape or Companion, but in Target1 and Target2, respectively.(it is not clear which).</li>
+				</ol><br>
+				<img src="images/img59/image59_Exocet_def04.svg" style="margin-left: 20px;" width="50%" ><br><br><br>
+			
+				The contrapositive of the proposition is as follows: <br>
+				&nbsp; &nbsp; <b>Contrapositive: If the candidate digits of Target do not completely cover Base, then Exocet does not hold.</b><br>
+			</p>
+
+<!--(6)-->
+			<h4 id="head_bg_LightBlue">&nbsp;(6) Understanding Exocet Locked (Reposted)</h4>
+			<p>
+				Consider the <b>Exocet Locked</b><br>
+				For Exocet Locked, no matter which two candidate digits are selected from the candidate digits in Base, 
+				they will be positive in Target.<br>
+				The target puzzle has a solution and is a unique solution. 
+				If look back from the solution, any two base candidate digits(#a,#b) are fixed digits(#A,#B).
+				Since there are three or more candidate digits for Base, if focus on the remaining "#x", 
+				candidate digit #X is negative in Target and positive in Escape.<br>
+				However, while solving the puzzle, it is not known which of the Base candidate digits is the solution.
+				Exocet Locked is an inference that is <b>not certain but can still be derived</b>.
+				A similar inference can be imagined, for example, as LockedSet.<br><br>
+				<img src="images/img59/image59_Exocet_def05.svg" style="margin-left: 20px;" width="80%" ><br><br><br>
+			</p>
+
+
+
+
+			<!-- ================================================================================================================== -->
+<!--(A)-->
+			<h4 id="head_bg_Blue">&nbsp;Exocet Extensions</h4>
+			<div id="SE_single"></div>
+<!--(A1)-->
+			<h4 id="head_bg_Light2Blue">&nbsp;(1) Exocet Single</h4>
+			<p id="SE_single">
+				<a href="page59.html#ID_JE1">&nbsp; JExocet (JE1) <img src="images/imgTop/jumpTo.png" width="20" Height="10"></a><br><br>
+				A Single Exocet is a case where one of the Objects <b>"cannot have a Base digits" = "confirmed cells"</b>. <br>
+				The Base Cell, Base digits, and CrossLine settings are the same as for a standard Exocet. <br>
+				The following diagram is an example. One of the Objects is a confirmed cell, and the SLine and Companion shapes are shown here. <br>
+				The Object and Companion settings are the same as for a standard Exocet.
+			</p>
+			<img src="images/img59B/image59B_SingleExocet.svg" style="margin-left: 20px;" width="50%" alt="Single Exocet"> <br><br>
+			<p>
+				<ol style="list-style:none; padding-left:10px;"><b>Conditions for a Single Exocet</b>
+					<li>1) Among the Base digits, one candidate digits has three CoverLines in the SArea (called the "wildcard"). </li>
+					<li>2) For Base digits (#a) other than the wildcard, all #a in the SArea can be covered by two CoverLines. </li>
+					<li>3) In a normal Object, all Base digits, including the wildcard, are candidates (other digits may also be included). </li>
+				</ol><br>
+
+				<ol style="list-style:none; padding-left:10px;"><b>Single Exocet Results</b>
+					<li>1) In Base, the wildcard is positive.</li>
+					<li>2) In the regular Object, the wildcard is positive.</li>
+					<li>3) In the cell that is connected to both a Base and a regular Object, the wildcard is negative.</li>
+				</ol>
+			<br><br><br>
+			</p>
+			<!-- ------------------------------------------------------------------------------------------------------------------ -->
+<!--(A2)-->
+			<div id="SE_singleBase"></div>
+			<h4 id="head_bg_Light2Blue">&nbsp;(2) Exocet Single-Base</h4>
+			<p>
+				Exocet Single-Base is a case where the Base of Exocet Single is <b>1 cell.</b><br>
+				Exocet Single-Base is applicable to more situations than any other Exocet.
+			</p>
+			<img src="images/img59B/image59B_SingleBaseExocet.svg" style="margin-left: 20px;" width="70%" alt="Single Exocet"> <br><br>
+
+
+
+		</section>
+
+
+
+
+	</article>
+
+	<a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+
+</html>

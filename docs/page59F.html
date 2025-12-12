@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sudoku JE2+,JE2++</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 6.0</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>	
+    </section>
+	<!-- -------------------------------------------------------------------------- -->
+
+	<article id="main">
+		<p>
+			&nbsp; &nbsp; &nbsp; <a href="page59.html"><img src="images/imgTop/jumpBefore.png" height="18"> Exocet</a><br><br>
+		</p>
+		<section>
+			<H3 id="head_bg_Blue">&nbsp;Exocet Family</H3>
+			<p>
+				Junior Exocet(JE2) is an Exocet that restricts Target location to a Band.<br>
+				JE1, Single-Base is a case that restricts the Target of JE2.<br><br>
+				<img src="images/img59F/image59F_Exocet_Family.svg" alt="Exocet_Family" style="margin-left: 30px;" width="80%" ><br>
+			</p><br>
+
+			<h4 id="head_bg_LightBlue">&nbsp;(1) Exocet</h4>
+			<p>
+				(Senior) In Exocet, there are no restrictions on the target's location.<br>
+				This type is the standard form of Exocet. The SLine is on the Close-Line of the Target.<br><br>
+				<img src="images/img59F/image59F_Exocet.svg" alt="Senior Exocet" style="margin-left: 30px;" width="63%" ><br><br>
+			</p>
+
+			<h4 id="head_bg_LightBlue">&nbsp;(2) JE2</h4>
+			<p>
+				Junior Exocet is a type that limits two Targets to within the <b>Band</b>.
+				There are two types of target cell placement: staggered type and aligned type,
+				where the cells are in the same row (column).<br>
+				The conditions and analysis logic for these types are the same, so don't worry too much about it.<br><br>
+				<img src="images/img59F/image59F_JE2.svg" alt="Junior Exocet" style="margin-left: 30px;" width="50%" ><br><br>
+			</p>
+
+			<h4 id="head_bg_LightBlue">&nbsp;(3) JE1/Exocet_Single</h4>
+			<p>
+				JE1 is a type of JE2 where one of the Objects is a fixed number with two cells that are not the Base. <br>
+				Exocet_Single is a type where the Object is outside the Band. <br>
+				This is a side branch of the Exocet family of algorithms, and it uses special candidate digit(wildcards).<br><br>
+				<img src="images/img59F/image59F_JE1.svg" alt="JExocet JE1" style="margin-left: 30px;" width="63%" ><br><br>
+				<img src="images/img59F/image59F_SE_Single.svg" alt="Exocet Single" style="margin-left: 30px;" width="63%" ><br><br>
+			</p>
+
+			<h4 id="head_bg_LightBlue">&nbsp;(4) Single Base</h4>
+			<p>
+				Single Base is a JE1 with one base cell.<br><br>
+				<img src="images/img59F/image59F_SE_SingleBase.svg" alt="Senior Exocet Single_Base" style="margin-left: 30px;" width="85%" ><br>
+			</p>
+
+			<h4 id="head_bg_LightBlue">&nbsp;(5) JE2+,JE2++  (ver.6.1-)</h4>
+			<p>
+				There are two types of JE2: one where one of the Targets is two cells (JE2+), and one where both targets are two cells (JE2++). <br>
+				The Exocet Locked constraint occurs when the Base candidate digit is in the Object (two cells).
+				The definitions of Cross-Line and SLine are the same.<br><br>
+				<img src="images/img59F/image59F_JE2PP.svg" alt="Junior Exocet ++" style="margin-left: 30px;" width="50%"><br><br>
+			</p>
+		
+		<!--
+			<h4 id="head_bg_LightBlue">&nbsp;(6) Franken/Mutsnt Exocet (ver.6.1-)</h4>
+			<p>
+				This type extends the standard Exocet Cross-Line (House) to Parallel-Line/Block and places an SLine. <br>
+				In the case of Block-House, the name SLine is not appropriate, but use SLine for functionality reasons.<br><br>
+				<img src="images/img59F/image59F_FM_Exocet.svg" alt="Franken/Mutant Exocet" style="margin-left: 30px;" width="63%" ><br><br>
+			</p><br><br><br>
+		-->
+		</section>
+	</article>
+
+
+
+	
+    <a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>

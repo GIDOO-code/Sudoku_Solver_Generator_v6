@@ -15,7 +15,7 @@
    GNPX v6 is a development and deployment version of new algorithms. Smartness is secondary.<br>
    There is no continuity with the traditional code in the analysis algorithm part of GNPX.<br>
 
-## 2. The Sudoku analysis algorithm was studied.<br>
+## 2. The Sudoku analysis algorithm ware studied.<br>
    i will explain using an image diagram to explain the logic.(Too specific, it will be difficult to understand the essence)t<br>
   (1) "Locked" in Sudoku analysis<br>
   (2) Extension of ALS (AnLS), extension of algorithm<br>
@@ -26,7 +26,8 @@
   (7) Subset<br>
   (8) Firework<br>
   (9) AHS(AHS-XZ)<br>
-  (10) Exocet(Junior/Senior) ... Senior Exocet is currently under development.<br>
+  (10) ALS Chain(update)<br>
+  (11) Exocet(Junior/Senior) ... Senior Exocet is currently under development.<br>
 
 ## 3. GNPX v6 GNPXGNPX<br>
   (1) Classify and organize the processing contents using pages in the UI.<br>
@@ -34,6 +35,6 @@
   (3) Find solutions in the background and monitor the accuracy of the algorithm (using T/E method).<br>
   (4) Improve problem creation function (generate all Sudoku problems by specifying patterns and fixing block 1. Parallel processing. Approximately 9 million puzzles).<br>
 
- ## 4. How to execute GNPX
- (1) Unzip GNPX_App.zip.
- (2) Click "GNPX_vx.xx.exe - Shortcut"
+ ## 4. How to execute GNPX<br>
+ (1) Unzip GNPX_App.zip.<br>
+ (2) Click "GNPX_vx.xx.exe - Shortcut"<br>
