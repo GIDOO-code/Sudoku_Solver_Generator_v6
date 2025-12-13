@@ -1,5 +1,5 @@
 # Sudoku_Solver_Generator_v6.0
-  Version5.92(6.0beta) 2025.Desember will be released.<br>
+  Version5.92(6.0beta) 2025.December will be released.<br>
   Added AHS(HP) and AHSXZ(GNPX) (2025.07.17)
 
 # GNPX v6 HP:
