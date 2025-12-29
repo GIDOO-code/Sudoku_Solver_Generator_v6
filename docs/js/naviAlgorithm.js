@@ -80,7 +80,7 @@ function writeNaviAlgorithm(){
 			html += '</li>';
 			
 
-			html += '<li><a href="?ForceChain">Subset Exclusin</a>';
+			html += '<li><a href="?ForceChain">Subset Exclusion</a>';
 				html += '<ul>';
 		        	html += '<li><a href="page57.html">Aligned Pair Exclusion</a></li>';
 		        	html += '<li><a href="page57.html">Aligned Triple Exclusion</a></li>';
