@@ -27,7 +27,7 @@
   (8) Firework<br>
   (9) AHS(AHS-XZ)<br>
   (10) ALS Chain(update)<br>
-  (11) Exocet(Junior/Senior) ... Senior Exocet is currently under development.<br>
+  (11) Exocet(Junior/Senior/FM) ... Franken/Mutant Exocet is currently under development.<br>
 
 ## 3. GNPX v6 GNPXGNPX<br>
   (1) Classify and organize the processing contents using pages in the UI.<br>
