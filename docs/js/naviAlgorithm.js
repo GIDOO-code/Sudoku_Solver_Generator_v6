@@ -104,6 +104,7 @@ function writeNaviAlgorithm(){
 				html += '<ul>';
 		        	html += '<li><a href="page59.html">JE2,JE1</a></li>';
 		        	html += '<li><a href="page59B.html">Senior Exocet,Single</a> </li>';
+					html += '<li><a href="page59C.html">Franken/Mutant Exocet</a> </li>';
 			    html += '</ul>';
 			html += '</li>';
 		html += '</ul>';
