@@ -40,63 +40,71 @@
 	<article id="main">
 		<section>
 			<a href="page59.html"><img src="images/imgTop/jumpBefore.png" height="18">&nbsp; Exocet Top</a><br><br>
-			
-			<H3 id="head_bg_Blue">&nbsp;Franken/Mutant Exocet</H3>
-				Franken/Mutant Exocet extends Exocet's CrossLine.<br>
-				Place the Target on the Extended CrossLine, which determines the SLine and Companion.<br>
-				If SLines are covered by two CoverLines then Exocet Locked holds.<br>
-				In the extended CrossLine, the term "Cross" seems unnatural, but i follow the Standard Exocet definition and use CrossLine.<br><br>
 
-				Franken/Mutant Exocet has expanded definitions for CrossLine, Target, and Companion. 
-				The requirements for establishing an Exocet are the same as a standard Exocet.<br><br>
+			<H3 id="head_bg_Blue">&nbsp;Franken/Mutant Exocet</H3>
+				Franken/Mutant Exocet extends the Exocet's CrossLine.<br>
+				A Target is placed on the extended CrossLine, which determines the SLine and Companion.<br>
+				If the SLine is covered by two CoverLines, the Exocet Locked is established.<br>
+				In the extended CrossLine, the term "Cross" seems unnatural, <br>
+				but i will use the term CrossLine in accordance with the simple definition of Exocet.<br><br>
+
 				<a href="page59S.html#ID_Exocet_FM">&nbsp; Exocet Franken/Mutant(FM) sample<img src="images/imgTop/jumpTo.png" height="8"></a>
 				
 			<H4 id="head_bg_LightBlue" id="SE">&nbsp;拡張 CrossLine</H4>
 			<p>
-				In standard Exocet, the CrossLine is defined as follows:
+				In a basic Exocet, CrossLine is defined using the following steps:
 				<ol>
 					<li>Determine the position and direction of the Base.</li>
-					<li>CrossBand-b is determined from the Base position.</li>
+					<li>CrossBand-0 is determined from the Base position.</li>
 					<li>Select CrossLine-n from CrossBand-n (n=1,2).</li>
 				</ol>
 				<img src="images/img59C/image59C_Standard_CrossLine.svg" style="margin-left: 20px;" width="50%" alt="Standard_CrossLine"> <br><br>
 				
-				In Extended CrossLine, the position and direction of the Base, as well as the definition of CrossBand-b, are the same. <br>
+				In Extended CrossLines, the position and direction of the Base, as well as the definition of CrossBand-0, are the same. <br>
 				The Bands that form the basis of CrossLines are of three types: Cross-Band, Parallel-Band, and Block-Band.
-				Define two CrossLines, CrossLine-1 and CrossLine-2, within different Bands. <br>
-				In Extended CrossLine, multiple CrossLines may intersect.
-				Due to the requirements for Exocet to be valid, cells where CrossLines intersect cannot contain Base candidate digits.
+				Two CrossLines, CrossLine-1 and CrossLine-2, are defined within different Bands. <br>
+				In Extended CrossLines, multiple CrossLines may intersect.
+				Due to the requirements for Exocet to be valid, cells where CrossLines intersect cannot contain Base candidate numbers.
 
 				<br><br>
 				<img src="images/img59C/image59C_FM_CrossLine.svg" style="margin-left: 20px;" width="68%" alt="FM_CrossLine"> <br><br>
 				
-				The following image is an example of an extend CrossLine.<br><br>
+				The following figure shows an example of an extend CrossLine.<br><br>
 				<img src="images/img59C/image59C_FM_CrossLine_Sample.svg" style="margin-left: 20px;" width="68%" alt="FM_CrossLine"> <br><br>
 			</p>
 
+
+
+
 			<H4 id="head_bg_LightBlue">&nbsp;Target</H4>
 			<p>
-				Place two Targets on the three CrossLines, excluding the Escape area.
-				There are 2 Targets / 3 CrossLines, and one CrossLine has no Target.<br><br>
-				<img src="images/img59C/image59C_FM_Escape_Target.svg" style="margin-left: 20px;" width="80%" alt="FM_CrossLine">
+				Place two Targets on the three CrossLines, excluding the Escape area. (2 Targets / 3 CrossLines) One CrossLine has no Target.<br><br>
+				<img src="images/img59C/image59C_FM_Target_on_CrossLine.svg" style="margin-left: 20px;" width="80%" alt="FM_Target_on_CrossLine">
 			</p>
 
-			<H4 id="head_bg_LightBlue">&nbsp;Companion、SLine </H4>
+			<H4 id="head_bg_LightBlue">&nbsp;Companion</H4>
 			<p>
-				Companions are defined for Cross-type and Parallel-type CrossLines,
-				and are defined for cells that have two constraints: row/column house and block house.
-				Block-type CrossLines do not have companions.<br><br>
+				Companions are defined by Row-type, Column-type, and Block-type CrossLines.
+				Sudoku cells are restricted by three houses: rows, columns, and blocks, so the shapes of Row/Column-type and Block-type cells are different.
+				There are also fixed Companions, and Companion candidates (cells marked with an ▲) that are determined by the relationship with other CrossLines.<br><br>
 				<img src="images/img59C/image59C_FM_Target_Companion.svg" style="margin-left: 20px;" width="70%" alt="FM_CrossLine"><br><br>
 
-				The relationship between Target, Companion and SLine is the same as for <a href="page59B.html#Target_Companion_Sline">
-				standard type Exocet elements</a>.
+				The combination of the two Target-Companions determines the Companion for the current position of the Puzzle.<br><br>
+				<img src="images/img59C/image59C_FM_Companion_Synthesized.svg" style="margin-left: 20px;" width="90%" alt="FM_CrossLine"><br><br>
+
+
+			<H4 id="head_bg_LightBlue">&nbsp;SLine </H4>
+			<p>
+				We focus on the CrossLine that includes the Target.
+				The CrossLine consists of the Target, Escape, SLine, and Companion. <br>
+				The SLine is defined by the following formula:<br>
+				&nbsp; &nbsp;<b>SLine = CrossLine - (Target, Eescape, Companion)</b><br><br>
+				<img src="images/img59C/image59C_FM_Sline_definition.svg" style="margin-left: 20px;" width="50%" alt="FM_CrossLine"><br>
 			</p>
-
-
-
-
-
-
+			
+			<a href="page59S.html#ID_Exocet_FM">&nbsp; Exocet Franken/Mutant(FM) sample<img src="images/imgTop/jumpTo.png" height="8"><br>
+			</a>
+			
 		</section>
 	</article>
 
