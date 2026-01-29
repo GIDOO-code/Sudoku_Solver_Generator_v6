@@ -1,7 +1,7 @@
 # Sudoku_Solver_Generator_v6.0
   There will be multiple 6.0B releases for a while.<br>
   <span style="color: orange; ">
-  Added Franken/Mutant Exocet (GNPX v9.4)<br></span>
+  Added Franken/Mutant Exocet (GNPX v9.5)<br></span>
   Added AHS(HP) and AHSXZ(GNPX) (2025.07.17)
 
 # GNPX v6 HP:
