@@ -1,7 +1,6 @@
-# Sudoku_Solver_Generator_v6.0
-  There will be multiple 6.0B releases for a while.<br>
-  <span style="color: orange; ">
-  Added Franken/Mutant Exocet (GNPX v5.95 2026.Jenuary)<br></span>
+# Sudoku_Solver_Generator_v6.0 Release
+  <span style="color: Blue;">
+  Added Franken/Mutant Exocet (GNPX v5.95 2026.February)<br></span>
   Added AHS(HP) and AHSXZ(GNPX) (2025.07.17)
 
 # GNPX v6 HP:
@@ -35,8 +34,7 @@
   (1) Classify and organize the processing contents using pages in the UI.<br>
   (2) Improve many analysis algorithms. All algorithms are expressed in bits (Bit81 changed to UInt128).<br>
   (3) Find solutions in the background and monitor the accuracy of the algorithm (using T/E method).<br>
-  (4) Improve problem creation function (generate all Sudoku problems by specifying patterns and fixing block 1. Parallel processing. Approximately 9 million puzzles).<br>
-
+ 
  ## 4. How to execute GNPX<br>
  (1) Unzip GNPX_App.zip.<br>
  (2) Click "GNPX_vx.xx.exe - Shortcut"<br>

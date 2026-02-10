@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>数独 Last Digit</title>
+
+
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+    
+</head>
+
+<body id="page" onload="prettyPrint()" >
+	<header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>
+    </section>
+
+	<a id="pageTop"></a>
+    <header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+    </header>
+
+	<article id="main" style="margin:2%">
+		<section>
+			<h3 id="head_bg_Blue"How to GenerateSudoku Puzzle></h3>
+			<p>
+				This is an explanation of the Sudoku puzzle generation method used by GNPX. <br>
+				In v6, Sudoku puzzles are generated using the following steps. The basic generation method has been developed, but there is room for improvement in handling.
+			</p>
+
+				<ol style="list-style:none; padding-left:10px;">
+				<li><b>Step 1. Generate Latin Square [parallelizable]]</b><br>
+					&nbsp; &nbsp;Instructions for generating a Latin square can be found at 
+					<a href="page14_v6.html">Latin Square<img src="images/imgTop/jumpTo.png" height="16"></a><br>
+					&nbsp; &nbsp; First, block 1 is fixed.<br>
+					&nbsp; &nbsp; Blocks 2 and 3 are controlled by parameters. There are 2,612,736 (=56x6!) types of parameters for Blocks 2 and 3.<br>
+					&nbsp; &nbsp; There are also '2,612,736(=56×6!)' types of block 4 and 7 parameters.<br>
+					&nbsp; &nbsp; For each pair of [2,3 parameters] × [4,7 parameters], 2,000 to 5,000 Latin Squares can be generated.<br>
+					&nbsp; &nbsp; Randomly select 500 to 1,000 parameter pairs to generate a set of Latin Squares.<br>
+				</li><br>
+
+				<li><b>Step 2. Overlay the Puzzle pattern on the Latin square</b><br>
+					&nbsp; &nbsp; All Latin Squares generated in step 1 are different.<br>
+					&nbsp; &nbsp; Overlay a Puzzle pattern on this, and the pattern replaces blank cells with '0'. This is the 'Pre-Puzzle'.<br>
+					&nbsp; &nbsp; Overlapping patterns in the previous puzzle will result in many identical puzzles.<br>
+					&nbsp; &nbsp; Choose only unique puzzles from the Pre-Puzzle set.<br>
+					&nbsp; &nbsp; A non-unique pattern is a Sudoku Puzzle that does not have a unique solution.<br>
+					&nbsp; &nbsp; However, a unique pattern is not guaranteed to be a 'Sudoku Puzzle with a unique solution'.<br>
+				</li><br>
+
+				<li><b>Step 3. Solve the set of unique previous puzzles using the TryAndError method [parallel possible]</b><br>
+					&nbsp; &nbsp; TryAndError solves Latin Squares quickly.<br>
+					&nbsp; &nbsp; Any previous Puzzle that has a unique solution in TryAndError is a candidate Sudoku problem.<br>
+					&nbsp; &nbsp; Again, this is not guaranteed to be a 'Sudoku Puzzle',<br>
+					&nbsp; &nbsp; as the Latin Square generated from the other parameters in step-1 may be the same.<br>
+				</li><br>
+
+				<li><b>Step 4. Solve with Sudoku Algorithm [parallel possible]</b><br>
+					&nbsp; &nbsp; Step 3: Solve the candidate Sudoku problems using the Sudoku algorithm.<br>
+					&nbsp; &nbsp; Steps 1 to 3 and step 4 can be executed independently (in separate threads).<br>
+					&nbsp; &nbsp; In GNPX, the Sudoku algorithm thread is always running,<br>
+					&nbsp; &nbsp; In steps 1 to 3, each time a Sudoku Puzzle candidate is found, <br>
+					&nbsp; &nbsp; it is sent to the Sudoku algorithm thread (using a Queue).
+				</li><br>
+
+			</ol>
+			
+
+		</section>
+			
+	</article>
+
+	<article style="padding-left: 40px;">
+					
+
+		<section>
+		</section>
+		<br>
+
+	    <a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+			<p id="copyright"> Copyright &copy; 2014-  GNPX. All rights reserved.</p>
+		</footer>
+
+	</article>
+</body>
+</html>

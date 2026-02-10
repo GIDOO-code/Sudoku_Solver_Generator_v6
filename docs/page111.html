@@ -40,7 +40,7 @@
 		<section>
 			<H3 id="head_bg_Blue">&nbsp;Puzzle Creation</H3>
 			<p>
-				GNPX has three ways to Create Sudoku puzzles:
+				GNPX has two ways to Create Sudoku puzzles:
 			</p>
 
 			<H4 id="head_bg_LightBlue">&nbsp;(1) Puzzle Creation</H4>
@@ -57,71 +57,46 @@
 			</p><br>
 
 			<H4 id="head_bg_LightBlue">&nbsp;(2) Puzzle auto-generation</H4>
-				GNPX-v6 generates Sudoku puzzles with varying board patterns.<br>
-				In particular, steps 4 and 5 are useful methods for generating Sudoku puzzles.<br>
-				In GNPX ver.6, steps 3 and 5 are executed in <span style="color:rgb(54, 30, 192)">Parallel</span>.
 			<p>
-				<table class="table1" style="border-collapse:collapse; border: 1px solid #000099; width: 95%" >
-					<small>
-					<tr>
-						<td class="table_itemName" style="width: 18%" >step-1<br>Set Pattern</td>
-						<td class="table_item" >
-							Specify the pattern's <b>symmetric type (point symmetry, line symmetry)/asymmetric type</b>
-							and the number of pattern cells to automatically create a pattern.<br>
-							The pattern controls the change with three parameters:<br>
-							&nbsp; 1) Maximum number of puzzles in one pattern<br>
-							&nbsp; 2) Number of Lattin-Square (maximum 3136)
-						</td>
-					</tr>
-					<tr>
-						<td class="table_itemName">step-2<br>LS Frame generation</td>
-						<td class="table_item">(LS:<a href="ppage14.html">&nbsp;Latin Square</a>)<br>
-							Block 1 is fixed to 1 to 9. Select blocks 23 and block 47 (1/3136).<br>
-							<small>(There are 56 patterns in block 23 and 56 patterns in block 47, for a total of 3136 patterns.)</small>>
-						</td>
-					</tr>
-					<tr>
-						<td class="table_itemName">step-3<br>LS generation<span style="color:rgb(54, 30, 192)"> [Parallel]</span></td>
-						<td class="table_item">Generate all LS squares from the LS frame. 
-							The number of LS that can be generated varies depending on the LS frame (2000-4000).
-						</td>
-					</tr>
-					<tr>
-						<td class="table_itemName">step 4<br>Puzzle candidate selection/td>
-						<td class="table_item">Create a list of puzzle candidates by overlaying the pattern from step-1 on the LS from step-3.<br>
-							By overlapping the patterns, the same puzzle can be created. Select only unique patterns from the puzzle candidate list.<br>
-							A puzzle that has duplicates will have more than two patterns when the Sudoku algorithm is applied,
-							which violates the rules of Sudoku puzzles.<br>
-							This selection process eliminates approximately 50%.
-						</td>
-					</tr>
-					<tr>
-						<td class="table_itemName">step 5<br>Try&Error applied<span style="color:rgb(54, 30, 192)"> [Parallel]</span></td>
-						<td class="table_item">Solve the puzzle in step 4 using <b>Try & Error</b> and 
-							select the puzzle that has the unique solution.<br>
-							<small>(T&E patterns with multiple solutions are not Sudoku Puzzles and 
-								cannot be solved by applying Sudoku analysis algorithms.)</small><br>
-							Depending on the pattern, it is quite likely that there is no unique solution.<br>
-							The remaining number, if any, is between 0 and 10%, 
-							and these remaining pieces are guaranteed to be Sudoku Puzzles.
-						</td>
-					</tr>
-					<tr>
-						<td class="table_itemName">step 6<br>Algorithm Application</td>
-						<td class="table_item">Verify that the unique solution puzzle in step 5 can be solved using the Sudoku algorithm.<br>
-							An unsolvable puzzle means that the analysis algorithm is weak.
-						</td>
-					</tr>
-				</small>
-				</table><br><br>
+				This is an explanation of the Sudoku puzzle generation method used by GNPX. <br>
+				In v6, Sudoku puzzles are generated using the following steps. The basic generation method has been developed, but there is room for improvement in handling.
 			</p>
-				
-			<H4 id="head_bg_LightBlue">&nbsp;(3) Generate all puzzles of a specific pattern</H4>
-			<p>
-				GNPX generates all Sudoku puzzles for a given board pattern,
-				which is relatively simple and therefore parallelizable.<br>
-				Unfortunately, it doesn't take as long as you might think.
-			</p>
+
+			<ol style="list-style:none; padding-left:10px;">
+				<li><b>Step 1. Generate Latin Square [parallelizable]]</b><br>
+					&nbsp; &nbsp;Instructions for generating a Latin square can be found at 
+					<a href="page14_v6.html">Latin Square<img src="images/imgTop/jumpTo.png" height="16"></a><br>
+					&nbsp; &nbsp; First, block 1 is fixed.<br>
+					&nbsp; &nbsp; Blocks 2 and 3 are controlled by parameters. There are 2,612,736 types of parameters for Blocks 2 and 3.<br>
+					&nbsp; &nbsp; There are also 2,612,736 types of block 4 and 7 parameters.<br>
+					&nbsp; &nbsp; For each pair of [2,3 parameters] × [4,7 parameters], 2,000 to 5,000 Latin Squares can be generated.<br>
+					&nbsp; &nbsp; Randomly select 500 to 1,000 parameter pairs to generate a set of Latin Squares.<br>
+				</li><br>
+
+				<li><b>Step 2. Overlay the Puzzle pattern on the Latin square</b><br>
+					&nbsp; &nbsp; All Latin Squares generated in step 1 are different.<br>
+					&nbsp; &nbsp; Overlay a Puzzle pattern on this, and the pattern replaces blank cells with '0'. This is the 'Pre-Puzzle'.<br>
+					&nbsp; &nbsp; Overlapping patterns in the previous puzzle will result in many identical puzzles.<br>
+					&nbsp; &nbsp; Choose only unique puzzles from the Pre-Puzzle set.<br>
+					&nbsp; &nbsp; A non-unique pattern is a Sudoku Puzzle that does not have a unique solution.<br>
+					&nbsp; &nbsp; However, a unique pattern is not guaranteed to be a 'Sudoku Puzzle with a unique solution'.<br>
+				</li><br>
+
+				<li><b>Step 3. Solve the set of unique previous puzzles using the TryAndError method [parallel possible]</b><br>
+					&nbsp; &nbsp; TryAndError solves Latin Squares quickly.<br>
+					&nbsp; &nbsp; Any previous Puzzle that has a unique solution in TryAndError is a candidate Sudoku problem.<br>
+					&nbsp; &nbsp; Again, this is not guaranteed to be a 'Sudoku Puzzle', as the Latin Square generated from the other parameters in step-1 may be the same.<br>
+				</li><br>
+
+				<li><b>Step 4. Solve with Sudoku Algorithm [parallel possible]</b><br>
+					&nbsp; &nbsp; Step 3: Solve the candidate Sudoku problems using the Sudoku algorithm.<br>
+					&nbsp; &nbsp; Steps 1 to 3 and step 4 can be executed independently (in separate threads).<br>
+					&nbsp; &nbsp; In GNPX, the Sudoku algorithm thread is always running,<br>
+					&nbsp; &nbsp; In steps 1 to 3, each time a Sudoku Puzzle candidate is found, <br>
+					&nbsp; &nbsp; it is sent to the Sudoku algorithm thread (using a Queue).
+				</li><br>
+			</ol>
+
 		</section>
 	</article>
 

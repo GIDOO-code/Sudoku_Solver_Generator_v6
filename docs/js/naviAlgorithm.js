@@ -127,6 +127,7 @@ function writeNaviAlgorithm(){
 				html += '<li><a href="page11.html">Permutation</a></li>';
 				html += '<li><a href="page12.html">Combination</a></li>';
 				html += '<li><a href="page14_v6.html">Latin Square</a></li>';
+				html += '<li><a href="page111.html">Create Puzzle</a></li>';
 				html += '<li><a href="page4.html">Conversion/standardization of Sudoku problem</a></li>';
 	    html += '</ul>';
 	//<!-- 	<hr> -->
