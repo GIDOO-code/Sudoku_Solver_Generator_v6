@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 GNPX v6.0 Lease.
+=======
+GNPX v6.0 to be released soon.
+>>>>>>> 7c4c9f52d48cd67317331d9b4756c823b800d401
