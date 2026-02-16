@@ -30,7 +30,7 @@
   (10) ALS Chain(update)<br>
   (11) Exocet(Junior/Senior/FM) ... Franken/Mutant Exocet is currently under development.<br>
 
-## 3. GNPX v6 GNPXGNPX<br>
+## 3. GNPX v6 GNPX<br>
   (1) Classify and organize the processing contents using pages in the UI.<br>
   (2) Improve many analysis algorithms. All algorithms are expressed in bits (Bit81 changed to UInt128).<br>
   (3) Find solutions in the background and monitor the accuracy of the algorithm (using T/E method).<br>
