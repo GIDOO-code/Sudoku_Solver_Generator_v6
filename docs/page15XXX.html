@@ -3,11 +3,13 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>How to Create a Sudoku Puzzle</title>
-	
+	<title>数独 Last Digit</title>
+
+
     <!-- Prism   https://prismjs.com/download.html -->
 	<script src="prism_js_css/prism.js"></script>
 	<link rel="stylesheet" href="prism_js_css/prism.css">
+
 
 	<!-- jQuery treeview ! -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
@@ -24,51 +26,38 @@
 
 	<script type="text/javascript" src="js/naviHeader.js"> </script>
 	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+    
 </head>
 
-<body id="page">
-	<header id="head"> <strong><i>Sudoku Algorithm 6.0</i></strong>
+<body id="page" onload="prettyPrint()" >
+	<header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
         <script type="text/javascript"> writeNaviHeader(); </script>
 	</header>
 
     <section id="menuList">
-        <script type="text/javascript"> writeNaviAlgorithm(); </script>	
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>
     </section>
-	<!-- -------------------------------------------------------------------------- -->
 
-	<article id="main">
+	<a id="pageTop"></a>
+    <header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+    </header>
+
+	<article id="main" style="margin:2%">
 		<section>
-			<H3 id="head_bg_Blue">&nbsp;Puzzle Creation</H3>
-			<p>
-				GNPX has two ways to Create Sudoku puzzles:
-			</p>
-
-			<H4 id="head_bg_LightBlue">&nbsp;(1) Puzzle Creation</H4>
-			<p>
-				Manually create Sudoku puzzles in the 9x9 square.
-				<ol>
-					<li> First, create a strong image in your mind of the Digit you want to enter.</li>
-					<li> When you click on the position in the 9x9 square where you want to enter the digit, 
-						the digit you imagine will appear in the specified position.</li>
-					<li> If the digit different from what you imagined appears, it is because your imagination power was weak.<br>
-						In that case, try to imagine it again more strongly and click. You can try this as many times as you like.</li>
-					<li> To cancel the digit you have already entered, strongly think "disappear" and click on the digit again.</li>
-				</ol>
-			</p><br>
-
-			<H4 id="head_bg_LightBlue">&nbsp;(2) Puzzle auto-generation</H4>
+			<h3 id="head_bg_Blue"How to GenerateSudoku Puzzle></h3>
 			<p>
 				This is an explanation of the Sudoku puzzle generation method used by GNPX. <br>
 				In v6, Sudoku puzzles are generated using the following steps. The basic generation method has been developed, but there is room for improvement in handling.
 			</p>
 
-			<ol style="list-style:none; padding-left:10px;">
+				<ol style="list-style:none; padding-left:10px;">
 				<li><b>Step 1. Generate Latin Square [parallelizable]]</b><br>
 					&nbsp; &nbsp;Instructions for generating a Latin square can be found at 
 					<a href="page14_v6.html">Latin Square<img src="images/imgTop/jumpTo.png" height="16"></a><br>
 					&nbsp; &nbsp; First, block 1 is fixed.<br>
-					&nbsp; &nbsp; Blocks 2 and 3 are controlled by parameters. There are 2,612,736 types of parameters for Blocks 2 and 3.<br>
-					&nbsp; &nbsp; There are also 2,612,736 types of block 4 and 7 parameters.<br>
+					&nbsp; &nbsp; Blocks 2 and 3 are controlled by parameters. There are 2,612,736 (=56x6!) types of parameters for Blocks 2 and 3.<br>
+					&nbsp; &nbsp; There are also '2,612,736(=56×6!)' types of block 4 and 7 parameters.<br>
 					&nbsp; &nbsp; For each pair of [2,3 parameters] × [4,7 parameters], 2,000 to 5,000 Latin Squares can be generated.<br>
 					&nbsp; &nbsp; Randomly select 500 to 1,000 parameter pairs to generate a set of Latin Squares.<br>
 				</li><br>
@@ -85,7 +74,8 @@
 				<li><b>Step 3. Solve the set of unique previous puzzles using the TryAndError method [parallel possible]</b><br>
 					&nbsp; &nbsp; TryAndError solves Latin Squares quickly.<br>
 					&nbsp; &nbsp; Any previous Puzzle that has a unique solution in TryAndError is a candidate Sudoku problem.<br>
-					&nbsp; &nbsp; Again, this is not guaranteed to be a 'Sudoku Puzzle', as the Latin Square generated from the other parameters in step-1 may be the same.<br>
+					&nbsp; &nbsp; Again, this is not guaranteed to be a 'Sudoku Puzzle',<br>
+					&nbsp; &nbsp; as the Latin Square generated from the other parameters in step-1 may be the same.<br>
 				</li><br>
 
 				<li><b>Step 4. Solve with Sudoku Algorithm [parallel possible]</b><br>
@@ -95,15 +85,26 @@
 					&nbsp; &nbsp; In steps 1 to 3, each time a Sudoku Puzzle candidate is found, <br>
 					&nbsp; &nbsp; it is sent to the Sudoku algorithm thread (using a Queue).
 				</li><br>
+
 			</ol>
+			
 
 		</section>
+			
 	</article>
 
-    <a href="#" class="pagetop">Top</a>
-	<footer id="foot">
-		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
-	</footer>
+	<article style="padding-left: 40px;">
+					
 
+		<section>
+		</section>
+		<br>
+
+	    <a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+			<p id="copyright"> Copyright &copy; 2014-  GNPX. All rights reserved.</p>
+		</footer>
+
+	</article>
 </body>
 </html>
