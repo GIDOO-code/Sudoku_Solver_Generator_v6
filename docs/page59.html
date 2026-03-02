@@ -105,7 +105,8 @@
 				<b>JExocet Locked</b> is a constraint that:<br>
 				<span style="color:Blue">
 				&nbsp; <b>Exocet Locked : Any two digits selected from the base candidate digits will
-					result in positive values ​​in Target<small>1</small> and Target<small>2</small>.</b>
+					result in positive values ​​in Target<small>1</small> and Target<small>2</small>.<br>
+					&nbsp; &nbsp; &nbsp; &nbsp; (No contradiction arises no matter which two pairs of digits are assumed to be correct.)</b>
 				</span><br><br>
 				In reality, there are more than two candidate digits in Base, so <b>"no matter which two digits choose, 
 				there will be no contradiction."</b><br><br>
@@ -155,7 +156,7 @@
 					<li>
 						<b>Step 1:</b> Select one cell (Stem cell) on the board and its direction (row/column). This determines the mini-line. <br>
 						The mini-line's two Base cells (B1, B2), Band, and two Blocks (Block 1, Block 2) are determined.
-						Additionally, Cross-Line-b is determined based on the Stem cell and direction.
+						Additionally, Cross-Line-0 is determined based on the Stem cell and direction.
 						<p style="background-color:rgba(203, 232, 255) ">
 							*Mini-line is three cells in a row or column within a block.<br>
 							*Stem cells are used to guide the shape and are not involved in Exocet logic.
@@ -177,10 +178,7 @@
 			<img src="images/img59/image59_Exocet_def02.svg" style="margin-left: 20px;" width="70%"><br><br>
 
 			<p>
-				Mirror does not affect the establishment of <b>Exocet Locked</b>.<br>
-				The relationship between the target and the mirror allows to derive the cells/digits that can be excluded
-				when the <b>Exocet-Lock</b> is established.<br>
-				<a href="#MirrorLogic">Mirror</a> will be discussed in a separate section.
+				Mirror is not related to the establishment of <b>Exocet Locked</b>. GNPX does not deal with Mirror.
 			</p>
 
 
@@ -224,7 +222,9 @@
 					</tr>
 					<tr>
 						<td class="table_itemName" >R2’</td>
-						<td class="table_item">Target can also include candidate digits other than the Base digits.</td>
+						<td class="table_item">Target can also include candidate digits other than the Base digits.<br>
+							However, if Locked holds, candidate digits other than the Base are negative.
+						</td>
 					</tr>
 					<tr>
 						<td class="table_itemName">R3’</td>
@@ -246,7 +246,7 @@
 				&nbsp; &nbsp; <b>Proposition: If the digits in Base are positive, the digits in Target-1 and Target-2 will also be positive.</b>
 				<ol style="list-style:none; padding-left:10px;"><b>Proof of JE2 Locked</b>  (CL:Cross-Line)
 					<li>L1. In the Base, the Base digits#ab is positive. And in Escape, #ab is negative.</li>
-					<li>L2. CL-b, CL-1, and CL-2 each have three instances of #ab (according to Sudoku rules), for a total of six instances.</li>
+					<li>L2. CL-0, CL-1, and CL-2 each have three instances of #ab (according to Sudoku rules), for a total of six instances.</li>
 					<li>L3. Since R4, S-Area(S0,S1,S2) have two #a CoverLines and two #b CoverLines.</li>
 					<li>L4. Since "6-4=2", there are instances of #a and #b in the Band area of ​​CL-1 and CL-2.</li>
 					<li>L5. The #a and #b instances are not in Escape or Companion, but in Target1 and Target2, respectively.(it is not clear which).</li>
@@ -271,8 +271,7 @@
 				<img src="images/img59/image59_Exocet_def05.svg" style="margin-left: 20px;" width="80%" ><br><br><br>
 			</p>
 
-
-
+<!--
 			<div id="MirrorLogic"></div>
 			<h4 id="head_bg_LightBlue">&nbsp;(5) Mirror Logic</h4>
 			<p>
@@ -290,34 +289,36 @@
 				For this reason, <b>exclusion using Mirror</b> is valid.
 				In cases other than JE2 where the Band constraint and scope overlap condition do not hold, the logic of exclusion using Mirror does not hold.<br>
 			</p>
+-->
 		</section>
 
 
 
-
-		<section><br><br><br>
+		<section>
 			<h4 id="head_bg_Blue">&nbsp;Exclusion</h4>
 			<p>
-				When <b>Exocet Locked</b> is established, the candidate digits may be confirmed as negative/positive.<br>
+				When <b>Exocet Locked</b> is established, the candidate digits may be confirmed as negative.<br>
 				On <b>this website</b> and <b>GNPX</b>, the exclusion rules are used as follows:
 
 				<ol>
-					<li>The exclusion rules are based on the JE2 rules in the Bird document, and the numbers from that document are reused.
+					<li>Exclusion rules are derived from the Exocet definition.
 						<p style="background-color:rgb(222, 236, 255) ">
-							&nbsp;JExocet Compendium &nbsp; by:David P Bird<br>
+							&nbsp; This website uses the JE2 rule numbers from the Bird document. <br>
+							&nbsp; JExocet Compendium &nbsp; by:David P Bird<br>
 							&nbsp; http://forum.enjoysudoku.com/jexocet-compendium-t32370.html<br>
 						</p>
 					</li>
 									
-					<li>It does not deal with logic that leads to negation/affirmation secondary to the logic,
-						as with other analysis algorithms.
+					<li>It does not deal with logic that leads to negation/affirmation secondary to the logic,<br>
+						as with other analysis algorithms.<br>
 						Secondary effects are analyzed in the next step.</li><br>
-	
+			<!--
 					<li>Some exclusion rules cannot be applied to the extended Exocet.</li><br>
 
 					<li>Exclusion rules using mirrors other than Rule 6 can only be applied if the two base numbers of the base have been determined.</li><br>
 
 					<li>Exclusion rules may be able to take advantage of the results of previous rules. <b>GNPX</b> uses an iterative approach.</li>
+			-->
 				</ol>
 			</p><br><br>
 
@@ -336,6 +337,7 @@
 
 
 			<!-- E4 -->
+	<!--
 				<li>
 					<p class="PColor01">E4. If the Base digits is determined to be positive in one Target, it is negative in the other Target.</p>
 					Each Target has a different Base digits.
@@ -344,7 +346,7 @@
 					<img src="images/img59/image59_Exocet_Rule-04.svg" style="margin-left:5px;" width="60%" >
 					<br><br>
 				</li><br>
-
+	-->
 
 			<!-- E5 -->
 				<li>
@@ -361,13 +363,13 @@
 						&nbsp; &nbsp; &nbsp;Therefore, (2) proposition is false and #a of T<small>1</small> is negative.</li>
 					</ol><br>
 
-
 					<br>
 					<img src="images/img59/image59_Exocet_Rule-05.svg" style="margin-left: 5px;" width="50%" ><br><br>
 				</li><br>
 			</ol>
 
 		<!-- E6 -->
+	<!--
 			<li>
 				<p class="PColor01">E6. Any base digits that cannot be made positive in the corresponding Mirror of the Target is negative in the Target.
 				</p>
@@ -380,9 +382,10 @@
 
 				<img src="images/img59/image59_Exocet_Rule-06.svg" style="margin-left: 20px;" width="50%" ><br><br>
 			</li><br>
-		
+	-->
 		
 		<!-- E7 -->
+	<!--
 				<li>
 					<p class="PColor01">
 						E7.If one of the Mirror Cells does not contain the Base digits that is in the corresponding Target, 
@@ -395,12 +398,14 @@
 
 					<img src="images/img59/image59_Exocet_Rule-07.svg" style="margin-left: 20px;" width="60%" ><br><br>
 				</li><br>
+	-->
 
-
-
-
+	<!--
 			<ol style="list-style:none; padding-left:10px;">
+	-->
+	
 				<!-- E8 -->
+	<!--
 				<li>
 					<p class="PColor01">
 						E8. "Assume the Base digits is determined."
@@ -415,11 +420,12 @@
 				</li><br><br>
 					<br>
 					<img src="images/img59/image59_Exocet_Rule-08.svg" style="margin-left: 20px;" width="70%" ><br><br>
-
+	-->
 				
 
 
 				<!-- E9 -->
+	<!--
 				<li>
 					<p class="PColor01">
 						E9. When there is a Locked digit in Mirror, if that digit is a Base digit, other Base digit can be excluded in Mirror.
@@ -441,10 +447,11 @@
 						
 						<img src="images/img59/image59_Exocet_Rule-09.svg" style="margin-left:" width="30%" >
 				</li><br><br>
-
+	-->
 
 
 				<!-- E10 -->
+	<!--
 				<li>
 					<p class="PColor01">
 						E10. If Base digits are Locked, The Base and Target range of influence can exclude Base candidate digits.
@@ -453,10 +460,11 @@
 						Also, the target is positive, and the common sphere of influence is negative.<br><br>
 					<img src="images/img59/image59_Exocet_Rule-10.svg" style="margin-left: 20px;" width="70%" ><br><br>
 				</li><br><br>
-
+	-->
 
 
 				<!-- E11 -->
+	<!--
 				<li>
 					<p class="PColor01">
 						E11. Digit that appears only once in the Escape Cell of a Cross-Line is 
@@ -477,9 +485,10 @@
 					</ol><br>
 					<img src="images/img59/image59_Exocet_Rule-11.svg" style="margin-left: 20px;" width="70%" ><br><br>
 				</li><br><br>
+	-->
 
-
-				<!-- E12 -->CrossLine-1,-2
+				<!-- E12 -->
+    <!--
 				<li>
 					<p class="PColor01">
 						E12. If two Base candidate digits are determined to be positive, 
@@ -498,7 +507,7 @@
 				
 					<img src="images/img59/image59_Exocet_Rule-12.svg" style="margin-left: 20px;" width="50%" ><br><br>
 				</li><br><br>
-
+	-->
 			
 			<h4 id="head_bg_LightBlue">&nbsp;Exclusion - 2</h4>
 			<p>
@@ -537,7 +546,8 @@
 					&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Therefore, this combination pattern remains a possible solution.
 				</li>
 				</ol><br>
-				"Exclude-2" detects ineligible Base digit combinations. <b>GNPX tests "Exclude-2" before "Exclude-1".</b>
+				"Exclude-2" detects ineligible Base digit combinations. <br>
+				GNPX tests "Exclude-2" before "Exclude-1".
 			</p><br>
 			<img src="images/img59/image59_Exocet_incompatible07.svg" style="margin-left: 40px;" width="60%" ><br><br><br>
 			<br><br><br>
@@ -554,7 +564,7 @@
 			<p>
 				JE1 is a type with one Target.
 				In JE2, a fixed digits (the Puzzle digits or a fixed digit by analysis) is located at the location of one Target. <br>
-				The elements of JE1 are a Base, a Base digit, one Target (object), and a fixed digit Target(an Object with a fixed digit other than the Base digit).
+				The elements of JE1 are a Base, a Base digit, one Target, and a fixed digit Target(an Object with a fixed digit other than the Base digit).
 				The crossline of the Base, the Sline of the Target, and the blank Object are defined in the natural form of Junior Exocet. <br><br>
 				There are two types of cover for S cells {S0, S1, S2}. This is a condition unique to JE1.
 				<ul>
