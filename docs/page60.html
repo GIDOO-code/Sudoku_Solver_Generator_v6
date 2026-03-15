@@ -1,0 +1,526 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sudoku Multi Secter Locked Sets</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 6.0+</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>
+    </section>
+	<!-- -------------------------------------------------------------------------- -->
+
+	<article id="main">
+
+		<section>
+
+			<H3 id="head_bg_Blue">&nbsp;Multi Secter Locked Sets(MSLS)</H3>
+				<p>
+					Multi-Sector Locked Sets (MSLS) is an algorithm that uses locks that span multiple sectors (rows, columns, and blocks).
+					MSLS is an extension of Locked algorithms such as
+					<a href="page33.html">Locked Set</a>,
+					<a href="page34.html">Fish</a>.<br><br>
+					While Fish uses BaseSet/CoverSet to describe its algorithms, here we will use Sector/Link to match MSLS below.<br><br>
+					<img src="images/img60/image_60_MSLS_LockedSet.svg" alt="LockedSet" style="margin-left: 20px;" width="70%"><br><br>
+					<br>
+
+					MSLS is an algorithm that works as follows:
+					<ul style="margin-left: 0px;">
+						<li>Place several Secters on the board and focus on the intersections.</li>
+						<li>If the number of cells at the intersection and 
+							the number of links connecting the candidate numbers to the intersection are 
+							the same (5 cells = 5 links in the following example), the intersection becomes a Locked Set.</li>
+
+							<li>Candidate numbers in the same Secters as the links, but not at the intersection, are excluded.</li>
+
+					<p style="clear: both"></p>
+					<img src="images/img60/image60_MSLS01.png" alt="MSLS" width="30%"  style="float:left; margin-top:10px; margin-left: 5px;">
+					<p>
+						<br>
+						&nbsp; Multi Sector Locked Set<br>
+						&nbsp; size: 5<br>
+						&nbsp; Secters: r236 c2 b7<br>
+						&nbsp; Digits: #146<br>
+						&nbsp; Links:  (c2)#1 (c2)#4 (c2)#6 (c2 b1)#7<br>
+						&nbsp; Exclude:  r5c2#1 r45c2#4 r45c2#6<br>
+					</p>
+					<p style="clear: both"></p>
+					<p><small>
+						Example ID:01_3<br>
+						289..1..7 ..5.....8 ...2...91 7...8.1.. ...3.7... ..2.4...9 83...6... 5.....3.. 9..4..876 Puzzle<br>
+						2895.1..7 ..5..4..8 ..32.8591 7...8.1.3 ..83.7... 3.2.45789 83...69.. 5..8..3.. 921453876 Current</small><br><br>
+					</p>
+				</p>
+
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;Multi Secter Locked Sets(MSLS) の仕組み</H4>
+			<p>
+				<ul style="margin-left: 0px;">
+					<li>In Sudoku, a Sector (House) has row, column, and block types. 
+						The cells that make up a sector contain the numbers 1 through 9 without repetition.</li>
+
+						<li>Consider two sectors, Sector-1 and Sector-2 (see diagram below). Assume that Sector-1 and Sector-2 intersect at a point C.</li>
+						<li>If the candidate number (x) at the intersection C is positively determined, then x is not in A and not in B. <br>
+							This is because each sector contains the numbers 1 through 9 without repetition.
+						</li><br>
+						<img src="images/img60/image_60_MSLS_Logic1.svg" alt="LockedSet" style="margin-left: 20px;" width="50%"><br><br>
+
+					<li>Consider the case where there are two sets of multiple sectors that intersect. <br>
+						If the multiple candidate numbers at the intersection form a "Locked Set,"
+						
+						these numbers are positively determined within the intersection, 
+						and candidate numbers in the same sectors outside the intersection are excluded. <br>
+						For example, if a Fish is formed only within the cells of the intersection, it becomes a Locked Set. <br><br>
+						<img src="images/img60/image_60_MSLS_Logic2.svg" alt="LockedSet" style="margin-left: 20px;" width="25%"><br><br>
+					</li>
+
+					<li>Assume that multiple sets of sectors intersect.
+						Candidate numbers that are Locked at intersection C are positively determined only at intersection C.</li><br>
+					<li><b>If the number of free cells at the intersection equals the number of links</b>, 
+						then the intersection becomes a <b>Locked Set</b>. </li>
+
+					<li><b>The MSLS Locked condition</b> is met. Also, 
+						candidate numbers outside the <b>intersection</b> of the sector sets are excluded. <br><br>
+						<img src="images/img60/image_60_MSLS_Logic3.svg" alt="LockedSet" style="margin-left: 20px;" width="70%"><br><br>
+					</li>
+				</ul>
+			</p><br><br>
+
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;Multi Secter Locked Sets(MSLS) Example</H4>
+			Example Multi-Sector Locked Sets(MSLS) are available in the data folder... and can be analyzed with GNPX.<br>
+			A portion of them is shown below.
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_1 MultiSecterLockedSets  <br><small>
+			.46..3.8. 72....... .8.7..3.. ..42.7... ..9.58.2. .....6..1 ..14396.. 4.....139 .976.1.4. Puzzle<br>
+			.46..3.8. 723...... .857..3.. .14297.63 639158.2. .7.346..1 .5143967. 46..7.139 3976.1.4. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_1.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 3<br>
+			Secters: r3 c8 b1<br>
+			Digits: #19<br>
+			Links:  (r3)#1 (r3)#9<br>
+			Exclude:  r3c5#1</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_2 MultiSecterLockedSets  <br><small>
+			.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+			137..5628 56..3.1.4 24.6..3.. .721.9... .95.26.1. .145.32.9 951364782 783...546 426857931 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_2.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 5<br>
+			Secters: r14 c457<br>
+			Digits: #489<br>
+			Links:  (r14)#4 (r4)#8 (r1 b2)#9<br>
+			Exclude:  r4c1#8</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_3 MultiSecterLockedSets  <br><small>
+			.97..1.5. 86....... .1.7..8.. ..95.3... ..1.96.8. .....7..9 ..53249.. 1.....475 .481.5.6. Puzzle<br>
+			.97681.54 86.45.... 51473.8.6 7895.36.. 4.1296.8. ..68.7..9 675324918 1..968475 948175.6. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_3.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 3<br>
+			Secters: r1 c7 b9<br>
+			Digits: #23<br>
+			Links:  (c7)#2 (c7)#3<br>
+			Exclude:  r2c7#2 r256c7#3</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_3 MultiSecterLockedSets  <br><small>
+			.97..1.5. 86....... .1.7..8.. ..95.3... ..1.96.8. .....7..9 ..53249.. 1.....475 .481.5.6. Puzzle<br>
+			.97681.54 86.45.... 51473.8.6 7895.36.. 4.1296.8. ..68.7..9 675324918 1..968475 948175.6. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_4.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 4<br>
+			Secters: r2 c368<br>
+			Digits: #239<br>
+			Links:  (r2)#2 (r2)#3 (r2)#9<br>
+			Exclude:  r2c79#2 r2c79#3</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_6 MultiSecterLockedSets  <br><small>
+			.74..2.5. 52....... .9.4..2.. ..62.8... ..7.63.8. .....9..1 ..95813.. 7.....896 .386.7.1. Puzzle<br>
+			.74..2.5. 52...6... .9.4.52.. 1.62.8... 9.7163.82 3827.9..1 469581327 715324896 238697.1. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_5.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 3<br>
+			Secters: r4 c2 b5<br>
+			Digits: #45<br>
+			Links:  (r4)#4 (r4)#5<br>
+			Exclude:  r4c789#4 r4c79#5</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_9 MultiSecterLockedSets  <br><small>
+			.93..6.4. 82....... .6.3..8.. ..96.7... ..6.23.8. .....4..6 ..47519.. 6.....214 .184.2.5. Puzzle<br>
+			.93286.41 82.14.6.. 46137.8.. .896174.. .46523.89 ..2894..6 234751968 6..938214 918462.5. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_6.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 4<br>
+			Secters: r15 c17<br>
+			Digits: #157<br>
+			Links:  (r5)#1 (r1)#5 (r15 c17)#7<br>
+			Exclude:  r6c1#7 r69c7#7</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_10 MultiSecterLockedSets  <br><small>
+			.78..5.9. 59....... .1.8..3.. ..15.9... ..3.18.4. .....4..8 ..79534.. 4.....917 .264.1.8. Puzzle<br>
+			378..5.9. 592...8.. 61489.3.5 8415.973. .53.18.49 .69..4158 1879534.. 435.8.917 926471583 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_7.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 4<br>
+			Secters: r23 c68<br>
+			Digits: #267<br>
+			Links:  (r3)#2 (r2)#6 (r23 c68 b23)#7<br>
+			Exclude:  r2c459#6</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_10 MultiSecterLockedSets  <br><small>
+			.78..5.9. 59....... .1.8..3.. ..15.9... ..3.18.4. .....4..8 ..79534.. 4.....917 .264.1.8. Puzzle<br>
+			378..5.9. 592...8.. 61489.3.5 8415.973. .53.18.49 .69..4158 1879534.. 435.8.917 926471583 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_8.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 5<br>
+			Secters: r12 c78 b2<br>
+			Digits: #123467<br>
+			Links:  (c4 b2)#1 (r1)#2 (r2 b2)#3 (c5 b2)#4 (r12 b23)#6 (r2)#7<br>
+			Exclude:  r1c9#2 r1c9#6 r2c9#6 r12c9#6</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_11 MultiSecterLockedSets  <br><small>
+			6.7.9.... 1......9. 85.7.2136 ...416..8 9.8..7... ..1.8...5 .1.23846. ...1..2.. .......51 Puzzle<br>
+			6.7.915.. 1......9. 859742136 5..4169.8 9.8527.1. ..1.8...5 715238469 ...1..2.. .......51 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_9.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 3<br>
+			Secters: c2 b14<br>
+			Digits: #23467<br>
+			Links:  (c2)#2 (c2)#3 (c2)#4 (c2 b4)#6 (c2 b4)#7<br>
+			Exclude:  r9c2#2 r89c2#4</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_12 MultiSecterLockedSets  <br><small>
+			4.7.5.... 8......1. 62.1.7954 ...876..9 2.9..3... ..6.9...7 .3.54867. ...9..3.. .......98 Puzzle<br>
+			417.59... 895.2471. 623187954 ...876..9 279413... .86295..7 93.54867. 7.896.3.. .6.73..98 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_10.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 5<br>
+			Secters: r125 c79<br>
+			Digits: #23568<br>
+			Links:  (r1 b3)#2 (c9 b3)#3 (r5 b6)#5 (c9)#6 (c7)#8<br>
+			Exclude:  r1c8#2 r1c8#2</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_850 MultiSecterLockedSets  <br><small>
+			.3.....85 ..6...... .9.4.7.1. .132.5.64 ..5..8.91 .7214.... ..9..4.5. ...32.... 3.7.81..9 Puzzle<br>
+			73.9.2.85 ..68.39.. .984.7.1. 813295764 ..5738291 972146538 ..9674.5. ...329... 3.7581..9 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_11.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 4<br>
+			Secters: r139 c7<br>
+			Digits: #346<br>
+			Links:  (r3 c7 b3)#3 (c7)#4 (c7)#6<br>
+			Exclude:  r3c9#3 r7c7#3 r3c9#3 r8c7#4 r8c7#6</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_854 MultiSecterLockedSets  <br><small>
+			.5.....94 ..7...... .8.7.9.5. .395.7.42 ..5..8.69 .4829.... ..1..4.2. ...67.... 3.4.21..5 Puzzle<br>
+			.5....794 9.7...... 48.7.925. .395.7842 ..5..8.69 .4829.5.. ..1..4.2. .9267.4.. 3.4.21..5 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_12.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 2<br>
+			Secters: c2 b7<br>
+			Digits: #67<br>
+			Links:  (c2 b7)#6 (c2 b7)#7<br>
+			Exclude:  r5c2#7 r7c1#7</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_855 MultiSecterLockedSets  <br><small>
+			.7.....35 ..4...... .9.4.3.7. .632.4.89 ..7..9.56 .5976.... ..8..5.6. ...64.... 6.5.27..3 Puzzle<br>
+			.7....435 ..457.... 59.4.3.7. 163254789 ..7..9.56 .5976.3.. ..8..5.6. ...64.5.. 6.5.27..3 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_13.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 3<br>
+			Secters: r1 c1 b4<br>
+			Digits: #248<br>
+			Links:  (c1)#2 (r5 c1 b4)#4 (c1)#8<br>
+			Exclude:  r278c1#2 r5c2#4 r7c1#4 r5c2#4 r2c1#8</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_857 MultiSecterLockedSets  <br><small>
+			.7.....86 ..6...... .3.5.6.9. .941.5.37 ..7..8.24 .2874.... ..2..4.5. ...85.... 9.5.17..3 Puzzle<br>
+			.79.3..86 ..6...3.. .315.6.92 694125837 3.7..8.24 .28743... ..23.4.58 ..385.... 985.17..3 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_14.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 5<br>
+			Secters: r57 c5 b46<br>
+			Digits: #1569<br>
+			Links:  (r5)#1 (r5)#5 (c5)#6 (c5)#9<br>
+			Exclude:  r2c5#9</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_858 MultiSecterLockedSets  <br><small>
+			.5.....76 ..4...... .2.8.3.1. .154.6.32 ..6..2.57 .3958.... ..2..8.6. ...97.... 5.3.21..8 Puzzle<br>
+			.5.2...76 ..47..28. .278.3.1. 715496832 ..6132957 239587641 ..23.8.6. ...97..2. 5.3621.98 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_15.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 3<br>
+			Secters: r7 c9 b8<br>
+			Digits: #45<br>
+			Links:  (r7)#4 (r7)#5<br>
+			Exclude:  r7c127#4 r7c7#5</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_861 MultiSecterLockedSets  <br><small>
+			1....9... 6.....719 57....... ..1927.5. ...4.6... 9.2.15473 .9.2.31.. 2...98... ..51...8. Puzzle<br>
+			12...9... 68...2719 579..1.2. 341927.5. 857436291 962815473 4982.316. 216.98... 735164982 Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_16.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 3<br>
+			Secters: r1 c8 b1<br>
+			Digits: #34<br>
+			Links:  (r1)#3 (r1)#4<br>
+			Exclude:  r1c47#3 r1c59#4</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_862 MultiSecterLockedSets  <br><small>
+			6....9... 2.....391 31....... ..2763.8. ...9.2... 8.3.15279 .3.6.17.. 9...57... ..73...6. Puzzle<br>
+			6..139... 2....6391 319...... 592763184 741982.3. 863415279 43.6917.. 9.6.57413 1.73..96. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_17.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 5<br>
+			Secters: r12 c47 b1<br>
+			Digits: #4578<br>
+			Links:  (c3 b1)#4 (r12)#5 (c2 b1)#7 (r12)#8<br>
+			Exclude:  r1c89#5</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_863 MultiSecterLockedSets  <br><small>
+			6....2... 4.....926 23....... ..5814.3. ...5.7... 7.3.26458 .6.7.35.. 3...95... ..24...8. Puzzle<br>
+			6..1.2... 451378926 23.6.9... 925814637 8465372.. 713926458 16.7835.2 3..295.6. 5.2461.8. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_18.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 4<br>
+			Secters: r19 c27<br>
+			Digits: #3789<br>
+			Links:  (c7)#3 (r9)#7 (r1)#8 (c2)#9<br>
+			Exclude:  r1c3#8</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_868 MultiSecterLockedSets  <br><small>
+			2....6... 9.....548 78....... ..3427.6. ...3.9... 4.7.68932 .7.6.21.. 3...45... ..27...9. Puzzle<br>
+			2....6... 9..27.548 78...4... .9342786. .2.3.9... 4.7.68932 .7.6.21.. 3...45... ..27...9. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_19.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 3<br>
+			Secters: r5 c5 b6<br>
+			Digits: #1457<br>
+			Links:  (r5)#1 (r5 b6)#4 (r5)#5 (r5 b6)#7<br>
+			Exclude:  r5c13#1 r5c13#5</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p style="clear: both"></p><br>
+			<p class="newLine"> ID:00_871 MultiSecterLockedSets  <br><small>
+			.5....4.. 3...9.526 6....5.89 ...6.1.4. ......2.. 4..82..1. 2..7...64 5.6.187.. .7..628.. Puzzle<br>
+			.5..864.. 3..19.526 6....5.89 ...6.1.4. .6.5..2.. 4..82.61. 2..753.64 5.6.187.2 .7..6285. Current</small><br></p>
+			<img src="images/img60/MultiSecterLockedSets_20.png" width="30%" style="float:left;  margin-right:8px;" alt="MultiSecterLockedSets (Lv.9)"><br>
+
+			<p>
+			Multi Sector Locked Set<br>
+			<br>
+			size: 5<br>
+			Secters: r13 c14 b7<br>
+			Digits: #1239<br>
+			Links:  (c1)#1 (c4 b2)#2 (c4 b2)#3 (c1)#9<br>
+			Exclude:  r5c1#1 r45c1#9</p>
+			<p style="clear: both"></p><br>
+			<hr>
+			</tt></div>
+
+		</section>
+	</article>
+
+	<a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>

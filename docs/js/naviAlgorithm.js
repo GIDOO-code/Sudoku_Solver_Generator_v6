@@ -107,6 +107,12 @@ function writeNaviAlgorithm(){
 					html += '<li><a href="page59C.html">Franken/Mutant Exocet</a> </li>';
 			    html += '</ul>';
 			html += '</li>';
+
+			html += '<li><a href="?ForceChain">Multi Secter Locked Set</a>';
+				html += '<ul>';
+		        	html += '<li><a href="page60.html">Multi Secter Locked Set</a></li>';
+			    html += '</ul>';
+			html += '</li>';
 		html += '</ul>';
 
 	    html += '<h4 style="color:Darkblue">Base Class</h4>';

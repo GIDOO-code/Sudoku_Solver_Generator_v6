@@ -1,7 +1,5 @@
-# Sudoku_Solver_Generator_v6.0 Release
-  <span style="color: Blue;">
-  Added Franken/Mutant Exocet (GNPX v5.95 2026.February)<br></span>
-  Added AHS(HP) and AHSXZ(GNPX) (2025.07.17)
+# Sudoku_Solver_Generator_v6.2 
+GNPX v6.2 targets MSLS (Multi Secter Locked Sets).
 
 # GNPX v6 HP:
   en : https://gidoo-code.github.io/Sudoku_Solver_Generator_v6/<br>
