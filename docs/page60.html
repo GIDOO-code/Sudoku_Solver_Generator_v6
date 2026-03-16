@@ -96,21 +96,22 @@
 						<img src="images/img60/image_60_MSLS_Logic1.svg" alt="LockedSet" style="margin-left: 20px;" width="50%"><br><br>
 
 					<li>Consider the case where there are two sets of multiple sectors that intersect. <br>
-						If the multiple candidate numbers at the intersection form a "Locked Set,"
+						If the multiple candidate digits at the intersection form a "Locked Set,"
 						
-						these numbers are positively determined within the intersection, 
-						and candidate numbers in the same sectors outside the intersection are excluded. <br>
+						these digits are positively determined within the intersection, 
+						and candidate digits in the same sectors outside the intersection are excluded. <br>
 						For example, if a Fish is formed only within the cells of the intersection, it becomes a Locked Set. <br><br>
 						<img src="images/img60/image_60_MSLS_Logic2.svg" alt="LockedSet" style="margin-left: 20px;" width="25%"><br><br>
 					</li>
 
-					<li>Assume that multiple sets of sectors intersect.
-						Candidate numbers that are Locked at intersection C are positively determined only at intersection C.</li><br>
-					<li><b>If the number of free cells at the intersection equals the number of links</b>, 
-						then the intersection becomes a <b>Locked Set</b>. </li>
+					<li>Assume the multiple sectors intersects.</li><br>
+
+					<li>There is always a digit that will be positive at the intersection (the specific digit is not determined),<br>
+						If <b>|free cells| = |links|</b>, then all links will be positive. Therefore, the links becomes a <b>LockedSet</b>. <br>
+						However, it is not determined which link end digit will be positive.</li><br>
 
 					<li><b>The MSLS Locked condition</b> is met. Also, 
-						candidate numbers outside the <b>intersection</b> of the sector sets are excluded. <br><br>
+						candidate digits outside the <b>intersection</b> of the sector sets are excluded. <br><br>
 						<img src="images/img60/image_60_MSLS_Logic3.svg" alt="LockedSet" style="margin-left: 20px;" width="70%"><br><br>
 					</li>
 				</ul>
