@@ -53,12 +53,14 @@
 
 					MSLS is an algorithm that works as follows:
 					<ul style="margin-left: 0px;">
-						<li>Place several Secters on the board and focus on the intersections.</li>
-						<li>If the number of cells at the intersection and 
-							the number of links connecting the candidate numbers to the intersection are 
-							the same (5 cells = 5 links in the following example), the intersection becomes a Locked Set.</li>
-
-							<li>Candidate numbers in the same Secters as the links, but not at the intersection, are excluded.</li>
+						<li>Place several Secters on the board and focus on the intersections.</li><br>
+						<li>Focus on the candidate digits at the intersection and count the links connecting them. <br>
+							Even if there are multiple types of link representations connecting the candidate digits, 
+							only one type will be counted. </li><br>
+						<li>If the number of cells at the intersection and the number of links connecting the candidate digits at the intersection
+							are the same, the intersection becomes a Locked Set. <br>
+							In the following example, there are <b>4 cells = 4 links</b>. There are multiple types of link representations (c2 b1)#7.</li><br>
+						<li>Candidate digits in the same Secters as the links, but not at the intersection, are excluded.</li>
 
 					<div><tt>
 					<p style="clear: both"></p>
