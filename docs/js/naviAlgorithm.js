@@ -111,6 +111,7 @@ function writeNaviAlgorithm(){
 			html += '<li><a href="?ForceChain">Multi Secter Locked Set</a>';
 				html += '<ul>';
 		        	html += '<li><a href="page60.html">Multi Secter Locked Set</a></li>';
+					tml += '<li><a href="page60.html">SK Loop</a></li>';
 			    html += '</ul>';
 			html += '</li>';
 		html += '</ul>';
