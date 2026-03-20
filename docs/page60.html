@@ -86,15 +86,32 @@
 				<H3 id="head_bg_LightBlue" id="SE">&nbsp;Proof of Multi-Secter Locked Sets (MSLS)</H3>
 				<p>
 					MSLS is proven as follows:
-					<ul>
-						<li>Since the number of cells and links at the intersection are the same, the minimum number of links for each candidate digit is determined. </li><br>
-						<li>Therefore, the group of links that cover each candidate digit is determined. <br>
-							However, there may be multiple types of coverage patterns (for example, a fish-shaped group of covered links). </li><br>
-							<li>Therefore, the number of candidate digits corresponding to the number of links is positively determined. <b>
-								|Intersection Free Cell| = |Link|</b>, so all cells at the intersection are positively determined. <br>
-								However, the candidate digits at the intersection are not uniquely determined. </li>
+
+					<ul style="padding-left: 20px">
+						<LI>Premise:
+							<ul style="padding-left: 10px">
+								<li>Set a set containing multiple sectors (let's call it <b>A</b>). </li>
+								<li>Find the links connecting the candidate digits at the undetermined intersections.
+									(The term "undetermined" will be omitted below.)</li>
+								<li>Find the minimum cover link set for each candidate digit. </li>
+								<li>Assume |cells of the intersection| = |links of the cover link set|. </li>
+							</ul>
+						</LI><br>
+
+						<li>Conclusion：<br>
+							&nbsp; If |cells of the intersection| = |links of the cover link set|, then <b>A</b> is Multi-Secter Locked Sets (MSLS).
+						</li><br>
+
+						<li>Proof：
+							<ul style="padding-left: 10px">
+								<li>Since the number of cells at the intersection and the total number of links are the same,
+									the minimum number of links for each candidate digit is determined. </li>
+								<li>Therefore, in the minimum cover link set, all links will be positive.</b> (Each link contains exactly one positive digit.)</li>
+								<li><b>A</b> is a Multi-Sector Locked Set (MSLS). </li>
+							</ul>
+						</li>
 					</ul>
-				</p><br><br><br>
+				</p><br>
 			</p>
 
 				<H4 id="head_bg_LightBlue" id="SE">&nbsp;SK Loop</H4>
