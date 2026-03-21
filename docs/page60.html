@@ -1,0 +1,1078 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sudoku Multi sector Locked Sets</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+<body id="page">
+	<header id="head"> <strong><i>Sudoku Algorithm 6.0+</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>
+    </section>
+	<!-- -------------------------------------------------------------------------- -->
+
+	<article id="main">
+		<section>
+
+			<H3 id="head_bg_Blue">&nbsp;Multi sector Locked Sets(MSLS)</H3>
+				<p>
+					Multi-Sector Locked Sets (MSLS) is an algorithm that uses locks that span multiple sectors (rows, columns, and blocks).
+					MSLS is an extension of Locked algorithms such as
+					<a href="page33.html">Locked Set</a>,
+					<a href="page34.html">Fish</a>.<br><br>
+					While the Fish algorithm uses BaseSet/CoverSet in its explanation, here use Sector/Link in accordance with MSLS. <br><br>
+					<br>
+
+					MSLS is the following algorithm:
+					<ul style="margin-left: 0px;">
+						<li>Place several Sectors on the board and focus on the intersections of undetermined digits.
+							Intersections where Sectors overlap three times are excluded. </li><br>
+							
+						<li>Focus on the candidate digits at the intersections and find the links connecting them.
+							There may be multiple ways to represent the links connecting the candidate digits. <br>
+							For each set of links for a candidate digits, find the smallest set of links that covers them.
+							Count the <b>number of links</b> at this time. </li><br>
+							
+						<li>If the <b>number of cells</b> at the intersection and the <b>total number of links</b> are the same,
+							the intersection becomes a Locked Set.
+							In the following example, <b>5 cells = 5 links</b>. </li><br>
+							
+						<li>Candidate digits outside the <b>intersection</b> of the same Sector as the links are excluded. </li>
+					</ul>
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_1 MultisectorLockedSets  <br><small>
+.46..3.8. 72....... .8.7..3.. ..42.7... ..9.58.2. .....6..1 ..14396.. 4.....139 .976.1.4. Puzzle<br>
+.46..3.8. 723...... .857..3.. ..42.7... 6.9.58.2. ....46..1 .5143967. 46..7.139 3976.1.4. Current</small><br></p>
+<img src="images/img60/image60_MSLS01.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 5-Int.Cells, 5-Links<br>
+ sectors: r1 c16 b2<br>
+  Digits: #12459<br>
+  Links:  r1#1 b2#2 c6#4 b2#5 r1#9<br>
+  Exclude:  r3c5#2 r2c4#5 r1c7#9</p>
+<p style="clear: both"></p><br>
+
+</tt></div>
+	
+				</p>
+
+			<H3 id="head_bg_LightBlue" id="SE">&nbsp;Proof of Multi-Sector Locked Sets (MSLS)</H3>
+			<p>
+				MSLS is proven as follows:
+				<ul>
+					<LI>Premise:
+						<ul>
+							<li>Set a set containing multiple sectors (let's call it <b>A</b>). </li>
+							<li>Find the links connecting candidate digits at the undetermined intersection. (Hereafter, "undetermined" will be omitted.)</li>
+							<li>Find the minimum cover link set for each candidate digit. </li>
+							<li>The number of cells at the intersection and the total number of links in the cover link set should be equal. </li>
+						</ul>
+					</LI><br>
+
+					<li>Conclusion:<br>
+						&nbsp; &nbsp; If |cells of the intersection| = |links of the cover link set|, then <b>A</b> is Multi-sector Locked Sets (MSLS).
+					</li><br>
+
+					<li>Proof:
+						<ul>
+							<li>Since the number of cells at the intersection and the total number of links are the same, 
+								the minimum number of links for each candidate digit is determined. </li>
+							<li>Therefore, the minimum covered link set is one where all links are positive.</b> (Each link must have at least one positive digit.)</li>
+							<li><b>A</b> is a Multi-sector Locked Set (MSLS). </li>
+						</ul>
+					</li>
+				</ul>
+				While all links are valid, it's important to note that the candidate digits at the intersections are not uniquely determined.
+				This is similar to, for example, Fish.<br><br>
+
+				<a href="#ID_MSLS">&nbsp; Multi-Sector Locked Sets (MSLS)<img src="images/imgTop/jumpTo.png" height="8"></a>
+			</p>
+
+
+
+
+			<H4 id="head_bg_Blue" id="SE">&nbsp;SK Loop</H4>
+			<p>
+				SK Loop is an 8th-order MSLS. It consists of two row sectors, two column sectors, and four block sectors.<br>
+				The sector layout is as shown in the following diagram.<br>
+				In SK Loop, there is a triple overlap of sectors. This area is treated as outside the intersection, and any candidate digits can be excluded. <br>
+
+				Since SK Loop is MSLS, there is no special feature to the solution algorithm.
+				Speed ​​can be improved by specifying the sector set as 2-row,2-column,4-blocks. <br><br>
+				<br>
+				<img src="images/img60/image_60_SK_Loop.svg" alt="LockedSet" style="margin-left: 20px;" width="70%"><br><br>
+
+				<a href="#ID_SK-Loop">&nbsp; SK Loop Example<img src="images/imgTop/jumpTo.png" height="8"></a>
+
+			</p><br>
+		</section>
+
+		<section>
+		<a id="ID_MSLS"></a>
+		<H4 id="head_bg_Blue" id="SE">&nbsp;Multi sector Locked Sets(MSLS) Example</H4>
+			Sample Multi-Sector Locked Sets (MSLS) are available in the data folder... and can be analyzed with GNPX(v6.2-).
+			A portion of them is shown below.<br>
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_2 MultisectorLockedSets  <br><small>
+.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+137..5628 56..3.1.4 24.6..3.. .721.9... .95.26.1. .145.32.9 951364782 783...546 426857931 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_1.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 5-Int.Cells, 5-Links<br>
+ sectors: r23 c3 b3<br>
+ Digits: #5789<br>
+ Links: r3#5 b3#7 c3#8 r23#9<br>
+ Exclude: (r2c4 r3c5)#9</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_3 MultisectorLockedSets  <br><small>
+.97..1.5. 86....... .1.7..8.. ..95.3... ..1.96.8. .....7..9 ..53249.. 1.....475 .481.5.6. Puzzle<br>
+.97681.54 86.45.... 51473.8.6 7895.36.. 4.1296.8. ..68.7..9 675324918 1..968475 948175.6. Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_2.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 3-Int.Cells, 3-Links<br>
+ sectors: r2 c8 b12<br>
+ Digits: #239<br>
+ Links: r2#2 r2#3 r2#9<br>
+ Exclude: (r2c79)#2 (r2c79)#3</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_11 MultisectorLockedSets  <br><small>
+6.7.9.... 1......9. 85.7.2136 ...416..8 9.8..7... ..1.8...5 .1.23846. ...1..2.. .......51 Puzzle<br>
+6.7.915.. 1......9. 859742136 5..4169.8 9.8527.1. ..1.8...5 715238469 ...1..2.. .......51 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_3.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 5-sectors, 9-Int.Cells, 9-Links<br>
+ sectors: r89 c13 b8<br>
+ Digits: #2345679<br>
+ Links: r9#2 b7#3 r89#4 r8#5 r89#6 c5#7 b8#9<br>
+ Exclude: r9c2#2 (r89c2)#3 (r89c2)#4</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_21 MultisectorLockedSets  <br><small>
+.4.8.9.63 ..61437.8 8.7.....9 52..91.8. ......... 7..25.9.4 .......4. ..962...5 3....58.. Puzzle<br>
+.4.879.63 ..61437.8 837562419 52..91687 ....8.... 7..256934 ...93..4. ..962.375 3...1589. Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_4.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 5-Int.Cells, 5-Links<br>
+ sectors: r45 c3 b5<br>
+ Digits: #347<br>
+ Links: r45#3 r45#4 r5#7<br>
+ Exclude: r5c1#4</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_32 MultisectorLockedSets  <br><small>
+263....8. ..5..6..1 9..8..... 7..2..1.. 32148.7.. ..67..3.8 5.8.174.. 6.7.....3 ..2...8.. Puzzle<br>
+2631...8. 875..62.1 9148.26.. 7892631.. 3214857.. 456791328 5.8.174.2 647.28.13 1.2...8.. Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_5.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 5-Int.Cells, 5-Links<br>
+ sectors: r13 c6 b3<br>
+ Digits: #34579<br>
+ Links: r3#3 r1#4 b3#5 b3#7 r1#9<br>
+ Exclude: r3c5#3 r1c5#4</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_42 MultisectorLockedSets  <br><small>
+....49.3. 13.67..45 4...18.2. .......84 7.2...3.6 814...... 3........ ..1.25... 54.19..62 Puzzle<br>
+2.6549.3. 13.672.45 4.531862. ..3.5..84 752.8.3.6 814.36... 32..6.... ..1.25..3 54.193.62 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_6.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 6-sectors, 5-Int.Cells, 5-Links<br>
+ sectors: r35 c469 b6<br>
+ Digits: #1479<br>
+ Links: r5#1 r5#4 c9#7 r5 c9#9<br>
+ Exclude: (r17c9)#7 r7c9#9</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_52 MultisectorLockedSets  <br><small>
+...9...84 .4...59.. .2948.5.. ..3.....9 5.1.6..4. ...8..316 19.24.6.5 ........2 2.6.7.4.. Puzzle<br>
+.159..784 .4...592. .2948.56. 463...859 581369247 972854316 19.24.6.5 ..4.9.1.2 2.6.7.498 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_7.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 5-sectors, 4-Int.Cells, 4-Links<br>
+ sectors: r27 c359<br>
+ Digits: #1378<br>
+ Links: r2#1 r2#3 c3#7 c3#8<br>
+ Exclude: r2c4#1 r2c1#3</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_61 MultisectorLockedSets  <br><small>
+3.....6.. 2..719..5 5..34.... ..49..3.7 ..3..45.. 7.51.3.9. .3..5.978 ......... .976..45. Puzzle<br>
+37.5..64. 246719835 5..34672. ..49.53.7 9.3.745.6 7.51.3294 63.45.978 45..97163 .9763.452 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_8.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 5-sectors, 4-Int.Cells, 4-Links<br>
+ sectors: r49 c18 b8<br>
+ Digits: #18<br>
+ Links: r49#1 r49#8<br>
+ Exclude: r4c2#1 (r4c25)#8</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_71 MultisectorLockedSets  <br><small>
+.1..295.. .596..4.2 72...13.6 ..4..2... 5.2.139.. ...954... .37...8.4 ......6.. .4.2....9 Puzzle<br>
+4163295.. 3596..412 728541396 ..4.62... 562.1394. ..395426. .3719.8.4 ...4..6.. .4.2....9 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_9.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 3-Int.Cells, 3-Links<br>
+ sectors: r4 c89 b6<br>
+ Digits: #178<br>
+ Links: b6#1 b6#7 c9#8<br>
+ Triple overlap: r4c89<br>
+ Exclude: r4c9#1 (r4c89)#7 (r14c9)#8</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_81 MultisectorLockedSets  <br><small>
+.5......2 ......6.8 286..9.3. ..4...... ..7214.8. 5.2..7... 6.8...9.3 ...563..7 3..798.16 Puzzle<br>
+.5......2 ......6.8 286.7953. 8.4...... 967214385 5.2..7... 678...953 ...5638.7 3.5798.16 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_10.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 3-Int.Cells, 3-Links<br>
+ sectors: r23 c4 b8<br>
+ Digits: #134<br>
+ Links: c4#1 r2#3 c4#4<br>
+ Exclude: r1c4#1 (r2c35)#3 r1c4#4</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:01_10001 MultisectorLockedSets  <br><small>
+.5.....3. 9.652.... .....1... 7...9..4. .....7... .2.368.17 .9.4.2.6. ....7..5. ......9.8 Puzzle<br>
+.5..86.3. 936524..1 ....316.5 7...95.4. ....47... 429368517 .9.4.2.63 ...879.5. ...6.39.8 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_11.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 3-Int.Cells, 3-Links<br>
+ sectors: r458 c2<br>
+ Digits: #168<br>
+ Links: c2#1 c2#6 c2#8<br>
+ Exclude: r9c2#1 r3c2#8</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:01_10001 MultisectorLockedSets  <br><small>
+.5.....3. 9.652.... .....1... 7...9..4. .....7... .2.368.17 .9.4.2.6. ....7..5. ......9.8 Puzzle<br>
+.5..86.3. 936524..1 ....316.5 7...95.4. ....47... 429368517 .9.4.2.63 ...879.5. ...6.39.8 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_12.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 5-sectors, 9-Int.Cells, 9-Links<br>
+ sectors: r13 c4 b15<br>
+ Digits: #124789<br>
+ Links: r1 c4#1 c4 b1#2 r3#4 r13#7 r3#8 c4#9<br>
+ Exclude: (r1c7 r3c8)#7</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_1 MultisectorLockedSets  <br><small>
+.....71.. .8142.... ..9.3.4.. 9......53 5.......4 27......9 ..2.8.3.. ....4592. ..56..... Puzzle<br>
+.....71.. .8142.5.. ..9.3.4.. 9......53 5.......4 27......9 ..278.365 .6734592. ..56.2.4. Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_13.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 3-sectors, 4-Int.Cells, 4-Links<br>
+ sectors: c13 b1<br>
+ Digits: #3467<br>
+ Links: b1#3 r1#4 c1#6 c1#7<br>
+ Exclude: r1c2#3 r1c2#4</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_14 MultisectorLockedSets  <br><small>
+....5.... .26..3..4 .4..2.9.. 7.3...... 46.2.9.71 ......6.8 ..9.3..8. 8..5..72. ....1.... Puzzle<br>
+....5.... .26.73.14 .4..2.9.. 783165... 465289371 .9.347658 ..9.3.18. 814596723 ....1.... Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_14.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 5-sectors, 8-Int.Cells, 8-Links<br>
+ sectors: r123 c8 b1<br>
+ Digits: #1356789<br>
+ Links: b1#1 r13#3 c1#5 c8#6 b1#7 c3#8 c1#9<br>
+ Exclude: r9c8#6</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_21 MultisectorLockedSets  <br><small>
+........9 ...682.3. ..5..9..6 ..1...8.. 7.3.6.9.1 ..4...5.. 1..3..2.. .5.716... 8........ Puzzle<br>
+..8....29 9.7682.35 ..5..9.86 5.1...8.. 7.3.65941 ..4...5.. 176398254 452716398 839..4617 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_15.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 7-sectors, 8-Int.Cells, 8-Links<br>
+ sectors: r459 c14 b24<br>
+ Digits: #1245689<br>
+ Links: c4#1 c4 b4#2 c4#4 c4#5 b4#6 r5#8 r4#9<br>
+ Exclude: r6c4#1 (r6c24)#2 r6c2#6</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_22 MultisectorLockedSets  <br><small>
+..3..54.. .4..8.... 6....3... .6..24.7. 3..5.6..1 .5.91..2. ...1....2 ....3..5. ..94..8.. Puzzle<br>
+..3.954.. .4..81..9 69..43..5 961324578 3..576941 .5.918.2. ...1.7.92 ...839.54 ..94.28.. Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_16.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 5-sectors, 5-Int.Cells, 5-Links<br>
+ sectors: r267 c7 b1<br>
+ Digits: #23567<br>
+ Links: r2#2 c7#3 r2#5 c7#6 r2#7<br>
+ Exclude: r2c4#2 r8c7#6 r2c4#7</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_43 MultisectorLockedSets  <br><small>
+..1..5..3 .73...96. ....2..1. 3...76... 8.......7 ...24...6 .5..3.... .42...39. 6..1..8.. Puzzle<br>
+..1..5..3 .73...96. ....2..1. 3...76..9 8.......7 ...24...6 .58.3.6.. .42...39. 63.1..8.. Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_17.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 5-sectors, 8-Int.Cells, 8-Links<br>
+ sectors: r13 c78 b1<br>
+ Digits: #2456789<br>
+ Links: r1#2 r13#4 r3#5 b1#6 c7#7 c2#8 b1#9<br>
+ Exclude: (r1c4 r3c469)#4 r3c9#5</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_105 MultisectorLockedSets  <br><small>
+..7..1..4 .43...... 8..6...1. ...4.7.85 ...1.8... 75.3.9... .1...4..6 ......13. 6..2..9.. Puzzle<br>
+567.31..4 143..2... 8..645.1. ..14.7.85 4.6158... 7583.94.1 31...4..6 ..45.613. 6.521394. Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_18.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 4-sectors, 4-Int.Cells, 4-Links<br>
+ sectors: r36 c7 b6<br>
+ Digits: #2367<br>
+ Links: b6#2 c7#3 b6#6 c7#7<br>
+ Exclude: (r5c89)#2 r7c7#7</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_161 MultisectorLockedSets  <br><small>
+.....1... ..25.3..6 4..8..1.2 .86.....1 ....9.... 7.....24. 1.8..2..7 3..7.94.. ...3..... Puzzle<br>
+...921..4 .12543..6 4..8..1.2 .86.....1 ....9.... 7.....24. 1.8..2..7 3.57.94.8 ...3..... Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_19.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 3-sectors, 4-Int.Cells, 4-Links<br>
+ sectors: r4 c9 b6<br>
+ Digits: #3579<br>
+ Links: b6#3 b6#5 r4#7 b6#9<br>
+ Exclude: (r5c78)#3 (r5c78)#5 (r4c56)#7</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_168 MultisectorLockedSets  <br><small>
+..3...7.. ...34.5.. ....89.63 .8....1.7 2.......8 3.4....5. 57.19.... ..1.56... ..6...2.. Puzzle<br>
+..3...78. 76834.5.. 125789463 689...1.7 257...3.8 314....5. 57219..3. .31256.7. ..6...215 Current</small><br></p>
+<img src="images/img60/MultisectorLockedSets_20.png" width="30%" style="float:left;  margin-right:8px;" alt="MultisectorLockedSets (Lv.9)"><br>
+
+<p>
+Multi Sector Locked Set<br>
+<br>
+ Size: 5-sectors, 6-Int.Cells, 6-Links<br>
+ sectors: r5 c468 b2<br>
+ Digits: #124569<br>
+ Links: c6#1 c6#2 r5#4 r1#5 c4#6 r5#9<br>
+ Exclude: (r46c6)#2</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+		</section>
+
+		<section>
+			<a id="ID_SK-Loop"></a>
+
+			<H4 id="head_bg_Blue" id="SE">&nbsp; SK Loop Example</H4>
+			<p>SK Loop examples are available in the data folder... and can be analyzed with GNPX(v6.2-). A portion of them is shown below.</p>
+			<hr>
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_29 MSLS_SK_Loop  <br><small>
+.9.3.6.72 ..21794.8 6.8.....9 56..24.9. ......... 8..95.7.6 .......8. ..526...7 9....86.. Puzzle<br>
+.9.386572 352179468 678542..9 567824.9. 2.96.78.. 84.95.726 7.649528. .8526.9.7 92.7.86.. Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_1.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 6-Int.Cells, 6-Links<br>
+ sectors: r59 c36 b4578<br>
+ Digits: #13<br>
+ Links: r56 b8#1 r56 b8#3<br>
+ Triple overlap: r9c3<br>
+ Exclude: (r5c89)#1 (r5c89)#3</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_243 MSLS_SK_Loop  <br><small>
+94...2.3. .3.4..6.9 ....9...2 86.7.5941 ....89... .92.4.7.. 38..1.... .5.2....3 .....6.94 Puzzle<br>
+94..6253. 23.45.6.9 6.5.9.4.2 863725941 ..4.8932. .92.4.7.. 3869142.. 459278163 .2.536894 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_2.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 10-Int.Cells, 10-Links<br>
+ sectors: r15 c68 b2356<br>
+ Digits: #135678<br>
+ Links: c468#1 c6#3 b6#5 r5#6 c6 b3#7 r1 c8#8<br>
+ Exclude: (r36c4)#1 r6c9#5 r1c3#8</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_253 MSLS_SK_Loop  <br><small>
+6.1....5. 3...7.6.. ......74. ..7..42.. ....9.167 ....2.584 ..258.3.. 7.....42. 56..4.918 Puzzle<br>
+671439852 3...7.691 ..9..6743 ..76.4239 ....9.167 ..6.27584 ..2581376 718963425 563742918 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_3.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 11-Int.Cells, 11-Links<br>
+ sectors: r36 c36 b1245<br>
+ Digits: #1234589<br>
+ Links: r36#1 r3#2 r6#3 c3#4 r235#5 r3 c6#8 r6#9<br>
+ Exclude: (r25c2)#5</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_433 MSLS_SK_Loop  <br><small>
+8.2..7.51 ......82. .1.2.593. .6.47.... .....23.. 28.....76 ...34...2 371..94.. ..8..6.9. Puzzle<br>
+842937651 .3...4827 .1.285934 .6347.2.. .....234. 284.93.76 ...34.7.2 371.2946. 4287.6.93 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_4.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 4-Int.Cells, 4-Links<br>
+ sectors: r67 c68 b5689<br>
+ Digits: #158<br>
+ Links: r46#1 r6#5 r4#8<br>
+ Triple overlap: r7c68<br>
+ Exclude: r4c1#1 r4c9#8</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_481 MSLS_SK_Loop  <br><small>
+23.1.87.5 9..3476.. .......14 4.2....5. ...7..48. .68..3... 8.9..5..7 756...... 12......9 Puzzle<br>
+234168795 915347628 687529314 472.8..53 391752486 5684.3.7. 849..5..7 756...8.. 12387.5.9 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_5.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 10-Int.Cells, 10-Links<br>
+ sectors: r68 c47 b5689<br>
+ Digits: #123469<br>
+ Links: r68 c7#1 r7 c9#2 r8#3 r8#4 c4#6 r4 c5#9<br>
+ Triple overlap: r6c7 r8c4<br>
+ Exclude: r6c7#1</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_822 MSLS_SK_Loop  <br><small>
+.9173.24. 7..926... ..5.8..9. .7..48..2 9.2...85. .....913. .8.69...5 .4.....1. ..9.....8 Puzzle<br>
+891735246 734926581 625.8.793 .73.48962 9.2...854 4.82.9137 .8769.425 .468..319 ..9...678 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_6.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 11-Int.Cells, 11-Links<br>
+ sectors: r47 c25 b4578<br>
+ Digits: #13567<br>
+ Links: r4579#1 r7#3 r4 c25#5 r56#6 c5#7<br>
+ Exclude: (r5c46 r9c146)#1</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_877 MSLS_SK_Loop  <br><small>
+.3....8.. 9...1.532 5....8.67 ...5.4.7. ......2.. 4..17..9. 3..6...51 8.1.597.. .5..419.. Puzzle<br>
+13...5849 9..41.532 524938167 .1.5.4.78 ..58.3214 4..17..95 3..68.451 841359726 .5..41983 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_7.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 7-Int.Cells, 7-Links<br>
+ sectors: r19 c16 b1278<br>
+ Digits: #267<br>
+ Links: r1 b8#2 c3 b2#6 r19 c6#7<br>
+ Triple overlap: r9c1<br>
+ Exclude: (r246c3)#6 r9c1#7</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_892 MSLS_SK_Loop  <br><small>
+..6...5.. ..4.563.9 .9..7.24. ....8.... 23..6...5 .8.7..69. .4..37... 9.3..846. 7.8.9...2 Puzzle<br>
+..6...5.1 ..4.563.9 .9..7.246 ..9.8.72. 237.6.815 .8.7..69. .42.37958 9.3..8467 7.8.9.132 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_8.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 9-Int.Cells, 9-Links<br>
+ sectors: r57 c25 b4578<br>
+ Digits: #124569<br>
+ Links: r7 c25#1 c5#2 b5#4 c2#5 r7 c2#6 r5#9<br>
+ Exclude: r2c2#1 r1c5#2 (r4c46 r6c6)#4</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_1080 MSLS_SK_Loop  <br><small>
+.8.6.9... ...783..6 ....4.... 13.5.6.82 .57...96. 46.9.8.71 ....6.... 2..314... ...2.5.1. Puzzle<br>
+.81659... .247831.6 ...142... 139576482 857421963 462938571 .1.867... 2..314... .4.295.1. Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_9.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 12-Int.Cells, 12-Links<br>
+ sectors: r17 c28 b1379<br>
+ Digits: #234579<br>
+ Links: c7#2 r137#3 c9#4 r7 c8#5 r1 c2#7 r7 c28#9<br>
+ Triple overlap: r17c8<br>
+ Exclude: (r17c8 r3c137)#3 r7c8#5 r7c8#9</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:00_1081 MSLS_SK_Loop  <br><small>
+.1.5.9... ...173..8 ....2.... 32.6.7.85 .68...43. 49.3.5.16 ....5.... 1..836... ...7.4.9. Puzzle<br>
+81.56937. 9..173..8 ...4281.9 321647985 568291437 497385216 ...952..1 1.9836... 2..714.93 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_10.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 12-Int.Cells, 12-Links<br>
+ sectors: r37 c27 b1379<br>
+ Digits: #345678<br>
+ Links: c3#3 r7 c2#4 r3 c27#5 r37 c7#6 r8 c1#7 r9#8<br>
+ Triple overlap: r3c2 r7c27<br>
+ Exclude: r7c2#4 r3c2#5 r7c7#6</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:01_283 MSLS_SK_Loop  <br><small>
+.1...2.7. 2.......1 ..81.94.. 3.1.2.8.. ...8.3... ..6.4.2.3 ..97.43.. 1.......9 .5.6...2. Puzzle<br>
+.1.3.2.7. 2..4....1 ..81.94.2 3.1.2.8.. ..28.3.1. ..6.412.3 .297143.. 1..235..9 .5369812. Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_11.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 12-Int.Cells, 12-Links<br>
+ sectors: r37 c37 b1379<br>
+ Digits: #3456789<br>
+ Links: r3#3 c3#4 r7 c3 b3#5 r37 c7#6 r8 b1#7 r7#8 c7#9<br>
+ Exclude: (r1c9 r2c8)#5 (r3c5 r5c7)#6 (r28c2)#7 r5c7#9</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:01_514 MSLS_SK_Loop  <br><small>
+8..67...5 ...4.36.. .6....... .2.1.9.58 5.......1 97.5.2.4. .......1. ..69.4... 2...58..7 Puzzle<br>
+8..671..5 1574.368. .6.8.517. 62.1.9758 5.87.6..1 971582346 ..526781. 7869145.. 21.358.67 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_12.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 12-Int.Cells, 12-Links<br>
+ sectors: r19 c19 b1379<br>
+ Digits: #2349<br>
+ Links: r1 c9#2 r1 c19#3 r1379#4 r19 c9#9<br>
+ Exclude: (r3c3 r7c2)#4</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:01_595 MSLS_SK_Loop  <br><small>
+.7...532. 5...3...6 1...62... 9.6...... .53...67. ......5.1 ...67...3 3...9...4 .672...1. Puzzle<br>
+67...532. 58273.1.6 13..62.57 916.57..2 253...67. 748.265.1 495671283 321598764 867243915 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_13.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 8-Int.Cells, 8-Links<br>
+ sectors: r26 c59 b2356<br>
+ Digits: #13489<br>
+ Links: c5#1 r6#3 r2#4 r15#8 r26 c9#9<br>
+ Exclude: (r15c4)#8</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:01_920 MSLS_SK_Loop  <br><small>
+1...748.9 .7...9.2. 8........ 41..3.... 5..2.6..7 ....1..64 ........2 .3.6...1. 6.872...3 Puzzle<br>
+162.748.9 37...9.2. 8....2... 416.372.. 58.2461.7 .2..1..64 ..14.36.2 23.6...1. 6.8721..3 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_14.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 9-Int.Cells, 9-Links<br>
+ sectors: r59 c19 b4679<br>
+ Digits: #345789<br>
+ Links: r5#3 r9#4 r9 c9#5 c1#7 c9#8 r59 c1#9<br>
+ Exclude: (r23c9)#5</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:02_308 MSLS_SK_Loop  <br><small>
+.7.5.29.. ..3.8..6. ....1...4 ....358.9 ......... 5.724.... 2...5.... .1..9.2.. ..56.4.8. Puzzle<br>
+471562938 9.3487.6. 8..9137.4 6..135879 139876... 587249.1. 2.8.51.9. .1..982.. .95624.8. Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_15.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 10-Int.Cells, 10-Links<br>
+ sectors: r29 c38 b1379<br>
+ Digits: #1234567<br>
+ Links: r29#1 r23#2 r9#3 r8#4 r2 c8#5 c3#6 r9#7<br>
+ Exclude: r3c2#2 r5c8#5</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:03_175 MSLS_SK_Loop  <br><small>
+....1.... ......743 .2..6..98 ....5791. ..1...8.. .9528.... 31..9..5. 648...... ....4.... Puzzle<br>
+....1.5.. 1.6.2.743 .2..63198 ...65791. .61.3.8.5 .952813.. 312896457 648175239 ...342681 Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_16.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 10-Int.Cells, 10-Links<br>
+ sectors: r35 c29 b1346<br>
+ Digits: #2345678<br>
+ Links: r5 c9#2 c2#3 r3 c9#4 b1#5 c9#6 r5 b1#7 c2#8<br>
+ Exclude: r3c4#4 r1c3#7</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:04_20 MSLS_SK_Loop  <br><small>
+..1...45. 3....6... 7.9..43.6 .924.5... ......... ...3.192. 9.78..6.2 ...7....9 .18...7.. Puzzle<br>
+62193.45. 3....629. 7.9.243.6 .924.5..3 ...29.... ...3.192. 9.78.36.2 ...7.2..9 2186.973. Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_17.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 9-Int.Cells, 9-Links<br>
+ sectors: r19 c48 b2389<br>
+ Digits: #14578<br>
+ Links: c48#1 r9 c8#4 r9 c4#5 r1#7 r1 c8#8<br>
+ Exclude: r5c8#1 r5c8#4 r5c8#8</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:05_5 MSLS_SK_Loop  <br><small>
+.3.17.2.. ........6 8.74.23.. ..1...8.2 3.......9 9.4...1.. ..92.67.3 7........ ..2.38.1. Puzzle<br>
+436175298 215389476 897462351 ..1...832 3.86..549 9.48.3167 1.92.6783 783...62. ..273891. Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_18.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 9-Int.Cells, 9-Links<br>
+ sectors: r57 c14 b4578<br>
+ Digits: #1245679<br>
+ Links: r5#1 r5#2 r7#4 r4 b78#5 c1#6 r5#7 c4#9<br>
+ Exclude: (r4c25 r8c5 r9c2)#5</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:06_44 MSLS_SK_Loop  <br><small>
+......1.. 4..2..3.. ...45.268 73...9... ...5.4... ...1...52 623.75... ..9..1..7 ..8...... Puzzle<br>
+382796145 456218379 917453268 735.29... 2.15.47.. 8.4137.52 623.75... 5493.1.27 178.425.. Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_19.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 10-Int.Cells, 10-Links<br>
+ sectors: r47 c59 b5689<br>
+ Digits: #134689<br>
+ Links: c8#1 c9#3 c7#4 r4 c59#6 r47 c5#8 r7#9<br>
+ Triple overlap: r47c9<br>
+ Exclude: r4c9#6</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+
+<div><tt>
+<p style="clear: both"></p><br>
+<p class="newLine"> ID:07_65 MSLS_SK_Loop  <br><small>
+.26....7. ...4.5..8 .5..7.2.. ......937 3.7...4.1 249...... ..2.4..8. 8..7.1... .7....15. Puzzle<br>
+.26...57. 7..4256.8 .58.7.2.. ...2.4937 3.7...421 249..7865 ..2.4.78. 8..7.13.2 .7...215. Current</small><br></p>
+<img src="images/img60/MSLS_SK_Loop_20.png" width="30%" style="float:left;  margin-right:8px;" alt="MSLS_SK_Loop (Lv.9)"><br>
+
+<p>
+MSLS_SK_Loop<br>
+<br>
+ Size: 8-sectors, 14-Int.Cells, 14-Links<br>
+ sectors: r28 c19 b1379<br>
+ Digits: #134569<br>
+ Links: r2 c1#1 r2 c9#3 r8 c19#4 b7#5 c9 b7#6 r28 c19#9<br>
+ Exclude: r4c1#1 r7c2#6 r8c5#9</p>
+<p style="clear: both"></p><br>
+<hr>
+</tt></div>
+
+<div><tt>
+<p style="clear: both"></p>
+<p>SK_Loop Example (1-100)  The data file contains over 8,000 examples.<br><br>
+<small>
+.9.3.6.72 ..21794.8 6.8.....9 56..24.9. ......... 8..95.7.6 .......8. ..526...7 9....86.. 9 "ID:00_29 MSLS_SK_Loop"<br>
+94...2.3. .3.4..6.9 ....9...2 86.7.5941 ....89... .92.4.7.. 38..1.... .5.2....3 .....6.94 9 "ID:00_243 MSLS_SK_Loop"<br>
+6.1....5. 3...7.6.. ......74. ..7..42.. ....9.167 ....2.584 ..258.3.. 7.....42. 56..4.918 9 "ID:00_253 MSLS_SK_Loop"<br>
+8.2..7.51 ......82. .1.2.593. .6.47.... .....23.. 28.....76 ...34...2 371..94.. ..8..6.9. 9 "ID:00_433 MSLS_SK_Loop"<br>
+23.1.87.5 9..3476.. .......14 4.2....5. ...7..48. .68..3... 8.9..5..7 756...... 12......9 9 "ID:00_481 MSLS_SK_Loop"<br>
+...45.832 582..1.97 3..8...6. 1..7..... ..3.....1 .76.1..2. ...98.35. 6....4... ..51.3..4 9 "ID:00_538 MSLS_SK_Loop"<br>
+.92.6..74 .7..4...5 5....26.. .....674. 76.4..... .24..7..8 ..759.... ...71.8.9 9..628... 9 "ID:00_544 MSLS_SK_Loop"<br>
+.6...753. 5....37.. ..7561.4. ..53...78 4..65.3.. ...2.8... ....3.1.. .36..28.. ..2.856.. 9 "ID:00_614 MSLS_SK_Loop"<br>
+.89..7..6 21..638.. .3..4..1. ....9...8 ...4.2... ....8..93 .5..24.37 628..1..5 .4.....82 9 "ID:00_787 MSLS_SK_Loop"<br>
+.9173.24. 7..926... ..5.8..9. .7..48..2 9.2...85. .....913. .8.69...5 .4.....1. ..9.....8 9 "ID:00_822 MSLS_SK_Loop"<br>
+.3....8.. 9...1.532 5....8.67 ...5.4.7. ......2.. 4..17..9. 3..6...51 8.1.597.. .5..419.. 9 "ID:00_877 MSLS_SK_Loop"<br>
+..6...5.. ..4.563.9 .9..7.24. ....8.... 23..6...5 .8.7..69. .4..37... 9.3..846. 7.8.9...2 9 "ID:00_892 MSLS_SK_Loop"<br>
+...4...2. 4.2..1... 97.....46 1.3.549.. 7..62.3.. ......472 .4...9.5. 83.54.6.1 25....... 9 "ID:00_948 MSLS_SK_Loop"<br>
+.8.6.9... ...783..6 ....4.... 13.5.6.82 .57...96. 46.9.8.71 ....6.... 2..314... ...2.5.1. 9 "ID:00_1080 MSLS_SK_Loop"<br>
+.1.5.9... ...173..8 ....2.... 32.6.7.85 .68...43. 49.3.5.16 ....5.... 1..836... ...7.4.9. 9 "ID:00_1081 MSLS_SK_Loop"<br>
+.9.6.7... ...192..3 ....3.... 84.7.6.39 .76...51. 31.9.8.67 ....6.... 7..825... ...3.9.4. 9 "ID:00_1083 MSLS_SK_Loop"<br>
+.2.4.7... ...539..7 ....2.... 79.2.1.36 .65...42. 43.9.6.71 ....8.... 3..795... ...6.2.9. 9 "ID:00_1086 MSLS_SK_Loop"<br>
+.6.8.5... ...312..5 ....6.... 52.6.4.19 .43...56. 81.2.9.43 ....7.... 1..523... ...4.6.2. 9 "ID:00_1087 MSLS_SK_Loop"<br>
+.7.9.6... ...513..6 ....7.... 63.4.1.72 .45...91. 91.3.2.64 ....8.... 1..635... ...7.4.3. 9 "ID:00_1088 MSLS_SK_Loop"<br>
+...41..7. 57.2...4. ..697.5.. ......912 9.3...4.8 824...... ..8.917.. .6...3.94 .9..42... 9 "ID:00_1095 MSLS_SK_Loop"<br>
+...21..4. 34.6...2. ..594.3.. ......897 9.8...2.6 762...... ..7.519.. .5...9.32 .9..62... 9 "ID:00_1098 MSLS_SK_Loop"<br>
+..62..7.. ...68.... 7.13.59.2 ..8...435 .4.....7. 237...8.. 5.28.31.7 ....64... ..4..26.. 9 "ID:00_1121 MSLS_SK_Loop"<br>
+....64.8. 5...9.... ..67.21.. 2.8.1.6.. 63.2.9.18 ..5.4.2.9 ..39.18.. ....3...2 .6.85.... 9 "ID:00_1139 MSLS_SK_Loop"<br>
+....37.5. 3...6.... ..68.51.. 2.8.4.7.. 96.2.8.41 ..4.7.8.2 ..97.46.. ....8...9 .7.62.... 9 "ID:00_1141 MSLS_SK_Loop"<br>
+....79.3. 3...6.... ..73.89.. 4.6.3.5.. 15.9.6.42 ..8.2.3.6 ..56.38.. ....1...3 .3.74.... 9 "ID:00_1147 MSLS_SK_Loop"<br>
+....82.5. 8...4.... ..47.51.. 9.7.3.5.. 64.5.8.39 ..3.9.8.6 ..64.13.. ....5...7 .2.97.... 9 "ID:00_1148 MSLS_SK_Loop"<br>
+.8..4.... .4.95..78 ....23... ..7.1..5. 8237.5146 .1..6.3.. ...18.... 79..32.8. ....7..3. 9 "ID:00_1161 MSLS_SK_Loop"<br>
+1..6..5.4 .6.3.2.1. 8..5..... .4.8.1235 ......... 3124.5.9. .....6..1 .3.1.9.8. 5.1..4..3 9 "ID:00_1174 MSLS_SK_Loop"<br>
+.2..4.3.. ..196...2 7.8..249. ..7....6. 28.....31 .5....7.. .365..1.7 1...876.. ..4.1..8. 9 "ID:00_1224 MSLS_SK_Loop"<br>
+...81..3. 8..79.1.. .72.3.5.. .......95 547...821 29....... ..1.5.74. ..4.73..8 .5..48... 9 "ID:00_1302 MSLS_SK_Loop"<br>
+..3.19.4. 1..8..3.. .2...3..5 3.1.4..9. 4..9.6..1 .9..3.7.4 2..1...7. ..6..7..2 .5.62.9.. 9 "ID:00_1403 MSLS_SK_Loop"<br>
+..5...... .34.7.59. .7...4.13 ..1498... .8.6.2.4. ...3571.. 54.7...3. .96.4.27. ......4.. 9 "ID:00_1430 MSLS_SK_Loop"<br>
+..7..92.. .3.7...5. 1.5.8.6.3 5..2.3.9. ..6...8.. .2.6.8..7 6.2.9.7.8 .4...7.6. ..98..4.. 9 "ID:00_1587 MSLS_SK_Loop"<br>
+1...64.98 6..2..... ..78.16.. 8.1...46. 7.......1 .34...7.2 ..31.65.. .....2..3 48.57...6 9 "ID:00_1620 MSLS_SK_Loop"<br>
+.6...783. 3149...52 7...4..9. 1......2. ..3...9.. .2......8 .4..7...3 65...3271 .371...8. 9 "ID:00_1664 MSLS_SK_Loop"<br>
+.7.5.6.1. 6.3.1...4 .....3.8. 2.78.1..6 .5.....2. 9..6.23.7 .6.3..... 8...7.1.5 .9.1.5.3. 9 "ID:00_1866 MSLS_SK_Loop"<br>
+3....4..5 .9....38. .843.26.. 8.1.4.2.. ...6.3... ..7.1.9.6 ..39.156. .58....9. 6..4....7 9 "ID:00_1955 MSLS_SK_Loop"<br>
+1......8. ....1...2 .59...617 .4695.1.3 .8.....7. 9.3.2756. 361...85. 2...3.... .7......6 9 "ID:00_2020 MSLS_SK_Loop"<br>
+48.3..... ...5.4.8. ...16.234 8..937... 7.......9 ...685..3 945.16... .1.8.2... .....3.51 9 "ID:00_2152 MSLS_SK_Loop"<br>
+5.....8.. 79.3...1. .31.87.92 2.7..3.8. ......... .1.4..2.5 38.79.65. .7...1.28 ..9.....3 9 "ID:00_2275 MSLS_SK_Loop"<br>
+.5.1...76 941...2.8 ..8.4.... ..97.5..1 ...4.1... 1..9.83.. ....1.5.. 7.4...913 31...4.8. 9 "ID:00_2286 MSLS_SK_Loop"<br>
+..9.21..5 53.6.72.. 12.5....3 ....529.. ......... ..486.... 9....5.87 ..27.6.49 7..93.6.. 9 "ID:00_2316 MSLS_SK_Loop"<br>
+..57..639 ...34...8 .8..95... .596..4.. 7.......5 ..8..971. ...91..4. 5...67... 217..48.. 9 "ID:00_2345 MSLS_SK_Loop"<br>
+7.52.8.1. 2...4.538 .......62 .7..2...1 ..9...3.. 4...5..9. 65....... 318.7...4 .4.1.36.5 9 "ID:00_2474 MSLS_SK_Loop"<br>
+2.8.4.691 ..1...... ..9..2..3 4.78.3.1. ..2...9.. .5.4.93.8 6..2..1.. ......7.. 723.1.8.5 9 "ID:00_2591 MSLS_SK_Loop"<br>
+1..7.234. 4......2. .2.15...9 ..65.9... 9..2.1..7 ...8.64.. 8...23.5. .3......4 .459.7..8 9 "ID:00_2778 MSLS_SK_Loop"<br>
+4.28..5.. .6..53.82 .3..6.1.. ..43...9. 9.......5 .7...64.. ..6.3..4. 74.92..5. ..9..57.8 9 "ID:00_2792 MSLS_SK_Loop"<br>
+..437..1. 6....5.3. 3..2416.5 ....39... 9.......4 ...65.... 7.6194..3 .9.8....6 .2..679.. 9 "ID:00_2987 MSLS_SK_Loop"<br>
+9..3.4..7 .8.....1. ......... ..96587.. .2.7.9.3. 17.4.2.69 7...2...3 3.1...6.2 .6.5.3.7. 9 "ID:00_3026 MSLS_SK_Loop"<br>
+2.91653.8 .1.....4. 8..294..1 ...4.9... .85...19. 6..871..2 ..8...9.. 17.....85 ....1.... 9 "ID:00_3041 MSLS_SK_Loop"<br>
+2.85314.9 .9.....1. 4..967..8 ...4.8... .16...24. 7..126..3 ..3...7.. 52.....86 ....1.... 9 "ID:00_3042 MSLS_SK_Loop"<br>
+.5.6.2.3. 3.......9 .9.3.1.7. 9..5.6..1 67.....95 .8.....6. 73.2.4.18 ...8.3... .62...34. 9 "ID:00_3051 MSLS_SK_Loop"<br>
+..4...3.. 18.....64 5.......8 25.4.9.73 3.......6 ..7...9.. ...8.3... 64.1.7.85 8.52.61.9 9 "ID:00_3205 MSLS_SK_Loop"<br>
+...6.2... 236...485 ...3.8... 1.34859.2 6.......1 94.7.6.53 ..4.9.6.. 81.....94 ......... 9 "ID:00_3415 MSLS_SK_Loop"<br>
+..69.57.. 95.....62 4.1...9.3 ....6.... ...572... 6.53.48.7 8.74.93.6 .63...48. ....3.... 9 "ID:00_3461 MSLS_SK_Loop"<br>
+..73.89.. 23.....41 6.9...7.3 ....6.... ...819... 3.62.41.8 7.49.13.6 .13...27. ....3.... 9 "ID:00_3462 MSLS_SK_Loop"<br>
+4.......5 .728.431. .1.....4. .2.....8. 94.5.7.61 6..2.9..4 2.49.56.3 ......... 79.....58 9 "ID:00_3531 MSLS_SK_Loop"<br>
+.2789351. ...7.6... ..9.1.2.. ..82.96.. .5.....3. 9...6...8 1.4...7.9 .629.814. .9.....6. 9 "ID:00_3606 MSLS_SK_Loop"<br>
+.932.875. 4..5.3..6 .5.....8. 96.3.1.47 ..7...3.. 5..7.6..2 ......... .168.297. ...1.9... 9 "ID:00_3612 MSLS_SK_Loop"<br>
+6187.2354 .4.....1. 5...4...6 ...489... .8.....2. ......... 4...5...3 8...7...2 3756.1948 9 "ID:00_3695 MSLS_SK_Loop"<br>
+1467.2539 .5.....4. 9...6...2 ...276... .8.....9. ......... 8...3...5 4...2...8 6931.8427 9 "ID:00_3704 MSLS_SK_Loop"<br>
+..94.52.. 4..9.3..7 35.....49 ..45967.. ..1...4.. 5.7.1.3.8 ......... 2.3...5.4 9..748..3 9 "ID:00_3719 MSLS_SK_Loop"<br>
+...6.9... .8.5.2.9. 2..1.4..6 ......... .94...26. 5.74.69.3 .71...62. .4.....3. 3.29.87.4 9 "ID:00_3731 MSLS_SK_Loop"<br>
+.3.8.1.2. 8..257..4 ...3.4... ..8...7.. ..35.86.. .2.1.3.8. 38.....96 1..4.6..5 6.5...8.1 9 "ID:00_3787 MSLS_SK_Loop"<br>
+...8.7... ...4.3... 8..9.1..3 7...8...1 9.1...4.8 3.5...6.7 .9.....7. 472...385 5..372..4 9 "ID:00_3853 MSLS_SK_Loop"<br>
+24.963.81 16.....93 3..4.5..2 ....4.... ...3.1... 5..298..4 79.....25 ..18.69.. ...5.9... 9 "ID:00_3910 MSLS_SK_Loop"<br>
+35.691.48 46.....13 2..7.4..6 ....5.... ...1.8... 8..946..2 68.....29 ..25.94.. ...8.2... 9 "ID:00_3915 MSLS_SK_Loop"<br>
+...4.7... .1..8..9. 54..9..76 6.2...4.8 1..8.4..7 854...932 ..37.26.. .6.....5. ...1.9... 9 "ID:00_3918 MSLS_SK_Loop"<br>
+.4.627.5. ......... 7.8...2.6 .2.1.6.7. .54.3.68. 6..8.9..2 28.5.3.64 4.......3 3.......7 9 "ID:00_3971 MSLS_SK_Loop"<br>
+.4.3.2.9. ....4.... .89...13. 9328.6417 7...1...9 ..8...2.. 8.5...3.1 .916.584. ....3.... 9 "ID:00_4012 MSLS_SK_Loop"<br>
+...4.862. .......7. 42...6..5 7.8...93. 9..3.1756 3.5...41. 65...9..7 .......8. ...7.456. 9 "ID:00_4026 MSLS_SK_Loop"<br>
+..631.9.. 4.1.87.5. ....62... 9....5.14 6.3....7. 7....6.32 ....73... 1.4.58.9. ..724.1.. 9 "ID:00_4174 MSLS_SK_Loop"<br>
+48.2.79.5 1.6...... ..95..... ..48.3.79 .3.6....2 ..71.4.38 ..87..... 6.2...... 71.9.24.3 9 "ID:00_4274 MSLS_SK_Loop"<br>
+2...41... .5...2..3 ..75.3642 ..489.... .7....9.. ..912.... ..17.5328 .8...9..7 7...38... 9 "ID:00_4284 MSLS_SK_Loop"<br>
+.2561.9.. .9.....7. 6..5.9... 13.9.2... .6.384..5 85.7.1... 2..1.6... .8.....1. .1689.7.. 9 "ID:00_4309 MSLS_SK_Loop"<br>
+..3..26.. 47236...5 6.5.....3 3.4.8.9.. .....7... 7.8.2.1.. 8.7.....6 24961...8 ..6..42.. 9 "ID:00_4356 MSLS_SK_Loop"<br>
+..35.61.. .1.32...6 ....4.... 8.673..9. 321....7. 7.946..2. ....9.... .3.65...7 ..48.73.. 9 "ID:00_4431 MSLS_SK_Loop"<br>
+.2..1..3. 157...2.. ..67.95.. ..4..59.1 .1.4..6.. ..3..74.2 ..89.13.. 932...1.. .7..5..9. 9 "ID:00_4454 MSLS_SK_Loop"<br>
+9...4.1.. ..583.4.. .....9235 2...73.8. ...2...1. 5...18.9. .....7326 ..249.8.. 7...2.9.. 9 "ID:00_4466 MSLS_SK_Loop"<br>
+...4237.. ....71..5 1.....6.3 8.279...4 ......96. 7.316...2 9.....5.6 ....56..9 ...9483.. 9 "ID:00_4480 MSLS_SK_Loop"<br>
+6.53...72 ....6...1 .924..6.. ..4...127 .6...5... ..3...586 .218..7.. ....9...3 5.91...64 9 "ID:00_4507 MSLS_SK_Loop"<br>
+.4..3...7 7381...9. 16....2.3 .9.4.1... ....9.63. .5.7.3... 31....7.9 5879...4. .2..4...8 9 "ID:00_4538 MSLS_SK_Loop"<br>
+.2..3...1 7341...5. 51....3.4 .7.6.3... ....4.63. .6.8.2... 69....1.5 3417...9. .5..9...3 9 "ID:00_4542 MSLS_SK_Loop"<br>
+8..47.... ..3...645 ..16.9... .723.1..9 9..84.... .847.2..6 ..75.4... ..8...274 1..28.... 9 "ID:00_4549 MSLS_SK_Loop"<br>
+..73.92.. ...6..184 ...85.... 18.92.3.. .......12 23.18.6.. ...56.... ...2..576 ..57.34.. 9 "ID:00_4555 MSLS_SK_Loop"<br>
+..59.21.. ...7..548 ...41.... 37.14.2.. .......39 29.35.4.. ...59.... ...8..651 ..42.19.. 9 "ID:00_4559 MSLS_SK_Loop"<br>
+5...3.7.. 14.57..8. .79.8.... 31.86...9 ..6...... 82.34...6 .52.1.... 93.72..6. 6...9.3.. 9 "ID:00_4627 MSLS_SK_Loop"<br>
+182...... .7..6.... 6.9..47.. .159.7246 9........ .463.2958 8.4..65.. .6..3.... 237...... 9 "ID:00_4642 MSLS_SK_Loop"<br>
+4..3..15. 395...... ...564..3 .7..4.28. ...2...3. .3..5.46. ...416..2 168...... 2..8..31. 9 "ID:00_4696 MSLS_SK_Loop"<br>
+3...756.2 .8....... ...3.278. 9154...2. 6.....1.. 8231...6. ...7.895. .6....... 5...213.6 9 "ID:00_4734 MSLS_SK_Loop"<br>
+2.59.3678 .....7.2. 1.7.6.9.. 3...2.8.. .....9... 9...7.5.. 4.9.5.3.. .....4.1. 5.17.6249 9 "ID:00_4823 MSLS_SK_Loop"<br>
+.3....9.. 1.95.46.8 ..43.975. ..8....6. 46....... ..3....9. ..29.517. 5.78.23.9 .9....2.. 9 "ID:00_4870 MSLS_SK_Loop"<br>
+..25.3.8. .7.9..324 3...2.... .1..85.6. ....4.1.. .3..16.4. 6...9.... .2.4..693 ..56.2.7. 9 "ID:00_4895 MSLS_SK_Loop"<br>
+..2.8..61 .8.1..9.2 ....4.78. .4.937... 69.....3. .5.268... ....1.69. .6.8..5.3 ..4.9..27 9 "ID:00_4982 MSLS_SK_Loop"<br>
+.91...27. 2.3..8... ...2.9..1 .2439.... 9...27.1. .1768.... ...8.2..4 7.6..3... .32...96. 9 "ID:00_5008 MSLS_SK_Loop"<br>
+..9...2.. 13..2..98 .5..9..6. 4.29.68.3 ...248... 8.15.79.4 .4..6..8. 72..8..39 ..8...6.. 9 "ID:00_5047 MSLS_SK_Loop"<br>
+......... .57...31. ..85.92.. 48.6.2.31 ..21574.. 67.8.3.25 ..34.51.. .16...54. ......... 9 "ID:00_5085 MSLS_SK_Loop"<br>
+.4.893.1. ..6...8.. .81...34. 85.4.9.61 ......... 47.1.6.83 .14...75. ..8...4.. .9.748.3. 9 "ID:00_5090 MSLS_SK_Loop"<br>
+.7.5.3.8. 3..2.6..5 ...9.8... .59.8.23. 7.......6 .81.6.75. ...6.1... 1..4.2..8 .3.8.7.6. 9 "ID:00_5133 MSLS_SK_Loop"<br>
+.6.3.7.9. 7..4.2..3 ...8.9... .38.4.57. 6.......4 .95.7.63. ...7.1... 5..6.4..7 .7.2.5.6. 9 "ID:00_5135 MSLS_SK_Loop"<br>
+</small></p>
+</tt></div>
+
+		</section>
+			
+	</article>
+
+	<a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>

@@ -108,9 +108,9 @@ function writeNaviAlgorithm(){
 			    html += '</ul>';
 			html += '</li>';
 
-			html += '<li><a href="?ForceChain">Multi Secter Locked Set</a>';
+			html += '<li><a href="?ForceChain">Multi sector Locked Set</a>';
 				html += '<ul>';
-		        	html += '<li><a href="page60.html">Multi Secter Locked Set</a></li>';
+		        	html += '<li><a href="page60.html">Multi sector Locked Set</a></li>';
 					tml += '<li><a href="page60.html">SK Loop</a></li>';
 			    html += '</ul>';
 			html += '</li>';
