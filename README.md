@@ -1,5 +1,5 @@
 # Sudoku_Solver_Generator_v6.2 
-GNPX v6.2 targets MSLS (Multi Secter Locked Sets).
+GNPX v6.2 targets MSLS (Multi Sector Locked Sets).
 
 # GNPX v6 HP:
   en : https://gidoo-code.github.io/Sudoku_Solver_Generator_v6/<br>
