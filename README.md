@@ -1,3 +1,6 @@
+# Sudoku_Solver_Generator_V6.3
+GNPX v6.3 targets POM,POI
+
 # Sudoku_Solver_Generator_v6.2 
 GNPX v6.2 targets MSLS (Multi Sector Locked Sets).
 
