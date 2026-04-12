@@ -116,6 +116,14 @@ function writeNaviAlgorithm(){
 			html += '</li>';
 		html += '</ul>';
 
+		html += '<li><a href="?ForceChain">Pattern Overlay Method</a>';
+			html += '<ul>';
+				html += '<li><a href="page61.html">POM All Pattern</a></li>';
+				html += '<li><a href="page61.html">POM No Pattern</li>';
+				html += '<li><a href="page61.html">POI Rule-2</a></li>';
+			html += '</ul>';
+		html += '</li>';
+
 	    html += '<h4 style="color:Darkblue">Base Class</h4>';
 	    	html += '<ul class="navigationC">';
 				html += '<li><a href="page21.html">Cell(UCell)</a></li>';

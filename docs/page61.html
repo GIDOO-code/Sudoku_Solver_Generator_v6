@@ -1,0 +1,1242 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sudoku Pattern Overlay Method (POM)</title>
+	
+    <!-- Prism   https://prismjs.com/download.html -->
+	<script src="prism_js_css/prism.js"></script>
+	<link rel="stylesheet" href="prism_js_css/prism.css">
+
+	<!-- jQuery treeview ! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="jq_treeview/jquery.cookie.js"></script>
+	<script src="jq_treeview/jquery.treeview.js"></script>
+	<link   rel="stylesheet" href="jq_treeview/jquery.treeview.css" >
+	<link   rel="stylesheet" href="jq_treeview/screen.css" >
+	<script type="text/javascript" src="jq_treeview/cssFunction.js"></script>
+
+
+	<link rel="stylesheet" href='css/style_v4_HeaderFooter.css'>
+	<link rel="stylesheet" href="css/style_v6A_Standard.css">
+	<link rel="stylesheet" href='css/gotoTop.css'>
+
+	<script type="text/javascript" src="js/naviHeader.js"> </script>
+	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
+</head>
+
+<body id="page">
+
+	<header id="head"> <strong><i>Sudoku Algorithm 6.0+</i></strong>
+        <script type="text/javascript"> writeNaviHeader(); </script>
+	</header>
+
+    <section id="menuList">
+        <script type="text/javascript"> writeNaviAlgorithm(); </script>
+    </section>
+
+
+	<article id="main">
+
+		<section>
+			<H3 id="head_bg_Blue">&nbsp;Pattern Overlay Method (POM)</H3>
+			<p>
+				The Pattern Overlay Method (POM) is an algorithm that
+				patterns the arrangement of candidate digits on a board and uses these patterns to eliminate candidate digits.<br>
+				It is a powerful algorithm suitable for programming.
+				First, we will explain it using a specific puzzle.<br><br>
+
+				<img src="images/img61/POM_Pzl0.png" alt="POM Digits_1" width="30%">;<br><br>
+
+				When the candidate digits for this puzzle are color-coded, they look like this:
+				<br><br>
+				
+				<img src="images/img61/POM_Pzl0_Digit_1.png" alt="POM Digits_1" width="20%">&nbsp;
+				<img src="images/img61/POM_Pzl0_Digit_2.png" alt="POM Digits_2" width="20%">&nbsp;
+				<img src="images/img61/POM_Pzl0_Digit_3.png" alt="POM Digits_3" width="20%"><br>
+				<img src="images/img61/POM_Pzl0_Digit_4.png" alt="POM Digits_4" width="20%">&nbsp;
+				<img src="images/img61/POM_Pzl0_Digit_5.png" alt="POM Digits_5" width="20%">&nbsp;
+				<img src="images/img61/POM_Pzl0_Digit_6.png" alt="POM Digits_6" width="20%"><br>
+				<img src="images/img61/POM_Pzl0_Digit_7.png" alt="POM Digits_7" width="20%">&nbsp;
+				<img src="images/img61/POM_Pzl0_Digit_8.png" alt="POM Digits_8" width="20%">&nbsp;
+				<img src="images/img61/POM_Pzl0_Digit_9.png" alt="POM Digits_9" width="20%"><br><br>
+
+				The bitwise representation of the undetermined cell arrangement for each candidate digits is as follows:
+				<br>
+				<p style="background-color:rgb(230, 240, 244)" line-height=12px;>
+					<p class="newLine"><tt>
+						#1 : ......... ......... ....56... ......... ......... ......... ......... ....56... ......... _4 cells<br>
+						#2 : ......... ...4.6... ......... ......... ......... ......... ......... ...4.6... ......... _4 cells<br>
+						#3 : ......... ......... ......... 1.......9 1.......9 ......... ......... ......... ......... _4 cells<br>
+						#4 : ...45.... ......... ......... ....5.7.. ...4..7.. ......... ......... ......... ......... _6 cells<br>
+						#5 : ......... ......... .......89 .......89 ......... ......... ......... ......... ......... _4 cells<br>
+						#6 : ......... ......... ......... 1......8. ......... 1......8. ......... ......... ......... _4 cells<br>
+						#7 : ......... ...4...8. ....5..89 ......... ...4....9 ....5..8. ......... ......... ......... _9 cells<br>
+						#8 : ......... ..3..6... ..3..6... 1...5.7.. 1.....7.. 1...5.... ......... ......... ......... _11 cells<br>
+						#9 : ...45.... ..34...8. ..3.5..8. ......... ......... ......... ......... ...45.... ......... _10 cells<br>
+					</tt></p>
+				</p>
+				<p>
+					In Sudoku, there is a restriction that only one digits must be placed in each row, column, and block, 
+					so there are possible arrangement patterns.<br>
+					The algorithm used to analyze possible placement patterns is POM analysis (POM:Pattern Overlay Method).<br><br>
+					POM analysis of this puzzle yields the following arrangement patterns:<br>
+					For each candidate digits, one of these patterns will result in a Sudoku solution.<br><br>
+
+
+					<p style="background-color:rgb(230, 240, 244)" line-height=12px;>
+						<p class="newLine"/>
+						<tt>
+							<hr>
+							#1<br>
+							BOARD: ......... ......... ....56... ......... ......... ......... ......... ....56... ......... _4 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ......... ....5.... ......... ......... ......... ......... .....6... ......... _2 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ......... .....6... ......... ......... ......... ......... ....5.... ......... _2 cells<br>
+							<br>
+							#2<br>
+							BOARD: ......... ...4.6... ......... ......... ......... ......... ......... ...4.6... ......... _4 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ...4..... ......... ......... ......... ......... ......... .....6... ......... _2 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... .....6... ......... ......... ......... ......... ......... ...4..... ......... _2 cells<br>
+							<br>
+							#3<br>
+							BOARD: ......... ......... ......... 1.......9 1.......9 ......... ......... ......... ......... _4 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ......... ......... 1........ ........9 ......... ......... ......... ......... _2 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ......... ......... ........9 1........ ......... ......... ......... ......... _2 cells<br>
+							<br>
+							#4<br>
+							BOARD: ...45.... ......... ......... ....5.7.. ...4..7.. ......... ......... ......... ......... _6 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ...4..... ......... ......... ....5.... ......7.. ......... ......... ......... ......... _3 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1: ....5.... ......... ......... ......7.. ...4..... ......... ......... ......... ......... _3 cells<br>
+							<br>
+							#5<br>
+							BOARD: ......... ......... .......89 .......89 ......... ......... ......... ......... ......... _4 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ......... .......8. ........9 ......... ......... ......... ......... ......... _2 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ......... ........9 .......8. ......... ......... ......... ......... ......... _2 cells<br>
+							<br>
+							#6<br>
+							BOARD: ......... ......... ......... 1......8. ......... 1......8. ......... ......... ......... _4 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ......... ......... 1........ ......... .......8. ......... ......... ......... _2 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ......... ......... .......8. ......... 1........ ......... ......... ......... _2 cells<br>
+							<br>
+							#7<br>
+							BOARD: ......... ...4...8. ....5..89 ......... ...4....9 ....5..8. ......... ......... ......... _9 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... ......... _4 cells<br>
+							<br>
+							#8<br>
+							BOARD: ......... ..3..6... ..3..6... 1...5.7.. 1.....7.. 1...5.... ......... ......... ......... _11 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ..3...... .....6... 1........ ......7.. ....5.... ......... ......... ......... _5 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ..3...... .....6... ....5.... ......7.. 1........ ......... ......... ......... _5 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;2: ......... ..3...... .....6... ......7.. 1........ ....5.... ......... ......... ......... _5 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;3: ......... .....6... ..3...... 1........ ......7.. ....5.... ......... ......... ......... _5 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;4: ......... .....6... ..3...... ....5.... ......7.. 1........ ......... ......... ......... _5 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;5: ......... .....6... ..3...... ......7.. 1........ ....5.... ......... ......... ......... _5 cells<br>
+							<br>
+							#9<br>
+							BOARD: ...45.... ..34...8. ..3.5..8. ......... ......... ......... ......... ...45.... ......... _10 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;0: ...4..... ..3...... .......8. ......... ......... ......... ......... ....5.... ......... _4 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1: ...4..... .......8. ..3...... ......... ......... ......... ......... ....5.... ......... _4 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;2: ....5.... ..3...... .......8. ......... ......... ......... ......... ...4..... ......... _4 cells<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;3: ....5.... .......8. ..3...... ......... ......... ......... ......... ...4..... ......... _4 cells<br>
+						</tt>
+					</p>
+					<hr>
+					
+					<br>
+					Summarizing the results of the POM analysis:
+					<div style="color:rgb(4, 0, 255)">
+					<ul style="margin-left: -20px;">
+						<li>The cells within each pattern are linked.</li>
+						<li>If any cell within a pattern is confirmed, then all linked cells are confirmed.</li>
+						<li>If a candidate digit is rejected in any cell within a pattern, then that candidate digit is rejected in all linked cells.</li>
+					</ul>
+					Please note that this analysis presents results for each candidate digits individually, 
+					and does not consider the interrelationships between candidate digits.
+					</div>
+
+				</p>
+			</p>
+		</section>
+
+		<section>
+			<H4 id="head_bg_Blue" id="SE">&nbsp;POM Algorithm</H4>
+			<p>
+				Based on the results of the POM analysis, the following algorithm can be constructed.<br>
+				<div style="color:rgb(4, 0, 255)">
+					<ul>
+						<li>Single-digit algorithm(Rule-1)</li>
+							<ul style="margin-left: -20px;">For each candidate number #n
+								<li>Cells and candidate digits common to all patterns are fixed. => All Patterns</li>
+								<li>Cells and candidate digits not included in any pattern can be excluded. => No Patterns</li>
+								<li>If there is only one pattern, the cell and candidate digits are fixed because they are "common to all patterns". => single pattern</li>
+							</ul>
+							<br>
+						<li>Algorithms involving the interaction of candidate digits(Rule-2)</li>
+							<ul style="margin-left: -20px;">Excluding patterns of failure due to interaction
+								<li>The cells and candidate digits common to the valid patterns are Fixed.  =>PMI All Patterns</li>
+								<li>The Cells and candidate digits that are not included in the valid pattern can be excluded. =>PMI No Pattern </li>
+							</ul>
+							
+					</ul>
+				</div>
+			</p>
+			</p><br><br>
+		</section>
+
+
+		<section>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - all pattarn</H4>
+			<p>
+				There may be a cell/candidate digits common to all patterns. This cell/candidate digits are fixed.<br>
+				In the POM analysis of the following puzzle, <b>(r1c1 r8c3)#3</b> is included in all patterns. Therefore, these are fixed.<br>
+				<br>
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/> ID:00_3 POM_AllPattern
+				.97..1.5. 86....... .1.7..8.. ..95.3... ..1.96.8. .....7..9 ..53249.. 1.....475 .481.5.6. Puzzle<br>
+				.97681.54 86.45.... 51473.8.6 7895.36.. 4.1296.8. ..68.7..9 675324918 1..968475 948175.6. Current<br></p>
+				<img src="images/img61/POM_AllPattern_1a.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_AllPattern (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ all pattern<br>
+				<br>
+				Fixed: (r1c1 r8c3)#3<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#3 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#3]: 1.....7.. ..3...789 ......... ......... .2....7.9 12....78. ......... .23...... ......7.9 <br>
+				&nbsp;Pattern[ 0]: 1........ ......7.. ......... ......... .2....... .......8. ......... ..3...... ........9 <br>
+				&nbsp;Pattern[ 1]: 1........ .......8. ......... ......... .2....... ......7.. ......... ..3...... ........9 <br>
+				&nbsp;Pattern[ 2]: 1........ .......8. ......... ......... ......7.. .2....... ......... ..3...... ........9 <br>
+				&nbsp;Pattern[ 3]: 1........ .......8. ......... ......... ........9 .2....... ......... ..3...... ......7.. <br>
+				&nbsp;Pattern[ 4]: 1........ ........9 ......... ......... .2....... .......8. ......... ..3...... ......7.. <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: 1........ ......... ......... ......... ......... ......... ......... ..3...... ......... &nbsp;2 cells</p>
+				<p style="clear: both"/>
+				<hr>
+				</tt></div>
+			</p>
+			<a href="#ID_POM-AllPattern">&nbsp; POM all-Pattern Example <img src="images/imgTop/jumpTo.png" height="8"></a>
+			<br><br>
+		</section>
+
+
+
+
+		<section>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - No pattarn</H4>
+			<p>
+				POM analysis may reveal cells or candidate digits for which no possible placement patterns exist.<br>
+				These cells or candidate digits can be excluded.
+				In the POM analysis of the puzzle above, <b>(r2c4 r3c5)#9</b> is not included in any of the patterns.<br>
+				Therefore, these can be excluded.<br>
+				
+				<tt><hr>
+				<p class="newLine"> ID:00_2 POM_NoPattern  <br>
+				.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+				137..5628 56..3.1.4 24.6..3.. .721.9... .95.26.1. .145.32.9 951364782 783...546 426857931 Current<br></p>
+				<img src="images/img61/POM_NoPattern_1a.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_NoPattern (Lv.9)"><br>
+
+				<p>
+					Pattern Overlay Method _ No Pattern<br>
+					<br>
+					Exclude: (r2c4 r3c5)#9<br>
+					<br>
+					<p class="newLine"><br><br>
+					#9 Exclude<br>
+					&nbsp;&nbsp;&nbsp;Board[#9]: ...45.... ..34...8. ..3.5..8. ......... ......... ......... ......... ...45.... ......... <br>
+					&nbsp;Pattern[ 0]: ...4..... ..3...... .......8. ......... ......... ......... ......... ....5.... ......... <br>
+					&nbsp;Pattern[ 1]: ...4..... .......8. ..3...... ......... ......... ......... ......... ....5.... ......... <br>
+					&nbsp;Pattern[ 2]: ....5.... ..3...... .......8. ......... ......... ......... ......... ...4..... ......... <br>
+					&nbsp;Pattern[ 3]: ....5.... .......8. ..3...... ......... ......... ......... ......... ...4..... ......... <br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ...4..... ....5.... ......... ......... ......... ......... ......... ......... &nbsp;2 cells</p>
+					<p style="clear: both"/>
+				</p>
+				<hr>
+				</tt>
+			</p>
+			<a href="#ID_POM-NoPattern">&nbsp; POM No Pattern Example <img src="images/imgTop/jumpTo.png" height="8"></a>
+			<br><br>
+		</section>
+		
+
+		<section>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - Single Pattarn</H4>
+			<p>
+				If there is only one pattern, it will be common to all patterns, and the statement <b>All Pattern</b> will hold true.<br>
+
+				<div>
+					<hr>
+					<p class="newLine"/> ID:00_2 POM_singlePattern<br>
+					<tt>
+					.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+					137..5628 56..3.1.4 24.6..3.. .721.9... .95.26.1. .145.32.9 951364782 783...546 426857931 Current<br>
+					<img src="images/img61/POM_SinglePattern_1a.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_SinglePattern (Lv.9)"><br>
+					</tt>
+					<p>
+						Pattern Overlay Method _ single pattern<br><br>
+						Fixed: (r2c4 r3c8 r5c9 r6c5)#7<br>
+						<p class="newLine"/><br>
+						<tt>
+						#7 Fixed<br>
+						&nbsp;&nbsp;&nbsp;Board[#7]: ......... ...4...8. ....5..89 ......... ...4....9 ....5..8. ......... ......... ......... <br>
+						&nbsp;Pattern[ 0]: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... ......... <br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... ......... &nbsp;4 cells
+						</tt>
+					</p>
+					<p style="clear: both"/>
+				</div>
+				<br>
+			</p>
+		</section>
+		
+
+
+
+		<section>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;Pattern Overlay Interactions</H4>
+			<p>
+				The algorithm based on candidate digit interaction (Rule-2) is as follows:<br>
+				Assuming that pattern A for candidate digit #m is true (#m-A), 
+				the cells of pattern A are occupied by candidate digit #m, and other candidate digits are excluded.<br>
+				
+				Performing POM analysis in this state may reveal that there are no other candidate digit patterns.
+				This indicates that the assumption that #m-A is true is incorrect.<br>
+				Therefore, pattern A for candidate digit #m (#m-A) is excluded.<br>
+				
+				Pattern Overlay Interaction (POI) is a POM analysis that excludes the interaction of candidate digits.
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_117 POI_Rule2<br>
+				7....94.. ..67.3... .3.....72 .24...3.. .78..2.41 ...18.25. .......3. 3....1..4 26.3.7895 Puzzle<br>
+				7.2..94.3 ..6723... .3.41..72 124.7.3.. 578.32.41 693184257 ..72..136 3....1724 261347895 Current<br></p>
+				<img src="images/img61/POI_Rule2_1a.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+				<p>
+				Interactions<br>
+				#1 pat_1 -> #6<br>
+				#9 pat_1 -> #5<br>
+				#9 pat_2 -> #6<br>
+				#9 pat_3 -> #6<br>
+				#9 pat_4 -> #6<br>
+				#8 pat_0 -> #6<br>
+				#8 pat_1 -> #6<br>
+				#8 pat_4 -> #6<br>
+				#8 pat_5 -> #6<br>
+				#5 pat_0 -> #6<br>
+				#5 pat_2 -> #6<br>
+				#5 pat_3 -> #9<br>
+				#5 pat_4 -> #6<br>
+				#5 pat_5 -> #6<br>
+				<br>
+				<br>
+				Pattern Overlay Interaction _ No Pattern Exclusion<br>
+				<br>
+				Exclued: (r1c2 r37c6 r4c4 r8c25)#5<br>
+				<p class="newLine"/><p style="clear: both"/><br>
+				#5 Exclude<br>
+				&nbsp;&nbsp;&nbsp;Board[#5]: .2.45.... .2....7.. ..3..67.. ...4.6... ......... ......... .2..56... .2345.... ......... <br>
+				&nbsp;Pattern[ 0]: .2....... ......7.. .....6... ...4..... ......... ......... ....5.... ..3...... .........  Disabled by interaction<br>
+				&nbsp;Pattern[ 1]: ...4..... .2....... ......7.. .....6... ......... ......... ....5.... ..3...... .........  <br>
+				&nbsp;Pattern[ 2]: ...4..... ......7.. ..3...... .....6... ......... ......... .2....... ....5.... .........  Disabled by interaction<br>
+				&nbsp;Pattern[ 3]: ...4..... ......7.. ..3...... .....6... ......... ......... ....5.... .2....... .........  Disabled by interaction<br>
+				&nbsp;Pattern[ 4]: ....5.... .2....... ......7.. ...4..... ......... ......... .....6... ..3...... .........  Disabled by interaction<br>
+				&nbsp;Pattern[ 5]: ....5.... ......7.. ..3...... ...4..... ......... ......... .....6... .2....... .........  Disabled by interaction<br>
+				&nbsp;Pattern[ 6]: ....5.... ......7.. ..3...... .....6... ......... ......... .2....... ...4..... .........  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: .2....... ......... .....6... ...4..... ......... ......... .....6... .2..5.... ......... &nbsp;6 cells
+				<hr>
+				</tt></div>
+
+				<tt>
+				&nbsp;&nbsp;&nbsp;POM Patterns<br>
+
+				#1<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: .2.....8. .2.....8. ......... ......... ......... ......... ......... ......... .........  4 cells<br>
+				&nbsp;Pattern 0: .2....... .......8. ......... ......... ......... ......... ......... ......... ......... <br>
+				&nbsp;Pattern 1: .......8. .2....... ......... ......... ......... ......... ......... ......... .........  Disabled by interaction<br>
+				<br>
+				#4<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: ......... 12....... ......... ......... ......... ......... 12....... ......... .........  4 cells<br>
+				&nbsp;Pattern 0: ......... 1........ ......... ......... ......... ......... .2....... ......... .........<br>
+				&nbsp;Pattern 1: ......... .2....... ......... ......... ......... ......... 1........ ......... .........<br>
+				<br>
+				#5<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: .2.45.... .2....7.. ..3..67.. ...4.6... ......... ......... .2..56... .2345.... .........  17 cells<br>
+				&nbsp;Pattern 0: .2....... ......7.. .....6... ...4..... ......... ......... ....5.... ..3...... .........  Disabled by interaction<br>
+				&nbsp;Pattern 1: ...4..... .2....... ......7.. .....6... ......... ......... ....5.... ..3...... .........<br>
+				&nbsp;Pattern 2: ...4..... ......7.. ..3...... .....6... ......... ......... .2....... ....5.... .........  Disabled by interaction<br>
+				&nbsp;Pattern 3: ...4..... ......7.. ..3...... .....6... ......... ......... ....5.... .2....... .........  Disabled by interaction<br>
+				&nbsp;Pattern 4: ....5.... .2....... ......7.. ...4..... ......... ......... .....6... ..3...... .........  Disabled by interaction<br>
+				&nbsp;Pattern 5: ....5.... ......7.. ..3...... ...4..... ......... ......... .....6... .2....... .........  Disabled by interaction<br>
+				&nbsp;Pattern 6: ....5.... ......7.. ..3...... .....6... ......... ......... .2....... ...4..... .........<br>
+				<br>
+				#6<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: ...45..8. ......... .....67.. ...4.6.8. ...4..7.. ......... ......... ...45.... .........  12 cells<br>
+				&nbsp;Pattern 0: .......8. ......... .....6... ...4..... ......7.. ......... ......... ....5.... .........<br>
+				<br>
+				#8<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: .2.4...8. 12.....89 1....6... .......89 ......... ......... 12...6... .2.4..... .........  16 cells<br>
+				&nbsp;Pattern 0: .2....... .......8. .....6... ........9 ......... ......... 1........ ...4..... .........  Disabled by interaction<br>
+				&nbsp;Pattern 1: .2....... ........9 .....6... .......8. ......... ......... 1........ ...4..... .........  Disabled by interaction<br>
+				&nbsp;Pattern 2: ...4..... .......8. 1........ ........9 ......... ......... .....6... .2....... .........<br>
+				&nbsp;Pattern 3: ...4..... ........9 1........ .......8. ......... ......... .....6... .2....... .........<br>
+				&nbsp;Pattern 4: .......8. 1........ .....6... ........9 ......... ......... .2....... ...4..... .........  Disabled by interaction<br>
+				&nbsp;Pattern 5: .......8. .2....... .....6... ........9 ......... ......... 1........ ...4..... .........  Disabled by interaction<br>
+				<br>
+				#9<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: ......... 1.....7.9 1.3...7.. ...4....9 ...4..7.. ......... 1...5.... ..3.5.... .........  14 cells<br>
+				&nbsp;Pattern 0: ......... 1........ ......7.. ........9 ...4..... ......... ....5.... ..3...... .........<br>
+				&nbsp;Pattern 1: ......... ......7.. 1........ ........9 ...4..... ......... ....5.... ..3...... .........  Disabled by interaction<br>
+				&nbsp;Pattern 2: ......... ......7.. ..3...... ........9 ...4..... ......... 1........ ....5.... .........  Disabled by interaction<br>
+				&nbsp;Pattern 3: ......... ........9 1........ ...4..... ......7.. ......... ....5.... ..3...... .........  Disabled by interaction<br>
+				&nbsp;Pattern 4: ......... ........9 ..3...... ...4..... ......7.. ......... 1........ ....5.... .........  Disabled by interaction<br>
+				</tt></div>
+				<br><br>
+				<a href="#ID_POI">&nbsp; POM all-Pattern Example <img src="images/imgTop/jumpTo.png" height="8"></a>
+			</p>
+
+		</section>
+
+		<section>
+			<H4 id="head_bg_Blue" id="SE">&nbsp;Proof of the Pattern Overlay Method</H4>
+			<p>
+				<b>Proof by the Law of Excluded Middle:</b><br>
+				POM is an analytical algorithm that exhaustively handles all possible arrangements of candidate digits. <br>
+				In contrast, existing algorithms derive negative arrangements of candidate digits. 
+				This is because those arrangements are contradictory. <br>
+				The patterns in POM are only those arrangements that are consistent. 
+				That is, contradictory arrangements from existing algorithms are not included in POM.<br><br>
+
+				<b>Backward Compatibility</b><br>
+				For algorithms that handle single-digit, such as ER, Skyscraper, and Fish, POM Rule 1 (no pattern, with pattern) is backward compatible.
+				For algorithms that handle multi-digit, such as XY-wing, Chain, and SueDeCoq, POI Rule 2 (POI: Pattern Overlay Interaction), 
+				which analyzes the interaction of candidate digit, is the appropriate rule.
+			</p>
+			<br><br><br>
+		</section>
+
+
+		<section>
+			<H4 id="head_bg_Blue" id="SE">&nbsp;POM,PMI Example</H4>
+			<p>
+				Pattern Overlay Method (PMO) examples are located in the data folder...
+				and can be analyzed with GNPX. A portion of them is shown below.
+			</p>
+			<a id="ID_POM-AllPattern"></a>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM All Pattern Example</H4>
+
+			<p>
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_321 POM_AllPattern<br>
+				....619.8 6......45 .2.85.3.. 9..5.6.32 3651..8.. ..738.... ...4.5..3 ...6..... 79....65. Puzzle<br>
+				...761928 6789..145 129854367 9815.6.32 3651..8.. 247389516 8164.52.3 ..26...8. 79.2.865. Current<br></p>
+				<img src="images/img61/POM_Rule1_1.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: (r4c7 r7c8)#7<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#7 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#7]: ......... ......... ......... ....5.7.. ....56.8. ......... ....5..8. ....567.. ......... <br>
+				&nbsp;Pattern[ 0]: ......... ......... ......... ......7.. ....5.... ......... .......8. .....6... .........  <br>
+				&nbsp;Pattern[ 1]: ......... ......... ......... ......7.. .....6... ......... .......8. ....5.... .........  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......... ......7.. ......... ......... .......8. ......... ......... &nbsp;2 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_331 POM_AllPattern<br>
+				...1...9. .91685.3. ......6.. .2.4..31. .3..218.5 .865..2.7 .798....4 ..3247..6 ......... Puzzle<br>
+				36.17..98 .91685.32 ...39.6.1 .2.468319 934721865 186539247 6798.3.24 .132479.6 ...9.6..3 Current<br></p>
+				<img src="images/img61/POM_Rule1_2.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: (r1c7 r7c5)#5<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#5 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#5]: ..3...7.. ......... 123....8. 1.3...... ......... ......... ....5.7.. 1......8. 123.5.78. <br>
+				&nbsp;Pattern[ 0]: ......7.. ......... 1........ ..3...... ......... ......... ....5.... .......8. .2.......  <br>
+				&nbsp;Pattern[ 1]: ......7.. ......... .2....... 1........ ......... ......... ....5.... .......8. ..3......  <br>
+				&nbsp;Pattern[ 2]: ......7.. ......... .2....... ..3...... ......... ......... ....5.... 1........ .......8.  <br>
+				&nbsp;Pattern[ 3]: ......7.. ......... .2....... ..3...... ......... ......... ....5.... .......8. 1........  <br>
+				&nbsp;Pattern[ 4]: ......7.. ......... ..3...... 1........ ......... ......... ....5.... .......8. .2.......  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......7.. ......... ......... ......... ......... ......... ....5.... ......... ......... &nbsp;2 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_344 POM_AllPattern<br>
+				....3578. .5..28..3 .8....625 4........ ....92148 8.....9.6 .....1... 24.87..51 .15...8.7 Puzzle<br>
+				.24.35789 .5..28413 .8....625 491.865.2 56..92148 8.2...9.6 ..8..12.4 246879351 .152..8.7 Current<br></p>
+				<img src="images/img61/POM_Rule1_3.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: r9c6#3<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#3 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#3]: ......... ......... 1.3...... ...4...8. ..34..... .2.4.6.8. 12.4..... ......... 1....6... <br>
+				&nbsp;Pattern[ 0]: ......... ......... 1........ ...4..... ..3...... .......8. .2....... ......... .....6...  <br>
+				&nbsp;Pattern[ 1]: ......... ......... 1........ .......8. ..3...... ...4..... .2....... ......... .....6...  <br>
+				&nbsp;Pattern[ 2]: ......... ......... ..3...... .......8. ...4..... .2....... 1........ ......... .....6...  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......... ......... ......... ......... ......... ......... .....6... &nbsp;1 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_352 POM_AllPattern<br>
+				.576..... ...5.38.. ....4.5.. .73...... ......6.5 68..1.3.7 796....4. .1.794..6 5.41.8.39 Puzzle<br>
+				.57681..3 .6.52387. 83.94756. .73856.1. .4.37.685 68541.3.7 796235148 318794256 524168739 Current<br></p>
+				<img src="images/img61/POM_Rule1_4.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: (r1c8 r3c3 r4c9 r5c1 r6c6)#2<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#2 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#2]: 1......8. ......... ..3.....9 1.......9 1.3..6... .....6.8. ......... ......... ......... <br>
+				&nbsp;Pattern[ 0]: .......8. ......... ..3...... ........9 1........ .....6... ......... ......... .........  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: .......8. ......... ..3...... ........9 1........ .....6... ......... ......... ......... &nbsp;5 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_362 POM_AllPattern<br>
+				.59.34.8. 8.3..1... .......75 .7.12.843 3..5..... .81....59 4....7..2 .1...2.3. ..28..41. Puzzle<br>
+				759.34.8. 8.3751..4 1.....375 .7512.843 3..5..... 281..3.59 4.83175.2 517..2.38 .328.5417 Current<br></p>
+				<img src="images/img61/POM_Rule1_5.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: (r1c9 r2c2 r4c6 r5c3 r6c7 r7c8 r9c1)#6<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#6 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#6]: ...4..7.9 .2....78. .23456... 1....6... .23.56789 ...45.7.. .2.....8. ...45.7.. 1...5.... <br>
+				&nbsp;Pattern[ 0]: ........9 .2....... ...4..... .....6... ..3...... ......7.. .......8. ....5.... 1........  <br>
+				&nbsp;Pattern[ 1]: ........9 .2....... ....5.... .....6... ..3...... ......7.. .......8. ...4..... 1........  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ........9 .2....... ......... .....6... ..3...... ......7.. .......8. ......... 1........ &nbsp;7 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_371 POM_AllPattern<br>
+				...9.4.2. 78412.5.6 ....6.... ..9..6.12 .43.1.96. 1....94.. 5.1..2... ...8...31 .98.....7 Puzzle<br>
+				...9.4.2. 784123596 9...6...4 8.9..6.12 243.1.96. 1..2.94.. 5.1..2849 4..895631 .98..1257 Current<br></p>
+				<img src="images/img61/POM_Rule1_6.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: (r1c5 r3c8 r5c6 r6c9)#8<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#8 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#8]: ....5...9 ......... .....6.8. ......... .....6..9 ....5..89 ......... ......... ......... <br>
+				&nbsp;Pattern[ 0]: ....5.... ......... .......8. ......... .....6... ........9 ......... ......... .........  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ....5.... ......... .......8. ......... .....6... ........9 ......... ......... ......... &nbsp;4 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_381 POM_AllPattern<br>
+				....38... 81245.97. ...21.8.4 3.7....15 2......3. .45..7... ...6....2 ...8..197 7...93..8 Puzzle<br>
+				...738.21 812456973 .732198.4 367982415 2...4.736 145367289 ...67.3.2 .3.82.197 72..93..8 Current<br></p>
+				<img src="images/img61/POM_Rule1_7.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: r5c4#5<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#5 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#5]: 12....7.. ......... 1......8. ......... ...4.6... ......... 12...6.8. 1....6... ...4..78. <br>
+				&nbsp;Pattern[ 0]: 1........ ......... .......8. ......... ...4..... ......... .2....... .....6... ......7..  <br>
+				&nbsp;Pattern[ 1]: .2....... ......... .......8. ......... ...4..... ......... 1........ .....6... ......7..  <br>
+				&nbsp;Pattern[ 2]: .2....... ......... .......8. ......... ...4..... ......... .....6... 1........ ......7..  <br>
+				&nbsp;Pattern[ 3]: ......7.. ......... 1........ ......... ...4..... ......... .2....... .....6... .......8.  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......... ......... ...4..... ......... ......... ......... ......... &nbsp;1 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_394 POM_AllPattern<br>
+				...52.4.. 5....16.2 2.6.3..5. 9.5.4.2.. 6.13....8 82.6..... 3.7..4... ...7..8.4 .5....731 Puzzle<br>
+				71.5264.3 5.3..16.2 2.6.3.15. 935.4.2.6 671392548 8246.53.. 3.7..49.5 1..7538.4 45..6.731 Current<br></p>
+				<img src="images/img61/POM_Rule1_8.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: (r1c8 r9c3)#8<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#8 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#8]: ..3....8. .2.45..8. .2.4.6... ...4.6... ......... ......... .2.45.... ......... ..34.6... <br>
+				&nbsp;Pattern[ 0]: .......8. .2....... ...4..... .....6... ......... ......... ....5.... ......... ..3......  <br>
+				&nbsp;Pattern[ 1]: .......8. .2....... .....6... ...4..... ......... ......... ....5.... ......... ..3......  <br>
+				&nbsp;Pattern[ 2]: .......8. ...4..... .2....... .....6... ......... ......... ....5.... ......... ..3......  <br>
+				&nbsp;Pattern[ 3]: .......8. ....5.... .2....... .....6... ......... ......... ...4..... ......... ..3......  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: .......8. ......... ......... ......... ......... ......... ......... ......... ..3...... &nbsp;2 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_401 POM_AllPattern<br>
+				745.1.69. .......35 ..8...2.. .8..347.. .635.182. 1....24.. .74..6... .3.4.75.. 2......4. Puzzle<br>
+				745213698 629748135 318...274 .82.347.. 463571829 1.78.24.3 .743.69.. .314.75.. 2.618.347 Current<br></p>
+				<img src="images/img61/POM_Rule1_9.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: (r3c5 r4c4 r6c2 r8c1 r9c6)#9<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#9 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#9]: ......... ......... ...456... 1..4..... ......... .2..5.... ......... 1...5.... .2...6... <br>
+				&nbsp;Pattern[ 0]: ......... ......... ....5.... ...4..... ......... .2....... ......... 1........ .....6...  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ....5.... ...4..... ......... .2....... ......... 1........ .....6... &nbsp;5 cells
+				<hr>
+				</tt></div>
+
+
+				<div><tt>
+				<p><p style="clear: both"/><p class="newLine"/>ID:00_411 POM_AllPattern<br>
+				....17..3 .498...1. 7.....2.8 ....4.... 4.7.2..35 .95.7..2. 5..4..... 9..7.1.52 16.2.9.7. Puzzle<br>
+				....17943 .498.2517 7...94268 ....457.. 4.792..35 .95.7.42. 5724..... 9.47.1.52 16.259.74 Current<br></p>
+				<img src="images/img61/POM_Rule1_10.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+				<p>
+				Pattern Overlay Method _ All Pattern Fixed<br>
+				<br>
+				Fixed: (r1c4 r2c1 r4c3)#6<br>
+				<br>
+				<p class="newLine"/><p style="clear: both"/>#6 Fixed<br>
+				&nbsp;&nbsp;&nbsp;Board[#6]: 1.34..... 1...5.... ......... 1.34....9 .....67.. 1..4.6..9 ....567.9 ....5.7.. ......... <br>
+				&nbsp;Pattern[ 0]: ...4..... 1........ ......... ..3...... .....6... ........9 ....5.... ......7.. .........  <br>
+				&nbsp;Pattern[ 1]: ...4..... 1........ ......... ..3...... .....6... ........9 ......7.. ....5.... .........  <br>
+				&nbsp;Pattern[ 2]: ...4..... 1........ ......... ..3...... ......7.. .....6... ........9 ....5.... .........  <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ...4..... 1........ ......... ..3...... ......... ......... ......... ......... ......... &nbsp;3 cells
+				<hr>
+				</tt></div>
+			</p>
+			<a href="#ID_POM-AllPattern">&nbsp; POM all-Pattern Example <img src="images/imgTop/jumpTo.png" height="8"></a>
+			<br><br>
+		</section>
+
+
+
+
+		<section>
+		<a id="ID_POM-NoPattern"></a>
+		<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM No Pattern Example</H4>
+
+		<p>
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_538 POM_AllPattern<br>
+			...45.832 582..1.97 3..8...6. 1..7..... ..3.....1 .76.1..2. ...98.35. 6....4... ..51.3..4 Puzzle<br>
+			.6145.832 582631497 34.8..165 12.7....3 .532....1 47631..2. .1498.356 63.5.4.1. .95163..4 Current<br></p>
+			<img src="images/img61/POM_Rule1_11.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r3c6 r8c7 r9c1)#7<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#7 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#7]: 1....6... ......... ..3.56... ......... ......78. ......... 1....6... ..3.5.7.. 1.....78. <br>
+			&nbsp;Pattern[ 0]: 1........ ......... ....5.... ......... ......7.. ......... .....6... ..3...... .......8.  <br>
+			&nbsp;Pattern[ 1]: 1........ ......... ....5.... ......... .......8. ......... .....6... ..3...... ......7..  <br>
+			&nbsp;Pattern[ 2]: .....6... ......... ..3...... ......... ......7.. ......... 1........ ....5.... .......8.  <br>
+			&nbsp;Pattern[ 3]: .....6... ......... ..3...... ......... .......8. ......... 1........ ....5.... ......7..  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... .....6... ......... ......... ......... ......... ......7.. 1........ &nbsp;3 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_538 POM_AllPattern<br>
+			...45.832 582..1.97 3..8...6. 1..7..... ..3.....1 .76.1..2. ...98.35. 6....4... ..51.3..4 Puzzle<br>
+			.6145.832 582631497 34.8..165 12.7....3 .532....1 47631..2. .1498.356 63.5.4.1. .95163..4 Current<br></p>
+			<img src="images/img61/POM_Rule1_12.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r4c8 r5c6)#8<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#8 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#8]: ......... ......... ......... ..3..6.8. 1....6.8. .....6..9 ......... ..3.....9 1......8. <br>
+			&nbsp;Pattern[ 0]: ......... ......... ......... ..3...... .......8. .....6... ......... ........9 1........  <br>
+			&nbsp;Pattern[ 1]: ......... ......... ......... .....6... 1........ ........9 ......... ..3...... .......8.  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... .......8. .....6... ......... ......... ......... ......... &nbsp;2 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_538 POM_AllPattern<br>
+			...45.832 582..1.97 3..8...6. 1..7..... ..3.....1 .76.1..2. ...98.35. 6....4... ..51.3..4 Puzzle<br>
+			.6145.832 582631497 34.8..165 12.7....3 .532....1 47631..2. .1498.356 63.5.4.1. .95163..4 Current<br></p>
+			<img src="images/img61/POM_Rule1_13.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r4c67)#9<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#9 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#9]: 1....6... ......... ..3.56... ..3.567.. 1...567.. .....67.9 ......... ......7.9 ......... <br>
+			&nbsp;Pattern[ 0]: 1........ ......... ....5.... ..3...... .....6... ......7.. ......... ........9 .........  <br>
+			&nbsp;Pattern[ 1]: 1........ ......... ....5.... ..3...... .....6... ........9 ......... ......7.. .........  <br>
+			&nbsp;Pattern[ 2]: 1........ ......... ....5.... ..3...... ......7.. .....6... ......... ........9 .........  <br>
+			&nbsp;Pattern[ 3]: 1........ ......... .....6... ..3...... ....5.... ......7.. ......... ........9 .........  <br>
+			&nbsp;Pattern[ 4]: 1........ ......... .....6... ..3...... ....5.... ........9 ......... ......7.. .........  <br>
+			&nbsp;Pattern[ 5]: .....6... ......... ..3...... ....5.... 1........ ......7.. ......... ........9 .........  <br>
+			&nbsp;Pattern[ 6]: .....6... ......... ..3...... ....5.... 1........ ........9 ......... ......7.. .........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... .....67.. ......... ......... ......... ......... ......... &nbsp;2 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_542 POM_AllPattern<br>
+			.24.9..63 .9..7...4 6....42.. .....243. 51.6..... .32..9..7 ..642.... ...93.8.6 9..861... Puzzle<br>
+			.24.98.63 .9.276..4 6..3.42.. 8697.243. 5176439.. 432.896.7 .8642.... 2..93.8.6 9..861... Current<br></p>
+			<img src="images/img61/POM_Rule1_14.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r3c38 r7c9)#1<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#1 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#1]: 1..4..7.. 1.3...78. ..3.5..89 ....5...9 ......... ...4...8. 1.....789 ..3....8. ......... <br>
+			&nbsp;Pattern[ 0]: 1........ ......7.. ....5.... ........9 ......... ...4..... .......8. ..3...... .........  <br>
+			&nbsp;Pattern[ 1]: 1........ .......8. ....5.... ........9 ......... ...4..... ......7.. ..3...... .........  <br>
+			&nbsp;Pattern[ 2]: ...4..... 1........ ........9 ....5.... ......... .......8. ......7.. ..3...... .........  <br>
+			&nbsp;Pattern[ 3]: ......7.. 1........ ....5.... ........9 ......... ...4..... .......8. ..3...... .........  <br>
+			&nbsp;Pattern[ 4]: ......7.. ..3...... ....5.... ........9 ......... ...4..... 1........ .......8. .........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ..3....8. ......... ......... ......... ........9 ......... ......... &nbsp;3 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_542 POM_AllPattern<br>
+			.24.9..63 .9..7...4 6....42.. .....243. 51.6..... .32..9..7 ..642.... ...93.8.6 9..861... Puzzle<br>
+			.24.98.63 .9.276..4 6..3.42.. 8697.243. 5176439.. 432.896.7 .8642.... 2..93.8.6 9..861... Current<br></p>
+			<img src="images/img61/POM_Rule1_15.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r23c8)#5<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#5 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#5]: ...4..7.. ..3...78. .23.5..89 ....5...9 ......... ...4...8. .....6789 .23..6.8. .23...789 <br>
+			&nbsp;Pattern[ 0]: ...4..... ..3...... ........9 ....5.... ......... .......8. .....6... .2....... ......7..  <br>
+			&nbsp;Pattern[ 1]: ...4..... ..3...... ........9 ....5.... ......... .......8. ......7.. .....6... .2.......  <br>
+			&nbsp;Pattern[ 2]: ...4..... ......7.. .2....... ....5.... ......... .......8. .....6... ..3...... ........9  <br>
+			&nbsp;Pattern[ 3]: ...4..... ......7.. .2....... ....5.... ......... .......8. ........9 .....6... ..3......  <br>
+			&nbsp;Pattern[ 4]: ...4..... ......7.. ..3...... ....5.... ......... .......8. .....6... .2....... ........9  <br>
+			&nbsp;Pattern[ 5]: ...4..... ......7.. ..3...... ....5.... ......... .......8. ........9 .....6... .2.......  <br>
+			&nbsp;Pattern[ 6]: ......7.. ..3...... ....5.... ........9 ......... ...4..... .....6... .2....... .......8.  <br>
+			&nbsp;Pattern[ 7]: ......7.. ..3...... ....5.... ........9 ......... ...4..... .....6... .......8. .2.......  <br>
+			&nbsp;Pattern[ 8]: ......7.. ..3...... ....5.... ........9 ......... ...4..... .......8. .....6... .2.......  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... .......8. .......8. ......... ......... ......... ......... ......... ......... &nbsp;2 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_542 POM_AllPattern<br>
+			.24.9..63 .9..7...4 6....42.. .....243. 51.6..... .32..9..7 ..642.... ...93.8.6 9..861... Puzzle<br>
+			.24.98.63 .9.276..4 6..3.42.. 8697.243. 5176439.. 432.896.7 .8642.... 2..93.8.6 9..861... Current<br></p>
+			<img src="images/img61/POM_Rule1_16.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r78c8)#7<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#7 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#7]: 1.....7.. ......... .2.....8. ......... ......... ......... 1....678. .2...6.8. .2....78. <br>
+			&nbsp;Pattern[ 0]: 1........ ......... .......8. ......... ......... ......... .....6... .2....... ......7..  <br>
+			&nbsp;Pattern[ 1]: 1........ ......... .......8. ......... ......... ......... ......7.. .....6... .2.......  <br>
+			&nbsp;Pattern[ 2]: ......7.. ......... .2....... ......... ......... ......... 1........ .....6... .......8.  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... ......... ......... ......... .......8. .......8. ......... &nbsp;2 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_551 POM_AllPattern<br>
+			..98..63. 4.1...8.9 6...7..12 ..4..8397 7.2....6. 8.6..3... .6...2... ...6.7.23 .2.93.... Puzzle<br>
+			2798..63. 451326879 683.79.12 514268397 732.9..68 8967.32.. 367..29.. 94.6.7.23 12.93.7.6 Current<br></p>
+			<img src="images/img61/POM_Rule1_17.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r5c7 r68c5 r7c9)#1<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#1 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#1]: ....56... ......... ......... ......... ...4.67.. ....5...9 ...45...9 ....5.7.. ......... <br>
+			&nbsp;Pattern[ 0]: ....5.... ......... ......... ......... .....6... ........9 ...4..... ......7.. .........  <br>
+			&nbsp;Pattern[ 1]: .....6... ......... ......... ......... ...4..... ........9 ....5.... ......7.. .........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... ......... ......7.. ....5.... ........9 ....5.... ......... &nbsp;4 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_561 POM_AllPattern<br>
+			.1.764... ..832..71 .7..1.962 ......7.. ...14.... 2...3...6 6972..3.8 3...765.. ..5..3... Puzzle<br>
+			9127648.. 568329471 473.1.962 ...6.27.4 7.614.29. 2...371.6 697251348 3...765.9 ..5..36.7 Current<br></p>
+			<img src="images/img61/POM_Rule1_18.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r4c28 r69c24)#8<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#8 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#8]: ......... ......... ...4.6... 12..5..8. .2...6... .2.4...8. ......... .2.4..... 12.45.... <br>
+			&nbsp;Pattern[ 0]: ......... ......... ...4..... 1........ .....6... .......8. ......... .2....... ....5....  <br>
+			&nbsp;Pattern[ 1]: ......... ......... .....6... ....5.... .2....... .......8. ......... ...4..... 1........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... .2.....8. ......... .2.4..... ......... ......... .2.4..... &nbsp;6 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_573 POM_AllPattern<br>
+			..8.92..1 .128...36 ...7..2.. 1...23.5. 5371.6... ..6....1. 8..5.91.4 ..16.8..5 .7....... Puzzle<br>
+			..83925.1 .12845.36 35.7612.. 18..23657 537186492 ..6.57.1. 8.35791.4 ..1638..5 .75214... Current<br></p>
+			<img src="images/img61/POM_Rule1_19.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r8c7 r9c1)#9<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#9 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#9]: ......... 1.....7.. ..3.....9 ..34..... ......... 12.4..... ......... 12....7.. 1.....7.9 <br>
+			&nbsp;Pattern[ 0]: ......... 1........ ........9 ..3...... ......... ...4..... ......... .2....... ......7..  <br>
+			&nbsp;Pattern[ 1]: ......... ......7.. ..3...... ...4..... ......... 1........ ......... .2....... ........9  <br>
+			&nbsp;Pattern[ 2]: ......... ......7.. ..3...... ...4..... ......... .2....... ......... 1........ ........9  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... ......... ......... ......... ......... ......7.. 1........ &nbsp;2 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_592 POM_AllPattern<br>
+			......2.. 2..948.1. 67..21.4. .69.835.. ...2...7. 1.3...8.. ..76.218. 8....7..2 .1....79. Puzzle<br>
+			..17..2.8 235948617 678.21.4. 769.8352. 5842...7. 123.7.86. ..76.218. 8.6..74.2 312854796 Current<br></p>
+			<img src="images/img61/POM_Rule1_20.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+			<p>
+			Pattern Overlay Method _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r17c5 r3c79 r5c9 r8c48)#3<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#3 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#3]: ....5..8. ......... ...4..7.9 ......... ......7.9 ......... ....5...9 ...45..8. ......... <br>
+			&nbsp;Pattern[ 0]: .......8. ......... ...4..... ......... ......7.. ......... ........9 ....5.... .........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ....5.... ......... ......7.9 ......... ........9 ......... ....5.... ...4...8. ......... &nbsp;7 cells
+			<hr>
+			</tt></div>
+		</p>
+
+		</section>
+
+
+		</section>
+
+
+		<section>
+		<a id="ID_POI"></a>
+		<H4 id="head_bg_LightBlue" id="SE">&nbsp;POI Example</H4>
+		<p>
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_592 POM_AllPattern<br>
+			......2.. 2..948.1. 67..21.4. .69.835.. ...2...7. 1.3...8.. ..76.218. 8....7..2 .1....79. Puzzle<br>
+			..17..2.8 235948617 678.21.4. 769.8352. 5842...7. 123.7.86. ..76.218. 8.6..74.2 312854796 Current<br></p>
+			<img src="images/img61/POI_Rule2_1.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#1 pat_0 -> #3<br>
+			#5 pat_1 -> #3<br>
+			#9 pat_0 -> #3<br>
+			#9 pat_2 -> #3<br>
+			#9 pat_4 -> #3<br>
+			#9 pat_5 -> #3<br>
+			#9 pat_6 -> #3<br>
+			#9 pat_7 -> #3<br>
+			#9 pat_8 -> #3<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r17c5 r3c79 r5c9 r8c48)#3<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#3 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#3]: ....5..8. ......... ...4..7.9 ......... ......7.9 ......... ....5...9 ...45..8. ......... <br>
+			&nbsp;Pattern[ 0]: .......8. ......... ...4..... ......... ......7.. ......... ........9 ....5.... .........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ....5.... ......... ......7.9 ......... ........9 ......... ....5.... ...4...8. ......... &nbsp;7 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_592 POM_AllPattern<br>
+			......2.. 2..948.1. 67..21.4. .69.835.. ...2...7. 1.3...8.. ..76.218. 8....7..2 .1....79. Puzzle<br>
+			..17..2.8 235948617 678.21.4. 769.8352. 5842...7. 123.7.86. ..76.218. 8.6..74.2 312854796 Current<br></p>
+			<img src="images/img61/POI_Rule2_2.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#1 pat_0 -> #3<br>
+			#5 pat_1 -> #3<br>
+			#9 pat_0 -> #3<br>
+			#9 pat_2 -> #3<br>
+			#9 pat_4 -> #3<br>
+			#9 pat_5 -> #3<br>
+			#9 pat_6 -> #3<br>
+			#9 pat_7 -> #3<br>
+			#9 pat_8 -> #3<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ All Pattern Fixed<br>
+			<br>
+			Fixed: (r1c6 r3c9 r6c4 r7c2 r8c8)#5<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/>#5 Fixed<br>
+			&nbsp;&nbsp;&nbsp;Board[#5]: .....6.8. ......... ...4....9 ......... ......... ...4.6... .2......9 .2.....8. ......... <br>
+			&nbsp;Pattern[ 0]: .....6... ......... ........9 ......... ......... ...4..... .2....... .......8. .........  <br>
+			&nbsp;Pattern[ 1]: .......8. ......... ...4..... ......... ......... .....6... ........9 .2....... .........  Disabled by interaction<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: .....6... ......... ........9 ......... ......... ...4..... .2....... .......8. ......... &nbsp;5 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_601 POM_AllPattern<br>
+			.2....4.. .7...5..3 ..6.8.... 63.5.8.1. ..514.3.2 1..9..6.7 .687..2.1 ....6.... .478.9.3. Puzzle<br>
+			.2....4.. .7...5..3 ..6.8.... 632578914 795146382 1849..657 .6875.2.1 ....6.... 247819536 Current<br></p>
+			<img src="images/img61/POI_Rule2_3.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#2 pat_0 -> #3<br>
+			#2 pat_2 -> #3<br>
+			#2 pat_3 -> #3<br>
+			#3 pat_3 -> #2<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r1c56 r36c6 r8c4)#3<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#3 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#3]: 1.3456... ......... 1..4.6... ......... ......... ....56... 1....6... 1.34.6... ......... <br>
+			&nbsp;Pattern[ 0]: 1........ ......... ...4..... ......... ......... ....5.... .....6... ..3...... .........  <br>
+			&nbsp;Pattern[ 1]: ..3...... ......... ...4..... ......... ......... ....5.... 1........ .....6... .........  <br>
+			&nbsp;Pattern[ 2]: ..3...... ......... ...4..... ......... ......... ....5.... .....6... 1........ .........  <br>
+			&nbsp;Pattern[ 3]: ..3...... ......... .....6... ......... ......... ....5.... 1........ ...4..... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 4]: ...4..... ......... 1........ ......... ......... ....5.... .....6... ..3...... .........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ....56... ......... .....6... ......... ......... .....6... ......... ...4..... ......... &nbsp;5 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_604 POM_AllPattern<br>
+			.4....5.. .9...1..7 ..6.7.... 63.5.2.8. ..478.1.5 8..3..2.6 .826..3.1 ....3.... .651.8.4. Puzzle<br>
+			748.6351. .93..1.67 .16.7...3 637512984 924786135 851349276 4826.73.1 179.3.6.8 3651.874. Current<br></p>
+			<img src="images/img61/POI_Rule2_4.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#2 pat_1 -> #5<br>
+			#5 pat_0 -> #2<br>
+			#9 pat_1 -> #2<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ All Pattern Fixed<br>
+			<br>
+			Fixed: (r1c4 r3c8 r7c5 r9c9)#9<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/>#9 Fixed<br>
+			&nbsp;&nbsp;&nbsp;Board[#9]: ...4....9 ......... ...4...8. ......... ......... ......... ....5..8. ......... ....5...9 <br>
+			&nbsp;Pattern[ 0]: ...4..... ......... .......8. ......... ......... ......... ....5.... ......... ........9  <br>
+			&nbsp;Pattern[ 1]: ........9 ......... ...4..... ......... ......... ......... .......8. ......... ....5....  Disabled by interaction<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ...4..... ......... .......8. ......... ......... ......... ....5.... ......... ........9 &nbsp;4 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_612 POM_AllPattern<br>
+			.5...834. 3....96.. ..9364.5. ..78...65 1..79.4.. ...4.5... ....8.2.. .61..25.. ..2.419.. Puzzle<br>
+			256178349 3..2596.. .19364.52 ..7823165 1.579642. 62.415.9. ....872.. .619325.. ..2.419.. Current<br></p>
+			<img src="images/img61/POI_Rule2_5.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#7 pat_0 -> #8<br>
+			#7 pat_1 -> #8<br>
+			#8 pat_0 -> #3<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ All Pattern Fixed<br>
+			<br>
+			Fixed: r3c7#8<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/>#8 Fixed<br>
+			&nbsp;&nbsp;&nbsp;Board[#8]: ......... .23....89 1.....7.. ......... .2......9 ..3...7.9 ......... 1......89 12.....89 <br>
+			&nbsp;Pattern[ 0]: ......... .2....... ......7.. ......... ........9 ..3...... ......... 1........ .......8.  Disabled by interaction<br>
+			&nbsp;Pattern[ 1]: ......... .2....... ......7.. ......... ........9 ..3...... ......... .......8. 1........  <br>
+			&nbsp;Pattern[ 2]: ......... ..3...... ......7.. ......... .2....... ........9 ......... 1........ .......8.  <br>
+			&nbsp;Pattern[ 3]: ......... ..3...... ......7.. ......... .2....... ........9 ......... .......8. 1........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......7.. ......... ......... ......... ......... ......... ......... &nbsp;1 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_612 POM_AllPattern<br>
+			.5...834. 3....96.. ..9364.5. ..78...65 1..79.4.. ...4.5... ....8.2.. .61..25.. ..2.419.. Puzzle<br>
+			256178349 3..2596.. .19364.52 ..7823165 1.579642. 62.415.9. ....872.. .619325.. ..2.419.. Current<br></p>
+			<img src="images/img61/POI_Rule2_6.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#7 pat_0 -> #8<br>
+			#7 pat_1 -> #8<br>
+			#8 pat_0 -> #3<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r2c89 r3c1 r6c7 r8c9 r9c29)#8<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#8 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#8]: ......... .23....89 1.....7.. ......... .2......9 ..3...7.9 ......... 1......89 12.....89 <br>
+			&nbsp;Pattern[ 0]: ......... .2....... ......7.. ......... ........9 ..3...... ......... 1........ .......8.  Disabled by interaction<br>
+			&nbsp;Pattern[ 1]: ......... .2....... ......7.. ......... ........9 ..3...... ......... .......8. 1........  <br>
+			&nbsp;Pattern[ 2]: ......... ..3...... ......7.. ......... .2....... ........9 ......... 1........ .......8.  <br>
+			&nbsp;Pattern[ 3]: ......... ..3...... ......7.. ......... .2....... ........9 ......... .......8. 1........  <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... .......89 1........ ......... ......... ......7.. ......... ........9 .2......9 &nbsp;7 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_2591 POM_AllPattern<br>
+			2.8.4.691 ..1...... ..9..2..3 4.78.3.1. ..2...9.. .5.4.93.8 6..2..1.. ......7.. 723.1.8.5 Puzzle<br>
+			278345691 341.9.... 5691.24.3 4978.3.1. 832..19.. 1564.93.8 68.2..1.9 91....7.. 72391.8.5 Current<br></p>
+			<img src="images/img61/POI_Rule2_7.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#2 pat_3 -> #7<br>
+			#5 pat_1 -> #8<br>
+			#4 pat_3 -> #7<br>
+			#6 pat_2 -> #4<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ No Pattern Exclusion<br>
+			<br>
+			Exclued: r2c9#2<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#2 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#2]: ......... ......789 ......... ....5.7.9 ......... ....5..8. ......... .......89 ......... <br>
+			&nbsp;Pattern[ 0]: ......... ......7.. ......... ....5.... ......... .......8. ......... ........9 .........  <br>
+			&nbsp;Pattern[ 1]: ......... ......7.. ......... ........9 ......... ....5.... ......... .......8. .........  <br>
+			&nbsp;Pattern[ 2]: ......... .......8. ......... ......7.. ......... ....5.... ......... ........9 .........  <br>
+			&nbsp;Pattern[ 3]: ......... ........9 ......... ......7.. ......... ....5.... ......... .......8. .........  Disabled by interaction<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ........9 ......... ......... ......... ......... ......... ......... ......... &nbsp;1 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_2594 POM_AllPattern<br>
+			2.8.9.471 ..4...... ..3..1..8 9.61.8.4. ..5...1.. .3.5.49.7 1..7..6.. ......8.. 352.8.7.9 Puzzle<br>
+			268395471 5148...9. 793.41..8 9.61.8.4. 4.5...18. 8315.49.7 18975.6.4 647.1.8.. 352486719 Current<br></p>
+			<img src="images/img61/POI_Rule2_8.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#7 pat_1 -> #6<br>
+			#3 pat_2 -> #6<br>
+			#3 pat_3 -> #6<br>
+			#3 pat_4 -> #5<br>
+			#3 pat_5 -> #6<br>
+			#2 pat_0 -> #5<br>
+			#2 pat_1 -> #7<br>
+			#2 pat_3 -> #3<br>
+			#2 pat_4 -> #6<br>
+			#2 pat_5 -> #6<br>
+			#2 pat_6 -> #6<br>
+			#2 pat_7 -> #6<br>
+			#2 pat_8 -> #6<br>
+			#2 pat_9 -> #5<br>
+			#2 pat_10 -> #6<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ All Pattern Fixed<br>
+			<br>
+			Fixed: (r2c6 r3c7 r4c9 r5c2 r6c5 r7c8 r8c4)#2<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/>#2 Fixed<br>
+			&nbsp;&nbsp;&nbsp;Board[#2]: ......... ....567.9 ...4..78. .2..5.7.9 .2.456..9 ....5..8. .....6.8. ...4.6.89 ......... <br>
+			&nbsp;Pattern[ 0]: ......... ....5.... ......7.. .2....... ...4..... .......8. .....6... ........9 .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 1]: ......... .....6... ......7.. .2....... ........9 ....5.... .......8. ...4..... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 2]: ......... .....6... ......7.. ........9 .2....... ....5.... .......8. ...4..... .........  <br>
+			&nbsp;Pattern[ 3]: ......... ......7.. ...4..... .2....... ....5.... .......8. .....6... ........9 .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 4]: ......... ......7.. ...4..... .2....... ........9 ....5.... .....6... .......8. .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 5]: ......... ......7.. ...4..... .2....... ........9 ....5.... .......8. .....6... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 6]: ......... ......7.. ...4..... ....5.... .2....... .......8. .....6... ........9 .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 7]: ......... ......7.. ...4..... ........9 .2....... ....5.... .....6... .......8. .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 8]: ......... ......7.. ...4..... ........9 .2....... ....5.... .......8. .....6... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 9]: ......... ........9 ...4..... ......7.. .2....... ....5.... .....6... .......8. .........  Disabled by interaction<br>
+			&nbsp;Pattern[10]: ......... ........9 ...4..... ......7.. .2....... ....5.... .......8. .....6... .........  Disabled by interaction<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... .....6... ......7.. ........9 .2....... ....5.... .......8. ...4..... ......... &nbsp;7 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_2594 POM_AllPattern<br>
+			2.8.9.471 ..4...... ..3..1..8 9.61.8.4. ..5...1.. .3.5.49.7 1..7..6.. ......8.. 352.8.7.9 Puzzle<br>
+			268395471 5148...9. 793.41..8 9.61.8.4. 4.5...18. 8315.49.7 18975.6.4 647.1.8.. 352486719 Current<br></p>
+			<img src="images/img61/POI_Rule2_9.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#7 pat_1 -> #6<br>
+			#3 pat_2 -> #6<br>
+			#3 pat_3 -> #6<br>
+			#3 pat_4 -> #5<br>
+			#3 pat_5 -> #6<br>
+			#2 pat_0 -> #5<br>
+			#2 pat_1 -> #7<br>
+			#2 pat_3 -> #3<br>
+			#2 pat_4 -> #6<br>
+			#2 pat_5 -> #6<br>
+			#2 pat_6 -> #6<br>
+			#2 pat_7 -> #6<br>
+			#2 pat_8 -> #6<br>
+			#2 pat_9 -> #5<br>
+			#2 pat_10 -> #6<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ No Pattern Exclusion<br>
+			<br>
+			Exclued: (r2c579 r3c48 r4c257 r5c4569 r6c8 r7c6 r8c689)#2<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/><br>
+			#2 Exclude<br>
+			&nbsp;&nbsp;&nbsp;Board[#2]: ......... ....567.9 ...4..78. .2..5.7.9 .2.456..9 ....5..8. .....6.8. ...4.6.89 ......... <br>
+			&nbsp;Pattern[ 0]: ......... ....5.... ......7.. .2....... ...4..... .......8. .....6... ........9 .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 1]: ......... .....6... ......7.. .2....... ........9 ....5.... .......8. ...4..... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 2]: ......... .....6... ......7.. ........9 .2....... ....5.... .......8. ...4..... .........  <br>
+			&nbsp;Pattern[ 3]: ......... ......7.. ...4..... .2....... ....5.... .......8. .....6... ........9 .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 4]: ......... ......7.. ...4..... .2....... ........9 ....5.... .....6... .......8. .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 5]: ......... ......7.. ...4..... .2....... ........9 ....5.... .......8. .....6... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 6]: ......... ......7.. ...4..... ....5.... .2....... .......8. .....6... ........9 .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 7]: ......... ......7.. ...4..... ........9 .2....... ....5.... .....6... .......8. .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 8]: ......... ......7.. ...4..... ........9 .2....... ....5.... .......8. .....6... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 9]: ......... ........9 ...4..... ......7.. .2....... ....5.... .....6... .......8. .........  Disabled by interaction<br>
+			&nbsp;Pattern[10]: ......... ........9 ...4..... ......7.. .2....... ....5.... .......8. .....6... .........  Disabled by interaction<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ....5.7.9 ...4...8. .2..5.7.. ...456..9 .......8. .....6... .....6.89 ......... &nbsp;17 cells
+			<hr>
+			</tt></div>
+
+
+			<div><tt>
+			<p><p style="clear: both"/><p class="newLine"/>ID:00_2606 POM_AllPattern<br>
+			7..526... 16....25. 24..7.8.. 4.....12. .1..6..7. .27.....8 ..2.5..41 .54....83 ...489..2 Puzzle<br>
+			7..526.1. 16....257 245.7.8.6 4.6...12. .1..6..7. .27...6.8 ..2.5..41 .54.1..83 371489562 Current<br></p>
+			<img src="images/img61/POI_Rule2_10.png" width="30%" style="float:left;  margin-right:8px;" alt="POI_Rule2 (Lv.9)"><br>
+
+			<p>
+			Interactions<br>
+			#4 pat_2 -> #3<br>
+			#4 pat_3 -> #3<br>
+			#8 pat_2 -> #3<br>
+			#8 pat_3 -> #3<br>
+			#8 pat_4 -> #3<br>
+			#8 pat_5 -> #3<br>
+			#9 pat_0 -> #3<br>
+			#9 pat_1 -> #3<br>
+			#9 pat_2 -> #3<br>
+			#9 pat_3 -> #3<br>
+			#9 pat_4 -> #3<br>
+			#9 pat_5 -> #3<br>
+			#9 pat_6 -> #3<br>
+			#9 pat_7 -> #3<br>
+			#9 pat_8 -> #3<br>
+			#9 pat_9 -> #3<br>
+			#9 pat_10 -> #3<br>
+			#9 pat_11 -> #3<br>
+			#9 pat_12 -> #3<br>
+			<br>
+			<br>
+			Pattern Overlay Interaction _ All Pattern Fixed<br>
+			<br>
+			Fixed: (r1c2 r5c3 r7c1)#8<br>
+			<br>
+			<p class="newLine"/><p style="clear: both"/>#8 Fixed<br>
+			&nbsp;&nbsp;&nbsp;Board[#8]: .23...... ...4.6... ......... .2.4.6... 1.34.6... ......... 12....... ......... ......... <br>
+			&nbsp;Pattern[ 0]: .2....... ...4..... ......... .....6... ..3...... ......... 1........ ......... .........  <br>
+			&nbsp;Pattern[ 1]: .2....... .....6... ......... ...4..... ..3...... ......... 1........ ......... .........  <br>
+			&nbsp;Pattern[ 2]: ..3...... ...4..... ......... .2....... .....6... ......... 1........ ......... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 3]: ..3...... ...4..... ......... .....6... 1........ ......... .2....... ......... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 4]: ..3...... .....6... ......... .2....... ...4..... ......... 1........ ......... .........  Disabled by interaction<br>
+			&nbsp;Pattern[ 5]: ..3...... .....6... ......... ...4..... 1........ ......... .2....... ......... .........  Disabled by interaction<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: .2....... ......... ......... ......... ..3...... ......... 1........ ......... ......... &nbsp;3 cells
+			<hr>
+			</tt></div>
+		</p>
+		</section>
+		<br><br><br>
+	</article>
+
+
+
+
+	<a href="#" class="pagetop">Top</a>
+	<footer id="foot">
+		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>
