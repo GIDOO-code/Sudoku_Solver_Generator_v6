@@ -1,3 +1,7 @@
+# GNPX V6.4
+A small improvement on the Simple algorithm (Single, Fish).
+Other bug fixes. Rewritten the analysis code specifically for the program (start of the initial phase of version 7).
+
 # Sudoku_Solver_Generator_V6.3
 GNPX v6.3 targets POM,POI
 

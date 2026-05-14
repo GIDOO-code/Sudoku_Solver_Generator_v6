@@ -20,7 +20,7 @@ function writeNaviAlgorithm(){
 		        	html += '<li><a href="page35.html">Finned Fish</a></li>';
 		        	html += '<li><a href="page36.html">(Finned)Franken/Mutant Fish</a></li>';
 		        	html += '<li><a href="page37.html">(Finned)Endo Fish</a></li>';
-		        	html += '<li><a href="page37.html#Cannibalism">(Finned)Cannibalism</a></li>';
+		        	html += '<li><a href="page37.html#Cannibalism">Cannibalism</a></li>';
 		        	html += '<li><a href="page38.html">Kraken(Finned)Fish</a></li>';
 			    html += '</ul>';
 			html += '</li>';

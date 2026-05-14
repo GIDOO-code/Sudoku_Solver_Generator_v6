@@ -89,7 +89,7 @@
 				In other words, there are only (N-1)trues in CoverSet. Therefore, cell▲ is false.
 				(There may be more than one Fin)<br></Li>
 		</ul>
-		<img src="images/img37/img37a.png" alt="(Finned) Fish" width="80%" alt="Fish">
+		<img src="images/img37/img37a.svg" alt="(Finned) Fish" width="80%" alt="Fish">
 		<br><br><br>
 	</p>
 
@@ -97,7 +97,7 @@
 	<h4 id="head_bg_LightBlue">(2)Franken/Mutant Fish（F/M Fish)</h4>
 	<p>
 		Franken/Mutant Fish has rows, columns, and blocks mixed in BaseSet and CoverSet.</p>
-		<img src="images/img37/img37b.png" alt="(Finned)Franken/Mutant Fish" width="95%"><br><br><br>
+		<img src="images/img37/img37b.svg" alt="(Finned)Franken/Mutant Fish" width="95%"><br><br><br>
 
 	<h4 id="head_bg_LightBlue">(3)Endo Fin Fish</h4>
 		<ul>
@@ -111,7 +111,7 @@
 		
 			<li>If cell▲ scopes all Fin (normal Fin and EndoFin), cell▲ is false.<br><br></li>
 		</ul>
-		<img src="images/img37/img37c.png" alt="Franken/Mutant Fish" width="80%" alt="Endo Fin Fish">
+		<img src="images/img37/img37c.svg" alt="Franken/Mutant Fish" width="80%" alt="Endo Fin Fish">
 		<br>
 	<p>
 		The following figure is an example of Endo Fin Fish. 
@@ -162,69 +162,6 @@
 			....2.6..7.41.9....3.847.1..7.9.1.541.3...7.9.9.2.8.36.4.683.7.3.75.4.......1.4..</p><br><br><br>
 			
 
-		<h4 id="head_bg_LightBlue">Endo Fin Fish program</h4>
-		<p >
-		The analysis program of Endo Fin Fish is almost the same as Franken/Mutant Fish.
-		The only difference is to allow BaseSet to overlap.	The analysis algorithm of Endo Fin Fish is<br>
-		"EndoFin is Fin and it is not true at the position where all Fin can be excluded, including normal Fin." <br>
-		The following site is helpful.<br>
-		http://forum.enjoysudoku.com/search.php?keywords=Endo&t=4993&sf=msgonly
-		</p>
-		
-		<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public partial class FishGen: AnalyzerBaseV2{
-//    http://forum.enjoysudoku.com/search.php?keywords=Endo&t=4993&sf=msgonly
-//
-//	  latest viewpoint
-//    Fin Cell: Any cell that's in more Base Sectors than Cover Sectors.
-//
-//    Possible Elimination Cell: Any cell that's in more Cover Sectors than Base Sectors.
-//
-//    Actual Elimination Cell: All possible elimination cells if no fin cells exist.
-//    Otherwise, all possible elimination cells that are a buddy to every fin cell.
-//    An exception to the buddy restriction exists for Kraken fish.
-//
-//  Endo-fin
-//  http://www.dailysudoku.com/Sudoku/forums/viewtopic.php?p=32379&sid=8fb87da8d9beec9c11a2909cae5adecf
-
-    public bool EndoFinnedFMFish( ){
-        for( int sz=2; sz&lt;=7; sz++ ){   //(5:Squirmbag 6:Whale 7:Leviathan)
-            for( int no=0; no&lt;9; no++ ){
-                if( EndoFinnedFMFish_sub(sz,no,FMSize:27,FinnedF:true,EndoF:true,CannF:false) ) return true;
-            }
-        }
-        return false;
-    }
-
-    public bool EndoFinnedFMFish_sub( int sz, int no, int FMSize, bool FinnedF,
-                                        bool EndoF=false, bool CannF=false ){
-
-        int noB=(1&lt;&lt;no);
-        int BaseSel=0x7FFFFFF, CoverSel=0x7FFFFFF;
-        FishMan FMan=new FishMan(this,FMSize,no,sz);
-        foreach( var Bas in FMan.IEGet_BaseSet(BaseSel,EndoF) ){             //BaseSet
-
-            foreach( var Cov in FMan.IEGet_CoverSet(Bas,CoverSel,CannF) ){   //CoverSet
-                if( AnMan.CheckTimeOut() ) return false;
-                Bit81 FinB81 = Cov.FinB81 | Bas.EndoFin;
-                Bit81 E=Cov.CoverB81-Bas.BaseB81;
-                Bit81 ELM=new Bit81();
-
-                //see latest viewpoint
-                foreach( var rc in E.IEGet_rc() ){
-                    if( (FinB81-ConnectedCells[rc]).Count==0 ) ELM.BPSet(rc);
-                }
-                if( ELM.Count&gt;0 ){
-					.
-					. (Solution report code)
-					.
-					return true;
-                }
-            }
-        }
-        return false;
-    }
-}</small></code></pre><br><br><br>
 
 	<h3 id="head_bg_Blue" id="Cannibalism">(4)Cannibalism</h3>
 	
@@ -241,7 +178,7 @@
 				If the Cannibalistic cell is scoped with fin, the Cannibalistic cell is false.
 				If Cannibalistic cell is true, CoverSet will have only (n-1) true.<br><br></li>
 		</ul>
-		<img src="images/img37/img37d.png" alr="Cannibalism" width="80%">
+		<img src="images/img37/img37d.svg" alr="Cannibalism" width="50%">
 		<br><br>
 		
 		Here is an example of Cannibalistic Fish.
@@ -258,117 +195,10 @@
 		Cannibalistic: r3c7<br></p>
 	<p style="clear: both"/><br>
 
-	<img src="images/img37/img37_21.png" width="25%"  style="float: left;margin-right:8px;">
-		<p>Finned Cannibalistic Franken/Mutant Xwing<br>
-			Digit: #3<br>
-		BaseSet: r8 b3<br>
-		CoverSet: r2 c7<br>
-		FinSet: r8c5<br>
-		Cannibalistic: r2c7<br></p>
-	<p style="clear: both"/><br>
-
-	<img src="images/img37/img37_22.png" width="25%"  style="float:left; margin-right:8px;">
-		<p> Finned Cannibalistic Franken/Mutant JellyFish<br>
-			Digit: #3<br>
-		BaseSet: r138 c9<br>
-		CoverSet: r29 c37<br>
-		FinSet: r1c6 r8c5<br>
-		Cannibalistic: r2c7<br></p>
-	<p style="clear: both"/><br>
-
-	<img src="images/img37/img37_23.png" width="25%"  style="float:left;  margin-right:8px;">
-		<p>Finned Cannibalistic Franken/Mutant Squirmbag<br>
-			Digit: #9<br>
-		BaseSet: r2 c123 b9<br>
-		CoverSet: r3 c9 b147<br>
-		FinSet: r28c7<br>
-		Cannibalistic: r3c13<br></p>
 	<p style="clear: both"/>
 	<p>Paste the next 81 digits onto the grid and solve with /Solve/MultiSolve/<br>
 	....9.6..4.61.8....8.462.5..6.2.1.373.5...2.8.4.3.6.95.3.914.7.6.18.5.......2.8..</p><br>
 
-	<h4 id="head_bg_Blue">Cannibalistic Fish program</h4>
-	<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public partial class FishGen: AnalyzerBaseV2{
-//Autocannibalism
-//http://www.dailysudoku.com/Sudoku/forums/viewtopic.php?p=26306&sid=13490447f6255f8d78a75b647a9096b9
-
-//http://forum.enjoysudoku.com/als-chains-with-overlap-cannibalism-t6580-30.html
-//http://www.dailysudoku.com/Sudoku/forums/viewtopic.php?t=219&sid=dae2c2133114ee9513a6a37124374e7c
-//http://www.dailysudoku.co.uk/Sudoku/forums/viewtopic.php?p=1180&highlight=#1180
-
-//http://forum.enjoysudoku.com/restricted-common-adjacency-rules-t6642-15.html
-//.6...52..4..1..65.....6..3....3...65.5........7.5.....681457.......2.517.2.9..846
-
-//The Ultimate FISH Guide
-//http://forum.enjoysudoku.com/the-ultimate-fish-guide-t4993.html#p37011
-
-    public bool CannibalisticFMFish( ){
-        for( int sz=2; sz&lt;=7; sz++ ){// 4--&GT;7 //Up to size 7 with Fin(5:Squirmbag 6:Whale 7:Leviathan)
-            for( int no=0; no&lt;9; no++ ){
-                if( CannibalisticFMFish_sub(sz,no,FMSize:27,FinnedF:true,EndoF:false,CannF:true) ) return true;
-            }
-        }
-        return false;
-    }
-
-    public bool CannibalisticFMFish_sub( int sz, int no, int FMSize,
-                                    bool FinnedF, bool EndoF=false, bool CannF=false ){
-
-        int noB=(1&lt;&lt;no);
-        int BaseSel=0x7FFFFFF, CoverSel=0x7FFFFFF;
-        FishMan FMan=new FishMan(this,FMSize,no,sz);
-        foreach( var Bas in FMan.IEGet_BaseSet(BaseSel,EndoF) ){            //BaseSet
-
-            foreach( var Cov in FMan.IEGet_CoverSet(Bas,CoverSel,CannF) ){  //CoverSet
-                if( AnMan.CheckTimeOut() ) return false;
-                Bit81 FinB81 = Bas.BaseB81 - Cov.CoverB81;
-
-                if( FinB81.Count==0 ){
-                    foreach( var P in Cov.CannFin.IEGetUCeNoB(pBDL,noB) ){
-						P.CancelB=noB; SolCode=2;
-                    }
-                    if(SolCode&gt;0){
-                        if( SolInfoDsp ){
-                            _Fish_FishResult(no,sz,Bas,Cov,(FMSize==27));
-                        }
-                        //Console.WriteLine(ResultLong);
-                         //___Debug_CannFish(&quot;Cannibalistic&quot;);
-                        if( !AnMan.SnapSaveGP(true) ) return true;
-                    }
-                }
-                else{
-                    FinB81 |= Cov.CannFin;
-                    Bit81 ELM =null;
-                    Bit81 E=(Cov.CoverB81-Bas.BaseB81) | Cov.CannFin;
-                    ELM=new Bit81();
-                    foreach( var rc in E.IEGet_rc() ){
-                        if( (FinB81-ConnectedCells[rc]).Count==0 ) ELM.BPSet(rc);
-                    }
-                    if( ELM.Count&gt;0 ){
-                        foreach( var P in ELM.IEGetUCeNoB(pBDL,noB) ){ P.CancelB=noB; SolCode=2; }
-                        if( SolCode&gt;0 ){
-                            if( SolInfoDsp )_Fish_FishResult(no,sz,Bas,Cov,(FMSize==27));
-                            //Console.WriteLine(ResultLong);
-                            //___Debug_CannFish(&quot;Finned Cannibalistic&quot;);
-                            if( !AnMan.SnapSaveGP(true) ) return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    private void ___Debug_CannFish(string MName){
-        using( var fpX=new StreamWriter(&quot;▼DebugP.txt&quot;,true) ){
-            string st=&quot;&quot;;
-            pBDL.ForEach(q =&gt;{ st += (Math.Max(q.No,0)).ToString(); } );
-            st=st.Replace(&quot;0&quot;,&quot;.&quot;);
-            fpX.WriteLine(st+&quot; &quot;+MName);
-        }
-    }
-}</small></code></pre>
 	</section>
 	
 </article>

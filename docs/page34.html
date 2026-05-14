@@ -54,12 +54,14 @@
 
 
 		<h4 id="head_bg_LightBlue">X-Wing</h4>
-		In the BaseSet(solid line) column, one of the two cells X is true.<br>
-		CoverSet(dashed line) completely includes BaseSet. CoverSet also
-		contains cells(circles) in addition.<br>
-		If the digit X at the position of a circle is true,
-		it is not possible to place the digit X at the position of BaseSet.<br>
-		The digit X at the position of the circle is excluded.(BaseSet, CoverSet described below)</p>
+		<p></p>
+			In the BaseSet(solid line) column, one of the two cells X is true.<br>
+			CoverSet(dashed line) completely includes BaseSet. CoverSet also
+			contains cells(circles) in addition.<br>
+			If the digit X at the position of a circle is true,
+			it is not possible to place the digit X at the position of BaseSet.<br>
+			The digit X at the position of the circle is excluded.(BaseSet, CoverSet described below)
+		</p>
 		<p class="newLine"></p>
 		<img src="images/img34/img34_10.png" alt="X-Wing" width="30%"><br>
 
@@ -151,70 +153,7 @@
 		...6.8...6...9...529.....483.1...4.64..3.1..2...8.6....1.4.2.7..6.7.9.5.....8....</p>
 		<br>
 	
-		<h4 id="head_bg_LightBlue" id="FishPro">Fish program</h4>
-		<p>The program solves the FISH using the general-purpose Fish subprogram(ExtFishSub).
-		ExtFishSub can solve Basic Fish, Finned Fish, (with Fin)Franken/Mutant Fish.<br>
-		</p>
 
-		<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public partial class FishGen: AnalyzerBaseV2{
-    public FishGen( GNPX_AnalyzerMan AnMan ): base(AnMan){ }
-
-    //Fish
-    public bool XWing(){     return Fish_Basic(2); }
-    public bool SwordFish(){ return Fish_Basic(3); }
-    public bool JellyFish(){ return Fish_Basic(4); }
-    public bool Squirmbag(){ return Fish_Basic(5); }
-    public bool Whale(){     return Fish_Basic(6); }
-    public bool Leviathan(){ return Fish_Basic(7); }
-
-    public bool Fish_Basic( int sz, bool fin=false ){
-        int rowSel=0x1FF, colSel=(0x1FF&lt;&lt;9);
-        for( int no=0; no&lt;9; no++ ){
-            if( ExtFishSub(sz,no,18,rowSel,colSel,FinnedF:fin) ) return true;
-            if( ExtFishSub(sz,no,18,colSel,rowSel,FinnedF:fin) ) return true;
-        }
-        return false;
-    }
-
-    public bool ExtFishSub( int sz, int no, int FMSize, int BaseSel, int CoverSel, bool FinnedF ){
-        int noB=(1&lt;&lt;no);
-        var FMan=new FishMan(this,FMSize,no,sz);
-        foreach( var Bas in FMan.IEGet_BaseSet(BaseSel) ){            //BaseSet
-            foreach( var Cov in FMan.IEGet_CoverSet(Bas,CoverSel,FinnedF) ){  //CoverSet
-                Bit81 FinB81 = Cov.FinB81;
-
-                Bit81 ELM =null;
-                if( FinB81.IsZero() ){  //===== without Fin =====
-                    if( !FinnedF && (ELM=Cov.CoverB81-Bas.BaseB81).Count&gt;0 ){
-                        foreach( var P in ELM.IEGetUCeNoB(pBDL,noB) ){ P.CancelB=noB; SolCode=2; }
-                        if(SolCode&gt;0){
-                            .
-                            . (Solution report code)
-                            .
-                            return true;
-                        }
-                    }
-                }
-                else if( FinnedF ){     //===== with Fin =====
-                    Bit81 Ecand=Cov.CoverB81-Bas.BaseB81;
-                    ELM=new Bit81();
-                    foreach( var P in Ecand.IEGetUCeNoB(pBDL,noB) ){
-                        if( (FinB81-ConnectedCells[P.rc]).Count==0 ) ELM.BPSet(P.rc);
-                    }
-                    if(ELM.Count&gt;0){
-                        .
-                        . (Solution report code)
-                        .
-                        return true;
-                    }
-                }
-                continue;
-            }
-        }
-        return false;
-    }
-}</small></code></pre>
 		</section><br><br>
 	</article>
 

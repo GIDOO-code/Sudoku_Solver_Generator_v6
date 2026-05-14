@@ -129,88 +129,12 @@
 		<p style="clear: both"/>
 		<p class="newLine">...6.8...6...9...529.....483.1...4.64..3.1..2...8.6....1.4.2.7..6.7.9.5.....8....<br><br>
 
-
-	<h3 id="head_bg_Blue">Coloring program</h3>
-		<p>
-			Coloring will first group the cells.
-			The main processes of the grouping function is managing processed cells with a bit pattern,
-			and coloring radially and stepwise using queue. If Coloring is found,
-			a program of coloring algorithm can be constructed by processing to check the establishment condition.<br>
-			MultiColoring uses multiple groups, and it can be found by the grouping function as follows.<br>
-			&nbsp;&nbsp; <em>List&lt;Bit81[]&gt; MCRL = _Coloring(no).ToList();</em><br>
-			The following shows the program of grouping function and Colorint Trap.<br>
-			For other analysis routines, refer to the <a href="page17.html">GNPX project</a>.
-		</p>
-
-		<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public partial class CellLinkGen: AnalyzerBaseV2{
-    private IEnumerable&lt;Bit81[]&gt; _Coloring( int no ){
-        Bit81[] CRL=new Bit81[2];
-        CRL[0]=new Bit81(); CRL[1]=new Bit81();
-        Bit81 TBD = new Bit81(pBDL,(1&lt;&lt;no));
-        int  rc1=TBD.FindFirstrc();
-        while( rc1&gt;=0 ){
-            Queue&lt;int&gt; rcQue=new Queue&lt;int&gt;();
-            rcQue.Enqueue(rc1&lt;&lt;1);
-            CRL[0].BPSet(rc1);
-            TBD.BPReset(rc1);
-            while(rcQue.Count&gt;0){
-                rc1 = rcQue.Dequeue();
-                int kx=1-(rc1&1);
-                rc1 &gt;&gt;= 1;
-                TBD.BPReset(rc1);
-                foreach( var P in CeLKMan.IEGetRcNoType(rc1,no,1) ){
-                    int rc2=P.rc2;
-                    if( !(CRL[0]|CRL[1]).IsHit(rc2) && TBD.IsHit(rc2) ){
-                        CRL[kx].BPSet(rc2); rcQue.Enqueue((rc2&lt;&lt;1)|kx);
-                    }
-                }
-            }
-            yield return CRL;
-
-            if( (rc1=TBD.FindFirstrc()) &lt; 0 ) yield break;
-            CRL=new Bit81[2];
-            CRL[0]=new Bit81(); CRL[1]=new Bit81();
-        }
-        yield break;
-    }
-}</small></code></pre>
-
-
-		<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public partial class CellLinkGen: AnalyzerBaseV2{
-    public bool Color_Trap( ){
-        CeLKMan.PrepareCellLink(1);    //strongLink
-        for( int no=0; no&lt;9; no++ ){
-            int noB=(1&lt;&lt;no);
-            foreach( Bit81[] CRL in _Coloring(no) ){
-                Bit81 HitB=new Bit81();
-                Bit81 ELM = (new Bit81(pBDL,noB))-(CRL[0]|CRL[1]);
-                foreach( var rc in ELM.IEGet_rc() ){
-                    Bit81 HB = HouseCells[18+rc.ToBlock()];
-                    if( ((ConnectedCells[rc]-HB)&CRL[0]).IsZero() ) continue;
-                    if( ((ConnectedCells[rc]-HB)&CRL[1]).IsZero() ) continue;
-                    HitB.BPSet(rc);
-                }
-                if( !HitB.IsZero() ){
-					.
-					. (Solution report code)
-					.
-					return true;
-                }
-            }
-        }
-
-        return false;
-    }
-}</small></code></pre>
-
 		</section>
 		
 	</article>
 
-	    <a href="#" class="pagetop">Top</a>
-<footer id="foot">
+	<a href="#" class="pagetop">Top</a>
+	<footer id="foot">
 		<p id="copyright">Copyright &copy; 2014- GNPX. All rights reserved.</p>
 	</footer>
 

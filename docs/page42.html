@@ -70,57 +70,6 @@
 				6..1....7..18.73...2.3...9..5.9.8641.........1482.6.3..7...2.1...64.18..8....3..4<br>
 				..8..5..6.3.......6.2.4.5.7...384.59..65..2.39..7...4...4.5.8.....2.8...8.946....<br></p></small><br>
 
-		<h4 id="head_bg_LightBlue">XY-Wing C# program</h4>
-		<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public partial class CellLinkGen: AnalyzerBaseV2{
-    public bool XYwing( ){
-        if(BVCellLst==null)  BVCellLst = pBDL.FindAll(p=&gt;(p.FreeBC==2)); //BV:bivalue
-        if(BVCellLst.Count&lt;3) return false;
-        CeLKMan.PrepareCellLink(2);    //weak Link
-
-        bool XYwing=false;
-        foreach( var P0 in BVCellLst ){
-            List&lt;UCellLink&gt; BVLKLst =CeLKMan.IEGetRcNoBTypB(P0.rc,0x1FF,2).Where(R=&gt;R.BVFlag).ToList();
-            //foreach( var P in BVLKLst ) Console.WriteLine(P);
-            if(BVLKLst.Count&lt;2) continue;
-
-            var cmb = new Combination(BVLKLst.Count,2);
-            int nxt=1;
-            while(cmb.Successor(nxt)){
-                UCellLink LKA=BVLKLst[cmb.Cmb[0]], LKB=BVLKLst[cmb.Cmb[1]];
-                UCell Q=LKA.UCe2, R=LKB.UCe2;
-                if( Q.rc==R.rc || LKA.no==LKB.no ) continue;
-
-                Bit81 Q81 = ConnectedCells[LKA.rc2]&ConnectedCells[LKB.rc2];
-                if(Q81.Count&lt;=0) continue;
-
-                int noB = Q.FreeB.DifSet(1&lt;&lt;LKA.no) & R.FreeB.DifSet(1&lt;&lt;LKB.no);
-                if(noB&lt;0) continue;
-                int no=noB.BitToNum();
-
-                string msg2=&quot;&quot;;
-                foreach( var A in Q81.IEGetUCeNoB(pBDL,noB) ){
-                    if( A==P0 || A==Q || A==R ) continue;
-                    A.CancelB=noB; XYwing=true;
-                    if(SolInfoDsp) msg2+=&quot; &quot;+A.rc.ToRCString()+&quot;(#&quot;+(no+1)+&quot;)&quot;;
-                }
-
-                if( XYwing ){ //XYwing fond
-					.
-					. (Solution report code)
-					.
-					return true;
-                }
-            }
-        }
-        return false;
-    }
-    private string _XYwingResSub( UCell P ){
-        string st=P.rc.ToRCString()+&quot;(#&quot;+P.FreeB.ToBitString(9).Replace(&quot;.&quot;,&quot;&quot;)+&quot;)&quot;;
-        return st;
-    }
-}</small></code></pre>
-
 	</section>
 	<br><br>
 </section>
