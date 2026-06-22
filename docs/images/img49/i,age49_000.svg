@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg6799"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="i,age49.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview6801"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.2938725"
+     inkscape:cx="578.8824"
+     inkscape:cy="267.4143"
+     inkscape:window-width="2385"
+     inkscape:window-height="1742"
+     inkscape:window-x="1369"
+     inkscape:window-y="64"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs6796">
+    <marker
+       style="overflow:visible"
+       id="marker10"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path10" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker9"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWideRounded"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="2"
+       markerHeight="2"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="2"
+       markerHeight="2"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g10"
+       transform="matrix(0,-1,0.75248797,0,51.701943,283.17781)"
+       inkscape:export-filename="img49a.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <line
+         fill="none"
+         stroke-width="0.442581"
+         stroke-linejoin="round"
+         stroke="#f12525"
+         stroke-opacity="1"
+         x1="149.29752"
+         y1="127.59562"
+         x2="149.29752"
+         y2="75.970276"
+         id="line10"
+         style="stroke-width:0.443;stroke-dasharray:none;marker-end:url(#ArrowWideRounded)" />
+    </g>
+    <line
+       fill="none"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="152.68907"
+       y1="131.77551"
+       x2="173.98875"
+       y2="124.0209"
+       id="line9970"
+       style="stroke:#fe0000;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-opacity:0.997085;stroke:#0000f6;stroke-width:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 122.48921,69.730918 25.15221,-0.102245"
+       id="path2" />
+    <path
+       style="fill:none;fill-opacity:0.997085;stroke:#0000f6;stroke-width:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 101.47792,104.85198 0.10224,25.15221"
+       id="path3" />
+    <path
+       style="fill:none;fill-opacity:0.997085;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 122.59145,69.628673 -0.20449,16.154669 -20.14221,15.234468"
+       id="path1" />
+    <line
+       fill="none"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="103.98535"
+       y1="149.60948"
+       x2="101.21504"
+       y2="136.32539"
+       id="line9892"
+       inkscape:export-filename="img49a.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       x="94.994354"
+       y="96.589386"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="13.565781"
+       height="9.4465809"
+       id="rect9904" />
+    <line
+       fill="none"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       x1="149.86903"
+       y1="69.738892"
+       x2="166.77277"
+       y2="64.690872"
+       id="line9906" />
+    <rect
+       x="142.76936"
+       y="64.707573"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="13.565615"
+       height="9.4465809"
+       id="rect9908" />
+    <rect
+       x="116.22778"
+       y="64.707573"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="13.565615"
+       height="9.4465809"
+       id="rect9910" />
+    <rect
+       x="116.22778"
+       y="80.648483"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="13.565615"
+       height="9.4465809"
+       id="rect9912" />
+    <rect
+       x="94.629379"
+       y="128.52098"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="13.565615"
+       height="9.4464321"
+       id="rect9914" />
+    <text
+       xml:space="preserve"
+       id="text9920"
+       x="144.20171"
+       y="72.326225"
+       style="font-size:1.99162px;stroke-width:0.165968"
+       transform="scale(0.99949921,1.000501)">	<tspan
+   style="font-size:7.96646px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan9918">ab</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text9924"
+       x="117.64683"
+       y="72.326225"
+       style="font-size:1.99162px;stroke-width:0.165968"
+       transform="scale(0.99949921,1.000501)"><tspan
+   style="font-size:7.96646px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan9922">bc</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text9928"
+       x="118.47666"
+       y="88.259148"
+       style="font-size:1.99162px;stroke-width:0.165968"
+       transform="scale(0.99949921,1.000501)"><tspan
+   style="font-size:7.96646px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan9926">cd</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text9932"
+       x="96.236954"
+       y="104.19209"
+       style="font-size:1.99162px;stroke-width:0.165968"
+       transform="scale(0.99949921,1.000501)">	<tspan
+   style="font-size:7.96646px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan9930">de</tspan>		</text>
+    <text
+       xml:space="preserve"
+       id="text9936"
+       x="96.900826"
+       y="136.05792"
+       style="font-size:1.99162px;stroke-width:0.165968"
+       transform="scale(0.99949921,1.000501)"><tspan
+   style="font-size:7.96646px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan9934">ea</tspan>		</text>
+    <path
+       fill="none"
+       stroke-width="1.32774"
+       stroke-linejoin="round"
+       stroke="#ff7d00"
+       stroke-opacity="1"
+       d="m 143.69818,58.613435 c -32.06554,0 -54.775176,7.140197 -54.775176,25.140139 0,17.999936 -2.289212,41.280306 4.346182,41.280306"
+       id="path9942" />
+    <path
+       fill="none"
+       stroke-width="1.32774"
+       stroke-linejoin="round"
+       stroke="#ff7d00"
+       stroke-opacity="1"
+       d="m 91.212215,118.72394 2.753688,8.16972 -7.896119,-3.48708"
+       id="path9944" />
+    <rect
+       x="103.60385"
+       y="146.03938"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.442581"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="132.98474"
+       height="9.1881065"
+       id="rect9946" />
+    <text
+       xml:space="preserve"
+       id="text9950"
+       x="104.86729"
+       y="152.65472"
+       style="font-size:1.99162px;stroke-width:0.165968"
+       transform="scale(0.99949921,1.000501)">			 <tspan
+   style="font-size:5.31098px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan9948">(4)Tip cell of the series has the Focused Digit</tspan>		</text>
+    <rect
+       x="173.67384"
+       y="117.76652"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.3991"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="105.60163"
+       height="21.182213"
+       id="rect9952"
+       style="stroke:#ff0000;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       id="text9960"
+       x="185.18616"
+       y="117.73491"
+       style="font-size:2.10897px;line-height:0;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.175748;stroke-opacity:1"
+       transform="scale(0.94388144,1.0594551)"><tspan
+         sodipodi:role="line"
+         id="tspan7454"
+         x="185.18616"
+         y="117.73491"
+         style="font-size:5.62392px;line-height:1;font-family:'メイリオ';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.175748;stroke-opacity:1">(5)This Cell/Digit is connected with</tspan><tspan
+         sodipodi:role="line"
+         x="185.18616"
+         y="123.35883"
+         id="tspan7470"
+         style="line-height:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.175748;stroke-opacity:1"><tspan
+   style="font-size:5.62392px;line-height:1;font-family:'メイリオ';fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0351495"
+   stroke-linejoin="round"
+   id="tspan7515"> 		 the leading cell and the starting cell. </tspan>	</tspan><tspan
+         style="font-size:5.62392px;line-height:1;font-family:'メイリオ';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.175748;stroke-opacity:1"
+         sodipodi:role="line"
+         id="tspan7507"
+         x="185.18616"
+         y="128.98274">     Focused Numbers can be excluded.	</tspan><tspan
+         style="line-height:0.9;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.175748;stroke-opacity:1"
+         sodipodi:role="line"
+         id="tspan7509"
+         x="185.18616"
+         y="131.22426">  </tspan></text>
+    <g
+       id="g8">
+      <line
+         fill="none"
+         stroke-width="0.442581"
+         stroke-linejoin="round"
+         stroke="#f12525"
+         stroke-opacity="1"
+         x1="149.29752"
+         y1="127.59562"
+         x2="149.29752"
+         y2="75.970276"
+         id="line9968"
+         style="stroke-width:0.443;stroke-dasharray:none;marker-end:url(#ArrowWideRounded)" />
+    </g>
+    <rect
+       x="159.88795"
+       y="55.491131"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.408341"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="91.995941"
+       height="8.1855087"
+       id="rect9972" />
+    <text
+       transform="scale(0.99949922,1.000501)"
+       xml:space="preserve"
+       id="text9976"
+       x="162.45819"
+       y="61.704254"
+       style="font-size:1.99162px;stroke-width:0.165968"><tspan
+   style="font-size:5.31098px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan9974">(1)Selecte the Focused Cell/Digit </tspan>			</text>
+    <rect
+       x="13.600389"
+       y="59.336792"
+       fill="#ffffff"
+       fill-opacity="1"
+       stroke-width="0.421397"
+       stroke-linejoin="round"
+       stroke="#000000"
+       stroke-opacity="1"
+       width="84.954231"
+       height="13.645116"
+       id="rect9980"
+       style="stroke:#ff7d00;stroke-opacity:1" />
+    <text
+       transform="scale(0.99949924,1.000501)"
+       xml:space="preserve"
+       id="text9986"
+       x="15.818554"
+       y="63.932487"
+       style="font-size:1.99162px;line-height:0.592667px;stroke-width:0.165968"><tspan
+         sodipodi:role="line"
+         id="tspan13"
+         x="15.818554"
+         y="63.932487">	</tspan><tspan
+         style="font-size:5.31098px;line-height:0.592667px;font-family:'メイリオ'"
+         sodipodi:role="line"
+         id="tspan14"
+         x="15.818554"
+         y="65.960075">(2)Start With the focused Cell,</tspan><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         x="15.818554"
+         y="68.580338">				 </tspan><tspan
+         x="15.818554"
+         style="font-size:5.31098px;line-height:0.592667px;font-family:'メイリオ'"
+         letter-spacing="0em"
+         fill="#000000"
+         fill-opacity="1"
+         stroke-width="0.0331936"
+         stroke-linejoin="round"
+         id="tspan9984"
+         dy="2.6886811"> create a series of vivalue links</tspan><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         x="15.818554"
+         y="68.580338">			</tspan></text>
+    <g
+       id="g5"
+       style="stroke:#0000ff;stroke-opacity:1">
+      <rect
+         x="116.89912"
+         y="98.499023"
+         fill="#ffffff"
+         fill-opacity="1"
+         stroke-width="0.449489"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         width="137.27211"
+         height="9.1811981"
+         id="rect3"
+         style="stroke:#0000ff;stroke-opacity:1" />
+      <text
+         xml:space="preserve"
+         id="text3"
+         x="114.6877"
+         y="104.82813"
+         style="font-size:1.99162px;stroke-width:0.165968;stroke:#0000ff;stroke-opacity:1"
+         transform="scale(0.99949925,1.000501)">			 <tspan
+   style="font-size:5.31098px;font-family:'メイリオ';stroke:#0000ff;stroke-opacity:1"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan3">(3) Beginning and end of the chain are strong links.</tspan></text>
+    </g>
+    <line
+       fill="none"
+       stroke-width="0.339391"
+       stroke-linejoin="round"
+       stroke="#f12525"
+       stroke-opacity="1"
+       x1="135.39223"
+       y1="69.616081"
+       x2="135.39223"
+       y2="99.97451"
+       id="line3"
+       style="stroke-width:0.339;stroke-dasharray:none;marker-start:url(#Dot);stroke:#0000f6;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-opacity:0.997085;stroke:#0000f6;stroke-width:0.339;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker5)"
+       d="m 133.32715,107.76597 -31.90036,9.611"
+       id="path4" />
+    <g
+       id="g7"
+       transform="translate(-33.331788,-30.059956)">
+      <path
+         sodipodi:type="star"
+         style="fill:#ffffff;fill-opacity:1;stroke:#ff0000;stroke-width:0.339;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path6"
+         inkscape:flatsided="false"
+         sodipodi:sides="3"
+         sodipodi:cx="182.60912"
+         sodipodi:cy="163.7961"
+         sodipodi:r1="6.0142164"
+         sodipodi:r2="3.0071082"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 187.81758,166.80321 -5.20846,0 -5.20847,-1e-5 2.60423,-4.51066 2.60424,-4.51066 2.60423,4.51066 z"
+         inkscape:transform-center-y="-1.5035541" />
+      <text
+         xml:space="preserve"
+         id="text9940"
+         x="180.57622"
+         y="165.89844"
+         style="font-size:1.99162px;fill:#ff0000;fill-opacity:1;stroke-width:0.165968"
+         transform="scale(0.99949924,1.000501)"><tspan
+   style="font-size:7.96646px;font-family:'メイリオ';fill:#ff0000;fill-opacity:1"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0331936"
+   stroke-linejoin="round"
+   id="tspan9938">a</tspan>		</text>
+    </g>
+  </g>
+</svg>

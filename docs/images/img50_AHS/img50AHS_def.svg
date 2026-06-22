@@ -3,12 +3,12 @@
 
 <svg
    width="132.62091mm"
-   height="70.830185mm"
-   viewBox="0 0 132.62091 70.830185"
+   height="70.8302mm"
+   viewBox="0 0 132.62091 70.8302"
    version="1.1"
    id="svg17372"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
-   sodipodi:docname="image26AHS.svg"
+   sodipodi:docname="image50AHS_000.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,18 +24,18 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="986.59074"
-     inkscape:cy="406.5864"
-     inkscape:window-width="2758"
-     inkscape:window-height="1586"
-     inkscape:window-x="1593"
-     inkscape:window-y="360"
+     inkscape:zoom="1.4496525"
+     inkscape:cx="992.65168"
+     inkscape:cy="573.58573"
+     inkscape:window-width="2394"
+     inkscape:window-height="1821"
+     inkscape:window-x="1589"
+     inkscape:window-y="1"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:page
        x="0"
-       y="-2.9135907e-14"
+       y="2.8488191e-21"
        width="132.62091"
        height="70.830193"
        id="page2"
@@ -110,7 +110,10 @@
        width="132.34283"
        height="70.552124"
        id="rect1"
-       style="fill:none;stroke:#000000;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       style="fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="img50AHS_simpllified.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
        x="24.599089"
        y="21.355518"
@@ -123,7 +126,7 @@
        width="25.404308"
        height="10.770611"
        id="rect14"
-       style="fill:none;fill-opacity:1;stroke:#00aa00;stroke-width:0.254;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#00aa00;stroke-width:0.254;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        inkscape:export-filename="img26AHS_def.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />

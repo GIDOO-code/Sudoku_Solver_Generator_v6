@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="image51 ALS XY-Wing000.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.2938725"
+     inkscape:cx="255.82119"
+     inkscape:cy="398.02994"
+     inkscape:window-width="2132"
+     inkscape:window-height="1398"
+     inkscape:window-x="2087"
+     inkscape:window-y="1028"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1"
+       inkscape:export-filename="img51a.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         x="21.309408"
+         y="20.157589"
+         fill="none"
+         stroke-width="0.27701"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         width="80.147812"
+         height="55.146507"
+         id="rect4934"
+         style="fill:#f9f9f9;fill-opacity:1" />
+      <rect
+         x="28.136869"
+         y="28.881447"
+         fill="#ffffff"
+         fill-opacity="1"
+         stroke-width="0.27701"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         width="9.6177378"
+         height="37.913227"
+         id="rect4904" />
+      <rect
+         x="50.162624"
+         y="51.177616"
+         fill="#ffffff"
+         fill-opacity="1"
+         stroke-width="0.27701"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         width="35.265038"
+         height="10.339971"
+         id="rect4906" />
+      <rect
+         x="50.162624"
+         y="30.497688"
+         fill="#ffffff"
+         fill-opacity="1"
+         stroke-width="0.27701"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         width="44.88298"
+         height="10.339971"
+         id="rect4908" />
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4912"
+         x="55.30484"
+         y="36.060467"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4910">x</tspan>		</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4916"
+         x="30.352142"
+         y="56.005108"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4914">y</tspan>		</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4920"
+         x="30.352142"
+         y="36.060467"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4918">x</tspan>		</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4924"
+         x="85.221779"
+         y="28.581226"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4922">ALS A</tspan>		</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4928"
+         x="83.537819"
+         y="48.629749"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4926">ALS B</tspan>		</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4932"
+         x="38.132042"
+         y="33.982918"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:3.32411px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4930">RCC:x</tspan>		</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4938"
+         x="48.656639"
+         y="79.273857"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4936">ALS XY-Wing</tspan>		</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4942"
+         x="55.30484"
+         y="56.005108"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4940">y</tspan>		</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4946"
+         x="70.241409"
+         y="56.005108"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4944">z</tspan>		</text>
+      <rect
+         x="70.030426"
+         y="63.324947"
+         fill="#ffffff"
+         fill-opacity="1"
+         stroke-width="0.27701"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         width="5.12958"
+         height="6.0316496"
+         id="rect4948" />
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4952"
+         x="71.187378"
+         y="65.458023"
+         style="font-size:1.24654px;stroke-width:0.103878">				 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4950">z</tspan>			</text>
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4958"
+         x="75.539207"
+         y="56.005108"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4956">z</tspan>		</text>
+      <path
+         fill="#000000"
+         fill-opacity="1"
+         stroke-linejoin="round"
+         d="M 69.713119,31.750326 H 71.0618 v 0.286497 h -1.348681 z m 2.707506,0 h 1.348696 v 0.286497 h -1.348696 z m 2.697393,0 h 1.358794 v 0.286497 h -1.358794 z m 2.707491,0 h 1.348712 v 0.286497 h -1.348712 z m 2.099106,0.926296 v 1.435736 h -0.263672 v -1.435736 z m 0,2.871486 v 1.436825 h -0.263672 v -1.436825 z m 0,2.872575 v 1.435751 h -0.263672 v -1.435751 z m 0,2.872576 v 1.43575 h -0.263672 v -1.43575 z m 0,2.871501 v 1.436825 H 79.660943 V 44.16476 Z m 0,2.87256 v 1.435751 H 79.660943 V 47.03732 Z m 0,2.872575 v 1.435751 h -0.263672 v -1.435751 z m 0,2.871502 v 1.436824 h -0.263672 v -1.436824 z m 0,2.872575 v 1.43575 h -0.263672 v -1.43575 z m 0,2.872575 v 1.435736 h -0.263672 v -1.435736 z m 0,2.871486 v 1.436825 h -0.263672 v -1.436825 z m 0,2.872576 v 1.43575 h -0.263672 v -1.43575 z m 0,2.872575 v 1.435751 h -0.263672 v -1.435751 z m 0,2.871501 v 1.436825 h -0.263672 v -1.436825 z m -1.105327,1.986127 h -1.348697 v -0.28757 h 1.348697 z m -2.697363,0 h -1.35884 v -0.28757 h 1.35884 z m -2.707537,0 h -1.348681 v -0.28757 h 1.348681 z m -2.707506,0 h -1.348696 v -0.28757 h 1.348696 z m -2.697378,0 h -1.003907 -0.01074 l -0.01074,-0.0015 -0.02041,-0.0045 -0.01074,-0.0045 -0.01074,-0.006 -0.01074,-0.006 -0.01074,-0.009 -0.01074,-0.009 -0.01074,-0.01044 -0.01074,-0.01044 v -0.01193 l -0.01074,-0.01343 v -0.01343 l -0.01074,-0.01343 v -0.01343 -0.01343 -0.376978 h 0.2738 v 0.376978 l -0.141949,-0.144263 h 1.003907 z m -1.135727,-1.955976 v -1.435751 h 0.273784 v 1.435751 z m 0,-2.872576 v -1.435735 h 0.273784 v 1.435735 z m 0,-2.871486 v -1.436825 h 0.273784 v 1.436825 z m 0,-2.872575 v -1.435751 h 0.273784 v 1.435751 z m 0,-2.872575 v -1.435751 h 0.273784 v 1.435751 z m 0,-2.871502 v -1.436824 h 0.273784 v 1.436824 z m 0,-2.872575 v -1.435736 h 0.273784 v 1.435736 z m 0,-2.87256 v -1.435751 h 0.273784 v 1.435751 z m 0,-2.871501 v -1.436825 h 0.273784 v 1.436825 z m 0,-2.872576 v -1.43575 h 0.273784 v 1.43575 z m 0,-2.872575 v -1.435751 h 0.273784 v 1.435751 z m 0,-2.871486 v -1.436825 h 0.273784 v 1.436825 z m 0,-2.872575 v -1.435751 h 0.273784 v 1.435751 z m 0,-2.872576 v -0.812123 -0.01343 -0.01343 l 0.01074,-0.01343 v -0.01343 l 0.01074,-0.01343 v -0.01193 l 0.01074,-0.01194 0.01074,-0.009 0.01074,-0.01044 0.01074,-0.009 0.01074,-0.0075 0.01074,-0.006 0.01074,-0.006 0.02041,-0.003 0.01074,-0.0015 h 0.01074 1.358824 v 0.286497 H 67.01235 l 0.141948,-0.143219 v 0.812124 z"
+         id="path4960"
+         style="stroke-width:0.104509" />
+      <line
+         fill="none"
+         stroke-width="0.554018"
+         stroke-linejoin="round"
+         stroke="#ff0000"
+         stroke-opacity="1"
+         x1="76.457039"
+         y1="62.029358"
+         x2="68.84301"
+         y2="70.210861"
+         id="line4962" />
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4966"
+         x="71.925377"
+         y="36.060467"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4964">z</tspan>		</text>
+      <line
+         fill="none"
+         stroke-width="0.27701"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="34.133057"
+         y1="35.950947"
+         x2="53.178139"
+         y2="35.950947"
+         id="line4968" />
+      <line
+         fill="none"
+         stroke-width="0.0207756"
+         stroke-linejoin="round"
+         x1="28.202"
+         y1="57.743496"
+         x2="53.849308"
+         y2="57.743496"
+         id="line4970" />
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4974"
+         x="38.132042"
+         y="53.927547"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:3.32411px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4972">RCC:y</tspan>		</text>
+      <line
+         fill="none"
+         stroke-width="0.27701"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="34.19313"
+         y1="56.594257"
+         x2="53.238213"
+         y2="56.594257"
+         id="line4976" />
+      <text
+         transform="scale(0.96444354,1.0368673)"
+         xml:space="preserve"
+         id="text4980"
+         x="27.028036"
+         y="25.153227"
+         style="font-size:1.24654px;stroke-width:0.103878">			 <tspan
+   style="font-size:4.98615px;font-family:'メイリオ'"
+   letter-spacing="0em"
+   fill="#000000"
+   fill-opacity="1"
+   stroke-width="0.0207756"
+   stroke-linejoin="round"
+   id="tspan4978">ALS C</tspan>		</text>
+    </g>
+  </g>
+</svg>

@@ -1,3 +1,6 @@
+# GNPX V6.4 -> V7.0
+In GNPX V7.0, the code will be completely rewritten.
+
 # Sudoku_Solver_Generator_V6.3
 GNPX v6.3 targets POM,POI
 
@@ -30,7 +33,8 @@ GNPX v6.2 targets MSLS (Multi Sector Locked Sets).
   (9) AHS(AHS-XZ)<br>
   (10) ALS Chain(update)<br>
   (11) Exocet(Junior/Senior/FM) ... Franken/Mutant Exocet is currently under development.<br>
-
+  (12) Multi-Sector Locked Set(MSLS), SK Loop <br>
+  (13) Pattern Overlay Method(POM) <br>
 ## 3. GNPX v6 GNPX<br>
   (1) Classify and organize the processing contents using pages in the UI.<br>
   (2) Improve many analysis algorithms. All algorithms are expressed in bits (Bit81 changed to UInt128).<br>

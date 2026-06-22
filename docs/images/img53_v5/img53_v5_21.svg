@@ -7,9 +7,9 @@
    viewBox="0 0 116.18853 45.575504"
    version="1.1"
    id="svg2501"
-   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
-   sodipodi:docname="img53_v5_21.svg"
-   inkscape:export-filename="img53_v5_21.png"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="iimage53b.svg"
+   inkscape:export-filename="img53b_22.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -27,15 +27,24 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.93941198"
-     inkscape:cx="711.08312"
-     inkscape:cy="406.63735"
-     inkscape:window-width="2503"
+     inkscape:zoom="0.76122961"
+     inkscape:cx="711.3491"
+     inkscape:cy="406.57904"
+     inkscape:window-width="1938"
      inkscape:window-height="1670"
-     inkscape:window-x="392"
-     inkscape:window-y="233"
+     inkscape:window-x="1370"
+     inkscape:window-y="534"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="116.18853"
+       height="45.575504"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
   <defs
      id="defs2498">
     <inkscape:path-effect
@@ -55,7 +64,15 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-162.16237,-84.376562)">
+     transform="translate(-162.16237,-84.376566)">
+    <rect
+       style="opacity:0.8;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.202019;stroke-linecap:square;stroke-miterlimit:3.7;stroke-dasharray:none;stroke-dashoffset:0.0755904;stroke-opacity:1;paint-order:fill markers stroke"
+       id="rect8"
+       width="115.98652"
+       height="45.373489"
+       x="162.26338"
+       y="-129.85106"
+       transform="scale(1,-1)" />
     <rect
        x="176.20895"
        y="94.360664"
@@ -68,7 +85,7 @@
        width="6.8192239"
        height="6.8192949"
        id="rect6477"
-       inkscape:export-filename="img53b_21.png"
+       inkscape:export-filename="img53_v5_21.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -224,54 +241,46 @@
    stroke-width="0.0142068"
    stroke-linejoin="round"
    id="tspan6521">Stem Cell</tspan>		</text>
-    <g
-       id="g6531"
-       transform="matrix(0.5273513,0,0,0.5273513,173.9491,49.723691)">
-      <ellipse
-         style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.11007;stroke-linecap:square;stroke-dasharray:2.22014, 2.22014;stroke-opacity:1;paint-order:fill markers stroke"
-         id="ellipse6525"
-         cx="52.320595"
-         cy="91.010445"
-         rx="2.3956609"
-         ry="2.646605" />
-      <text
-         xml:space="preserve"
-         id="text6529"
-         x="50.68829"
-         y="92.807426"
-         style="font-size:1.6164px;fill:#000000;fill-opacity:1;stroke-width:0.1347"><tspan
-   style="font-size:6.46561px;font-family:'メイリオ';fill:#000000;fill-opacity:1"
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.585397;stroke-linecap:square;stroke-dasharray:1.17079, 1.17079;stroke-opacity:1;paint-order:fill markers stroke"
+       id="ellipse6525"
+       cx="201.54044"
+       cy="97.71817"
+       rx="1.2633549"
+       ry="1.3956906" />
+    <text
+       xml:space="preserve"
+       id="text6529"
+       x="200.67964"
+       y="98.66581"
+       style="font-size:0.852411px;fill:#000000;fill-opacity:1;stroke-width:0.0710342"><tspan
+   style="font-size:3.40965px;font-family:'メイリオ';fill:#000000;fill-opacity:1"
    letter-spacing="0em"
    fill="#000000"
    fill-opacity="1"
-   stroke-width="0.02694"
+   stroke-width="0.0142068"
    stroke-linejoin="round"
    id="tspan6527">z</tspan>		</text>
-    </g>
-    <g
-       id="g6539"
-       transform="matrix(0.5273513,0,0,0.5273513,173.77788,63.149497)">
-      <ellipse
-         style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.11007;stroke-linecap:square;stroke-dasharray:2.22014, 2.22014;stroke-opacity:1;paint-order:fill markers stroke"
-         id="ellipse6533"
-         cx="52.320595"
-         cy="91.010445"
-         rx="2.3956609"
-         ry="2.646605" />
-      <text
-         xml:space="preserve"
-         id="text6537"
-         x="50.68829"
-         y="92.807426"
-         style="font-size:1.6164px;fill:#000000;fill-opacity:1;stroke-width:0.1347"><tspan
-   style="font-size:6.46561px;font-family:'メイリオ';fill:#000000;fill-opacity:1"
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.585397;stroke-linecap:square;stroke-dasharray:1.17079, 1.17079;stroke-opacity:1;paint-order:fill markers stroke"
+       id="ellipse6533"
+       cx="201.36922"
+       cy="111.14397"
+       rx="1.2633549"
+       ry="1.3956906" />
+    <text
+       xml:space="preserve"
+       id="text6537"
+       x="200.50842"
+       y="112.09161"
+       style="font-size:0.852411px;fill:#000000;fill-opacity:1;stroke-width:0.0710342"><tspan
+   style="font-size:3.40965px;font-family:'メイリオ';fill:#000000;fill-opacity:1"
    letter-spacing="0em"
    fill="#000000"
    fill-opacity="1"
-   stroke-width="0.02694"
+   stroke-width="0.0142068"
    stroke-linejoin="round"
    id="tspan6535">z</tspan>		</text>
-    </g>
     <path
        style="fill:#0000ff;fill-opacity:1;stroke:#ff0000;stroke-width:0.2;stroke-linecap:square;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
        d="m 193.03061,87.163516 c 0.004,8.976793 0.009,17.952954 0.0133,26.929434"
@@ -316,12 +325,5 @@
        y2="119.47662"
        id="line7439"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
-    <rect
-       style="opacity:0.8;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.202019;stroke-linecap:square;stroke-miterlimit:3.7;stroke-dasharray:none;stroke-dashoffset:0.0755904;stroke-opacity:1;paint-order:fill markers stroke"
-       id="rect8"
-       width="115.98652"
-       height="45.373489"
-       x="162.26338"
-       y="84.47757" />
   </g>
 </svg>

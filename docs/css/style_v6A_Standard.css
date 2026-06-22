@@ -105,6 +105,8 @@ a:hover{ color:#0cc; }
 
 
 #main{
+   background-color: rgb(245, 235, 245);
+
     grid-area: areaMain;
     .LG{
         display:block;

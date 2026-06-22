@@ -52,35 +52,6 @@
 		<img class="imgL" src="images/img31/img31c_10.png" alt="Hidden Single" width="30%">
 		<p>The digits displayed in red of each cell is unique in one of row/column/block house, and it is determined.</p>
 		<p class="newLine">...6.83....7..45..6..73.428.6.....13..4...6.....3..2.7518.2..3.4.3..6...296...7..</p>
-
-		<h4 id="head_bg_LightBlue">Hidden Single C# program</h4>
-		<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public class SimpleSingleGen: AnalyzerBaseV2{
-    public bool HiddenSingle( ){
-        bool  SolFond=false;
-        for( int no=0; no&lt;9; no++ ){
-            int noB=1&lt;&lt;no;
-            for( int tfx=0; tfx&lt;27; tfx++ ){
-                if( pBDL.IEGetCellInHouse(tfx,noB).Count()==1 ){
-                    SolFond=true;
-                    var P=pBDL.IEGetCellInHouse(tfx,noB).First();
-                    if(P.FreeBC==1)  continue;
-                    P.FixedNo=no+1;
-                    if( !MltSolOn )  goto LFond;
-                }
-            }
-        }
-
-        LFond:
-        if(SolFond){
-            .
-            . (Solution report code)
-            .
-			return true;
-        }
-        return false;
-    }
-}</small></code></pre>
 	</section>
 	<br><br><br>
 	

@@ -137,37 +137,6 @@
 			..9..154..5..9.....6.5..92.8..3..1.41..4.6..95.4..8..2.42..9.6.....6..1..187..2..</small>
 		</p><br><br>
 
-		<h3 id="head_bg_Blue">(Finned) Franken/Mutant Fish</h3><br>
-		<p>The analysis program of Franken/Mutant Fish can be done by directly using the above algorithm as a code.<br>
-		<a href="page34.html#FishPro">ExtFishSub</a> is in the X-Wing(Fish) page.</p>
-
-		<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public partial class FishGen: AnalyzerBaseV2{
-	//Frankenn/MutantFish
-    private int rcbSel=0x7FFFFFF;
-    public bool FrankenMutantFish( ){
-        for( int sz=2; sz&lt;=4; sz++ ){   //Based on symmetry up to size 4
-                for( int no=0; no&lt;9; no++ ){
-                if( ExtFishSub(sz,no,27,rcbSel,rcbSel,false) ) return true;
-                if( AnMan.CheckTimeOut() ) return false;
-            }
-        }
-        return false;
-    }
-
-	//FinnedFrankenn/MutantFish
-    public bool FinnedFrankenMutantFish( ){
-        for( int sz=2; sz&lt;=7; sz++ ){   //Up to size 7 with Fin(5:Squirmbag 6:Whale 7:Leviathan)
-            for( int no=0; no&lt;9; no++ ){
-                if( ExtFishSub(sz,no,27,rcbSel,rcbSel,true) ) return true;
-                if( AnMan.CheckTimeOut() ) return false;
-            }
-        }
-        return false;
-    }
-}</small></code></pre>
-
-
 	</section>
 	<br><br>
 </section>

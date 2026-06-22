@@ -56,30 +56,6 @@
 		<p>If the candidate digit of the cell is only one, it is fixed to that digit.</p>
 		<p class="newLine">.3217.6.88.4..9.7.75.......6....84572.......6.7.4.....3..5...84.2.9..5..4..61.7.2</p>
 
-		
-		<h4 id="head_bg_LightBlue">Naked Single C# program</h4>
-		<pre class="line-numbers" class="prismOp">
-<code class="language-csharp"><small>public class SimpleSingleGen: AnalyzerBaseV2{
-    public bool NakedSingle( ){
-        bool  SolFond=false;
-        foreach( UCell P in pBDL.Where(p=&gt;p.FreeBC==1) ){
-            SolFond=true;
-            P.FixedNo=P.FreeB.BitToNum()+1;
-            if(!MltSolOn)  goto LFond;
-        }
-
-        LFond:
-        if(SolFond){
-            .
-            . (Solution report code)
-            .
-			return true;
-        }
-        return false;
-    }
-}</small></code></pre>
-	</section>
-	<br><br><br>
 </section>
 
     <a href="#" class="pagetop">Top</a>
