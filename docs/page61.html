@@ -40,25 +40,15 @@
 	<article id="main">
 
 		<section>
-			<div style="color:rgb(255, 0, 0)">
-				<p> 
-					Under construction... May be incomplete or contain errors.<br><br>
-				</p>
-			</div>
-		</section>
-
-		<section>
 			<H3 id="head_bg_Blue">&nbsp;Pattern Overlay Method (POM)</H3>
 			<p>
-				The Pattern Overlay Method (POM) is an algorithm that
-				patterns the arrangement of candidate digits on a board and uses these patterns to eliminate candidate digits.<br>
-				It is a powerful algorithm suitable for programming.
-				First, we will explain it using a specific puzzle.<br><br>
+				The Pattern Overlay Method(POM) is an algorithm that
+				patterns the arrangement of candidate numbers on the board and uses these patterns to eliminate candidates.<br>
+				It is a powerful algorithm well-suited for programming. We will begin by explaining it using a specific puzzle.<br><br>
 
 				<img src="images/img61/POM_Pzl0.png" alt="POM Digits_1" width="30%">;<br><br>
 
-				When the candidate digits for this puzzle are color-coded, they look like this:
-				<br><br>
+				Color-coding the candidate digits for this puzzle results in the following.<br><br>
 				
 				<img src="images/img61/POM_Pzl0_Digit_1.png" alt="POM Digits_1" width="20%">&nbsp;
 				<img src="images/img61/POM_Pzl0_Digit_2.png" alt="POM Digits_2" width="20%">&nbsp;
@@ -70,8 +60,7 @@
 				<img src="images/img61/POM_Pzl0_Digit_8.png" alt="POM Digits_8" width="20%">&nbsp;
 				<img src="images/img61/POM_Pzl0_Digit_9.png" alt="POM Digits_9" width="20%"><br><br>
 
-				The bitwise representation of the undetermined cell arrangement for each candidate digits is as follows:
-				<br>
+				For each candidate digits, the arrangement of undetermined cells can be represented using bits as follows.<br>
 				<p style="background-color:rgb(230, 240, 244)" line-height=12px;>
 					<p class="newLine"><tt>
 						#1 : ......... ......... ....56... ......... ......... ......... ......... ....56... ......... _4 cells<br>
@@ -86,11 +75,11 @@
 					</tt></p>
 				</p>
 				<p>
-					In Sudoku, there is a restriction that only one digits must be placed in each row, column, and block, 
-					so there are possible arrangement patterns.<br>
-					The algorithm used to analyze possible placement patterns is POM analysis (POM:Pattern Overlay Method).<br><br>
-					POM analysis of this puzzle yields the following arrangement patterns:<br>
-					For each candidate digits, one of these patterns will result in a Sudoku solution.<br><br>
+					In Sudoku, there is a constraint that each row, column, and block must contain exactly one of each digit.
+					This results in a limited number of possible arrangements.<br>
+					The Pattern Overlay Method (POM) is a technique for analyzing these possible arrangements.<br><br>
+					Through POM analysis of this puzzle, the following arrangements can be obtained.<br>
+					Each of these patterns corresponds to a unique solution for each candidate digit.<br><br>
 
 
 					<p style="background-color:rgb(230, 240, 244)" line-height=12px;>
@@ -99,104 +88,111 @@
 							<hr>
 							#1<br>
 							BOARD: ......... ......... ....56... ......... ......... ......... ......... ....56... ......... _4 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ......... ....5.... ......... ......... ......... ......... .....6... ......... _2 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ......... .....6... ......... ......... ......... ......... ....5.... ......... _2 cells<br>
+							&nbsp; &nbsp;0: ......... ......... ....5.... ......... ......... ......... ......... .....6... ......... _2 cells<br>
+							&nbsp; &nbsp;1: ......... ......... .....6... ......... ......... ......... ......... ....5.... ......... _2 cells<br>
 							<br>
 							#2<br>
 							BOARD: ......... ...4.6... ......... ......... ......... ......... ......... ...4.6... ......... _4 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ...4..... ......... ......... ......... ......... ......... .....6... ......... _2 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... .....6... ......... ......... ......... ......... ......... ...4..... ......... _2 cells<br>
+							&nbsp; &nbsp;0: ......... ...4..... ......... ......... ......... ......... ......... .....6... ......... _2 cells<br>
+							&nbsp; &nbsp;1: ......... .....6... ......... ......... ......... ......... ......... ...4..... ......... _2 cells<br>
 							<br>
 							#3<br>
 							BOARD: ......... ......... ......... 1.......9 1.......9 ......... ......... ......... ......... _4 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ......... ......... 1........ ........9 ......... ......... ......... ......... _2 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ......... ......... ........9 1........ ......... ......... ......... ......... _2 cells<br>
+							&nbsp; &nbsp;0: ......... ......... ......... 1........ ........9 ......... ......... ......... ......... _2 cells<br>
+							&nbsp; &nbsp;1: ......... ......... ......... ........9 1........ ......... ......... ......... ......... _2 cells<br>
 							<br>
 							#4<br>
 							BOARD: ...45.... ......... ......... ....5.7.. ...4..7.. ......... ......... ......... ......... _6 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ...4..... ......... ......... ....5.... ......7.. ......... ......... ......... ......... _3 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;1: ....5.... ......... ......... ......7.. ...4..... ......... ......... ......... ......... _3 cells<br>
+							&nbsp; &nbsp;0: ...4..... ......... ......... ....5.... ......7.. ......... ......... ......... ......... _3 cells<br>
+							&nbsp; &nbsp;1: ....5.... ......... ......... ......7.. ...4..... ......... ......... ......... ......... _3 cells<br>
 							<br>
 							#5<br>
 							BOARD: ......... ......... .......89 .......89 ......... ......... ......... ......... ......... _4 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ......... .......8. ........9 ......... ......... ......... ......... ......... _2 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ......... ........9 .......8. ......... ......... ......... ......... ......... _2 cells<br>
+							&nbsp; &nbsp;0: ......... ......... .......8. ........9 ......... ......... ......... ......... ......... _2 cells<br>
+							&nbsp; &nbsp;1: ......... ......... ........9 .......8. ......... ......... ......... ......... ......... _2 cells<br>
 							<br>
 							#6<br>
 							BOARD: ......... ......... ......... 1......8. ......... 1......8. ......... ......... ......... _4 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ......... ......... 1........ ......... .......8. ......... ......... ......... _2 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ......... ......... .......8. ......... 1........ ......... ......... ......... _2 cells<br>
+							&nbsp; &nbsp;0: ......... ......... ......... 1........ ......... .......8. ......... ......... ......... _2 cells<br>
+							&nbsp; &nbsp;1: ......... ......... ......... .......8. ......... 1........ ......... ......... ......... _2 cells<br>
 							<br>
 							#7<br>
 							BOARD: ......... ...4...8. ....5..89 ......... ...4....9 ....5..8. ......... ......... ......... _9 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... ......... _4 cells<br>
+							&nbsp; &nbsp;0: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... ......... _4 cells<br>
 							<br>
 							#8<br>
 							BOARD: ......... ..3..6... ..3..6... 1...5.7.. 1.....7.. 1...5.... ......... ......... ......... _11 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ......... ..3...... .....6... 1........ ......7.. ....5.... ......... ......... ......... _5 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;1: ......... ..3...... .....6... ....5.... ......7.. 1........ ......... ......... ......... _5 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;2: ......... ..3...... .....6... ......7.. 1........ ....5.... ......... ......... ......... _5 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;3: ......... .....6... ..3...... 1........ ......7.. ....5.... ......... ......... ......... _5 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;4: ......... .....6... ..3...... ....5.... ......7.. 1........ ......... ......... ......... _5 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;5: ......... .....6... ..3...... ......7.. 1........ ....5.... ......... ......... ......... _5 cells<br>
+							&nbsp; &nbsp;0: ......... ..3...... .....6... 1........ ......7.. ....5.... ......... ......... ......... _5 cells<br>
+							&nbsp; &nbsp;1: ......... ..3...... .....6... ....5.... ......7.. 1........ ......... ......... ......... _5 cells<br>
+							&nbsp; &nbsp;2: ......... ..3...... .....6... ......7.. 1........ ....5.... ......... ......... ......... _5 cells<br>
+							&nbsp; &nbsp;3: ......... .....6... ..3...... 1........ ......7.. ....5.... ......... ......... ......... _5 cells<br>
+							&nbsp; &nbsp;4: ......... .....6... ..3...... ....5.... ......7.. 1........ ......... ......... ......... _5 cells<br>
+							&nbsp; &nbsp;5: ......... .....6... ..3...... ......7.. 1........ ....5.... ......... ......... ......... _5 cells<br>
 							<br>
 							#9<br>
 							BOARD: ...45.... ..34...8. ..3.5..8. ......... ......... ......... ......... ...45.... ......... _10 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;0: ...4..... ..3...... .......8. ......... ......... ......... ......... ....5.... ......... _4 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;1: ...4..... .......8. ..3...... ......... ......... ......... ......... ....5.... ......... _4 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;2: ....5.... ..3...... .......8. ......... ......... ......... ......... ...4..... ......... _4 cells<br>
-							&nbsp;&nbsp;&nbsp;&nbsp;3: ....5.... .......8. ..3...... ......... ......... ......... ......... ...4..... ......... _4 cells<br>
+							&nbsp; &nbsp;0: ...4..... ..3...... .......8. ......... ......... ......... ......... ....5.... ......... _4 cells<br>
+							&nbsp; &nbsp;1: ...4..... .......8. ..3...... ......... ......... ......... ......... ....5.... ......... _4 cells<br>
+							&nbsp; &nbsp;2: ....5.... ..3...... .......8. ......... ......... ......... ......... ...4..... ......... _4 cells<br>
+							&nbsp; &nbsp;3: ....5.... .......8. ..3...... ......... ......... ......... ......... ...4..... ......... _4 cells<br>
 						</tt>
 					</p>
 					<hr>
 					
 					<br>
-					Summarizing the results of the POM analysis:
+					Here is a summary of the POM analysis results:
+
 					<div style="color:rgb(4, 0, 255)">
-					<ul style="margin-left: -20px;">
-						<li>The cells within each pattern are linked.</li>
-						<li>If any cell within a pattern is confirmed, then all linked cells are confirmed.</li>
-						<li>If a candidate digit is rejected in any cell within a pattern, then that candidate digit is rejected in all linked cells.</li>
-					</ul>
-					Please note that this analysis presents results for each candidate digits individually, 
-					and does not consider the interrelationships between candidate digits.
+						<ul style="margin-left: -20px;">For each candidate digit #n,
+							<li>The cells within each pattern are connected.</li>
+							<li>When there are two types of patterns, one is true and the other is false.</li>
+							<li>When there are three or more types of patterns, only one is true, and the others are a mix of true and false.</li>
+						</ul>
 					</div>
+					Note that this analysis presents results for each candidate digits individually;
+					the interrelationships between candidate digits are not taken into account.
+					
 
 				</p>
-			</p>
+			</p><br><br>
 		</section>
+
+
+
 
 		<section>
 			<H4 id="head_bg_Blue" id="SE">&nbsp;POM Algorithm</H4>
 			<p>
-				Based on the results of the POM analysis, the following algorithm can be constructed.<br>
-				<div style="color:rgb(4, 0, 255)">
+				POM analysis results can be used to construct the following algorithms.<br>
 					<ul>
-						<li>Single-digit algorithm(Rule-1)</li>
-							<ul style="margin-left: -20px;">For each candidate number #n
-								<li>Cells and candidate digits common to all patterns are fixed. => All Patterns</li>
-								<li>Cells and candidate digits not included in any pattern can be excluded. => No Patterns</li>
-								<li>If there is only one pattern, the cell and candidate digits are fixed because they are "common to all patterns". => single pattern</li>
+						<li>Single Candidate Digit Algorithm (Rule-1)</li>
+							<ul style="margin-left: -20px;">For each candidate digit #n
+								<li>All cells that are common to all patterns are true.  =>  <font style="color:blue">All Patterns</font></li>
+								<li>Cells that are not included in any pattern are false and can be excluded. => <font style="color:blue">No Patterns</font></li>
+								<li>When there is only one type of pattern, the candidate digit in the cells that are common to all patterns is true.<br>
+									The candidate digit in the cells that are not included in any pattern is false. &nbsp; &nbsp; &nbsp; &nbsp;=> <font style="color:blue">All Patterns, single pattern</font><br>
+								</li>
 							</ul>
 							<br>
-						<li>Algorithms involving the interaction of candidate digits(Rule-2)</li>
-							<ul style="margin-left: -20px;">Excluding patterns of failure due to interaction
-								<li>The cells and candidate digits common to the valid patterns are Fixed.  =>PMI All Patterns</li>
-								<li>The Cells and candidate digits that are not included in the valid pattern can be excluded. =>PMI No Pattern </li>
-							</ul>
-							
+
+						<li>Algorithm based on the interaction of candidate digits (Rule-2)</li>
+						<br>
+
+						<li>Combination algorithm for POM and Nice-Loop(Rule-3)</li>
+						<br>
 					</ul>
-				</div>
 			</p>
 			</p><br><br>
 		</section>
 
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - all pattarn</H4>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule1 - all patterns</H4>
 			<p>
-				There may be a cell/candidate digits common to all patterns. This cell/candidate digits are fixed.<br>
-				In the POM analysis of the following puzzle, <b>(r1c1 r8c3)#3</b> is included in all patterns. Therefore, these are fixed.<br>
+				There are cases where a specific cell and candidate digits are common to these patterns.
+				This cell and candidate digits are confirmed.<br>
+				In the POM analysis of the following puzzle, <b>(r1c1 r8c3)#3</b> is included in all patterns.
+				Therefore, these are confirmed.<br>
 				<br>
 				<div><tt>
 				<p><p style="clear: both"/><p class="newLine"/> ID:00_3 POM_AllPattern
@@ -210,13 +206,13 @@
 				Fixed: (r1c1 r8c3)#3<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#3 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#3]: 1.....7.. ..3...789 ......... ......... .2....7.9 12....78. ......... .23...... ......7.9 <br>
+				&nbsp; &nbsp;Board[#3]: 1.....7.. ..3...789 ......... ......... .2....7.9 12....78. ......... .23...... ......7.9 <br>
 				&nbsp;Pattern[ 0]: 1........ ......7.. ......... ......... .2....... .......8. ......... ..3...... ........9 <br>
 				&nbsp;Pattern[ 1]: 1........ .......8. ......... ......... .2....... ......7.. ......... ..3...... ........9 <br>
 				&nbsp;Pattern[ 2]: 1........ .......8. ......... ......... ......7.. .2....... ......... ..3...... ........9 <br>
 				&nbsp;Pattern[ 3]: 1........ .......8. ......... ......... ........9 .2....... ......... ..3...... ......7.. <br>
 				&nbsp;Pattern[ 4]: 1........ ........9 ......... ......... .2....... .......8. ......... ..3...... ......7.. <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: 1........ ......... ......... ......... ......... ......... ......... ..3...... ......... &nbsp;2 cells</p>
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: 1........ ......... ......... ......... ......... ......... ......... ..3...... ......... &nbsp;2 cells</p>
 				<p style="clear: both"/>
 				<hr>
 				</tt></div>
@@ -229,11 +225,11 @@
 
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - No pattarn</H4>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule1 - No patterns</H4>
 			<p>
-				POM analysis may reveal cells or candidate digits for which no possible placement patterns exist.<br>
-				These cells or candidate digits can be excluded.
-				In the POM analysis of the puzzle above, <b>(r2c4 r3c5)#9</b> is not included in any of the patterns.<br>
+				POM analysis may reveal cells or candidate digits for which no valid placement pattern exists. 
+				These cells or candidate digits can be eliminated.<br>
+				In the POM analysis of the puzzle above, <b>(r2c4 r3c5)#9</b> is not included in any valid pattern. 
 				Therefore, these can be excluded.<br>
 				
 				<tt><hr>
@@ -249,12 +245,12 @@
 					<br>
 					<p class="newLine"><br><br>
 					#9 Exclude<br>
-					&nbsp;&nbsp;&nbsp;Board[#9]: ...45.... ..34...8. ..3.5..8. ......... ......... ......... ......... ...45.... ......... <br>
+					&nbsp; &nbsp;Board[#9]: ...45.... ..34...8. ..3.5..8. ......... ......... ......... ......... ...45.... ......... <br>
 					&nbsp;Pattern[ 0]: ...4..... ..3...... .......8. ......... ......... ......... ......... ....5.... ......... <br>
 					&nbsp;Pattern[ 1]: ...4..... .......8. ..3...... ......... ......... ......... ......... ....5.... ......... <br>
 					&nbsp;Pattern[ 2]: ....5.... ..3...... .......8. ......... ......... ......... ......... ...4..... ......... <br>
 					&nbsp;Pattern[ 3]: ....5.... .......8. ..3...... ......... ......... ......... ......... ...4..... ......... <br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ...4..... ....5.... ......... ......... ......... ......... ......... ......... &nbsp;2 cells</p>
+					&nbsp; &nbsp; &nbsp;Exclude: ......... ...4..... ....5.... ......... ......... ......... ......... ......... ......... &nbsp;2 cells</p>
 					<p style="clear: both"/>
 				</p>
 				<hr>
@@ -266,50 +262,73 @@
 		
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - Single Pattarn</H4>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule1 - Single Pattarn</H4>
 			<p>
-				If there is only one pattern, it will be common to all patterns, and the statement <b>All Pattern</b> will hold true.<br>
+				If there is only one pattern, it applies to all patterns, satisfying the <b>All Pattern</b> condition.<br>
+				Conversely, cells or candidate digits not included in any of the patterns are false and can be excluded (<b>No Pattern</b>).<br>
+<hr>
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_2 Finned_XWing<br>
+.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+137..5628 56..3.1.4 24.6..3.. .721.9... .95.26.1. .145.32.9 951364782 783...546 426857931 Current<br></p>
+<img src="images/img61/POM_Rule1_Single_All.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
 
-				<div>
-					<hr>
-					<p class="newLine"/> ID:00_2 POM_singlePattern<br>
-					<tt>
-					.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
-					137..5628 56..3.1.4 24.6..3.. .721.9... .95.26.1. .145.32.9 951364782 783...546 426857931 Current<br>
-					<img src="images/img61/POM_SinglePattern_1a.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_SinglePattern (Lv.9)"><br>
-					</tt>
-					<p>
-						Pattern Overlay Method _ single pattern<br><br>
-						Fixed: (r2c4 r3c8 r5c9 r6c5)#7<br>
-						<p class="newLine"/><br>
-						<tt>
-						#7 Fixed<br>
-						&nbsp;&nbsp;&nbsp;Board[#7]: ......... ...4...8. ....5..89 ......... ...4....9 ....5..8. ......... ......... ......... <br>
-						&nbsp;Pattern[ 0]: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... ......... <br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... ......... &nbsp;4 cells
-						</tt>
-					</p>
-					<p style="clear: both"/>
-				</div>
+<p>
+Pattern Overlay Method _ All Pattern Fixed<br>
+<br>
+ Fixed: (r2c4 r3c8 r5c9 r6c5)#7
+<p class="newLine"/><p style="clear: both"/><br>
+#7 Fixed<br>
+&nbsp; &nbsp;Board[#7]: ......... ...4...8. ....5..89 ......... ...4....9 ....5..8. ......... ......... ......... <br>
+&nbsp;Pattern[ 0]: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... .........  <br>
+&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... ......... &nbsp;4 cells
+<br>
+<hr>
+</tt></div>
+
+<br>
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_2 Finned_XWing<br>
+.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+137..5628 56..3.1.4 24.6..3.. .721.9... .95.26.1. .145.32.9 951364782 783...546 426857931 Current<br></p>
+<img src="images/img61/POM_Rule1_Single_no.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule1 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Method _ No Pattern Exclusion<br>
+<br>
+ Exclued: (r26c8 r3c59 r5c4)#7<br>
+<br>
+<p class="newLine"/><p style="clear: both"/><br>
+#7 Exclude<br>
+&nbsp; &nbsp;Board[#7]: ......... ...4...8. ....5..89 ......... ...4....9 ....5..8. ......... ......... ......... <br>
+&nbsp;Pattern[ 0]: ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... .........  <br>
+&nbsp; &nbsp; &nbsp;Exclude: ......... .......8. ....5...9 ......... ...4..... .......8. ......... ......... ......... &nbsp;5 cells
+<br><hr>
+</tt></div>
+
+
 				<br>
 			</p>
 		</section>
 		
 
 
-
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;Pattern Overlay Interactions</H4>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - Interactions</H4>
 			<p>
-				The algorithm based on candidate digit interaction (Rule-2) is as follows:<br>
-				Assuming that pattern A for candidate digit #m is true (#m-A), 
-				the cells of pattern A are occupied by candidate digit #m, and other candidate digits are excluded.<br>
+				The algorithm based on the <b>interaction of candidate digits</b>, is as follows:<br>
+					<ul>
+						<li>Assume that <b>Pattern X for candidate #m</b> is true.</li>
+						<li>Candidate #m occupies the cells of Pattern X, and other candidates are excluded.</li>
+						<li>Perform POM analysis in this state.</li>
+						<li>There may be cases where no patterns exist for other candidates; such a result is invalid.</li>
+						<li>Therefore, the initial assumption—<b>Pattern X for candidate #m</b>—is false,
+							and Pattern X is excluded from the list of patterns for candidate #m.</li>
+				</ul>
+				The Pattern Overlay Method - Interaction (POM-I) is an algorithm highly effective at narrowing down patterns.<br>
 				
-				Performing POM analysis in this state may reveal that there are no other candidate digit patterns.
-				This indicates that the assumption that #m-A is true is incorrect.<br>
-				Therefore, pattern A for candidate digit #m (#m-A) is excluded.<br>
-				
-				Pattern Overlay Interaction (POI) is a POM analysis that excludes the interaction of candidate digits.
+				<hr>
+
 
 				<div><tt>
 				<p><p style="clear: both"/><p class="newLine"/>ID:00_117 POI_Rule2<br>
@@ -319,6 +338,7 @@
 
 				<p>
 				Interactions<br>
+				<small>
 				#1 pat_1 -> #6<br>
 				#9 pat_1 -> #5<br>
 				#9 pat_2 -> #6<br>
@@ -333,6 +353,7 @@
 				#5 pat_3 -> #9<br>
 				#5 pat_4 -> #6<br>
 				#5 pat_5 -> #6<br>
+				</small>
 				<br>
 				<br>
 				Pattern Overlay Interaction _ No Pattern Exclusion<br>
@@ -340,7 +361,7 @@
 				Exclued: (r1c2 r37c6 r4c4 r8c25)#5<br>
 				<p class="newLine"/><p style="clear: both"/><br>
 				#5 Exclude<br>
-				&nbsp;&nbsp;&nbsp;Board[#5]: .2.45.... .2....7.. ..3..67.. ...4.6... ......... ......... .2..56... .2345.... ......... <br>
+				&nbsp; &nbsp;Board[#5]: .2.45.... .2....7.. ..3..67.. ...4.6... ......... ......... .2..56... .2345.... ......... <br>
 				&nbsp;Pattern[ 0]: .2....... ......7.. .....6... ...4..... ......... ......... ....5.... ..3...... .........  Disabled by interaction<br>
 				&nbsp;Pattern[ 1]: ...4..... .2....... ......7.. .....6... ......... ......... ....5.... ..3...... .........  <br>
 				&nbsp;Pattern[ 2]: ...4..... ......7.. ..3...... .....6... ......... ......... .2....... ....5.... .........  Disabled by interaction<br>
@@ -348,25 +369,25 @@
 				&nbsp;Pattern[ 4]: ....5.... .2....... ......7.. ...4..... ......... ......... .....6... ..3...... .........  Disabled by interaction<br>
 				&nbsp;Pattern[ 5]: ....5.... ......7.. ..3...... ...4..... ......... ......... .....6... .2....... .........  Disabled by interaction<br>
 				&nbsp;Pattern[ 6]: ....5.... ......7.. ..3...... .....6... ......... ......... .2....... ...4..... .........  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: .2....... ......... .....6... ...4..... ......... ......... .....6... .2..5.... ......... &nbsp;6 cells
+				&nbsp; &nbsp; &nbsp;Exclude: .2....... ......... .....6... ...4..... ......... ......... .....6... .2..5.... ......... &nbsp;6 cells
 				<hr>
 				</tt></div>
 
 				<tt>
-				&nbsp;&nbsp;&nbsp;POM Patterns<br>
+				&nbsp; &nbsp;POM Patterns<br>
 
 				#1<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: .2.....8. .2.....8. ......... ......... ......... ......... ......... ......... .........  4 cells<br>
+				&nbsp; &nbsp; &nbsp;BOARD: .2.....8. .2.....8. ......... ......... ......... ......... ......... ......... .........  4 cells<br>
 				&nbsp;Pattern 0: .2....... .......8. ......... ......... ......... ......... ......... ......... ......... <br>
 				&nbsp;Pattern 1: .......8. .2....... ......... ......... ......... ......... ......... ......... .........  Disabled by interaction<br>
 				<br>
-				#4<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: ......... 12....... ......... ......... ......... ......... 12....... ......... .........  4 cells<br>
+				#4<br> 
+				&nbsp; &nbsp; &nbsp;BOARD: ......... 12....... ......... ......... ......... ......... 12....... ......... .........  4 cells<br>
 				&nbsp;Pattern 0: ......... 1........ ......... ......... ......... ......... .2....... ......... .........<br>
 				&nbsp;Pattern 1: ......... .2....... ......... ......... ......... ......... 1........ ......... .........<br>
 				<br>
 				#5<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: .2.45.... .2....7.. ..3..67.. ...4.6... ......... ......... .2..56... .2345.... .........  17 cells<br>
+				&nbsp; &nbsp; &nbsp;BOARD: .2.45.... .2....7.. ..3..67.. ...4.6... ......... ......... .2..56... .2345.... .........  17 cells<br>
 				&nbsp;Pattern 0: .2....... ......7.. .....6... ...4..... ......... ......... ....5.... ..3...... .........  Disabled by interaction<br>
 				&nbsp;Pattern 1: ...4..... .2....... ......7.. .....6... ......... ......... ....5.... ..3...... .........<br>
 				&nbsp;Pattern 2: ...4..... ......7.. ..3...... .....6... ......... ......... .2....... ....5.... .........  Disabled by interaction<br>
@@ -376,11 +397,11 @@
 				&nbsp;Pattern 6: ....5.... ......7.. ..3...... .....6... ......... ......... .2....... ...4..... .........<br>
 				<br>
 				#6<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: ...45..8. ......... .....67.. ...4.6.8. ...4..7.. ......... ......... ...45.... .........  12 cells<br>
+				&nbsp; &nbsp; &nbsp;BOARD: ...45..8. ......... .....67.. ...4.6.8. ...4..7.. ......... ......... ...45.... .........  12 cells<br>
 				&nbsp;Pattern 0: .......8. ......... .....6... ...4..... ......7.. ......... ......... ....5.... .........<br>
 				<br>
 				#8<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: .2.4...8. 12.....89 1....6... .......89 ......... ......... 12...6... .2.4..... .........  16 cells<br>
+				&nbsp; &nbsp; &nbsp;BOARD: .2.4...8. 12.....89 1....6... .......89 ......... ......... 12...6... .2.4..... .........  16 cells<br>
 				&nbsp;Pattern 0: .2....... .......8. .....6... ........9 ......... ......... 1........ ...4..... .........  Disabled by interaction<br>
 				&nbsp;Pattern 1: .2....... ........9 .....6... .......8. ......... ......... 1........ ...4..... .........  Disabled by interaction<br>
 				&nbsp;Pattern 2: ...4..... .......8. 1........ ........9 ......... ......... .....6... .2....... .........<br>
@@ -389,7 +410,7 @@
 				&nbsp;Pattern 5: .......8. .2....... .....6... ........9 ......... ......... 1........ ...4..... .........  Disabled by interaction<br>
 				<br>
 				#9<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOARD: ......... 1.....7.9 1.3...7.. ...4....9 ...4..7.. ......... 1...5.... ..3.5.... .........  14 cells<br>
+				&nbsp; &nbsp; &nbsp;BOARD: ......... 1.....7.9 1.3...7.. ...4....9 ...4..7.. ......... 1...5.... ..3.5.... .........  14 cells<br>
 				&nbsp;Pattern 0: ......... 1........ ......7.. ........9 ...4..... ......... ....5.... ..3...... .........<br>
 				&nbsp;Pattern 1: ......... ......7.. 1........ ........9 ...4..... ......... ....5.... ..3...... .........  Disabled by interaction<br>
 				&nbsp;Pattern 2: ......... ......7.. ..3...... ........9 ...4..... ......... 1........ ....5.... .........  Disabled by interaction<br>
@@ -397,39 +418,145 @@
 				&nbsp;Pattern 4: ......... ........9 ..3...... ...4..... ......7.. ......... 1........ ....5.... .........  Disabled by interaction<br>
 				</tt></div>
 				<br><br>
-				<a href="#ID_POI">&nbsp; POM all-Pattern Example <img src="images/imgTop/jumpTo.png" height="8"></a>
-			</p>
 
-		</section>
-
-		<section>
-			<H4 id="head_bg_Blue" id="SE">&nbsp;Backward compatibility of Pattern Overlay Method with existing algorithms</H4>
-			<p>
-				<b>Proof by the Law of Excluded Middle:</b><br>
-				POM is an analytical algorithm that exhaustively handles all possible arrangements of candidate digits. <br>
-				In contrast, existing algorithms derive negative arrangements of candidate digits. 
-				This is because those arrangements are contradictory. <br>
-				The patterns in POM are only those arrangements that are consistent. 
-				That is, contradictory arrangements from existing algorithms are not included in POM.<br><br>
-<!--
-				<b>Backward Compatibility</b><br>
-				For algorithms that handle single-digit, such as ER, Skyscraper, and Fish, POM Rule 1 (no pattern, with pattern) is backward compatible.
-				For algorithms that handle multi-digit, such as XY-wing, Chain, and SueDeCoq, POI Rule 2 (POI: Pattern Overlay Interaction), 
-				which analyzes the interaction of candidate digit, is the appropriate rule.
--->
+				<a href="#ID_POI">&nbsp; POM Rule2 - Interaction Example <img src="images/imgTop/jumpTo.png" height="8"></a>
 			</p>
-			<br>
 		</section>
 
 
 		<section>
-			<H4 id="head_bg_Blue" id="SE">&nbsp;POM,PMI Example</H4>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;Pattern Overlay Method Rule3 - POM NiceLoop</H4>
 			<p>
-				Pattern Overlay Method (PMO) examples are located in the data folder...
-				and can be analyzed with GNPX. A portion of them is shown below.
+				This is an algorithm that detects inconsistencies by <b>combining ROM analysis and Nice-Loop</b>.<br>
+				<ul style="margin-left: -20px;">
+					<li>Perform a NiceLoop path search starting from each pattern.</li>
+					<li>When starting from a true pattern, no contradiction is detected.</li>
+					<li>When starting from a false pattern, a contradiction is detected; t
+						his pattern is then excluded from the cell's list of candidate digits.<br>
+					<div style="color:rgb(4, 0, 255)">
+					(During the NiceLoop path search, a "path contradiction"—where both true and false states are derived—may occur.<br>
+					In such cases, the search is aborted, and the detection of the contradiction is reported.)</div>
+					</li>
+					<li>Once the patterns have been narrowed down, apply Rule 1 (all patterns/no patterns).</li>
+				</ul>
+				The basic NiceLoop algorithm initiates searches from cells and candidate digits across the entire board,
+				resulting in a high number of trials.<br>
+				In contrast, searches starting from POM patterns are more efficient because 
+				they guarantee the detection of contradictions within the pattern itself.<br>
+				It is advisable to apply this method after narrowing down the patterns using Rule 2.<br>
+			</p>
+				<br><br>
+<hr>
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>
+D:00_1 XYChain<br>
+.46..3.8. 72....... .8.7..3.. ..42.7... ..9.58.2. .....6..1 ..14396.. 4.....139 .976.1.4. Puzzle<br>
+.46..3.8. 723...... .857..3.. .14297.63 639158.2. .7.346..1 .5143967. 46..7.139 3976.1.4. Current<br></p>
+<img src="images/img61/POM_Rule3_1.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r2c9 r3c5 #6.<br>
+ Exclude : r2c5 r3c9 #6<br>
+<br>
+POM Pattern #6<br>
+<p style="clear: both"/><p class="newLine"/>
+<br>
+  pattern[0] ......... ....5.... ........9 ......... ......... ......... ......... ......... .........   -negative<br>
+  pattern[1] ......... ........9 ....5.... ......... ......... ......... ......... ......... .........   +positive<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #6 Pattern-0 is Contradiction <br>
+<br>
+ r2c5#6+ => [ALS:r2c6789 #14569->#14569 ->r2c7#9+]<br>
+<br>
+ r2c5#6+ => [intra cell -> r2c5#1-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r2c8#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r3c8#1-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r3c8#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r2c7#9-]<br>
+</p>
+<p style="clear: both"/>
+<hr>
+</tt></div>
+			
+
+<a href="#ID_POM_Contradiction">&nbsp; POM Rule-3 Contradiction Example <img src="images/imgTop/jumpTo.png" height="8"></a>
+</section>
+
+
+		<section>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;Pattern Overlay Method Rule4 - POM NiceLoop +</H4>
+			<p>
+				When there are three or more patterns, only one pattern has all elements set to true,
+				while the other patterns contain a mixture of true and false values.
+				The algorithm is as follows:<br>
+				<ul>
+					<li> For the n patterns, perform NiceLoop path searching on all of them.</li>
+					<li> If a contradiction is detected in n-1 of the patterns, the remaining pattern is the true one.</li>
+					<li> Since NiceLoop is not exhaustive (Note), it may fail to detect a contradiction among the n-1 patterns. 
+						In such cases, the true pattern cannot be determined.<br>
+						(Note) Not exhaustive: While there are various types of links used in NiceLoop,
+						the current algorithm does not yet incorporate a sufficient range of link types.</li>
+				</ul>
+				Empirically, the solutions generated by this algorithm frequently involve complex links such as ALS, AIC, and ALS-XZ.
+				While this is likely a contributing factor, the computational cost is high.<br>
+				The large number of POM patterns and the necessity for complex links appear to be "alternative manifestations" of the complexity of the puzzle state.<br>
+		<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_1 POM_Rule4<br>
+.46..3.8. 72....... .8.7..3.. ..42.7... ..9.58.2. .....6..1 ..14396.. 4.....139 .976.1.4. Puzzle<br>
+.46..3.8. 723...... .857..3.. .14297.63 639158.2. .7.346..1 .5143967. 46..7.139 3976.1.4. Current<br></p>
+<img src="images/img61/POM_Rule4_1.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br><br>
+  Fixed : r2c4 r4c7 r6c1 r7c9 r8c3 r9c5 #8.<br>
+ Exclude : r2c5 r47c1 r6c37 r8c4 r9c9 #8<br>
+ <p style="clear: both"/>
+<br>
+POM Pattern #8<br>
+<br>
+  pattern[0] ......... ...4..... ......... 1........ ......... ......7.. ........9 ..3...... ....5....   -negative<br>
+  pattern[1] ......... ...4..... ......... ......7.. ......... 1........ ........9 ..3...... ....5....   +positive<br>
+  pattern[2] ......... ....5.... ......... ......7.. ......... ..3...... 1........ ...4..... ........9   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br><br>
+ #8 Pattern-0 is Contradiction <br>
+<br>
+ r2c4#8+ => [ALS:r1c5 r23c56 #124568->#124568 ->r2c6#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r2c789 r3c8 #14569->#14569 ->r2c7#4+]<br>
+<br>
+ r4c1#8+ => [ALS:r12459c7 #245789->#245789 ->r2c7#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp; => [intra cell -> r2c7#4-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #8 Pattern-2 is Contradiction <br>
+<br>
+ r2c6#4+ => [ALS:r12469c7 #245789->#245789 ->r1c7#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r2c78 r3c8#1459 @ 2)AnLS:r1237c9#245678 (RCC:#45)] =>r7c9#8+]<br>
+<br>
+ r9c9#8+ => [AIC:r123579c9 r123579c9#8- ->r7c9#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r7c9#8-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+<a href="#ID_POM_Contradiction_Plus">&nbsp; POM Contradiction+ Example <img src="images/imgTop/jumpTo.png" height="8"></a>
+</p>
+</section>
+<br><br><br>
+
+
+		<section>
+			<H4 id="head_bg_Blue" id="SE">&nbsp;POM Example</H4>
+			<p>
+				Pattern Overlay Methid(PMO) All Pattern のサンプルは、データフォルダーにあります...GNPXで解析できます。以下はその一部です。
 			</p>
 			<a id="ID_POM-AllPattern"></a>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM All Pattern Example</H4>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM All Pattern Eample</H4>
 
 			<p>
 				<div><tt>
@@ -442,12 +569,13 @@
 				Pattern Overlay Method _ All Pattern Fixed<br>
 				<br>
 				Fixed: (r4c7 r7c8)#7<br>
+				<p class="newLine"/><p style="clear: both"/>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#7 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#7]: ......... ......... ......... ....5.7.. ....56.8. ......... ....5..8. ....567.. ......... <br>
+				&nbsp; &nbsp;Board[#7]: ......... ......... ......... ....5.7.. ....56.8. ......... ....5..8. ....567.. ......... <br>
 				&nbsp;Pattern[ 0]: ......... ......... ......... ......7.. ....5.... ......... .......8. .....6... .........  <br>
 				&nbsp;Pattern[ 1]: ......... ......... ......... ......7.. .....6... ......... .......8. ....5.... .........  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......... ......7.. ......... ......... .......8. ......... ......... &nbsp;2 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ......... ......... ......... ......7.. ......... ......... .......8. ......... ......... &nbsp;2 cells
 				<hr>
 				</tt></div>
 
@@ -464,13 +592,13 @@
 				Fixed: (r1c7 r7c5)#5<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#5 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#5]: ..3...7.. ......... 123....8. 1.3...... ......... ......... ....5.7.. 1......8. 123.5.78. <br>
+				&nbsp; &nbsp;Board[#5]: ..3...7.. ......... 123....8. 1.3...... ......... ......... ....5.7.. 1......8. 123.5.78. <br>
 				&nbsp;Pattern[ 0]: ......7.. ......... 1........ ..3...... ......... ......... ....5.... .......8. .2.......  <br>
 				&nbsp;Pattern[ 1]: ......7.. ......... .2....... 1........ ......... ......... ....5.... .......8. ..3......  <br>
 				&nbsp;Pattern[ 2]: ......7.. ......... .2....... ..3...... ......... ......... ....5.... 1........ .......8.  <br>
 				&nbsp;Pattern[ 3]: ......7.. ......... .2....... ..3...... ......... ......... ....5.... .......8. 1........  <br>
 				&nbsp;Pattern[ 4]: ......7.. ......... ..3...... 1........ ......... ......... ....5.... .......8. .2.......  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......7.. ......... ......... ......... ......... ......... ....5.... ......... ......... &nbsp;2 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ......7.. ......... ......... ......... ......... ......... ....5.... ......... ......... &nbsp;2 cells
 				<hr>
 				</tt></div>
 
@@ -487,11 +615,11 @@
 				Fixed: r9c6#3<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#3 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#3]: ......... ......... 1.3...... ...4...8. ..34..... .2.4.6.8. 12.4..... ......... 1....6... <br>
+				&nbsp; &nbsp;Board[#3]: ......... ......... 1.3...... ...4...8. ..34..... .2.4.6.8. 12.4..... ......... 1....6... <br>
 				&nbsp;Pattern[ 0]: ......... ......... 1........ ...4..... ..3...... .......8. .2....... ......... .....6...  <br>
 				&nbsp;Pattern[ 1]: ......... ......... 1........ .......8. ..3...... ...4..... .2....... ......... .....6...  <br>
 				&nbsp;Pattern[ 2]: ......... ......... ..3...... .......8. ...4..... .2....... 1........ ......... .....6...  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......... ......... ......... ......... ......... ......... .....6... &nbsp;1 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ......... ......... ......... ......... ......... ......... ......... ......... .....6... &nbsp;1 cells
 				<hr>
 				</tt></div>
 
@@ -508,9 +636,9 @@
 				Fixed: (r1c8 r3c3 r4c9 r5c1 r6c6)#2<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#2 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#2]: 1......8. ......... ..3.....9 1.......9 1.3..6... .....6.8. ......... ......... ......... <br>
+				&nbsp; &nbsp;Board[#2]: 1......8. ......... ..3.....9 1.......9 1.3..6... .....6.8. ......... ......... ......... <br>
 				&nbsp;Pattern[ 0]: .......8. ......... ..3...... ........9 1........ .....6... ......... ......... .........  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: .......8. ......... ..3...... ........9 1........ .....6... ......... ......... ......... &nbsp;5 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: .......8. ......... ..3...... ........9 1........ .....6... ......... ......... ......... &nbsp;5 cells
 				<hr>
 				</tt></div>
 
@@ -527,10 +655,10 @@
 				Fixed: (r1c9 r2c2 r4c6 r5c3 r6c7 r7c8 r9c1)#6<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#6 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#6]: ...4..7.9 .2....78. .23456... 1....6... .23.56789 ...45.7.. .2.....8. ...45.7.. 1...5.... <br>
+				&nbsp; &nbsp;Board[#6]: ...4..7.9 .2....78. .23456... 1....6... .23.56789 ...45.7.. .2.....8. ...45.7.. 1...5.... <br>
 				&nbsp;Pattern[ 0]: ........9 .2....... ...4..... .....6... ..3...... ......7.. .......8. ....5.... 1........  <br>
 				&nbsp;Pattern[ 1]: ........9 .2....... ....5.... .....6... ..3...... ......7.. .......8. ...4..... 1........  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ........9 .2....... ......... .....6... ..3...... ......7.. .......8. ......... 1........ &nbsp;7 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ........9 .2....... ......... .....6... ..3...... ......7.. .......8. ......... 1........ &nbsp;7 cells
 				<hr>
 				</tt></div>
 
@@ -547,9 +675,9 @@
 				Fixed: (r1c5 r3c8 r5c6 r6c9)#8<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#8 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#8]: ....5...9 ......... .....6.8. ......... .....6..9 ....5..89 ......... ......... ......... <br>
+				&nbsp; &nbsp;Board[#8]: ....5...9 ......... .....6.8. ......... .....6..9 ....5..89 ......... ......... ......... <br>
 				&nbsp;Pattern[ 0]: ....5.... ......... .......8. ......... .....6... ........9 ......... ......... .........  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ....5.... ......... .......8. ......... .....6... ........9 ......... ......... ......... &nbsp;4 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ....5.... ......... .......8. ......... .....6... ........9 ......... ......... ......... &nbsp;4 cells
 				<hr>
 				</tt></div>
 
@@ -565,13 +693,14 @@
 				<br>
 				Fixed: r5c4#5<br>
 				<br>
-				<p class="newLine"/><p style="clear: both"/>#5 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#5]: 12....7.. ......... 1......8. ......... ...4.6... ......... 12...6.8. 1....6... ...4..78. <br>
+				<p class="newLine"/><p style="clear: both"/>
+				#5 Fixed<br>
+				&nbsp; &nbsp;Board[#5]: 12....7.. ......... 1......8. ......... ...4.6... ......... 12...6.8. 1....6... ...4..78. <br>
 				&nbsp;Pattern[ 0]: 1........ ......... .......8. ......... ...4..... ......... .2....... .....6... ......7..  <br>
 				&nbsp;Pattern[ 1]: .2....... ......... .......8. ......... ...4..... ......... 1........ .....6... ......7..  <br>
 				&nbsp;Pattern[ 2]: .2....... ......... .......8. ......... ...4..... ......... .....6... 1........ ......7..  <br>
 				&nbsp;Pattern[ 3]: ......7.. ......... 1........ ......... ...4..... ......... .2....... .....6... .......8.  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......... ......... ...4..... ......... ......... ......... ......... &nbsp;1 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ......... ......... ......... ......... ...4..... ......... ......... ......... ......... &nbsp;1 cells
 				<hr>
 				</tt></div>
 
@@ -588,12 +717,12 @@
 				Fixed: (r1c8 r9c3)#8<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#8 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#8]: ..3....8. .2.45..8. .2.4.6... ...4.6... ......... ......... .2.45.... ......... ..34.6... <br>
+				&nbsp; &nbsp;Board[#8]: ..3....8. .2.45..8. .2.4.6... ...4.6... ......... ......... .2.45.... ......... ..34.6... <br>
 				&nbsp;Pattern[ 0]: .......8. .2....... ...4..... .....6... ......... ......... ....5.... ......... ..3......  <br>
 				&nbsp;Pattern[ 1]: .......8. .2....... .....6... ...4..... ......... ......... ....5.... ......... ..3......  <br>
 				&nbsp;Pattern[ 2]: .......8. ...4..... .2....... .....6... ......... ......... ....5.... ......... ..3......  <br>
 				&nbsp;Pattern[ 3]: .......8. ....5.... .2....... .....6... ......... ......... ...4..... ......... ..3......  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: .......8. ......... ......... ......... ......... ......... ......... ......... ..3...... &nbsp;2 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: .......8. ......... ......... ......... ......... ......... ......... ......... ..3...... &nbsp;2 cells
 				<hr>
 				</tt></div>
 
@@ -610,9 +739,9 @@
 				Fixed: (r3c5 r4c4 r6c2 r8c1 r9c6)#9<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#9 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#9]: ......... ......... ...456... 1..4..... ......... .2..5.... ......... 1...5.... .2...6... <br>
+				&nbsp; &nbsp;Board[#9]: ......... ......... ...456... 1..4..... ......... .2..5.... ......... 1...5.... .2...6... <br>
 				&nbsp;Pattern[ 0]: ......... ......... ....5.... ...4..... ......... .2....... ......... 1........ .....6...  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ....5.... ...4..... ......... .2....... ......... 1........ .....6... &nbsp;5 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ......... ......... ....5.... ...4..... ......... .2....... ......... 1........ .....6... &nbsp;5 cells
 				<hr>
 				</tt></div>
 
@@ -629,15 +758,15 @@
 				Fixed: (r1c4 r2c1 r4c3)#6<br>
 				<br>
 				<p class="newLine"/><p style="clear: both"/>#6 Fixed<br>
-				&nbsp;&nbsp;&nbsp;Board[#6]: 1.34..... 1...5.... ......... 1.34....9 .....67.. 1..4.6..9 ....567.9 ....5.7.. ......... <br>
+				&nbsp; &nbsp;Board[#6]: 1.34..... 1...5.... ......... 1.34....9 .....67.. 1..4.6..9 ....567.9 ....5.7.. ......... <br>
 				&nbsp;Pattern[ 0]: ...4..... 1........ ......... ..3...... .....6... ........9 ....5.... ......7.. .........  <br>
 				&nbsp;Pattern[ 1]: ...4..... 1........ ......... ..3...... .....6... ........9 ......7.. ....5.... .........  <br>
 				&nbsp;Pattern[ 2]: ...4..... 1........ ......... ..3...... ......7.. .....6... ........9 ....5.... .........  <br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ...4..... 1........ ......... ..3...... ......... ......... ......... ......... ......... &nbsp;3 cells
+				&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ...4..... 1........ ......... ..3...... ......... ......... ......... ......... ......... &nbsp;3 cells
 				<hr>
 				</tt></div>
 			</p>
-			<a href="#ID_POM-AllPattern">&nbsp; POM all-Pattern Example <img src="images/imgTop/jumpTo.png" height="8"></a>
+			
 			<br><br>
 		</section>
 
@@ -662,12 +791,12 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#7 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#7]: 1....6... ......... ..3.56... ......... ......78. ......... 1....6... ..3.5.7.. 1.....78. <br>
+			&nbsp; &nbsp;Board[#7]: 1....6... ......... ..3.56... ......... ......78. ......... 1....6... ..3.5.7.. 1.....78. <br>
 			&nbsp;Pattern[ 0]: 1........ ......... ....5.... ......... ......7.. ......... .....6... ..3...... .......8.  <br>
 			&nbsp;Pattern[ 1]: 1........ ......... ....5.... ......... .......8. ......... .....6... ..3...... ......7..  <br>
 			&nbsp;Pattern[ 2]: .....6... ......... ..3...... ......... ......7.. ......... 1........ ....5.... .......8.  <br>
 			&nbsp;Pattern[ 3]: .....6... ......... ..3...... ......... .......8. ......... 1........ ....5.... ......7..  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... .....6... ......... ......... ......... ......... ......7.. 1........ &nbsp;3 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ......... .....6... ......... ......... ......... ......... ......7.. 1........ &nbsp;3 cells
 			<hr>
 			</tt></div>
 
@@ -685,10 +814,10 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#8 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#8]: ......... ......... ......... ..3..6.8. 1....6.8. .....6..9 ......... ..3.....9 1......8. <br>
+			&nbsp; &nbsp;Board[#8]: ......... ......... ......... ..3..6.8. 1....6.8. .....6..9 ......... ..3.....9 1......8. <br>
 			&nbsp;Pattern[ 0]: ......... ......... ......... ..3...... .......8. .....6... ......... ........9 1........  <br>
 			&nbsp;Pattern[ 1]: ......... ......... ......... .....6... 1........ ........9 ......... ..3...... .......8.  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... .......8. .....6... ......... ......... ......... ......... &nbsp;2 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ......... ......... .......8. .....6... ......... ......... ......... ......... &nbsp;2 cells
 			<hr>
 			</tt></div>
 
@@ -706,7 +835,7 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#9 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#9]: 1....6... ......... ..3.56... ..3.567.. 1...567.. .....67.9 ......... ......7.9 ......... <br>
+			&nbsp; &nbsp;Board[#9]: 1....6... ......... ..3.56... ..3.567.. 1...567.. .....67.9 ......... ......7.9 ......... <br>
 			&nbsp;Pattern[ 0]: 1........ ......... ....5.... ..3...... .....6... ......7.. ......... ........9 .........  <br>
 			&nbsp;Pattern[ 1]: 1........ ......... ....5.... ..3...... .....6... ........9 ......... ......7.. .........  <br>
 			&nbsp;Pattern[ 2]: 1........ ......... ....5.... ..3...... ......7.. .....6... ......... ........9 .........  <br>
@@ -714,7 +843,7 @@
 			&nbsp;Pattern[ 4]: 1........ ......... .....6... ..3...... ....5.... ........9 ......... ......7.. .........  <br>
 			&nbsp;Pattern[ 5]: .....6... ......... ..3...... ....5.... 1........ ......7.. ......... ........9 .........  <br>
 			&nbsp;Pattern[ 6]: .....6... ......... ..3...... ....5.... 1........ ........9 ......... ......7.. .........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... .....67.. ......... ......... ......... ......... ......... &nbsp;2 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ......... ......... .....67.. ......... ......... ......... ......... ......... &nbsp;2 cells
 			<hr>
 			</tt></div>
 
@@ -732,13 +861,13 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#1 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#1]: 1..4..7.. 1.3...78. ..3.5..89 ....5...9 ......... ...4...8. 1.....789 ..3....8. ......... <br>
+			&nbsp; &nbsp;Board[#1]: 1..4..7.. 1.3...78. ..3.5..89 ....5...9 ......... ...4...8. 1.....789 ..3....8. ......... <br>
 			&nbsp;Pattern[ 0]: 1........ ......7.. ....5.... ........9 ......... ...4..... .......8. ..3...... .........  <br>
 			&nbsp;Pattern[ 1]: 1........ .......8. ....5.... ........9 ......... ...4..... ......7.. ..3...... .........  <br>
 			&nbsp;Pattern[ 2]: ...4..... 1........ ........9 ....5.... ......... .......8. ......7.. ..3...... .........  <br>
 			&nbsp;Pattern[ 3]: ......7.. 1........ ....5.... ........9 ......... ...4..... .......8. ..3...... .........  <br>
 			&nbsp;Pattern[ 4]: ......7.. ..3...... ....5.... ........9 ......... ...4..... 1........ .......8. .........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ..3....8. ......... ......... ......... ........9 ......... ......... &nbsp;3 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ......... ..3....8. ......... ......... ......... ........9 ......... ......... &nbsp;3 cells
 			<hr>
 			</tt></div>
 
@@ -756,7 +885,7 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#5 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#5]: ...4..7.. ..3...78. .23.5..89 ....5...9 ......... ...4...8. .....6789 .23..6.8. .23...789 <br>
+			&nbsp; &nbsp;Board[#5]: ...4..7.. ..3...78. .23.5..89 ....5...9 ......... ...4...8. .....6789 .23..6.8. .23...789 <br>
 			&nbsp;Pattern[ 0]: ...4..... ..3...... ........9 ....5.... ......... .......8. .....6... .2....... ......7..  <br>
 			&nbsp;Pattern[ 1]: ...4..... ..3...... ........9 ....5.... ......... .......8. ......7.. .....6... .2.......  <br>
 			&nbsp;Pattern[ 2]: ...4..... ......7.. .2....... ....5.... ......... .......8. .....6... ..3...... ........9  <br>
@@ -766,7 +895,7 @@
 			&nbsp;Pattern[ 6]: ......7.. ..3...... ....5.... ........9 ......... ...4..... .....6... .2....... .......8.  <br>
 			&nbsp;Pattern[ 7]: ......7.. ..3...... ....5.... ........9 ......... ...4..... .....6... .......8. .2.......  <br>
 			&nbsp;Pattern[ 8]: ......7.. ..3...... ....5.... ........9 ......... ...4..... .......8. .....6... .2.......  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... .......8. .......8. ......... ......... ......... ......... ......... ......... &nbsp;2 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... .......8. .......8. ......... ......... ......... ......... ......... ......... &nbsp;2 cells
 			<hr>
 			</tt></div>
 
@@ -784,11 +913,11 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#7 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#7]: 1.....7.. ......... .2.....8. ......... ......... ......... 1....678. .2...6.8. .2....78. <br>
+			&nbsp; &nbsp;Board[#7]: 1.....7.. ......... .2.....8. ......... ......... ......... 1....678. .2...6.8. .2....78. <br>
 			&nbsp;Pattern[ 0]: 1........ ......... .......8. ......... ......... ......... .....6... .2....... ......7..  <br>
 			&nbsp;Pattern[ 1]: 1........ ......... .......8. ......... ......... ......... ......7.. .....6... .2.......  <br>
 			&nbsp;Pattern[ 2]: ......7.. ......... .2....... ......... ......... ......... 1........ .....6... .......8.  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... ......... ......... ......... .......8. .......8. ......... &nbsp;2 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ......... ......... ......... ......... ......... .......8. .......8. ......... &nbsp;2 cells
 			<hr>
 			</tt></div>
 
@@ -806,10 +935,10 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#1 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#1]: ....56... ......... ......... ......... ...4.67.. ....5...9 ...45...9 ....5.7.. ......... <br>
+			&nbsp; &nbsp;Board[#1]: ....56... ......... ......... ......... ...4.67.. ....5...9 ...45...9 ....5.7.. ......... <br>
 			&nbsp;Pattern[ 0]: ....5.... ......... ......... ......... .....6... ........9 ...4..... ......7.. .........  <br>
 			&nbsp;Pattern[ 1]: .....6... ......... ......... ......... ...4..... ........9 ....5.... ......7.. .........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... ......... ......7.. ....5.... ........9 ....5.... ......... &nbsp;4 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ......... ......... ......... ......7.. ....5.... ........9 ....5.... ......... &nbsp;4 cells
 			<hr>
 			</tt></div>
 
@@ -827,10 +956,10 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#8 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#8]: ......... ......... ...4.6... 12..5..8. .2...6... .2.4...8. ......... .2.4..... 12.45.... <br>
+			&nbsp; &nbsp;Board[#8]: ......... ......... ...4.6... 12..5..8. .2...6... .2.4...8. ......... .2.4..... 12.45.... <br>
 			&nbsp;Pattern[ 0]: ......... ......... ...4..... 1........ .....6... .......8. ......... .2....... ....5....  <br>
 			&nbsp;Pattern[ 1]: ......... ......... .....6... ....5.... .2....... .......8. ......... ...4..... 1........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... .2.....8. ......... .2.4..... ......... ......... .2.4..... &nbsp;6 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ......... ......... .2.....8. ......... .2.4..... ......... ......... .2.4..... &nbsp;6 cells
 			<hr>
 			</tt></div>
 
@@ -848,11 +977,11 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#9 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#9]: ......... 1.....7.. ..3.....9 ..34..... ......... 12.4..... ......... 12....7.. 1.....7.9 <br>
+			&nbsp; &nbsp;Board[#9]: ......... 1.....7.. ..3.....9 ..34..... ......... 12.4..... ......... 12....7.. 1.....7.9 <br>
 			&nbsp;Pattern[ 0]: ......... 1........ ........9 ..3...... ......... ...4..... ......... .2....... ......7..  <br>
 			&nbsp;Pattern[ 1]: ......... ......7.. ..3...... ...4..... ......... 1........ ......... .2....... ........9  <br>
 			&nbsp;Pattern[ 2]: ......... ......7.. ..3...... ...4..... ......... .2....... ......... 1........ ........9  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ......... ......... ......... ......... ......... ......... ......7.. 1........ &nbsp;2 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ......... ......... ......... ......... ......... ......... ......7.. 1........ &nbsp;2 cells
 			<hr>
 			</tt></div>
 
@@ -870,9 +999,9 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#3 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#3]: ....5..8. ......... ...4..7.9 ......... ......7.9 ......... ....5...9 ...45..8. ......... <br>
+			&nbsp; &nbsp;Board[#3]: ....5..8. ......... ...4..7.9 ......... ......7.9 ......... ....5...9 ...45..8. ......... <br>
 			&nbsp;Pattern[ 0]: .......8. ......... ...4..... ......... ......7.. ......... ........9 ....5.... .........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ....5.... ......... ......7.9 ......... ........9 ......... ....5.... ...4...8. ......... &nbsp;7 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ....5.... ......... ......7.9 ......... ........9 ......... ....5.... ...4...8. ......... &nbsp;7 cells
 			<hr>
 			</tt></div>
 		</p>
@@ -885,7 +1014,7 @@
 
 		<section>
 		<a id="ID_POI"></a>
-		<H4 id="head_bg_LightBlue" id="SE">&nbsp;POI Example</H4>
+		<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule-2 Interactions Example</H4>
 		<p>
 			<div><tt>
 			<p><p style="clear: both"/><p class="newLine"/>ID:00_592 POM_AllPattern<br>
@@ -912,9 +1041,9 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#3 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#3]: ....5..8. ......... ...4..7.9 ......... ......7.9 ......... ....5...9 ...45..8. ......... <br>
+			&nbsp; &nbsp;Board[#3]: ....5..8. ......... ...4..7.9 ......... ......7.9 ......... ....5...9 ...45..8. ......... <br>
 			&nbsp;Pattern[ 0]: .......8. ......... ...4..... ......... ......7.. ......... ........9 ....5.... .........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ....5.... ......... ......7.9 ......... ........9 ......... ....5.... ...4...8. ......... &nbsp;7 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ....5.... ......... ......7.9 ......... ........9 ......... ....5.... ...4...8. ......... &nbsp;7 cells
 			<hr>
 			</tt></div>
 
@@ -943,10 +1072,10 @@
 			Fixed: (r1c6 r3c9 r6c4 r7c2 r8c8)#5<br>
 			<br>
 			<p class="newLine"/><p style="clear: both"/>#5 Fixed<br>
-			&nbsp;&nbsp;&nbsp;Board[#5]: .....6.8. ......... ...4....9 ......... ......... ...4.6... .2......9 .2.....8. ......... <br>
+			&nbsp; &nbsp;Board[#5]: .....6.8. ......... ...4....9 ......... ......... ...4.6... .2......9 .2.....8. ......... <br>
 			&nbsp;Pattern[ 0]: .....6... ......... ........9 ......... ......... ...4..... .2....... .......8. .........  <br>
 			&nbsp;Pattern[ 1]: .......8. ......... ...4..... ......... ......... .....6... ........9 .2....... .........  Disabled by interaction<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: .....6... ......... ........9 ......... ......... ...4..... .2....... .......8. ......... &nbsp;5 cells
+			&nbsp; &nbsp; &nbsp; &nbsp;Fixed: .....6... ......... ........9 ......... ......... ...4..... .2....... .......8. ......... &nbsp;5 cells
 			<hr>
 			</tt></div>
 
@@ -971,13 +1100,13 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#3 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#3]: 1.3456... ......... 1..4.6... ......... ......... ....56... 1....6... 1.34.6... ......... <br>
+			&nbsp; &nbsp;Board[#3]: 1.3456... ......... 1..4.6... ......... ......... ....56... 1....6... 1.34.6... ......... <br>
 			&nbsp;Pattern[ 0]: 1........ ......... ...4..... ......... ......... ....5.... .....6... ..3...... .........  <br>
 			&nbsp;Pattern[ 1]: ..3...... ......... ...4..... ......... ......... ....5.... 1........ .....6... .........  <br>
 			&nbsp;Pattern[ 2]: ..3...... ......... ...4..... ......... ......... ....5.... .....6... 1........ .........  <br>
 			&nbsp;Pattern[ 3]: ..3...... ......... .....6... ......... ......... ....5.... 1........ ...4..... .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 4]: ...4..... ......... 1........ ......... ......... ....5.... .....6... ..3...... .........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ....56... ......... .....6... ......... ......... .....6... ......... ...4..... ......... &nbsp;5 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ....56... ......... .....6... ......... ......... .....6... ......... ...4..... ......... &nbsp;5 cells
 			<hr>
 			</tt></div>
 
@@ -1000,10 +1129,10 @@
 			Fixed: (r1c4 r3c8 r7c5 r9c9)#9<br>
 			<br>
 			<p class="newLine"/><p style="clear: both"/>#9 Fixed<br>
-			&nbsp;&nbsp;&nbsp;Board[#9]: ...4....9 ......... ...4...8. ......... ......... ......... ....5..8. ......... ....5...9 <br>
+			&nbsp; &nbsp;Board[#9]: ...4....9 ......... ...4...8. ......... ......... ......... ....5..8. ......... ....5...9 <br>
 			&nbsp;Pattern[ 0]: ...4..... ......... .......8. ......... ......... ......... ....5.... ......... ........9  <br>
 			&nbsp;Pattern[ 1]: ........9 ......... ...4..... ......... ......... ......... .......8. ......... ....5....  Disabled by interaction<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ...4..... ......... .......8. ......... ......... ......... ....5.... ......... ........9 &nbsp;4 cells
+			&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ...4..... ......... .......8. ......... ......... ......... ....5.... ......... ........9 &nbsp;4 cells
 			<hr>
 			</tt></div>
 
@@ -1026,12 +1155,12 @@
 			Fixed: r3c7#8<br>
 			<br>
 			<p class="newLine"/><p style="clear: both"/>#8 Fixed<br>
-			&nbsp;&nbsp;&nbsp;Board[#8]: ......... .23....89 1.....7.. ......... .2......9 ..3...7.9 ......... 1......89 12.....89 <br>
+			&nbsp; &nbsp;Board[#8]: ......... .23....89 1.....7.. ......... .2......9 ..3...7.9 ......... 1......89 12.....89 <br>
 			&nbsp;Pattern[ 0]: ......... .2....... ......7.. ......... ........9 ..3...... ......... 1........ .......8.  Disabled by interaction<br>
 			&nbsp;Pattern[ 1]: ......... .2....... ......7.. ......... ........9 ..3...... ......... .......8. 1........  <br>
 			&nbsp;Pattern[ 2]: ......... ..3...... ......7.. ......... .2....... ........9 ......... 1........ .......8.  <br>
 			&nbsp;Pattern[ 3]: ......... ..3...... ......7.. ......... .2....... ........9 ......... .......8. 1........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......7.. ......... ......... ......... ......... ......... ......... &nbsp;1 cells
+			&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ......... ......... ......7.. ......... ......... ......... ......... ......... ......... &nbsp;1 cells
 			<hr>
 			</tt></div>
 
@@ -1055,12 +1184,12 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#8 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#8]: ......... .23....89 1.....7.. ......... .2......9 ..3...7.9 ......... 1......89 12.....89 <br>
+			&nbsp; &nbsp;Board[#8]: ......... .23....89 1.....7.. ......... .2......9 ..3...7.9 ......... 1......89 12.....89 <br>
 			&nbsp;Pattern[ 0]: ......... .2....... ......7.. ......... ........9 ..3...... ......... 1........ .......8.  Disabled by interaction<br>
 			&nbsp;Pattern[ 1]: ......... .2....... ......7.. ......... ........9 ..3...... ......... .......8. 1........  <br>
 			&nbsp;Pattern[ 2]: ......... ..3...... ......7.. ......... .2....... ........9 ......... 1........ .......8.  <br>
 			&nbsp;Pattern[ 3]: ......... ..3...... ......7.. ......... .2....... ........9 ......... .......8. 1........  <br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... .......89 1........ ......... ......... ......7.. ......... ........9 .2......9 &nbsp;7 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... .......89 1........ ......... ......... ......7.. ......... ........9 .2......9 &nbsp;7 cells
 			<hr>
 			</tt></div>
 
@@ -1085,12 +1214,12 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#2 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#2]: ......... ......789 ......... ....5.7.9 ......... ....5..8. ......... .......89 ......... <br>
+			&nbsp; &nbsp;Board[#2]: ......... ......789 ......... ....5.7.9 ......... ....5..8. ......... .......89 ......... <br>
 			&nbsp;Pattern[ 0]: ......... ......7.. ......... ....5.... ......... .......8. ......... ........9 .........  <br>
 			&nbsp;Pattern[ 1]: ......... ......7.. ......... ........9 ......... ....5.... ......... .......8. .........  <br>
 			&nbsp;Pattern[ 2]: ......... .......8. ......... ......7.. ......... ....5.... ......... ........9 .........  <br>
 			&nbsp;Pattern[ 3]: ......... ........9 ......... ......7.. ......... ....5.... ......... .......8. .........  Disabled by interaction<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ........9 ......... ......... ......... ......... ......... ......... ......... &nbsp;1 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ........9 ......... ......... ......... ......... ......... ......... ......... &nbsp;1 cells
 			<hr>
 			</tt></div>
 
@@ -1124,8 +1253,9 @@
 			<br>
 			Fixed: (r2c6 r3c7 r4c9 r5c2 r6c5 r7c8 r8c4)#2<br>
 			<br>
-			<p class="newLine"/><p style="clear: both"/>#2 Fixed<br>
-			&nbsp;&nbsp;&nbsp;Board[#2]: ......... ....567.9 ...4..78. .2..5.7.9 .2.456..9 ....5..8. .....6.8. ...4.6.89 ......... <br>
+			<p class="newLine"/><p style="clear: both"/>
+			#2 Fixed<br>
+			&nbsp; &nbsp;Board[#2]: ......... ....567.9 ...4..78. .2..5.7.9 .2.456..9 ....5..8. .....6.8. ...4.6.89 ......... <br>
 			&nbsp;Pattern[ 0]: ......... ....5.... ......7.. .2....... ...4..... .......8. .....6... ........9 .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 1]: ......... .....6... ......7.. .2....... ........9 ....5.... .......8. ...4..... .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 2]: ......... .....6... ......7.. ........9 .2....... ....5.... .......8. ...4..... .........  <br>
@@ -1137,7 +1267,7 @@
 			&nbsp;Pattern[ 8]: ......... ......7.. ...4..... ........9 .2....... ....5.... .......8. .....6... .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 9]: ......... ........9 ...4..... ......7.. .2....... ....5.... .....6... .......8. .........  Disabled by interaction<br>
 			&nbsp;Pattern[10]: ......... ........9 ...4..... ......7.. .2....... ....5.... .......8. .....6... .........  Disabled by interaction<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... .....6... ......7.. ........9 .2....... ....5.... .......8. ...4..... ......... &nbsp;7 cells
+			&nbsp; &nbsp; &nbsp; &nbsp;Fixed: ......... .....6... ......7.. ........9 .2....... ....5.... .......8. ...4..... ......... &nbsp;7 cells
 			<hr>
 			</tt></div>
 
@@ -1173,7 +1303,7 @@
 			<br>
 			<p class="newLine"/><p style="clear: both"/><br>
 			#2 Exclude<br>
-			&nbsp;&nbsp;&nbsp;Board[#2]: ......... ....567.9 ...4..78. .2..5.7.9 .2.456..9 ....5..8. .....6.8. ...4.6.89 ......... <br>
+			&nbsp; &nbsp;Board[#2]: ......... ....567.9 ...4..78. .2..5.7.9 .2.456..9 ....5..8. .....6.8. ...4.6.89 ......... <br>
 			&nbsp;Pattern[ 0]: ......... ....5.... ......7.. .2....... ...4..... .......8. .....6... ........9 .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 1]: ......... .....6... ......7.. .2....... ........9 ....5.... .......8. ...4..... .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 2]: ......... .....6... ......7.. ........9 .2....... ....5.... .......8. ...4..... .........  <br>
@@ -1185,7 +1315,7 @@
 			&nbsp;Pattern[ 8]: ......... ......7.. ...4..... ........9 .2....... ....5.... .......8. .....6... .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 9]: ......... ........9 ...4..... ......7.. .2....... ....5.... .....6... .......8. .........  Disabled by interaction<br>
 			&nbsp;Pattern[10]: ......... ........9 ...4..... ......7.. .2....... ....5.... .......8. .....6... .........  Disabled by interaction<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ......... ....5.7.9 ...4...8. .2..5.7.. ...456..9 .......8. .....6... .....6.89 ......... &nbsp;17 cells
+			&nbsp; &nbsp; &nbsp;Exclude: ......... ....5.7.9 ...4...8. .2..5.7.. ...456..9 .......8. .....6... .....6.89 ......... &nbsp;17 cells
 			<hr>
 			</tt></div>
 
@@ -1224,18 +1354,869 @@
 			Fixed: (r1c2 r5c3 r7c1)#8<br>
 			<br>
 			<p class="newLine"/><p style="clear: both"/>#8 Fixed<br>
-			&nbsp;&nbsp;&nbsp;Board[#8]: .23...... ...4.6... ......... .2.4.6... 1.34.6... ......... 12....... ......... ......... <br>
+			&nbsp; &nbsp;Board[#8]: .23...... ...4.6... ......... .2.4.6... 1.34.6... ......... 12....... ......... ......... <br>
 			&nbsp;Pattern[ 0]: .2....... ...4..... ......... .....6... ..3...... ......... 1........ ......... .........  <br>
 			&nbsp;Pattern[ 1]: .2....... .....6... ......... ...4..... ..3...... ......... 1........ ......... .........  <br>
 			&nbsp;Pattern[ 2]: ..3...... ...4..... ......... .2....... .....6... ......... 1........ ......... .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 3]: ..3...... ...4..... ......... .....6... 1........ ......... .2....... ......... .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 4]: ..3...... .....6... ......... .2....... ...4..... ......... 1........ ......... .........  Disabled by interaction<br>
 			&nbsp;Pattern[ 5]: ..3...... .....6... ......... ...4..... 1........ ......... .2....... ......... .........  Disabled by interaction<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: .2....... ......... ......... ......... ..3...... ......... 1........ ......... ......... &nbsp;3 cells
+			&nbsp; &nbsp; &nbsp; &nbsp;Fixed: .2....... ......... ......... ......... ..3...... ......... 1........ ......... ......... &nbsp;3 cells
 			<hr>
 			</tt></div>
+</p>
+</section>
+
+
+
+
+
+		<section>
+		<a id="ID_POM_Contradiction"></a>
+		<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule-3 NiceLoop Contradiction</H4>
+<p>		
+	
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_1 XYChain<br>
+.46..3.8. 72....... .8.7..3.. ..42.7... ..9.58.2. .....6..1 ..14396.. 4.....139 .976.1.4. Puzzle<br>
+.46..3.8. 723...... .857..3.. .14297.63 639158.2. .7.346..1 .5143967. 46..7.139 3976.1.4. Current<br></p>
+<img src="images/img61/POM_Rule3_2.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c9 r5c7 #7.<br>
+ Exclude : r1c7 r5c9 #7<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #7<br>
+  pattern[0] ......7.. ......... ......... ......... ........9 ......... ......... ......... .........   -negative<br>
+  pattern[1] ........9 ......... ......... ......... ......7.. ......... ......... ......... .........   +positive<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #7 Pattern-0 is Contradiction <br>
+<br>
+ r1c7#7+ => [intra cell -> r1c7#2-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r9c7#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r9c5#2-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r9c5#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r8c4#8-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c4#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r1c4#5-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r1c4#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r1c1#9-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r1c1#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r1c5#1-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r1c5#2+]<br>
+<br>
+ r5c9#7+ => [inter cell -> r5c7#7-]<br>
+         => [intra cell -> r5c7#4+]<br>
+         => [ALS:r1c79 r2c78 r3c8 #124579->#124579 ->r1c5#2-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_2 Finned_XWing<br>
+.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+137..562. 56..3.1.. 24.6..3.. .721.9... .95.26.1. .145.32.9 951364782 783...546 426857931 Current<br></p>
+<img src="images/img61/POM_Rule3_3.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r2c4 r3c8 r5c9 r6c5 #7.<br>
+ Exclude : r2c89 r3c59 r5c4 r6c8 #7<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #7<br>
+  pattern[0] ......... ...4..... .......8. ......... ........9 ....5.... ......... ......... .........   +positive<br>
+  pattern[1] ......... ........9 ....5.... ......... ...4..... .......8. ......... ......... .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #7 Pattern-1 is Contradiction <br>
+<br>
+ r6c8#7+ => [inter cell -> r6c5#7-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r6c5#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r1c5#8-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r1c9#8+]<br>
+<br>
+ r2c9#7+ => [intra cell -> r2c9#4-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r1c9#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r1c9#8-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_19 Finned_XWing<br>
+3.5.8.... 8......9. 91.2.5783 ...497..2 2.4..1... ..9.6...8 .9.53481. ...1..4.. .......25 Puzzle<br>
+345789261 827613594 916245783 1..497.52 2.48519.. ..9362148 .9253481. ...12.4.9 4.197..25 Current<br></p>
+<img src="images/img61/POM_Rule3_4.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r6c1 r8c2 #5.<br>
+ Exclude : r6c2 r8c1 #5<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #5<br>
+  pattern[0] ......... ......... ......... ......... ......... 1........ ......... .2....... .........   +positive<br>
+  pattern[1] ......... ......... ......... ......... ......... .2....... ......... 1........ .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #5 Pattern-1 is Contradiction <br>
+<br>
+ r8c1#5+ => [intra cell -> r8c1#6-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c1#6+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c9#6-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r7c9#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r8c8#7-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c8#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r8c3#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c3#8+]<br>
+<br>
+ r8c1#5+ => [intra cell -> r8c1#6-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c1#6+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c9#6-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r9c7#6+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c7#6-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r4c7#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c3#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r4c3#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r8c3#8-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_22 Finned_SueDeCoqEx1<br>
+.5.7.9.23 ..21564.9 4.9.....1 24..97.1. ......... 3..68.9.4 .......4. ..423...6 6....81.. Puzzle<br>
+.5.749.23 .321564.9 4.9823..1 24..97.1. ....14... 3..6829.4 ...96..4. ..423...6 6..4781.. Current<br></p>
+<img src="images/img61/POM_Rule3_5.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c3 r3c8 r4c7 r5c2 #6.<br>
+ Exclude : r1c7 r3c27 r4c3 r5c378 #6<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #6<br>
+  pattern[0] ..3...... ......... .......8. ......7.. .2....... ......... ......... ......... .........   +positive<br>
+  pattern[1] ......7.. ......... .2....... ..3...... .......8. ......... ......... ......... .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #6 Pattern-1 is Contradiction <br>
+<br>
+ r5c8#6+ => [intra cell -> r5c8#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r9c8#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r9c3#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r9c3#5+]<br>
+<br>
+ r5c8#6+ => [intra cell -> r5c8#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r9c8#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r9c8#9-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r8c8#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r12c1 r3c2#1678 @ 2)AnLS:r178c1#15789 (RCC:#18)] =>r9c3#5-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_29 Finned_XWing<br>
+.9.3.6.72 ..21794.8 6.8.....9 56..24.9. ......... 8..95.7.6 .......8. ..526...7 9....86.. Puzzle<br>
+.9.386572 352179468 678542..9 567824.9. 2.96.78.. 84.95.726 7.649528. .8526.9.7 92.7.86.. Current<br></p>
+<img src="images/img61/POM_Rule3_6.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r3c7 r4c9 r5c5 r6c3 r7c2 r8c6 r9c8 #3.<br>
+ Exclude : r38c8 r4c7 r5c289 r6c6 r7c9 r9c359 #3<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #3<br>
+  pattern[0] ......... ......... ......7.. ........9 ....5.... ..3...... .2....... .....6... .......8.   +positive<br>
+  pattern[1] ......... ......... .......8. ......7.. ....5.... ..3...... .2....... .....6... ........9   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #3 Pattern-1 is Contradiction <br>
+<br>
+ r9c9#3+ => [intra cell -> r9c9#5-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r5c9#5+]<br>
+<br>
+ r9c9#3+ => [intra cell -> r9c9#4-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r5c9#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r5c9#5-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_55 XY_Wing<br>
+...7...61 .7...82.. .3462.8.. ..1.....8 9.5.1..7. ...4..916 61.54.7.2 ........9 3.2.6.1.. Puzzle<br>
+...7.4361 .76..82.. .3462.8.7 ..1...528 9.5.1.473 ..34..916 61.54.7.2 ..7...6.9 3.2.671.. Current<br></p>
+<img src="images/img61/POM_Rule3_7.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r4c6 r5c2 #6.<br>
+ Exclude : r4c2 r5c6 #6<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #6<br>
+  pattern[0] ......... ......... ......... .2....... .....6... ......... ......... ......... .........   -negative<br>
+  pattern[1] ......... ......... ......... .....6... .2....... ......... ......... ......... .........   +positive<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #6 Pattern-0 is Contradiction <br>
+<br>
+ r4c2#6+ => [intra cell -> r4c2#4-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c1#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [AIC:r123468c1 r123468c1#4- ->r8c1#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r8c5#8-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c5#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c6#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c8#3+]<br>
+<br>
+ r4c2#6+ => [intra cell -> r4c2#4-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c1#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [AIC:r123468c1 r123468c1#4- ->r8c1#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c3#8-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c8#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r7c8#3-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_56 Finned_XWing<br>
+...4...97 .4...73.. .9781.2.. ..9.....5 5.2.7..3. ...1..962 85.32.6.1 ........3 7.3.8.4.. Puzzle<br>
+.8.4...97 .4..973.. .9781.2.. .39...7.5 5.297..3. 4781..962 854329671 92.7....3 7.3.8.429 Current<br></p>
+<img src="images/img61/POM_Rule3_8.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c3 r2c8 r4c1 r5c7 r8c6 r9c2 #1.<br>
+ Exclude : r1c7 r2c1 r4c8 r5c2 r8c3 r9c6 #1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #1<br>
+  pattern[0] ..3...... .......8. ......... 1........ ......7.. ......... ......... .....6... .2.......   +positive<br>
+  pattern[1] ......7.. 1........ ......... .......8. .2....... ......... ......... ..3...... .....6...   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #1 Pattern-1 is Contradiction <br>
+<br>
+ r2c1#1+ => [intra cell -> r2c1#2-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r2c4#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c4#2-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r4c4#6+]<br>
+<br>
+ r4c8#1+ => [inter cell -> r4c1#1-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r4c1#6+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c4#6-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_59 Finned_SueDeCoqEx1<br>
+...2...76 .4...98.. .5746.9.. ..5.....8 6.1.3..9. ...5..231 71.94.6.5 ........9 9.2.8.1.. Puzzle<br>
+...25.476 .46..985. .5746.91. ..51.4768 6.183.594 4..5.6231 71.94.6.5 5.4...3.9 9.2.85147 Current<br></p>
+<img src="images/img61/POM_Rule3_9.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c1 r2c5 r8c6 #1.<br>
+ Exclude : r1c6 r2c1 r8c5 #1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #1<br>
+  pattern[0] 1........ ....5.... ......... ......... ......... ......... ......... .....6... .........   +positive<br>
+  pattern[1] .....6... 1........ ......... ......... ......... ......... ......... ....5.... .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #1 Pattern-1 is Contradiction <br>
+<br>
+ r2c1#1+ => [inter cell -> r2c5#1-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;> [intra cell -> r2c5#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;> [inter cell -> r2c4#7-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;> [intra cell -> r2c4#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;> [inter cell -> r9c4#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;> [inter cell -> r7c6#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;> [inter cell -> r7c3#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;> [intra cell -> r7c3#8+]<br>
+<br>
+ r2c1#1+ => [inter cell -> r2c5#1-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r2c5#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r6c5#7-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r6c5#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r6c3#9-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r6c3#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r7c3#8-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_61 XChain<br>
+3.....6.. 2..719..5 5..34.... ..49..3.7 ..3..45.. 7.51.3.9. .3..5.978 ......... .976..45. Puzzle<br>
+37.5..64. 246719835 5..34672. ..49.53.7 9.3.745.6 7.51.3294 63.45.978 45..97163 .9763.452 Current<br></p>
+<img src="images/img61/POM_Rule3_10.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c5 r4c2 r5c4 r7c6 r8c3 #2.<br>
+ Exclude : r1c6 r4c5 r5c2 r7c3 r8c4 #2<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #2<br>
+  pattern[0] ....5.... ......... ......... .2....... ...4..... ......... .....6... ..3...... .........   +positive<br>
+  pattern[1] .....6... ......... ......... ....5.... .2....... ......... ..3...... ...4..... .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #2 Pattern-1 is Contradiction <br>
+<br>
+ r4c5#2+ => [intra cell -> r4c5#6-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c2#6+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [AIC:r3456c2 r3456c2#6- ->r3c2#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;
+ r8c4#2+ => [inter cell -> r8c3#2-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c3#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r3c3#8-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r3c2#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r3c2#1-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_71 LockedSet(3D)<br>
+.1..295.. .596..4.2 72...13.6 ..4..2... 5.2.139.. ...954... .37...8.4 ......6.. .4.2....9 Puzzle<br>
+4163295.. 3596..412 728541396 ..4.62... 562.1394. ..395426. .3719.8.4 ...4..6.. .4.2....9 Current<br></p>
+<img src="images/img61/POM_Rule3_11.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule3 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r7c1 r8c8 #2.<br>
+ Exclude : r7c8 r8c1 #2<br>
+
+<p class="newLine"/><p style="clear: both"/>
+<br>
+POM Pattern #2<br>
+  pattern[0] ......... ......... ......... ......... ......... ......... 1........ .......8. .........   +positive<br>
+  pattern[1] ......... ......... ......... ......... ......... ......... .......8. 1........ .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #2 Pattern-1 is Contradiction <br>
+<br>
+ r8c1#2+ => [intra cell -> r8c1#9-]<br>
+         => [inter cell -> r4c1#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r4c24789 #135789->#135789 ->r4c7#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r9c7#1-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r8c9#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c9#5-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c9#5+]<br>
+<br>
+ r8c1#2+ => [intra cell -> r8c1#9-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c1#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r4c24789 #135789->#135789 ->r4c7#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r9c7#1-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r8c9#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c9#3-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [inter cell -> r4c9#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r4c9#5-]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+<br><br><br>
 		</p>
 		</section>
+
+
+
+
+
+
+
+
+
+
+
+		<section>
+		<a id="ID_POM_Contradiction_Plus"></a>
+		<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule-4 NiceLoop Contradiction +</H4>
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_3 POM_Rule4<br>
+.97..1.5. 86....... .1.7..8.. ..95.3... ..1.96.8. .....7..9 ..53249.. 1.....475 .481.5.6. Puzzle<br>
+.97681.54 86.45.... 51473.8.6 7895.36.. 4.1296.8. ..68.7..9 675324918 1..968475 948175.6. Current<br></p>
+<img src="images/img61/POM_Rule4_2.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c7 r2c3 r3c6 r4c8 r6c1 r8c2 r9c9 #2.<br>
+ Exclude : r1c1 r2c68 r3c8 r4c9 r6c2 r8c3 r9c7 #2<br>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #2<br>
+<br>
+  pattern[0] 1........ .....6... .......8. ........9 ......... .2....... ......... ..3...... ......7..   -negative<br>
+  pattern[1] 1........ .......8. .....6... ........9 ......... .2....... ......... ..3...... ......7..   -negative<br>
+  pattern[2] ......7.. ..3...... .....6... .......8. ......... 1........ ......... .2....... ........9   +positive<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #2 Pattern-0 is Contradiction <br>
+<br>
+ r1c1#2+ => [ALS:r6c1578 #12345->#12345 ->r6c7#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r46c8 r5c79 #23457->#23457 ->r4c8#2+]<br>
+<br>
+ r4c9#2+ => [ALS:r46c8 r5c79 #23457->#23457 ->r4c8#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r4c8#2-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #2 Pattern-1 is Contradiction <br>
+<br>
+ r1c1#2+ => [ALS:r6c1578 #12345->#12345 ->r6c7#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r46c8 r5c79 #23457->#23457 ->r4c8#2+]<br>
+<br>
+ r4c9#2+ => [ALS:r46c8 r5c79 #23457->#23457 ->r4c8#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r4c8#2-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_8 POM_Rule4<br>
+.49..7.8. 15....... .2.6..9.. ..18.5... ..7.32.1. .....6..4 ..47613.. 9.....627 .753.9.4. Puzzle<br>
+349..7.86 156...47. 7286..9.1 4.18.5.6. .67432.19 ..2..6..4 284761395 9135..627 675329148 Current<br></p>
+<img src="images/img61/POM_Rule4_3.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c7 r3c5 r5c1 r6c8 #5.<br>
+ Exclude : r1c5 r3c8 r5c7 r6c17 #5<br>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #5<br>
+<br>
+  pattern[0] ....5.... ......... .......8. ......... 1........ ......7.. ......... ......... .........   -negative<br>
+  pattern[1] ....5.... ......... .......8. ......... ......7.. 1........ ......... ......... .........   -negative<br>
+  pattern[2] ......7.. ......... ....5.... ......... 1........ .......8. ......... ......... .........   +positive<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #5 Pattern-0 is Contradiction <br>
+<br>
+ r3c8#5+ => [ALS:r6c2458 #13579->#13579 ->r6c5#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r2348c5 #45789->#45789 ->r3c5#5+]<br>
+<br>
+ r3c8#5+ => [ALS:r23c56 #34589->#34589 ->r3c5#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r3c5#5-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #5 Pattern-1 is Contradiction <br>
+<br>
+ r6c1#5+ => [ALS:r6c2458 #13579->#13579 ->r6c5#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r2348c5 #45789->#45789 ->r3c5#5+]<br>
+<br>
+ r3c8#5+ => [ALS:r23c56 #34589->#34589 ->r3c5#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r3c5#5-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_15 POM_Rule4<br>
+2.6.4.... 8......9. 43.8.1762 ...918..6 1.8..5... ..3.7...8 .4.68753. ...1..6.. .......79 Puzzle<br>
+2.6.49... 81....49. 439851762 724918356 1.8..5..7 ..3.7...8 942687531 ...19.6.4 ..15.4.79 Current<br></p>
+<img src="images/img61/POM_Rule4_4.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c9 r2c6 r5c4 r8c1 r9c5 #3.<br>
+ Exclude : r1c4 r2c49 r5c5 r8c6 r9c1 #3<br>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #3<br>
+<br>
+  pattern[0] ...4..... ........9 ......... ......... ....5.... ......... ......... .....6... 1........   -negative<br>
+  pattern[1] ........9 ...4..... ......... ......... ....5.... ......... ......... .....6... 1........   -negative<br>
+  pattern[2] ........9 .....6... ......... ......... ...4..... ......... ......... 1........ ....5....   +positive<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #3 Pattern-0 is Contradiction <br>
+<br>
+ r1c4#3+ => [ALS:r5c2478 #23469->#23469 ->r5c2#6+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r8c123 r9c2 #35678->#35678 ->r8c1#3+]<br>
+<br>
+ r8c6#3+ => [ALS:r8c1238 #23578->#23578 ->r8c1#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c1#3-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #3 Pattern-1 is Contradiction <br>
+<br>
+ r2c4#3+ => [ALS:r5c2478 #23469->#23469 ->r5c2#6+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r8c123 r9c2 #35678->#35678 ->r8c1#3+]<br>
+<br>
+ r8c6#3+ => [ALS:r8c1238 #23578->#23578 ->r8c1#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c1#3-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_22 POM_Rule4<br>
+.5.7.9.23 ..21564.9 4.9.....1 24..97.1. ......... 3..68.9.4 .......4. ..423...6 6....81.. Puzzle<br>
+.5.749.23 .321564.9 4.9823..1 24..97.18 ....14... 3..6829.4 ...96..4. ..423...6 6..4781.. Current<br></p>
+<img src="images/img61/POM_Rule4_5.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r5c7 r7c9 r9c2 #2.<br>
+ Exclude : r59c9 r7c27 #2<br>
+ <p style="clear: both"/><p class="newLine"/>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #2<br>
+<br>
+  pattern[0] ......... ......... ......... ......... ......7.. ......... .2....... ......... ........9   -negative<br>
+  pattern[1] ......... ......... ......... ......... ......7.. ......... ........9 ......... .2.......   +positive<br>
+  pattern[2] ......... ......... ......... ......... ........9 ......... ......7.. ......... .2.......   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #2 Pattern-0 is Contradiction <br>
+<br>
+ r9c9#2+ => [AIC:r9c2389 r9c2389#2- ->r9c2#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r7c79 r8c7 r9c89 #235789->#235789 ->r9c8#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r12c1#178 @ 2)AnLS:r78c1 r9c23#123579 (RCC:#17)] =>r9c2#2+]<br>
+<br>
+ r9c9#2+ => [AIC:r9c2389 r9c2389#2- ->r9c2#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r9c2#2-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #2 Pattern-2 is Contradiction <br>
+<br>
+ r7c7#2+ => [ALS:r79c9 r8c78 #25789->#25789 ->r7c9#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r8c278#1789 @ 2)AnLS:r7c123 r8c1 r9c3#1235789 (RCC:#19)] =>r7c2#2+]<br>
+<br>
+ r7c7#2+ => [ALS:r7c1269 #12578->#12578 ->r7c2#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r7c2#2-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_22 POM_Rule4<br>
+.5.7.9.23 ..21564.9 4.9.....1 24..97.1. ......... 3..68.9.4 .......4. ..423...6 6....81.. Puzzle<br>
+.5.749.23 .321564.9 4.9823..1 24..97.18 ....14... 3..6829.4 ...96..4. ..423...6 6..4781.. Current<br></p>
+<img src="images/img61/POM_Rule4_6.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r4c4 r5c8 r7c7 r9c3 #3.<br>
+ Exclude : r4c7 r5c47 r7c3 r9c8 #3<br>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #3<br>
+<br>
+  pattern[0] ......... ......... ......... ...4..... ......7.. ......... ..3...... ......... .......8.   -negative<br>
+  pattern[1] ......... ......... ......... ...4..... .......8. ......... ......7.. ......... ..3......   +positive<br>
+  pattern[2] ......... ......... ......... ......7.. ...4..... ......... ..3...... ......... .......8.   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #3 Pattern-0 is Contradiction <br>
+<br>
+ r7c3#3+ => [ALS:r7c79 r8c78 r9c9 #235789->#235789 ->r8c8#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r12c1#178 @ 2)AnLS:r78c1 r9c3#13579 (RCC:#17)] =>r9c3#3+]<br>
+<br>
+ r9c8#3+ => [AIC:r9c2389 r9c2389#3- ->r9c3#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r9c3#3-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #3 Pattern-2 is Contradiction <br>
+<br>
+ r7c3#3+ => [ALS:r7c79 r8c78 r9c9 #235789->#235789 ->r8c8#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r12c1#178 @ 2)AnLS:r78c1 r9c3#13579 (RCC:#17)] =>r9c3#3+]<br>
+<br>
+ r9c8#3+ => [AIC:r9c2389 r9c2389#3- ->r9c3#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r9c3#3-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_33 POM_Rule4<br>
+312....6. ..6..2..1 9..6..... 8..5..4.. 27143.8.. ..57..3.2 1.7.546.. 5.3.....4 ..4...2.. Puzzle<br>
+31294..68 756382941 9486...23 83952.4.. 27143.8.. 4657.83.2 1.7.54639 5.3.6.1.4 6.41.32.. Current<br></p>
+<img src="images/img61/POM_Rule4_7.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r7c4 r8c8 r9c2 #8.<br>
+ Exclude : r7c2 r8c24 r9c8 #8<br>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #8<br>
+<br>
+  pattern[0] ......... ......... ......... ......... ......... ......... .2....... ...4..... .......8.   -negative<br>
+  pattern[1] ......... ......... ......... ......... ......... ......... ...4..... .2....... .......8.   -negative<br>
+  pattern[2] ......... ......... ......... ......... ......... ......... ...4..... .......8. .2.......   +positive<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #8 Pattern-0 is Contradiction <br>
+<br>
+ r8c4#8+ => [ALS:r4568c8 #15789->#15789 ->r4c8#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r1458c6 #15679->#15679 ->r5c6#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r1348c6 #15679->#15679 ->r3c6#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [AIC:r3c567 r3c567#1- ->r3c5#7+]<br>
+<br>
+ r9c8#8+ => [AIC:r9c2589 r9c2589#8- ->r9c5#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [AIC:r369c5 r369c5#7- ->r3c5#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r3c5#7-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #8 Pattern-1 is Contradiction <br>
+<br>
+ r8c2#8+ => [ALS:r4568c8 #15789->#15789 ->r4c8#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r1458c6 #15679->#15679 ->r5c6#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r1348c6 #15679->#15679 ->r3c6#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [AIC:r3c567 r3c567#1- ->r3c5#7+]<br>
+<br>
+ r9c8#8+ => [AIC:r9c2589 r9c2589#8- ->r9c5#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [AIC:r369c5 r369c5#7- ->r3c5#1+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r3c5#7-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_36 POM_Rule4<br>
+513....7. ..6..2..3 7..5..... 3..6..2.. 86712.9.. ..23..7.4 2.5.681.. 6.1.....8 ..4...3.. Puzzle<br>
+513..6.72 496..2..3 7285..6.9 3496..281 867124935 152389764 235.681.7 671.....8 984...3.6 Current<br></p>
+<img src="images/img61/POM_Rule4_8.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c5 r3c8 r7c4 r8c7 #4.<br>
+ Exclude : r1c47 r3c5 r7c8 r8c458 #4<br>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #4<br>
+<br>
+  pattern[0] ....5.... ......... .......8. ......... ......... ......... ...4..... ......7.. .........   +positive<br>
+  pattern[1] ......7.. ......... ....5.... ......... ......... ......... ...4..... .......8. .........   -negative<br>
+  pattern[2] ......7.. ......... ....5.... ......... ......... ......... .......8. ...4..... .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #4 Pattern-1 is Contradiction <br>
+<br>
+ r1c7#4+ => [AIC:r128c7 r128c7#4- ->r8c7#5+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r79c4 r8c456 #234579->#234579 ->r9c4#7+]<br>
+<br>
+ r1c7#4+ => [ALS:r12c45 #14789->#14789 ->r2c4#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r1789c4 #24789->#24789 ->r9c4#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r9c4#7-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #4 Pattern-2 is Contradiction <br>
+<br>
+ r1c7#4+ => [ALS:r12c45 r3c6 #134789->#134789 ->r3c6#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r8c6 r9c456 #12357->#12357 ->r8c6#5+]<br>
+<br>
+ r7c8#4+ => [ALS:r2389c8 #12459->#12459 ->r9c8#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r8c6 r9c456 #12357->#12357 ->r8c6#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r8c6#5-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_42 POM_Rule4<br>
+....49.3. 13.67..45 4...18.2. .......84 7.2...3.6 814...... 3........ ..1.25... 54.19..62 Puzzle<br>
+2.6549.3. 13.672.45 4.531862. ..3.5..84 752.8.3.6 814.36... 32..6.... ..1.25..3 54.193.62 Current<br></p>
+<img src="images/img61/POM_Rule4_9.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c7 r4c6 r5c8 r7c9 #1.<br>
+ Exclude : r1c9 r4c7 r5c6 r7c78 #1<br>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #1<br>
+<br>
+  pattern[0] ......7.. ......... ......... .....6... .......8. ......... ........9 ......... .........   +positive<br>
+  pattern[1] ........9 ......... ......... .....6... .......8. ......... ......7.. ......... .........   -negative<br>
+  pattern[2] ........9 ......... ......... ......7.. .....6... ......... .......8. ......... .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #1 Pattern-1 is Contradiction <br>
+<br>
+ r1c9#1+ => [ALS:r7c3469 #14789->#14789 ->r7c3#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r7c469#1478 @ 2)AnLS:r8c124#46789 (RCC:#47)] =>r7c9#1+]<br>
+<br>
+ r7c7#1+ => [ALS:r7c3469 #14789->#14789 ->r7c9#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r7c9#1-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #1 Pattern-2 is Contradiction <br>
+<br>
+ r7c8#1+ => [ALS:r7c3469 #14789->#14789 ->r7c3#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r7c469#1478 @ 2)AnLS:r8c124#46789 (RCC:#47)] =>r7c9#1+]<br>
+<br>
+ r7c8#1+ => [ALS:r7c3469 #14789->#14789 ->r7c9#8+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r7c9#1-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_46 POM_Rule4<br>
+....68.9. 31.95..64 9...41.5. .......47 4.6...5.2 735...... 6........ ..3.19... 52.83..71 Puzzle<br>
+254768193 318952764 967341258 1.2....47 4.61..5.2 735....1. 641...... 873.19.2. 52983..71 Current<br></p>
+<img src="images/img61/POM_Rule4_10.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r4c2 r5c8 r6c5 r7c7 #8.<br>
+ Exclude : r4c5 r5c25 r6c7 r7c8 #8<br>
+ <p style="clear: both"/><p class="newLine"/>
+<br>
+POM Pattern #8<br>
+<br>
+  pattern[0] ......... ......... ......... .2....... ....5.... ......7.. .......8. ......... .........   -negative<br>
+  pattern[1] ......... ......... ......... .2....... .......8. ....5.... ......7.. ......... .........   +positive<br>
+  pattern[2] ......... ......... ......... ....5.... .2....... ......7.. .......8. ......... .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #8 Pattern-0 is Contradiction <br>
+<br>
+ r6c7#8+ => [ALS:r4c4 r6c456 #24568->#24568 ->r6c5#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r7c56789 #235789->#235789 ->r7c9#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r6c4569 #24689->#24689 ->r6c5#8+]<br>
+<br>
+ r6c7#8+ => [ALS:r4c4 r6c456 #24568->#24568 ->r6c5#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r6c5#8-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #8 Pattern-2 is Contradiction <br>
+<br>
+ r6c7#8+ => [ALS:r4c4 r6c456 #24568->#24568 ->r6c5#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r7c56789 #235789->#235789 ->r7c9#9+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r6c4569 #24689->#24689 ->r6c5#8+]<br>
+<br>
+ r6c7#8+ => [ALS:r4c4 r6c456 #24568->#24568 ->r6c5#2+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r6c5#8-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_47 POM_Rule4<br>
+....69.4. 56.84..31 9...53.6. .......94 3.6...1.5 194...... 2........ ..1.86... 65.31..87 Puzzle<br>
+.13.6954. 56.84.931 94.15376. ..56.1.94 3.6...1.5 1945..... 2....5.1. 4.1.86.5. 65931..87 Current<br></p>
+<img src="images/img61/POM_Rule4_11.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule4 (Lv.9)"><br>
+
+<p>
+POM NiceLoop Contradiction<br>
+<br>
+  Fixed : r1c1 r3c9 r4c7 r5c2 r6c6 r7c3 #8.<br>
+ Exclude : r1c9 r3c3 r4c12 r5c6 r6c7 r7c2 #8<br>
+<br>
+POM Pattern #8<br>
+<p style="clear: both"/><p class="newLine"/>
+<br>
+  pattern[0] 1........ ......... ........9 .2....... .....6... ......7.. ..3...... ......... .........   -negative<br>
+  pattern[1] 1........ ......... ........9 ......7.. .2....... .....6... ..3...... ......... .........   +positive<br>
+  pattern[2] ........9 ......... ..3...... 1........ .....6... ......7.. .2....... ......... .........   -negative<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #8 Pattern-0 is Contradiction <br>
+<br>
+ r4c2#8+ => [ALS:r4789c7 #23468->#23468 ->r7c7#6+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r46c5 r5c45#23479 @ 2)AnLS:r7c2459#346789 (RCC:#47)] =>r7c2#8+]<br>
+<br>
+ r4c2#8+ => [ALS:r5c2458 #24789->#24789 ->r5c4#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [ALS:r7c2345 #34789->#34789 ->r7c2#3+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r7c2#8-]<br>
+<br>
+--------------------------------------------------------------------------------<br>
+ #8 Pattern-2 is Contradiction <br>
+<br>
+ r7c2#8+ => [ALS:r5c2458 #24789->#24789 ->r5c4#4+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> ALSXZ[1)ALS:r68c9#369 @ 2)AnLS:r7c3459#346789 (RCC:#36)] =>r7c3#8+]<br>
+<br>
+ r7c2#8+ => [ALS:r7c34579 #346789->#346789 ->r7c3#7+]<br>
+&nbsp; &nbsp; &nbsp; &nbsp;=> [intra cell -> r7c3#8-]<br>
+</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
 		<br><br><br>
 	</article>
 

@@ -1,8 +1,13 @@
+# GNPX V6.5
+Implemented an algorithm combining POM and NiceLoop.
+Cleaned up the code for the extended NetWork and NiceLoop.
+There are many discrepancies between the website and the program results.
+
 # GNPX V6.4 -> V7.0
 In GNPX V7.0, the code will be completely rewritten.
 
 # Sudoku_Solver_Generator_V6.3
-GNPX v6.3 targets POM,POI
+GNPX v6.3 targets POM, POI
 
 # Sudoku_Solver_Generator_v6.2 
 GNPX v6.2 targets MSLS (Multi Sector Locked Sets).
