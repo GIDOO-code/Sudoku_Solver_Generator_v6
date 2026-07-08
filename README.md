@@ -25,7 +25,7 @@ GNPX v6.2 targets MSLS (Multi Sector Locked Sets).
    GNPX v6 is a development and deployment version of new algorithms. Smartness is secondary.<br>
    There is no continuity with the traditional code in the analysis algorithm part of GNPX.<br>
 
-## 2. The Sudoku analysis algorithm ware studied.<br>
+## 2. Improvements and additions to the Sudoku analysis algorithm.<br>
    i will explain using an image diagram to explain the logic.(Too specific, it will be difficult to understand the essence)t<br>
   (1) "Locked" in Sudoku analysis<br>
   (2) Extension of ALS (AnLS), extension of algorithm<br>
@@ -40,6 +40,7 @@ GNPX v6.2 targets MSLS (Multi Sector Locked Sets).
   (11) Exocet(Junior/Senior/FM) ... Franken/Mutant Exocet is currently under development.<br>
   (12) Multi-Sector Locked Set(MSLS), SK Loop <br>
   (13) Pattern Overlay Method(POM) <br>
+  
 ## 3. GNPX v6 GNPX<br>
   (1) Classify and organize the processing contents using pages in the UI.<br>
   (2) Improve many analysis algorithms. All algorithms are expressed in bits (Bit81 changed to UInt128).<br>
