@@ -425,6 +425,63 @@ Pattern Overlay Method _ No Pattern Exclusion<br>
 
 
 		<section>
+			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - Interactions Level-2</H4>
+			<p>
+				An algorithm based on the <b>interaction of candidate digit</b> 
+				can be naturally extended to an algorithm for the <b>interaction of two candidate digits</b>.
+
+				<ul> Interaction Level 2 Algorithm
+					<li>Assume that <b>Pattern X1 for candidate digit #m</b> and <b>Pattern X2 for candidate digit #n</b> are true.</li>
+					<li>If the hypothetical cells and digits occup the position, other candidate digits are eliminated.</li>
+					<li>Perform POM analysis in this state.</li>
+					<li>It may not be possible to determine the pattern for candidate digit #x (where #x is not #m or #n). This result is unacceptable.</li>
+					<li>Summarize the POM analysis results for all pattern combinations as shown in the following figure.</li>
+					<li>If a pattern cannot be found for all cells in a column,
+						the pattern for that column is ruled out and excluded from the pattern list. The same applies to rows.</li>
+					<li>Once the result patterns of the interaction analysis are narrowed down,
+						it becomes possible to determine whether the outcome is "All-pattern" or "No-pattern."</li>
+				</ul>
+				
+				<img src="images/img61/image61_POM_Intraction_Lv2.svg" alt="POM_interaction_Lv2" style="margin-left: 20px;" width="70%"><br><br>
+
+				POM - Interaction Level-2 is an algorithm that offers high analytical power at a relatively low cost.<br><br><br>
+				<hr>
+div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_1 XYChain<br>
+.46..3.8. 72....... .8.7..3.. ..42.7... ..9.58.2. .....6..1 ..14396.. 4.....139 .976.1.4. Puzzle<br>
+.46..3.8. 723...... .857..3.. ..42.7... ..9.58.2. .....6..1 .514396.. 4.....139 .976.1.4. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_1.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+    #1 pat. 0 <--> #..3......<br>
+    #1 pat. 2 <--> #.....6...<br>
+    #1 pat. 3 <--> #..3......<br>
+    #1 pat. 4 <--> #.2.......<br>
+<br>
+Pattern Overlay Interaction Lv2 _ All Pattern Fixed<br>
+<br>
+ Fixed: (r1c1 r2c5 r3c8 r4c2 r5c4)#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>#1 Fixed<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: 1..45.... ...45..8. 1...5..8. 12..5.... 12.4..... ......... ......... ......... ......... <br>
+&nbsp;Pattern[ 0]: 1........ ...4..... .......8. ....5.... .2....... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 1]: 1........ ....5.... .......8. .2....... ...4..... ......... ......... ......... .........  <br>
+&nbsp;Pattern[ 2]: 1........ .......8. ....5.... .2....... ...4..... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 3]: ...4..... .......8. 1........ ....5.... .2....... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 4]: ....5.... .......8. 1........ .2....... ...4..... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: 1........ ....5.... .......8. .2....... ...4..... ......... ......... ......... ......... &nbsp;5 cells<br>
+<br><hr>
+</tt></div>
+<a href="#ID_Interaction_Lv2">&nbsp; POM Interaction Lv2 Example <img src="images/imgTop/jumpTo.png" height="8"></a>
+<br>
+<br>
+		</section>
+
+
+
+		<section>
 			<H4 id="head_bg_LightBlue" id="SE">&nbsp;Pattern Overlay Method Rule3 - POM NiceLoop</H4>
 			<p>
 				This is an algorithm that detects inconsistencies by <b>combining ROM analysis and Nice-Loop</b>.<br>
@@ -1368,6 +1425,908 @@ POM Pattern #8<br>
 </section>
 
 
+<section>
+<a id="ID_Interaction_Lv2"></a>
+<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule-2 Interaction_Lv2</H4>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_1 XYChain<br>
+.46..3.8. 72....... .8.7..3.. ..42.7... ..9.58.2. .....6..1 ..14396.. 4.....139 .976.1.4. Puzzle<br>
+.46..3.8. 723...... .857..3.. ..42.7... ..9.58.2. .....6..1 .514396.. 4.....139 .976.1.4. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_1.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+    #1 pat. 0 <--> #..3......<br>
+    #1 pat. 2 <--> #.....6...<br>
+    #1 pat. 3 <--> #..3......<br>
+    #1 pat. 4 <--> #.2.......<br>
+<br>
+Pattern Overlay Interaction Lv2 _ All Pattern Fixed<br>
+<br>
+ Fixed: (r1c1 r2c5 r3c8 r4c2 r5c4)#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>#1 Fixed<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: 1..45.... ...45..8. 1...5..8. 12..5.... 12.4..... ......... ......... ......... ......... <br>
+&nbsp;Pattern[ 0]: 1........ ...4..... .......8. ....5.... .2....... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 1]: 1........ ....5.... .......8. .2....... ...4..... ......... ......... ......... .........  <br>
+&nbsp;Pattern[ 2]: 1........ .......8. ....5.... .2....... ...4..... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 3]: ...4..... .......8. 1........ ....5.... .2....... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 4]: ....5.... .......8. 1........ .2....... ...4..... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: 1........ ....5.... .......8. .2....... ...4..... ......... ......... ......... ......... &nbsp;5 cells<br>
+<br>
+<br>
+  POM Patterns<br>
+  Iinteraction LV2&nbsp;effect.<br>
+    #1 pat. 0 <--> #..3......<br>
+    #1 pat. 2 <--> #.....6...<br>
+    #1 pat. 3 <--> #..3......<br>
+    #1 pat. 4 <--> #.2.......<br>
+    #2 pat. 1 <--> #......7..<br>
+    #2 pat. 3 <--> #......7..<br>
+    #2 pat. 6 <--> #......7..<br>
+    #3 pat. 0 <--> #......7..<br>
+    #3 pat. 2 <--> #......7..<br>
+    #5 pat. 0 <--> #.2.......<br>
+    #5 pat. 1 <--> #.2.......<br>
+    #5 pat. 2 <--> #.2.......<br>
+    #5 pat. 3 <--> #.2.......<br>
+    #5 pat. 4 <--> #..3......<br>
+    #5 pat. 5 <--> #.2.......<br>
+    #5 pat. 6 <--> #.2.......<br>
+    #5 pat. 7 <--> #..3......<br>
+    #5 pat. 8 <--> #..3......<br>
+    #5 pat.10 <--> #.......8.<br>
+    #5 pat.11 <--> #.2.......<br>
+    #5 pat.12 <--> #.2.......<br>
+    #5 pat.13 <--> #.2.......<br>
+    #5 pat.14 <--> #.2.......<br>
+    #6 pat. 0 <--> #......7..<br>
+    #6 pat. 1 <--> #..3......<br>
+    #6 pat. 2 <--> #.2.......<br>
+    #6 pat. 3 <--> #......7..<br>
+    #6 pat. 4 <--> #..3......<br>
+    #7 pat. 0 <--> #..3......<br>
+    #7 pat. 1 <--> #.2.......<br>
+    #7 pat. 2 <--> #..3......<br>
+    #8 pat. 0 <--> #........9<br>
+    #8 pat. 5 <--> #.2.......<br>
+    #8 pat. 7 <--> #..3......<br>
+    #9 pat. 0 <--> #.2.......<br>
+    #9 pat. 2 <--> #..3......<br>
+    #9 pat. 3 <--> #..3......<br>
+    #9 pat. 5 <--> #......7..<br>
+    #9 pat. 9 <--> #..3......<br>
+    #9 pat.10 <--> #..3......<br>
+    #9 pat.11 <--> #.2.......<br>
+    #9 pat.13 <--> #..3......<br>
+<br>
+<br>
+ ----------------------------------------------------------------------------------------------------<br>
+<br>
+  #1<br>
+      BOARD: 1..45.... ...45..8. 1...5..8. 12..5.... 12.4..... ......... ......... ......... ......... &nbsp;15 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ ...4..... .......8. ....5.... .2....... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: 1........ ....5.... .......8. .2....... ...4..... ......... ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 2: 1........ .......8. ....5.... .2....... ...4..... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ...4..... .......8. 1........ ....5.... .2....... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ....5.... .......8. 1........ .2....... ...4..... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+<br>
+  #2<br>
+      BOARD: ....5.7.9 ......... ....56..9 ......... ......... 1.3...... 1.......9 ..3.56... 1...5.7.9 &nbsp;17 cells<br>
+&nbsp;Pattern&nbsp; 0: ....5.... ......... ........9 ......... ......... ..3...... 1........ .....6... ......7..  <br>
+&nbsp;Pattern&nbsp; 1: ......7.. ......... ....5.... ......... ......... ..3...... 1........ .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ......7.. ......... ....5.... ......... ......... ..3...... ........9 .....6... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ......7.. ......... .....6... ......... ......... 1........ ........9 ..3...... ....5....  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ......7.. ......... .....6... ......... ......... ..3...... 1........ ....5.... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......7.. ......... .....6... ......... ......... ..3...... ........9 ....5.... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 6: ........9 ......... ....5.... ......... ......... ..3...... 1........ .....6... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 7: ........9 ......... .....6... ......... ......... ..3...... 1........ ....5.... ......7..  Disabled by interaction<br>
+<br>
+  #3<br>
+      BOARD: ......... ......... ......... 12......9 12.4....9 12.4..... ......... ......... 1........ &nbsp;11 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ......... ......... .2....... ........9 ...4..... ......... ......... 1........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ......... ......... ......... ........9 .2....... ...4..... ......... ......... 1........  <br>
+&nbsp;Pattern&nbsp; 2: ......... ......... ......... ........9 ...4..... .2....... ......... ......... 1........  Disabled by interaction Lv2<br>
+<br>
+  #4<br>
+      BOARD: ......... ....567.9 ....56..9 ......... ......7.9 ....5.7.. ......... ......... ......... &nbsp;11 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... .....6... ........9 ......... ......7.. ....5.... ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......... ......7.. .....6... ......... ........9 ....5.... ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 2: ......... ........9 .....6... ......... ......7.. ....5.... ......... ......... .........  <br>
+<br>
+  #5<br>
+      BOARD: ...4..7.9 ...4.6789 ......... 1.....789 ......... 1.....78. ......... ...4.6... ......7.9 &nbsp;19 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......7.. ......... 1........ ......... .......8. ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ...4..... ......7.. ......... .......8. ......... 1........ ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ...4..... .......8. ......... 1........ ......... ......7.. ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ...4..... .......8. ......... ......7.. ......... 1........ ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ...4..... .......8. ......... ........9 ......... 1........ ......... .....6... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 5: ...4..... ........9 ......... 1........ ......... .......8. ......... .....6... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: ...4..... ........9 ......... .......8. ......... 1........ ......... .....6... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 7: ......7.. ...4..... ......... 1........ ......... .......8. ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 8: ......7.. ...4..... ......... .......8. ......... 1........ ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 9: ......7.. .....6... ......... 1........ ......... .......8. ......... ...4..... ........9  <br>
+&nbsp;Pattern&nbsp;10: ......7.. .....6... ......... .......8. ......... 1........ ......... ...4..... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;11: ........9 ...4..... ......... 1........ ......... .......8. ......... .....6... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;12: ........9 ...4..... ......... .......8. ......... 1........ ......... .....6... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;13: ........9 .....6... ......... 1........ ......... .......8. ......... ...4..... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;14: ........9 .....6... ......... .......8. ......... 1........ ......... ...4..... ......7..  Disabled by interaction Lv2<br>
+<br>
+  #6<br>
+      BOARD: ......... ....5..89 ....5..89 12.....89 12......9 ......... ......... .2....... ......... &nbsp;14 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ....5.... .......8. 1........ ........9 ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ......... ....5.... .......8. ........9 1........ ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ......... ....5.... ........9 .......8. 1........ ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ......... .......8. ....5.... 1........ ........9 ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ......... .......8. ....5.... ........9 1........ ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 5: ......... ........9 ....5.... .......8. 1........ ......... ......... .2....... .........  <br>
+<br>
+  #7<br>
+      BOARD: ......7.9 ......... ......... ......... .2....7.9 .2....78. .......89 ....5.... ......... &nbsp;11 cells<br>
+&nbsp;Pattern&nbsp; 0: ......7.. ......... ......... ......... .2....... .......8. ........9 ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ......7.. ......... ......... ......... ........9 .2....... .......8. ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ........9 ......... ......... ......... .2....... ......7.. .......8. ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ........9 ......... ......... ......... ......7.. .2....... .......8. ....5.... .........  <br>
+<br>
+  #8<br>
+      BOARD: ......... ...45.... ......... 1.....7.9 ......... 1.3...7.. 1.......9 ..345.... 1...5.7.9 &nbsp;17 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ...4..... ......... 1........ ......... ......7.. ........9 ..3...... ....5....  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ......... ...4..... ......... ......7.. ......... 1........ ........9 ..3...... ....5....  <br>
+&nbsp;Pattern&nbsp; 2: ......... ...4..... ......... ......7.. ......... ..3...... 1........ ....5.... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ......... ...4..... ......... ......7.. ......... ..3...... ........9 ....5.... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......... ...4..... ......... ........9 ......... ..3...... 1........ ....5.... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......... ....5.... ......... ......7.. ......... ..3...... 1........ ...4..... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: ......... ....5.... ......... ......7.. ......... ..3...... ........9 ...4..... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ......... ....5.... ......... ........9 ......... ..3...... 1........ ...4..... ......7..  Disabled by interaction Lv2<br>
+<br>
+  #9<br>
+      BOARD: 1..45.7.. ...45.78. 1...5..8. ....5.78. ......... ...45.78. ......... ......... ......... &nbsp;18 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ ...4..... .......8. ....5.... ......... ......7.. ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: 1........ ...4..... .......8. ......7.. ......... ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: 1........ ....5.... .......8. ......7.. ......... ...4..... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: 1........ ......7.. ....5.... .......8. ......... ...4..... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: 1........ .......8. ....5.... ......7.. ......... ...4..... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ...4..... ......7.. 1........ ....5.... ......... .......8. ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: ...4..... ......7.. 1........ .......8. ......... ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ...4..... .......8. 1........ ....5.... ......... ......7.. ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 8: ...4..... .......8. 1........ ......7.. ......... ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 9: ....5.... ......7.. 1........ .......8. ......... ...4..... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;10: ....5.... .......8. 1........ ......7.. ......... ...4..... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;11: ......7.. ...4..... 1........ ....5.... ......... .......8. ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;12: ......7.. ...4..... 1........ .......8. ......... ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;13: ......7.. ....5.... 1........ .......8. ......... ...4..... ......... ......... .........  Disabled by interaction Lv2</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_1 XYChain<br>
+.46..3.8. 72....... .8.7..3.. ..42.7... ..9.58.2. .....6..1 ..14396.. 4.....139 .976.1.4. Puzzle<br>
+.46..3.8. 723...... .857..3.. ..42.7... ..9.58.2. .....6..1 .514396.. 4.....139 .976.1.4. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_2.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+    #1 pat. 0 <--> #..3......<br>
+    #1 pat. 2 <--> #.....6...<br>
+    #1 pat. 3 <--> #..3......<br>
+    #1 pat. 4 <--> #.2.......<br>
+<br>
+Pattern Overlay Interaction Lv2 _ No Pattern Exclusion<br>
+<br>
+ Exclued: (r1c45 r2c48 r34c15 r5c12)#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/><br>
+#1 Exclude<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: 1..45.... ...45..8. 1...5..8. 12..5.... 12.4..... ......... ......... ......... ......... <br>
+&nbsp;Pattern[ 0]: 1........ ...4..... .......8. ....5.... .2....... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 1]: 1........ ....5.... .......8. .2....... ...4..... ......... ......... ......... .........  <br>
+&nbsp;Pattern[ 2]: 1........ .......8. ....5.... .2....... ...4..... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 3]: ...4..... .......8. 1........ ....5.... .2....... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 4]: ....5.... .......8. 1........ .2....... ...4..... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ...45.... ...4...8. 1...5.... 1...5.... 12....... ......... ......... ......... ......... &nbsp;10 cells<br>
+<br>
+
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_2 Finned_XWing<br>
+.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 951364782 78....546 .268.7931 Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_3.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+<br>
+Pattern Overlay Interaction Lv2 _ All Pattern Fixed<br>
+<br>
+ Fixed: (r1c1 r2c7 r6c2)#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>#1 Fixed<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: 1...5.7.. ....567.. 1...56... ......... ......... 12....... ......... ....56... ......... <br>
+&nbsp;Pattern[ 0]: 1........ ......7.. ....5.... ......... ......... .2....... ......... .....6... .........  <br>
+&nbsp;Pattern[ 1]: 1........ ......7.. .....6... ......... ......... .2....... ......... ....5.... .........  <br>
+&nbsp;Pattern[ 2]: ....5.... ......7.. 1........ ......... ......... .2....... ......... .....6... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 3]: ......7.. ....5.... 1........ ......... ......... .2....... ......... .....6... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 4]: ......7.. .....6... 1........ ......... ......... .2....... ......... ....5.... .........  Disabled by interaction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: 1........ ......7.. ......... ......... ......... .2....... ......... ......... ......... &nbsp;3 cells<br>
+<br>
+<br>
+  POM Patterns<br>
+  Iinteraction LV2&nbsp;effect.<br>
+    #4 pat. 0 <--> #1........<br>
+    #4 pat. 1 <--> #......7..<br>
+    #4 pat. 2 <--> #1........<br>
+    #4 pat. 6 <--> #.....6...<br>
+    #7 pat.14 <--> #...4.....<br>
+    #8 pat.10 <--> #....5....<br>
+    #8 pat.13 <--> #......7..<br>
+    #8 pat.15 <--> #....5....<br>
+    #8 pat.17 <--> #......7..<br>
+    #8 pat.18 <--> #......7..<br>
+    #9 pat. 0 <--> #.......8.<br>
+    #9 pat. 2 <--> #...4.....<br>
+    #9 pat. 3 <--> #...4.....<br>
+<br>
+<br>
+ ----------------------------------------------------------------------------------------------------<br>
+<br>
+  #1<br>
+      BOARD: 1...5.7.. ....567.. 1...56... ......... ......... 12....... ......... ....56... ......... &nbsp;13 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ ......7.. ....5.... ......... ......... .2....... ......... .....6... .........  <br>
+&nbsp;Pattern&nbsp; 1: 1........ ......7.. .....6... ......... ......... .2....... ......... ....5.... .........  <br>
+&nbsp;Pattern&nbsp; 2: ....5.... ......7.. 1........ ......... ......... .2....... ......... .....6... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ......7.. ....5.... 1........ ......... ......... .2....... ......... .....6... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......7.. .....6... 1........ ......... ......... .2....... ......... ....5.... .........  Disabled by interaction<br>
+<br>
+  #2<br>
+      BOARD: ......... ...4.6... 1....6... ......... ......... ......7.. ......... ...4.6... ......... &nbsp;7 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ...4..... 1........ ......... ......... ......7.. ......... .....6... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......... .....6... 1........ ......... ......... ......7.. ......... ...4..... .........  <br>
+<br>
+  #3<br>
+      BOARD: ......... ....5.... ......... 1.......9 1.......9 ......... ......... ..3...... ......... &nbsp;6 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ....5.... ......... 1........ ........9 ......... ......... ..3...... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......... ....5.... ......... ........9 1........ ......... ......... ..3...... .........  <br>
+<br>
+  #4<br>
+      BOARD: ...45.7.9 ...45.7.9 ......... 1...5.7.9 1..4..7.9 1.345.7.. ......... ......... 1........ &nbsp;22 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......7.. ......... ....5.... ........9 ..3...... ......... ......... 1........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ...4..... ........9 ......... ....5.... ......7.. ..3...... ......... ......... 1........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ....5.... ......7.. ......... ........9 ...4..... ..3...... ......... ......... 1........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ....5.... ........9 ......... ......7.. ...4..... ..3...... ......... ......... 1........  <br>
+&nbsp;Pattern&nbsp; 4: ......7.. ...4..... ......... ....5.... ........9 ..3...... ......... ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......7.. ....5.... ......... ........9 ...4..... ..3...... ......... ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 6: ........9 ...4..... ......... ....5.... ......7.. ..3...... ......... ......... 1........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 7: ........9 ....5.... ......... ......7.. ...4..... ..3...... ......... ......... 1........  Disabled by interaction<br>
+<br>
+  #5<br>
+      BOARD: ......... ......... .......89 ....5..89 ......... ...45..8. ......... ......... ....5.... &nbsp;9 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ......... .......8. ........9 ......... ...4..... ......... ......... ....5....  <br>
+&nbsp;Pattern&nbsp; 1: ......... ......... ........9 .......8. ......... ...4..... ......... ......... ....5....  <br>
+<br>
+  #6<br>
+      BOARD: ......7.. ......... ......... 1.....78. ......... 1.....78. ......... ......... ......... &nbsp;7 cells<br>
+&nbsp;Pattern&nbsp; 0: ......7.. ......... ......... 1........ ......... .......8. ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......7.. ......... ......... .......8. ......... 1........ ......... ......... .........  <br>
+<br>
+  #7<br>
+      BOARD: ......... ...45..89 ....5..89 .2..5..89 .2.4....9 .2.45..8. ......... ......... ......... &nbsp;18 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ...4..... .......8. .2....... ........9 ....5.... ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......... ...4..... .......8. ....5.... ........9 .2....... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: ......... ...4..... .......8. ........9 .2....... ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ......... ...4..... ........9 ....5.... .2....... .......8. ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......... ...4..... ........9 .......8. .2....... ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......... ....5.... .......8. .2....... ........9 ...4..... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 6: ......... ....5.... .......8. ........9 .2....... ...4..... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ......... ....5.... .......8. ........9 ...4..... .2....... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 8: ......... ....5.... ........9 .2....... ...4..... .......8. ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 9: ......... ....5.... ........9 .......8. .2....... ...4..... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;10: ......... ....5.... ........9 .......8. ...4..... .2....... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;11: ......... .......8. ....5.... .2....... ........9 ...4..... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;12: ......... .......8. ....5.... ........9 .2....... ...4..... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;13: ......... .......8. ....5.... ........9 ...4..... .2....... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;14: ......... ........9 ....5.... .2....... ...4..... .......8. ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;15: ......... ........9 ....5.... .......8. .2....... ...4..... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;16: ......... ........9 ....5.... .......8. ...4..... .2....... ......... ......... .........  Disabled by interaction<br>
+<br>
+  #8<br>
+      BOARD: 1...5.7.9 ..3.567.9 1.3.56..9 1...5.7.9 1.....7.9 1.3.5.7.. ......... ......... ......... &nbsp;25 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ .....6... ........9 ....5.... ......7.. ..3...... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: 1........ ......7.. .....6... ....5.... ........9 ..3...... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: 1........ ........9 .....6... ....5.... ......7.. ..3...... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ......7.. ..3...... .....6... 1........ ........9 ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......7.. ..3...... .....6... ....5.... ........9 1........ ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......7.. ..3...... .....6... ........9 1........ ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 6: ......7.. .....6... 1........ ....5.... ........9 ..3...... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ......7.. .....6... ..3...... 1........ ........9 ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 8: ......7.. .....6... ..3...... ....5.... ........9 1........ ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 9: ......7.. .....6... ..3...... ........9 1........ ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;10: ........9 ..3...... .....6... 1........ ......7.. ....5.... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;11: ........9 ..3...... .....6... ....5.... 1........ ......7.. ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;12: ........9 ..3...... .....6... ....5.... ......7.. 1........ ......... ......... .........  <br>
+&nbsp;Pattern&nbsp;13: ........9 ..3...... .....6... ......7.. 1........ ....5.... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;14: ........9 .....6... 1........ ....5.... ......7.. ..3...... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;15: ........9 .....6... ..3...... 1........ ......7.. ....5.... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;16: ........9 .....6... ..3...... ....5.... 1........ ......7.. ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;17: ........9 .....6... ..3...... ....5.... ......7.. 1........ ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;18: ........9 .....6... ..3...... ......7.. 1........ ....5.... ......... ......... .........  Disabled by interaction Lv2<br>
+<br>
+  #9<br>
+      BOARD: ...45.... ..345..8. ..3.5..8. ......... .2....... ......... ......... ...45.... ......... &nbsp;12 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ..3...... .......8. ......... .2....... ......... ......... ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ...4..... .......8. ..3...... ......... .2....... ......... ......... ....5.... .........  <br>
+&nbsp;Pattern&nbsp; 2: ....5.... ..3...... .......8. ......... .2....... ......... ......... ...4..... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ....5.... .......8. ..3...... ......... .2....... ......... ......... ...4..... .........  Disabled by interaction Lv2</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_2 Finned_XWing<br>
+.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 ..13647.. 7.....546 .268.7.3. Puzzle<br>
+.37..5.2. 56....... .4.6..3.. ..21.9... ..5.26.1. .....3..9 951364782 78....546 .268.7931 Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_4.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+<br>
+Pattern Overlay Interaction Lv2 _ All Pattern Fixed<br>
+<br>
+ Fixed: (r3c1 r6c7)#2<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>#2 Fixed<br>
+&nbsp;&nbsp;&nbsp;Board[#2]: ......... ...4.6... 1....6... ......... ......... ......7.. ......... ...4.6... ......... <br>
+&nbsp;Pattern[ 0]: ......... ...4..... 1........ ......... ......... ......7.. ......... .....6... .........  <br>
+&nbsp;Pattern[ 1]: ......... .....6... 1........ ......... ......... ......7.. ......... ...4..... .........  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... 1........ ......... ......... ......7.. ......... ......... ......... &nbsp;2 cells<br>
+
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_4 Finned_XWing<br>
+.72..9.3. 54....... .1.8..2.. ..53.8... ..9.62.7. .....4..2 ..76958.. 2.....917 .947.1.5. Puzzle<br>
+.72..9.3. 54....... .1.8..2.. ..53.8... .89.62.7. .6...4..2 .376958.. 2.....917 .947.1.5. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_5.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+    #1 pat. 3 <--> #.....6...<br>
+    #1 pat. 5 <--> #.......8.<br>
+    #1 pat. 7 <--> #.2.......<br>
+<br>
+Pattern Overlay Interaction Lv2 _ All Pattern Fixed<br>
+<br>
+ Fixed: (r1c4 r2c9 r4c5 r5c7 r6c3 r7c1)#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>#1 Fixed<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: ...45.7.9 ...45.7.9 ......... 1...5.7.9 1..4..7.9 1.345.7.. 1........ ......... ......... <br>
+&nbsp;Pattern[ 0]: ...4..... ......7.. ......... ....5.... ........9 ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 1]: ...4..... ........9 ......... ....5.... ......7.. ..3...... 1........ ......... .........  <br>
+&nbsp;Pattern[ 2]: ....5.... ......7.. ......... ........9 ...4..... ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 3]: ....5.... ........9 ......... ......7.. ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 4]: ......7.. ...4..... ......... ....5.... ........9 ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 5]: ......7.. ....5.... ......... ........9 ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 6]: ........9 ...4..... ......... ....5.... ......7.. ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 7]: ........9 ....5.... ......... ......7.. ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ...4..... ........9 ......... ....5.... ......7.. ..3...... 1........ ......... ......... &nbsp;6 cells<br>
+<br>
+<br>
+  POM Patterns<br>
+  Iinteraction LV2&nbsp;effect.<br>
+    #1 pat. 3 <--> #.....6...<br>
+    #1 pat. 5 <--> #.......8.<br>
+    #1 pat. 7 <--> #.2.......<br>
+    #3 pat. 0 <--> #.2.......<br>
+    #3 pat. 1 <--> #.2.......<br>
+    #3 pat. 2 <--> #.2.......<br>
+    #3 pat. 8 <--> #.....6...<br>
+    #3 pat. 9 <--> #.....6...<br>
+    #3 pat.13 <--> #.2.......<br>
+    #3 pat.14 <--> #.2.......<br>
+    #3 pat.15 <--> #.2.......<br>
+    #4 pat. 0 <--> #.2.......<br>
+    #4 pat. 1 <--> #.2.......<br>
+    #4 pat. 4 <--> #....5....<br>
+    #4 pat. 5 <--> #.....6...<br>
+    #5 pat. 4 <--> #.2.......<br>
+    #6 pat. 1 <--> #1........<br>
+    #6 pat. 2 <--> #....5....<br>
+    #9 pat. 1 <--> #1........<br>
+<br>
+<br>
+ ----------------------------------------------------------------------------------------------------<br>
+<br>
+  #1<br>
+      BOARD: ...45.7.9 ...45.7.9 ......... 1...5.7.9 1..4..7.9 1.345.7.. 1........ ......... ......... &nbsp;22 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......7.. ......... ....5.... ........9 ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: ...4..... ........9 ......... ....5.... ......7.. ..3...... 1........ ......... .........  <br>
+&nbsp;Pattern&nbsp; 2: ....5.... ......7.. ......... ........9 ...4..... ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ....5.... ........9 ......... ......7.. ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ......7.. ...4..... ......... ....5.... ........9 ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......7.. ....5.... ......... ........9 ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: ........9 ...4..... ......... ....5.... ......7.. ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ........9 ....5.... ......... ......7.. ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+<br>
+  #2<br>
+      BOARD: ......... ...45.... ......... .2....... ......... ......... .......8. ......... ....5.... &nbsp;5 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ...4..... ......... .2....... ......... ......... .......8. ......... ....5....  <br>
+<br>
+  #3<br>
+      BOARD: ......... ..3.56... 1.3.56... ......... 1.....7.9 1.3...7.. ......... ....56... ....5.7.9 &nbsp;18 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ..3...... ....5.... ......... 1........ ......7.. ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ......... ..3...... ....5.... ......... ......7.. 1........ ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ......... ..3...... ....5.... ......... ........9 1........ ......... .....6... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ......... ..3...... .....6... ......... 1........ ......7.. ......... ....5.... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......... ..3...... .....6... ......... ......7.. 1........ ......... ....5.... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......... ..3...... .....6... ......... ........9 1........ ......... ....5.... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 6: ......... ....5.... 1........ ......... ......7.. ..3...... ......... .....6... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ......... ....5.... 1........ ......... ........9 ..3...... ......... .....6... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 8: ......... ....5.... ..3...... ......... 1........ ......7.. ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 9: ......... ....5.... ..3...... ......... ......7.. 1........ ......... .....6... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;10: ......... ....5.... ..3...... ......... ........9 1........ ......... .....6... ......7..  <br>
+&nbsp;Pattern&nbsp;11: ......... .....6... 1........ ......... ......7.. ..3...... ......... ....5.... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;12: ......... .....6... 1........ ......... ........9 ..3...... ......... ....5.... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;13: ......... .....6... ..3...... ......... 1........ ......7.. ......... ....5.... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;14: ......... .....6... ..3...... ......... ......7.. 1........ ......... ....5.... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;15: ......... .....6... ..3...... ......... ........9 1........ ......... ....5.... ......7..  Disabled by interaction Lv2<br>
+<br>
+  #4<br>
+      BOARD: ...45.7.9 ......... ....5..89 1.....789 1.....7.9 ......... .......89 ...45.... ......... &nbsp;18 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......... .......8. 1........ ......7.. ......... ........9 ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ...4..... ......... .......8. ......7.. 1........ ......... ........9 ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ...4..... ......... ........9 1........ ......7.. ......... .......8. ....5.... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ...4..... ......... ........9 ......7.. 1........ ......... .......8. ....5.... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ....5.... ......... .......8. 1........ ......7.. ......... ........9 ...4..... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 5: ....5.... ......... .......8. ......7.. 1........ ......... ........9 ...4..... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: ....5.... ......... ........9 1........ ......7.. ......... .......8. ...4..... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ....5.... ......... ........9 ......7.. 1........ ......... .......8. ...4..... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 8: ......7.. ......... ....5.... 1........ ........9 ......... .......8. ...4..... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 9: ......7.. ......... ....5.... .......8. 1........ ......... ........9 ...4..... .........  <br>
+&nbsp;Pattern&nbsp;10: ......7.. ......... ....5.... ........9 1........ ......... .......8. ...4..... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;11: ........9 ......... ....5.... 1........ ......7.. ......... .......8. ...4..... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;12: ........9 ......... ....5.... ......7.. 1........ ......... .......8. ...4..... .........  Disabled by interaction<br>
+<br>
+  #5<br>
+      BOARD: ...45.7.9 ......... ....5...9 ......... ...4..7.9 ...45.7.. ......... .2....... ......... &nbsp;13 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......... ........9 ......... ......7.. ....5.... ......... .2....... .........  <br>
+&nbsp;Pattern&nbsp; 1: ....5.... ......... ........9 ......... ...4..... ......7.. ......... .2....... .........  <br>
+&nbsp;Pattern&nbsp; 2: ....5.... ......... ........9 ......... ......7.. ...4..... ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ......7.. ......... ....5.... ......... ........9 ...4..... ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ........9 ......... ....5.... ......... ...4..... ......7.. ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 5: ........9 ......... ....5.... ......... ......7.. ...4..... ......... .2....... .........  Disabled by interaction<br>
+<br>
+  #6<br>
+      BOARD: 1.....7.9 ..3..6789 1.3..6.89 ......789 ......... ......... ......... ..3...... 1.....7.9 &nbsp;20 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ .....6... .......8. ......7.. ......... ......... ......... ..3...... ........9  <br>
+&nbsp;Pattern&nbsp; 1: 1........ .....6... .......8. ........9 ......... ......... ......... ..3...... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: 1........ .....6... ........9 .......8. ......... ......... ......... ..3...... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: 1........ ......7.. .....6... .......8. ......... ......... ......... ..3...... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: 1........ .......8. .....6... ......7.. ......... ......... ......... ..3...... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: 1........ .......8. .....6... ........9 ......... ......... ......... ..3...... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 6: 1........ ........9 .....6... .......8. ......... ......... ......... ..3...... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ......7.. .....6... 1........ .......8. ......... ......... ......... ..3...... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 8: ........9 .....6... 1........ .......8. ......... ......... ......... ..3...... ......7..  Disabled by interaction<br>
+<br>
+  #7<br>
+      BOARD: ......... ....567.. ....56... 1...5.... ......... 1...5.... ......... ......... ......... &nbsp;9 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ......7.. .....6... 1........ ......... ....5.... ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......... ......7.. .....6... ....5.... ......... 1........ ......... ......... .........  <br>
+<br>
+  #8<br>
+      BOARD: 1.......9 ..3....89 ......... ......... ......... .......8. ......... ..3.5.... 1...5.... &nbsp;10 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ ........9 ......... ......... ......... .......8. ......... ..3...... ....5....  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: ........9 ..3...... ......... ......... ......... .......8. ......... ....5.... 1........  <br>
+<br>
+  #9<br>
+      BOARD: ......... .......89 1......89 .......89 ......... ...4...8. ......... ......... ......... &nbsp;9 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... .......8. 1........ ........9 ......... ...4..... ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......... ........9 1........ .......8. ......... ...4..... ......... ......... .........  Disabled by interaction Lv2</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_4 Finned_XWing<br>
+.72..9.3. 54....... .1.8..2.. ..53.8... ..9.62.7. .....4..2 ..76958.. 2.....917 .947.1.5. Puzzle<br>
+.72..9.3. 54....... .1.8..2.. ..53.8... .89.62.7. .6...4..2 .376958.. 2.....917 .947.1.5. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_6.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+    #1 pat. 3 <--> #.....6...<br>
+    #1 pat. 5 <--> #.......8.<br>
+    #1 pat. 7 <--> #.2.......<br>
+<br>
+Pattern Overlay Interaction Lv2 _ No Pattern Exclusion<br>
+<br>
+ Exclued: (r1c579 r2c457 r4c179 r5c149 r6c1457)#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/><br>
+#1 Exclude<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: ...45.7.9 ...45.7.9 ......... 1...5.7.9 1..4..7.9 1.345.7.. 1........ ......... ......... <br>
+&nbsp;Pattern[ 0]: ...4..... ......7.. ......... ....5.... ........9 ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 1]: ...4..... ........9 ......... ....5.... ......7.. ..3...... 1........ ......... .........  <br>
+&nbsp;Pattern[ 2]: ....5.... ......7.. ......... ........9 ...4..... ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 3]: ....5.... ........9 ......... ......7.. ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 4]: ......7.. ...4..... ......... ....5.... ........9 ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 5]: ......7.. ....5.... ......... ........9 ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 6]: ........9 ...4..... ......... ....5.... ......7.. ..3...... 1........ ......... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 7]: ........9 ....5.... ......... ......7.. ...4..... ..3...... 1........ ......... .........  Disabled by interaction Lv2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ....5.7.9 ...45.7.. ......... 1.....7.9 1..4....9 1..45.7.. ......... ......... ......... &nbsp;16 cells<br>
+<br>
+
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_6 LockedSet(3D)<br>
+.74..2.5. 52....... .9.4..2.. ..62.8... ..7.63.8. .....9..1 ..95813.. 7.....896 .386.7.1. Puzzle<br>
+.74..2.5. 52...6... .9.4.52.. ..62.8... ..7163.8. .827.9..1 .695813.. 7..324896 .38697.1. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_7.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+    #1 pat. 2 <--> #......7..<br>
+    #1 pat. 3 <--> #......7..<br>
+<br>
+Pattern Overlay Interaction Lv2 _ All Pattern Fixed<br>
+<br>
+ Fixed: (r1c7 r2c5 r3c3 r4c1 r8c2)#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>#1 Fixed<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: 1...5.7.. ..3.5.7.. 1.3.5.... 12....... ......... ......... ......... .23...... ......... <br>
+&nbsp;Pattern[ 0]: 1........ ......7.. ....5.... .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 1]: ....5.... ......7.. 1........ .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 2]: ....5.... ......7.. ..3...... 1........ ......... ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 3]: ......7.. ..3...... ....5.... 1........ ......... ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 4]: ......7.. ....5.... 1........ .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 5]: ......7.. ....5.... ..3...... 1........ ......... ......... ......... .2....... .........  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......7.. ....5.... ..3...... 1........ ......... ......... ......... .2....... ......... &nbsp;5 cells<br>
+<br>
+<br>
+  POM Patterns<br>
+  Iinteraction LV2&nbsp;effect.<br>
+    #1 pat. 2 <--> #......7..<br>
+    #1 pat. 3 <--> #......7..<br>
+    #3 pat. 0 <--> #.....6...<br>
+    #3 pat. 1 <--> #....5....<br>
+    #3 pat. 3 <--> #1........<br>
+    #3 pat. 4 <--> #....5....<br>
+    #3 pat. 5 <--> #1........<br>
+    #3 pat. 6 <--> #....5....<br>
+    #3 pat. 7 <--> #1........<br>
+    #3 pat. 8 <--> #....5....<br>
+    #3 pat. 9 <--> #1........<br>
+    #4 pat. 1 <--> #.2.......<br>
+    #4 pat. 9 <--> #.2.......<br>
+    #5 pat. 2 <--> #.2.......<br>
+    #6 pat. 1 <--> #...4.....<br>
+    #7 pat. 0 <--> #.....6...<br>
+    #7 pat. 2 <--> #........9<br>
+    #8 pat. 0 <--> #.....6...<br>
+    #8 pat. 1 <--> #...4.....<br>
+    #9 pat. 2 <--> #....5....<br>
+    #9 pat. 3 <--> #...4.....<br>
+    #9 pat. 5 <--> #1........<br>
+    #9 pat. 6 <--> #....5....<br>
+    #9 pat. 7 <--> #...4.....<br>
+<br>
+<br>
+ ----------------------------------------------------------------------------------------------------<br>
+<br>
+  #1<br>
+      BOARD: 1...5.7.. ..3.5.7.. 1.3.5.... 12....... ......... ......... ......... .23...... ......... &nbsp;13 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ ......7.. ....5.... .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: ....5.... ......7.. 1........ .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: ....5.... ......7.. ..3...... 1........ ......... ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ......7.. ..3...... ....5.... 1........ ......... ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ......7.. ....5.... 1........ .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......7.. ....5.... ..3...... 1........ ......... ......... ......... .2....... .........  <br>
+<br>
+  #2<br>
+      BOARD: ......... ......... ......... ......... ........9 ......... 1......89 ......... 1.......9 &nbsp;6 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ......... ......... ......... ........9 ......... .......8. ......... 1........  <br>
+<br>
+  #3<br>
+      BOARD: 1...5...9 ..3.5..89 1.3.5..89 1......89 ......... 1......8. ......... ......... ......... &nbsp;17 cells<br>
+&nbsp;Pattern&nbsp; 0: ....5.... ..3...... .......8. ........9 ......... 1........ ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ....5.... ..3...... ........9 1........ ......... .......8. ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ....5.... ..3...... ........9 .......8. ......... 1........ ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 3: ....5.... .......8. ..3...... ........9 ......... 1........ ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ....5.... ........9 ..3...... 1........ ......... .......8. ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 5: ....5.... ........9 ..3...... .......8. ......... 1........ ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: ........9 ..3...... ....5.... 1........ ......... .......8. ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 7: ........9 ..3...... ....5.... .......8. ......... 1........ ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 8: ........9 ....5.... ..3...... 1........ ......... .......8. ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 9: ........9 ....5.... ..3...... .......8. ......... 1........ ......... ......... .........  Disabled by interaction Lv2<br>
+<br>
+  #4<br>
+      BOARD: ......... ......789 ......... 12..5.789 12....7.9 1...5.78. 1......89 ......... 1.....7.9 &nbsp;23 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ......7.. ......... .2....... ........9 ....5.... .......8. ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: ......... ......7.. ......... ....5.... .2....... .......8. 1........ ......... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ......... ......7.. ......... ....5.... .2....... .......8. ........9 ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ......... ......7.. ......... .......8. .2....... ....5.... 1........ ......... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......... ......7.. ......... .......8. .2....... ....5.... ........9 ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......... ......7.. ......... ........9 .2....... ....5.... .......8. ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 6: ......... .......8. ......... .2....... ......7.. ....5.... 1........ ......... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ......... .......8. ......... .2....... ......7.. ....5.... ........9 ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 8: ......... .......8. ......... .2....... ........9 ....5.... 1........ ......... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 9: ......... .......8. ......... ....5.... .2....... ......7.. 1........ ......... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;10: ......... .......8. ......... ....5.... .2....... ......7.. ........9 ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;11: ......... .......8. ......... ......7.. .2....... ....5.... 1........ ......... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;12: ......... .......8. ......... ......7.. .2....... ....5.... ........9 ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;13: ......... .......8. ......... ........9 .2....... ....5.... 1........ ......... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;14: ......... ........9 ......... .2....... ......7.. ....5.... .......8. ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;15: ......... ........9 ......... ....5.... .2....... ......7.. .......8. ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;16: ......... ........9 ......... ....5.... .2....... .......8. 1........ ......... ......7..  <br>
+&nbsp;Pattern&nbsp;17: ......... ........9 ......... ......7.. .2....... ....5.... .......8. ......... 1........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;18: ......... ........9 ......... .......8. .2....... ....5.... 1........ ......... ......7..  Disabled by interaction<br>
+<br>
+  #5<br>
+      BOARD: ......... ......... ......... .2..5.7.9 .2....7.9 ....5.7.. ......... .23...... ......7.9 &nbsp;13 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ......... ......... .2....... ......7.. ....5.... ......... ..3...... ........9  <br>
+&nbsp;Pattern&nbsp; 1: ......... ......... ......... .2....... ........9 ....5.... ......... ..3...... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: ......... ......... ......... ....5.... .2....... ......7.. ......... ..3...... ........9  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ......... ......... ......... ......7.. .2....... ....5.... ......... ..3...... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......... ......... ......... ........9 .2....... ....5.... ......... ..3...... ......7..  Disabled by interaction<br>
+<br>
+  #6<br>
+      BOARD: 1.....7.. ......... 1......8. ......... ......... ......78. ......... ......... ......... &nbsp;6 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ ......... .......8. ......... ......... ......7.. ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......7.. ......... 1........ ......... ......... .......8. ......... ......... .........  Disabled by interaction Lv2<br>
+<br>
+  #7<br>
+      BOARD: ......... ....5.789 ....5..89 ......789 ......... ......... .......89 ......... ......... &nbsp;12 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ....5.... .......8. ......7.. ......... ......... ........9 ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ......... ....5.... ........9 ......7.. ......... ......... .......8. ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: ......... ......7.. ....5.... .......8. ......... ......... ........9 ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ......... ......7.. ....5.... ........9 ......... ......... .......8. ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......... .......8. ....5.... ......7.. ......... ......... ........9 ......... .........  <br>
+&nbsp;Pattern&nbsp; 5: ......... ........9 ....5.... ......7.. ......... ......... .......8. ......... .........  Disabled by interaction<br>
+<br>
+  #8<br>
+      BOARD: 1..4....9 ...4....9 1.......9 ......... ......... ......... ......... ......... ......... &nbsp;7 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ ...4..... ........9 ......... ......... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ...4..... ........9 1........ ......... ......... ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ........9 ...4..... 1........ ......... ......... ......... ......... ......... .........  <br>
+<br>
+  #9<br>
+      BOARD: ...4..7.9 ...4..7.9 ......... 1.....7.9 1.....7.9 ......... ......... ......... ......... &nbsp;12 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......7.. ......... 1........ ........9 ......... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: ...4..... ......7.. ......... ........9 1........ ......... ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 2: ...4..... ........9 ......... 1........ ......7.. ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ...4..... ........9 ......... ......7.. 1........ ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ......7.. ...4..... ......... 1........ ........9 ......... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......7.. ...4..... ......... ........9 1........ ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: ........9 ...4..... ......... 1........ ......7.. ......... ......... ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 7: ........9 ...4..... ......... ......7.. 1........ ......... ......... ......... .........  Disabled by interaction Lv2</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_6 LockedSet(3D)<br>
+.74..2.5. 52....... .9.4..2.. ..62.8... ..7.63.8. .....9..1 ..95813.. 7.....896 .386.7.1. Puzzle<br>
+.74..2.5. 52...6... .9.4.52.. ..62.8... ..7163.8. .827.9..1 .695813.. 7..324896 .38697.1. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_8.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+    #1 pat. 2 <--> #......7..<br>
+    #1 pat. 3 <--> #......7..<br>
+<br>
+Pattern Overlay Interaction Lv2 _ No Pattern Exclusion<br>
+<br>
+ Exclued: (r13c15 r2c37 r4c2 r8c3)#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/><br>
+#1 Exclude<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: 1...5.7.. ..3.5.7.. 1.3.5.... 12....... ......... ......... ......... .23...... ......... <br>
+&nbsp;Pattern[ 0]: 1........ ......7.. ....5.... .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 1]: ....5.... ......7.. 1........ .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 2]: ....5.... ......7.. ..3...... 1........ ......... ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 3]: ......7.. ..3...... ....5.... 1........ ......... ......... ......... .2....... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern[ 4]: ......7.. ....5.... 1........ .2....... ......... ......... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern[ 5]: ......7.. ....5.... ..3...... 1........ ......... ......... ......... .2....... .........  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: 1...5.... ..3...7.. 1...5.... .2....... ......... ......... ......... ..3...... ......... &nbsp;8 cells<br>
+<br>
+
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_8 XYChain<br>
+.49..7.8. 15....... .2.6..9.. ..18.5... ..7.32.1. .....6..4 ..47613.. 9.....627 .753.9.4. Puzzle<br>
+.49..7.8. 15....... .2.6..9.. ..18.5... ..7.32.1. .....6..4 .847613.. 9.....627 .753.9.4. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_9.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+<br>
+Pattern Overlay Interaction Lv2 _ All Pattern Fixed<br>
+<br>
+ Fixed: r8c2#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/>#1 Fixed<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: ...45.7.9 ......... ....5...9 ......... ......... ...45.... ......... .2....... ......7.9 <br>
+&nbsp;Pattern[ 0]: ...4..... ......... ........9 ......... ......... ....5.... ......... .2....... ......7..  <br>
+&nbsp;Pattern[ 1]: ....5.... ......... ........9 ......... ......... ...4..... ......... .2....... ......7..  <br>
+&nbsp;Pattern[ 2]: ......7.. ......... ....5.... ......... ......... ...4..... ......... .2....... ........9  <br>
+&nbsp;Pattern[ 3]: ........9 ......... ....5.... ......... ......... ...4..... ......... .2....... ......7..  Disabled by interaction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fixed: ......... ......... ......... ......... ......... ......... ......... .2....... ......... &nbsp;1 cells<br>
+<br>
+<br>
+  POM Patterns<br>
+  Iinteraction LV2&nbsp;effect.<br>
+    #3 pat. 5 <--> #......7..<br>
+    #4 pat. 2 <--> #.......8.<br>
+    #5 pat. 0 <--> #...4.....<br>
+    #5 pat. 1 <--> #...4.....<br>
+    #5 pat. 2 <--> #1........<br>
+    #5 pat. 3 <--> #...4.....<br>
+    #5 pat. 6 <--> #........9<br>
+    #5 pat. 7 <--> #........9<br>
+    #5 pat. 9 <--> #........9<br>
+    #8 pat.10 <--> #.....6...<br>
+    #8 pat.15 <--> #...4.....<br>
+    #9 pat. 5 <--> #....5....<br>
+    #9 pat.10 <--> #......7..<br>
+<br>
+<br>
+ ----------------------------------------------------------------------------------------------------<br>
+<br>
+  #1<br>
+      BOARD: ...45.7.9 ......... ....5...9 ......... ......... ...45.... ......... .2....... ......7.9 &nbsp;11 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......... ........9 ......... ......... ....5.... ......... .2....... ......7..  <br>
+&nbsp;Pattern&nbsp; 1: ....5.... ......... ........9 ......... ......... ...4..... ......... .2....... ......7..  <br>
+&nbsp;Pattern&nbsp; 2: ......7.. ......... ....5.... ......... ......... ...4..... ......... .2....... ........9  <br>
+&nbsp;Pattern&nbsp; 3: ........9 ......... ....5.... ......... ......... ...4..... ......... .2....... ......7..  Disabled by interaction<br>
+<br>
+  #2<br>
+      BOARD: ...45.7.9 ...45.7.9 ......... 1.....7.9 ......... 1.3...7.. 1........ ......... 1...5.... &nbsp;17 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......7.. ......... ........9 ......... ..3...... 1........ ......... ....5....  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: ...4..... ........9 ......... ......7.. ......... ..3...... 1........ ......... ....5....  <br>
+&nbsp;Pattern&nbsp; 2: ......7.. ...4..... ......... ........9 ......... ..3...... 1........ ......... ....5....  <br>
+&nbsp;Pattern&nbsp; 3: ........9 ...4..... ......... ......7.. ......... ..3...... 1........ ......... ....5....  Disabled by interaction<br>
+<br>
+  #3<br>
+      BOARD: 1.......9 ..3..6.89 1.3..6.89 12.....89 ......... 123....8. ......... .23...... ......... &nbsp;21 cells<br>
+&nbsp;Pattern&nbsp; 0: 1........ .....6... .......8. ........9 ......... .2....... ......... ..3...... .........  <br>
+&nbsp;Pattern&nbsp; 1: 1........ .....6... .......8. ........9 ......... ..3...... ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: 1........ .....6... ........9 .2....... ......... .......8. ......... ..3...... .........  <br>
+&nbsp;Pattern&nbsp; 3: 1........ .....6... ........9 .......8. ......... .2....... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: 1........ .....6... ........9 .......8. ......... ..3...... ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: 1........ .......8. .....6... ........9 ......... .2....... ......... ..3...... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: 1........ .......8. .....6... ........9 ......... ..3...... ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: 1........ ........9 .....6... .2....... ......... .......8. ......... ..3...... .........  <br>
+&nbsp;Pattern&nbsp; 8: 1........ ........9 .....6... .......8. ......... .2....... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 9: 1........ ........9 .....6... .......8. ......... ..3...... ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;10: ........9 ..3...... .....6... 1........ ......... .......8. ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;11: ........9 ..3...... .....6... .......8. ......... 1........ ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;12: ........9 .....6... 1........ .2....... ......... .......8. ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;13: ........9 .....6... 1........ .......8. ......... .2....... ......... ..3...... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;14: ........9 .....6... 1........ .......8. ......... ..3...... ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;15: ........9 .....6... ..3...... 1........ ......... .......8. ......... .2....... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;16: ........9 .....6... ..3...... .......8. ......... 1........ ......... .2....... .........  Disabled by interaction<br>
+<br>
+  #4<br>
+      BOARD: ......... ...4567.. ....56... 1...5.... 1..4..... ......... ......... ...456... ......... &nbsp;13 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ......7.. ....5.... 1........ ...4..... ......... ......... .....6... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......... ......7.. .....6... 1........ ...4..... ......... ......... ....5.... .........  <br>
+&nbsp;Pattern&nbsp; 2: ......... ......7.. .....6... ....5.... 1........ ......... ......... ...4..... .........  Disabled by interaction Lv2<br>
+<br>
+  #5<br>
+      BOARD: ...45.7.9 ......... ....5..89 ......... 1.....7.9 1.....78. .......89 ...45.... ......... &nbsp;17 cells<br>
+&nbsp;Pattern&nbsp; 0: ...4..... ......... .......8. ......... 1........ ......7.. ........9 ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 1: ...4..... ......... .......8. ......... ......7.. 1........ ........9 ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 2: ...4..... ......... ........9 ......... 1........ ......7.. .......8. ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 3: ...4..... ......... ........9 ......... ......7.. 1........ .......8. ....5.... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 4: ....5.... ......... .......8. ......... 1........ ......7.. ........9 ...4..... .........  <br>
+&nbsp;Pattern&nbsp; 5: ....5.... ......... .......8. ......... ......7.. 1........ ........9 ...4..... .........  <br>
+&nbsp;Pattern&nbsp; 6: ....5.... ......... ........9 ......... 1........ ......7.. .......8. ...4..... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 7: ....5.... ......... ........9 ......... ......7.. 1........ .......8. ...4..... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 8: ......7.. ......... ....5.... ......... 1........ .......8. ........9 ...4..... .........  <br>
+&nbsp;Pattern&nbsp; 9: ......7.. ......... ....5.... ......... ........9 1........ .......8. ...4..... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;10: ........9 ......... ....5.... ......... 1........ ......7.. .......8. ...4..... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;11: ........9 ......... ....5.... ......... ......7.. 1........ .......8. ...4..... .........  Disabled by interaction<br>
+<br>
+  #6<br>
+      BOARD: 1.......9 ..3....89 ......... 12.....89 12......9 ......... ......... ......... 1........ &nbsp;13 cells<br>
+&nbsp;Pattern&nbsp; 0: ........9 ..3...... ......... .......8. .2....... ......... ......... ......... 1........  <br>
+<br>
+  #7<br>
+      BOARD: ......... ......78. 1......8. ....5.78. ......... ....5.78. ......... ......... ......... &nbsp;10 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ......7.. 1........ ....5.... ......... .......8. ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: ......... ......7.. 1........ .......8. ......... ....5.... ......... ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: ......... .......8. 1........ ....5.... ......... ......7.. ......... ......... .........  <br>
+&nbsp;Pattern&nbsp; 3: ......... .......8. 1........ ......7.. ......... ....5.... ......... ......... .........  <br>
+<br>
+  #8<br>
+      BOARD: ......... ..3.56... 1.3.56... ......... 1.....7.9 1.3...7.. ......... ....56... ....5.7.9 &nbsp;18 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ..3...... ....5.... ......... 1........ ......7.. ......... .....6... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 1: ......... ..3...... ....5.... ......... ......7.. 1........ ......... .....6... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: ......... ..3...... ....5.... ......... ........9 1........ ......... .....6... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 3: ......... ..3...... .....6... ......... 1........ ......7.. ......... ....5.... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......... ..3...... .....6... ......... ......7.. 1........ ......... ....5.... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......... ..3...... .....6... ......... ........9 1........ ......... ....5.... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 6: ......... ....5.... 1........ ......... ......7.. ..3...... ......... .....6... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 7: ......... ....5.... 1........ ......... ........9 ..3...... ......... .....6... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 8: ......... ....5.... ..3...... ......... 1........ ......7.. ......... .....6... ........9  <br>
+&nbsp;Pattern&nbsp; 9: ......... ....5.... ..3...... ......... ......7.. 1........ ......... .....6... ........9  <br>
+&nbsp;Pattern&nbsp;10: ......... ....5.... ..3...... ......... ........9 1........ ......... .....6... ......7..  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp;11: ......... .....6... 1........ ......... ......7.. ..3...... ......... ....5.... ........9  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;12: ......... .....6... 1........ ......... ........9 ..3...... ......... ....5.... ......7..  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;13: ......... .....6... ..3...... ......... 1........ ......7.. ......... ....5.... ........9  <br>
+&nbsp;Pattern&nbsp;14: ......... .....6... ..3...... ......... ......7.. 1........ ......... ....5.... ........9  <br>
+&nbsp;Pattern&nbsp;15: ......... .....6... ..3...... ......... ........9 1........ ......... ....5.... ......7..  Disabled by interaction Lv2<br>
+<br>
+  #9<br>
+      BOARD: ......... ...45.... ......... .2..5..89 .2.4....9 .2.45..8. .......89 ......... ......... &nbsp;15 cells<br>
+&nbsp;Pattern&nbsp; 0: ......... ...4..... ......... .2....... ........9 ....5.... .......8. ......... .........  <br>
+&nbsp;Pattern&nbsp; 1: ......... ...4..... ......... ....5.... .2....... .......8. ........9 ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 2: ......... ...4..... ......... ....5.... ........9 .2....... .......8. ......... .........  <br>
+&nbsp;Pattern&nbsp; 3: ......... ...4..... ......... .......8. .2....... ....5.... ........9 ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 4: ......... ...4..... ......... ........9 .2....... ....5.... .......8. ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 5: ......... ....5.... ......... .2....... ...4..... .......8. ........9 ......... .........  Disabled by interaction Lv2<br>
+&nbsp;Pattern&nbsp; 6: ......... ....5.... ......... .2....... ........9 ...4..... .......8. ......... .........  <br>
+&nbsp;Pattern&nbsp; 7: ......... ....5.... ......... .......8. .2....... ...4..... ........9 ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 8: ......... ....5.... ......... .......8. ...4..... .2....... ........9 ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp; 9: ......... ....5.... ......... ........9 .2....... ...4..... .......8. ......... .........  Disabled by interaction<br>
+&nbsp;Pattern&nbsp;10: ......... ....5.... ......... ........9 ...4..... .2....... .......8. ......... .........  Disabled by interaction Lv2</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/>ID:00_8 XYChain<br>
+.49..7.8. 15....... .2.6..9.. ..18.5... ..7.32.1. .....6..4 ..47613.. 9.....627 .753.9.4. Puzzle<br>
+.49..7.8. 15....... .2.6..9.. ..18.5... ..7.32.1. .....6..4 .847613.. 9.....627 .753.9.4. Current<br></p>
+<img src="images/img61/POM_Rule2_LV2_10.png" width="30%" style="float:left;  margin-right:8px;" alt="POM_Rule2_LV2 (Lv.9)"><br>
+
+<p>
+Pattern Overlay Interaction Lv2<br>
+ Iinteraction LV2_effect.<br>
+<br>
+Pattern Overlay Interaction Lv2 _ No Pattern Exclusion<br>
+<br>
+ Exclued: r1c9#1<br>
+<br>
+<p class="newLine"/><p style="clear: both"/><br>
+#1 Exclude<br>
+&nbsp;&nbsp;&nbsp;Board[#1]: ...45.7.9 ......... ....5...9 ......... ......... ...45.... ......... .2....... ......7.9 <br>
+&nbsp;Pattern[ 0]: ...4..... ......... ........9 ......... ......... ....5.... ......... .2....... ......7..  <br>
+&nbsp;Pattern[ 1]: ....5.... ......... ........9 ......... ......... ...4..... ......... .2....... ......7..  <br>
+&nbsp;Pattern[ 2]: ......7.. ......... ....5.... ......... ......... ...4..... ......... .2....... ........9  <br>
+&nbsp;Pattern[ 3]: ........9 ......... ....5.... ......... ......... ...4..... ......... .2....... ......7..  Disabled by interaction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude: ........9 ......... ......... ......... ......... ......... ......... ......... ......... &nbsp;1 cells<br>
+<br>
+</tt></div>
+
+</p>
+		</section>
 
 
 

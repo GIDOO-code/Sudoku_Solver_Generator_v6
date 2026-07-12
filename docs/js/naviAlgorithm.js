@@ -20,7 +20,7 @@ function writeNaviAlgorithm(){
 		        	html += '<li><a href="page35.html">Finned Fish</a></li>';
 		        	html += '<li><a href="page36.html">(Finned)Franken/Mutant Fish</a></li>';
 		        	html += '<li><a href="page37.html">(Finned)Endo Fish</a></li>';
-		        	html += '<li><a href="page37.html#Cannibalism">Cannibalism</a></li>';
+		        	html += '<li><a href="page37.html#Cannibalism">(Finned)Cannibalism</a></li>';
 		        	html += '<li><a href="page38.html">Kraken(Finned)Fish</a></li>';
 			    html += '</ul>';
 			html += '</li>';
@@ -108,21 +108,24 @@ function writeNaviAlgorithm(){
 			    html += '</ul>';
 			html += '</li>';
 
-			html += '<li><a href="?ForceChain">Multi-SectorLocked Set</a>';
+			html += '<li><a href="?ForceChain">Multi-Sector Locked Set</a>';
 				html += '<ul>';
-		        	html += '<li><a href="page60.html">Multi-SectorLocked Set</a></li>';
-					tml += '<li><a href="page60.html">SK Loop</a></li>';
+		        	html += '<li><a href="page60.html">Multi-Sector Locked Set</a></li>';
+					html += '<li><a href="page60.html">SK Loop</a></li>';
 			    html += '</ul>';
 			html += '</li>';
-		html += '</ul>';
 
-		html += '<li><a href="?ForceChain">Pattern Overlay Method</a>';
-			html += '<ul>';
-				html += '<li><a href="page61.html">POM All Pattern</a></li>';
-				html += '<li><a href="page61.html">POM No Pattern</li>';
-				html += '<li><a href="page61.html">POI Rule-2</a></li>';
-			html += '</ul>';
-		html += '</li>';
+			html += '<li><a href="?ForceChain">Pattern Overlay Method</a>';
+				html += '<ul>';
+		        	html += '<li><a href="page61.html">POM All Pattern</a></li>';
+					html += '<li><a href="page61.html">POM No Pattern</li>';
+					html += '<li><a href="page61.html">POI Interaction</li>';
+					html += '<li><a href="page61.html">POI Interaction Lv2</a></li>';
+					html += '<li><a href="page61.html">POM POM-Niceloop</a></li>';
+			    html += '</ul>';
+			html += '</li>';
+
+		html += '</ul>';
 
 	    html += '<h4 style="color:Darkblue">Base Class</h4>';
 	    	html += '<ul class="navigationC">';
@@ -142,7 +145,7 @@ function writeNaviAlgorithm(){
 				html += '<li><a href="page11.html">Permutation</a></li>';
 				html += '<li><a href="page12.html">Combination</a></li>';
 				html += '<li><a href="page14_v6.html">Latin Square</a></li>';
-				html += '<li><a href="page15.html">Create Puzzle</a></li>';
+				html += '<li><a href="page15.html">Generate Puzzle</a></li>';
 				html += '<li><a href="page4.html">Conversion/standardization of Sudoku problem</a></li>';
 	    html += '</ul>';
 	//<!-- 	<hr> -->

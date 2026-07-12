@@ -1,3 +1,7 @@
+# GNPX V6.51
+Implemented the two candidate digits interaction algorithm.
+It is an extremely powerful algorithm that uses relatively simple code.
+
 # GNPX V6.5
 Implemented an algorithm combining POM and NiceLoop.
 Cleaned up the code for the extended NetWork and NiceLoop.
