@@ -22,13 +22,15 @@
 	<link rel="stylesheet" href="css/style_v6A_Standard.css">
     <link rel="stylesheet" href='css/gotoTop.css'>
 
+	<link rel="stylesheet" href="css/style_v7_Standard.css">
+
 	<script type="text/javascript" src="js/naviHeader.js"> </script>
 	<script type="text/javascript" src="js/naviAlgorithm.js"> </script>
 </head>
 
 <body id="page">
 
-    <header id="head"> <strong><i">Sudoku Algorithm 4</i></strong>
+    <header id="head"> <strong><i">Sudoku Algorithm 7</i></strong>
         <script type="text/javascript"> writeNaviHeader(); </script>
     </header>
 
@@ -38,145 +40,320 @@
 	</section>
 	<!-- -------------------------------------------------------------------------- -->
 	
+	<a id="pageTop"></a>
     <article id="main">
     	<section>
-            <h3 id="head_bg_Blue">Conversion/standardization of Sudoku puzzle</h2>
-            <p>
-                The Sudoku puzzle can change appearance.
-                Even replacing digits or rearranging them in any order is a matter of Sudoku(ex. 634581279 → 123456789 )<br><br>
-			<img src="images/img4/img4b.png" width="95%" alt="SuDoKu standardization"><br>
-			<p>
-                Also, exchange of column 1 and column 2, exchange of column circulation exchange(1→2→3→1), (columns 123) and (columns 456) exchange,
-                exchange of row 1 and row 2, exchange of row circulation exchange(1→2→3→1), (row 123) and (row 456) exchange,
-                exchange of rows and columns (transposition), 
-                Even if these transformations are made, it is established as a puzzle of Sudoku.
-                However, transformation beyond Sudoku's constraints can not be done like exchange of 1 and 4 columns.<br>
-                Rotation can be represented by a combination of row and column exchange and up/down/left/right exchange, so we will not think about it here.
-                <br><br>
-			<img src="images/img4/img4a.png" width="95%" alt="SuDoKu standardization"><br><br>
-
-			<br>
-                Naturally, even if such a transformation is carried out, and even if the digit conversion described below is carried out,
-                the essence as a puzzle of Sudoku will not change.<br>
-                The difficulty level and analysis algorithms that can be applied at each stage are exactly the same.
-                How to solve Sudoku may be applicable to multiple algorithms in one scene.
-                Which algorithm to apply depends on the human preference to solve, implementation of the program, 
-                so there will be some (many) differences in how to solve. i will not care about such things.<br><br>
-
-                The puzzle of Sudoku is a combination of a digit position pattern and a Latin square.
-                Combination of the standard form of each pattern and Latin square, it becomes the standard form of Sudoku puzzle.
-                Of course, combining a pattern and a Latin squad can not solve the puzzle,
-                or there are multiple solutions, so that it is not a matter of Sudoku.<br>
-                In GNPX puzzle creation, Latin square is generated, a puzzle is created together with the position pattern,
-                and it is examined whether it can be solved by the analysis algorithm.<br><br>
-
-                In the following i will define the transformation of Sudoku puzzle properly and
-                establish the standardization method of Sudoku puzzle.<br><br></p>
-						
-            <h4 id="head_bg_LightBlue">Conversion of Sudoku puzzle（Asymmetric transformation)</h4>
-            <p>
-                The puzzle of Sudoku is true even if exchange of rows, exchange of rows,
-                transposition of rows and columns, and conversion of combinations thereof are carried out.
-                However, transformation beyond Sudoku's rule is impossible, for example exchange of column 1 and column 4.<br>
-                Conversion within Sudoku's rule can be classified and organized as follows.
-            <ol>
-            <li>Convert row block<br>
-                Let row 123 be row block 1. Likewise, row 456 is row block 2 and row 789 is row block 3.
-                Row blocks can be exchanged arbitrarily. This exchange is 3!=6 ways.<br><br></li>
-			<li>Conversion within row block n (n=1,2,3)<br>
-                Row abc in row block n can be exchanged arbitrarily. This exchange is 3!=6 ways.<br><br></li>
-			<li>Convert column block<br>
-                Let column 123 be column block 1. Likewise, column 456 is column block 2 and column 789 is column block 3.
-                column blocks can be exchanged arbitrarily. This exchange is 3!=6 ways.<br><br></li>
-			<li>Conversion within column block n (n=1,2,3)<br>
-                column abc in column block n can be exchanged arbitrarily. This exchange is 3!=6 ways.<br><br></li>
-			<li>Transpose of rows and columns<br></li>
-            </ol>
-                These conversions are total (3!)<sup><span class="auto-style 3">8 </span></sup> x 2 = 3,359,232 styles.<br><br>
-			</p>
+           	<div style="color:rgb(225, 147, 92)"><h1 ">*** Revised Provisional Version ***</h1> </div>
 			
-            <h4 id="head_bg_LightBlue">Conversion of Sudoku puzzle（Symmetric transformation)</h4>
-            <p>When the puzzle is point symmetric, the following conversion is made.
+            <a href="#Standardization">Sudoku Standardization<img src="images/imgTop/jumpTo.png" height="16"></a><br><br>
+    
+            <h2 id="head_bg_Blue">Sudoku puzzles Conversion and standardization </h2>
+            <p>
+                Sudoku puzzles can change their appearance while remaining valid under certain conditions.<br>
+                Swapping digits or transforming the sequence of digits into a different order—such as changing (634581279) to (123456789)—
+                results in a puzzle that remains valid.<br><br>
+			</p>>
 
-            <ol>
-            <li>Mirror exchange of row blocks 1 and 3<br>
-                Exchange rows 123 and 987.<br><br></li>
-			<li>Mirror transformation of row block 3 in conjunction with transformation of row block 1<br>
-                In conjunction with any transformation of row 123, it converts row 789 in a mirror image.
-                For example exchange row 79 in conjunction with the exchange of row 13.
-                There are 3!=6 ways of this conversion.<br><br></li>
-			<li>Exchange of row 46<br><br></li>
-            <li>Mirror exchange of column blocks 1 and 3<br>
-                Exchange columns 123 and 987.<br><br></li>
-			<li>Mirror transformation of row block 3 in conjunction with transformation of row block 1<br>
-                In conjunction with any transformation of column 123, it converts column 789 in a mirror image.
-                For example exchange column 79 in conjunction with the exchange of column 13.
-				There are 3!=6 ways of this conversion.<br><br></li>
-			<li>Exchange of column 46<br><br></li>
-			<li>Transpose of rows and columns<br></li>
-            </ol>
-                Point symmetric transformation is (2x3!x2)<sup><span class = "auto-style 3">2</span> </sup> x 2 = 1,152 ways.
-                These conversions are preserved for symmetry if the original puzzle is a point symmetric pattern.
-                Also, asymmetric patterns are preserved for asymmetry.<br><br>
+			<img src="images/img4/img4b.png"  alt="Sudoku Standardization" width="50%"><br>
+			<p>
+                Furthermore, the puzzle remains valid even if swap columns 1 and 2, cyclically shift columns (1→2→3→1), 
+                swap column groups (columns 1–3 with columns 4–6), perform similar operations on rows, swap rows and columns (transposition), 
+                or apply combinations of these operations.<br>
+                However, transformations that violate Sudoku constraints—such as swapping column 1 with column 4—are not permitted.<br>
+                Since rotations can be expressed as combinations of row-column swaps and vertical or horizontal flips, they are not considered here.<br><br>
+				<img src="images/img4/img4a.png" alt="数独の標準化" width="80%"><br><br>
 
-			<h3 id="head_bg_LightBlue">Standardization of puzzle patterns</h3>
-            <p>The puzzle pattern is represented by a 27-digit binary number,
-                with the numeric representation of the cells in row 123 corresponding to 0/1.
+				<br>
+                Furthermore, even when such transformations are applied, the method for solving the Sudoku puzzle remains the same.
+                The difficulty level and the analysis algorithms applicable at each stage are also identical.<br>
+                In solving Sudoku, there are instances where multiple algorithms can be applied to a single board state.
+                The choice of algorithm depends on the solver's preference or the program's implementation, 
+                leading to some—or even significant—differences in the solving process. 
+                i will simply disregard such differences.<br><br>
 
-                Sudoku puzzle pattern is represented by this triplet number. i will call this "number of Sudoku patterns".
-                In the case of the next puzzle, the number of Sudoku patterns is (75846740, 44861866, 22107401).
-                It is the same even if it expresses it as an 81-bit integer. <br> <br>
+                A Sudoku puzzle is a combination of a pattern of given-digit positions and a Latin square that satisfies the block constraints of the solution.<br>
+                The "canonical form" of a Sudoku puzzle can be defined by combining the canonical forms of the pattern and the Latin square.
+                Of course, simply combining a pattern and a Latin square does not necessarily result in a valid Sudoku puzzle;
+                it might be unsolvable or have multiple solutions.
+                The puzzle generation function in GNPX creates a puzzle by combining a Latin square with a given-digit position pattern,
+                and then tests whether it can be solved using analysis algorithms.<br>
+                (Starting with GNPX Ver.7, a generation method using DLX has been added.)<br><br>
+                Below, formally define the transformation of Sudoku puzzles and establish a method for their standardization.<br><br>
+			</p>
+				
 
-            <img src="images/img4/img4c.png" width="40%" alt="SuDoKu standardization"><br>
-            100100001 010101010 001010100 = 289*512*512 + 170*512 + 84 = 75846740<br>
-			010101011 001000100 110101010 = 171*512*512 +   8*512 + 426 = 44861866<br>
-			001010100 010101010 100001001 =  84*512*512 + 170*512 + 265 = 22107401<br><br>
 
-                The number of Sudoku patterns varies depending on the previous conversion of Sudoku puzzle.
-                Therefore, the number of Sudoku patterns by this conversion has the minimum value.
-                The minimum value of the number of Sudoku patterns is one of the index values of the Sudoku puzzle and
-                it is called "pattern index value".
-                Although there is one pattern index value for arbitrary Sudoku puzzle,
-                there may be more than one conversion method (combination of row conversion, column conversion, and matrix transpose).
-                In the case of this puzzle, puzzle patterns can be standardized with four kinds of conversion columns 
-                (the figure in the next section).<br>
-                In addition, in the expression of the puzzle pattern conversion method,
-                in order to avoid ambiguity, if transposition transformation is involved, transpose first.<br><br>
+            <h4 id="head_bg_LightBlue" class="textUnderline">Sudoku Puzzle Transformation (Asymmetric Transformation)</h4>
+            <p>
+                A Sudoku puzzle remains valid even after operations such as swapping rows or columns, transposing the grid, or combining these transformations.
+                However, transformations that violate Sudoku rules (such as block constraints)—for instance, swapping column 1 with column 4—are not permitted.
+                Transformations that adhere to these constraints can be classified and organized as follows:
+
+                <ol>
+                    <li>Row band permutation<br>
+                        Group rows 1,2,and 3 together as row band-. Similarly, group rows 4,5,and 6 as row band-2, and rows 7,8,and 9 as row band-3.
+                        The row bands can be permuted arbitrarily. There are 3!=6 possible permutations.<br><br></li>
+                        
+                    <li>Permutation within row band n(n=1,2,3)<br>
+                        The rows a,b,and c within row band-n can be permuted arbitrarily. There are 3!=6 possible permutations.<br><br></li>
+                        
+                    <li>Column band permutation<br>
+                        Group columns 1,2,and 3 together as column band-1. Similarly, group columns 4,5,and 6 as column band-2, 
+                        and columns 7,8,and 9 as column band-3.
+                        The column bands can be permuted arbitrarily. There are 3!=6 possible permutations.<br><br></li>
+                        
+                    <li>Permutation within column band n(n=1,2,3)<br>
+                        The columns a,b,and c within column band-n can be permuted arbitrarily. There are 3!=6 possible permutations.<br><br></li>
+                
+                    <li>Transposition of rows and columns<br></li>
+                </ol>
+                There are a total of (3!)<sup>8</sup>×2 = 3,359,232 such transformations.		
+
+            <h4 id="head_bg_LightBlue" class="textUnderline">Transformation of Sudoku Puzzles (Symmetric Transformation)</h4>
+            <p>When a constraint of point symmetry about a certain center is imposed on the pattern in question, the transformation takes the following form.
+                <ol>
+                <li>Mirror-image swap of row band-1 and -3<br>
+                    Swap rows 1,2,and 3 with rows 9,8,and 7, respectively.<br><br></li>
+
+                <li>Mirror-image transformation of row band 3 linked to the transformation of row band 1<br>
+                    Perform a mirror-image transformation on rows 7,8,and 9 linked to any transformation of rows 1,2,and 3.
+                    For example, swap rows 7 and 9 in conjunction with swapping rows 1 and 3.
+                    There are 3!(=6) possible variations of this transformation.<br><br></li>
+
+                <li>Swap of rows 4 and 6<br><br></li>
+
+                <li>Mirror-image swap of column bands 1 and 3<br>
+                    Swap columns 1,2,and 3 with columns 9,8,and 7, respectively.<br><br></li>
+
+                <li>Mirror-image transformation of column band 3 linked to the transformation of column band 1<br>
+                    Perform a mirror-image transformation on columns 7,8,and 9 linked to any transformation of columns 1,2,and 3.
+                    For example, swap columns 7 and 9 in conjunction with swapping columns 1 and 3.
+                    There are 3!(=6) possible variations of this transformation.<br><br></li>
+
+                <li>Swap of columns 4 and 6<br><br></li>
+
+                <li>Transposition of rows and columns<br></li>
+                </ol>
+                There are(2x3!x2)<sup>2</sup>x2=1,152 possible simple point-symmetry transformations.
+                These transformations preserve symmetry when the original problem involves a point-symmetric pattern,
+                and preserve asymmetry when the pattern is asymmetric.<br><br>
+			</p><br><br>
+		</section>
+
+		<!-- ======================================================================================================================= -->
+
+		<section>
+            
+			<h2 id="head_bg_Blue" class="textUnderline" alt="Sudoku Standardization">Sudoku Standardization</h2>
+
+	            <h4 id="head_bg_LightBlue" class="textUnderline">0. Define the Sudoku Standard Code.</h4>
+			<p>
+                Define a "Standard code" that uniquely represents isomorphic Sudoku grids (isomorphic variants generated by digit permutation, 
+                transposition, swapping of row or column bands, and swapping of rows or columns within a band).
+                Note that puzzles with multiple solutions are excluded from this scope.
+			</p><br>
+
+
+
+
+			<h4 id="head_bg_LightBlue" >1.Procedure for Setting Standard Codes (Overview)</h4>
+			<p>
+                The “standard code” is defined through a two-stage normalization process.
+                First, an overview (the underlying concept) of the standard code configuration is presented.<br>
+				<br>
+                (1) Normalization of hint positions<br>
+                    First, focus on the positions of the hints in the puzzle (the specific hint digits do not matter).<br>
+                    Consider applying operations such as transposition, swapping row bands, swapping rows within a row band, 
+                    swapping column bands, and swapping columns within a column band to the puzzle.<br>
+                    Applying such swapping operations does not alter the fundamental nature of the puzzle.<br>
+                    The "hint position index" can be defined arbitrarily, 
+                    provided that the ordering of hint positions can be represented as a unique index.<br><br>
+
+			    Method 1：<br>
+                    Represent the presence or absence of clues in the puzzle's rows (r1, r2, r3, ...) as a binary sequence (1/0) and
+                    treat the configuration of all nine rows as a single numerical value.<br>
+                    This metric characterizes the pattern of clues within the row bands; intuitively, this is a natural approach.<br>
+                    However, this method also affects the column bands (c123, c456, c789) due to the constraints imposed by the blocks.<br>
+                    This propagation of constraints (interference) complicates the logic required to uniquely determine the ordering of the metrics.<br><br>
+
+				Method 2：<br>
+                    The presence or absence of a hint for each block (b1=r123c123, b2, b3, ...) is represented as 1 or 0,
+                    and the block indicators are arranged in row-major order to form the board indicator.<br>
+                    Since this method proceeds by resolving each block individually, the logic for calculating the standard code is relatively simple.<br><br>
+
+                Normalizing the hint positions in the standard code can be achieved using either Method 1 or Method 2 (I have actually tested both).<br>
+                GNPX adopts Method 1 (row-based normalization), prioritizing human intuition.<br><br><br>
+
+				(2)Normalization of hint digits<br>
+                    Arbitrarily swapping the digits in a Sudoku puzzle does not alter the fundamental nature of the problem.<br>
+                    Normalizing the puzzle's digits requires, as a first step, the complete numerical layout of the solved puzzle board.<br>
+                    An ordering based on the "hint digits" is then established using the numerical arrangement of the solved board.<br>
+                    While this ordering can be defined in various ways—such as by row or by block—we adopt "row-based number normalization,
+                    " consistent with the normalization of hint positions.<br>
+			</p><br><br>
+
+
+
+
+
+			<h4 id="head_bg_LightBlue">2. Method for setting standard codes (details)</h4>
+
+			<h4 id="head_bg_LightBlue">2.1 Normalization of hint positions</h4>
+			<p>
+				Normalization of the hint position is performed according to the following procedure.
 			</p>
 
-			<h3 id="head_bg_Blue">Standardization of Sudoku solution</h3>
-            <p>Sudoku solution (Latin square with block constraints), about the Sudoku puzzle that "standardized puzzle pattern"
-                ① Standardize puzzle patterns.
-                ② Standardize the numerical array of block 1.
-                ③ Order of Latin square creation
-                In the following figure, the left is the original puzzle,
-                the center is a puzzle after normalization of the pattern,
-                and the right is the puzzle of exchanging the numeral array of Block 1 to 123456789.
-                After that, Latin square is generated in the order of
-                <a href="page14.html"> block constrained Latin square formation method </a>.
-            <ol>
-                <li>Ordering of block 2</li>
-                <li>Ordering of block 3</li>
-                <li>Ordering of block 4</li>
-                <li>Ordering of block 7</li>
-                <li>Generate the patterns of block 5,6,8,9, and verify the puzzle after pattern standardization</li>
-            </ol>
-            <p class="auto-style4">In this way, the generation of Latin squares with block constraints can be coded,
-                so use this code as an index.
-                The puzzle with the conversion that minimizes the pattern index and Latin square index is taken as the standard form.
-                The puzzle of Sudoku can be changed by row/column/transpose transformation, transformation of exposed number,
-                but it is unique so that identity of puzzle created by transformation can be identified.<br><br>
-            <img src="images/img4/img4d.png" width="95%" alt="SuDoKu standardization"><br>
+			<p>
+				<strog>(1)R1C123</strog><br>
+                    Focusing on 1x3 cells across the entire board, 
+                    perform permutations along the columns to determine the minimum numerical representation for a 1x3 cell. 
+                    Place the 1x3 cell with this minimum value at r1c123.<br>
+                    Since there are often multiple such 1x3 cells, all of them are considered candidates.<br><br>
+
+				<strog>(2)r1c456789</strog><br>
+                    Row-1 is determined based on the candidates from (1). 
+                    Permutations are applied to the 1x3 cell groups r1c456 and r1c789 in row-1 to find the minimum numerical representation,
+                    which is then assigned to r1c456 and r1c789. This placement determines row 1 and columns c1–c9.<br>
+                    Since there are multiple possible arrangements for this configuration, all of them are treated as candidates.<br><br>
+
+				<strog>(3)r2c1-9,r3c1-9</strog><br>
+                    The values ​​for r1c1–9 are determined based on the candidates for r1.
+                    Additionally, the determination of the r1 candidates fixes the values ​​for the r2 and r3 rows within Band 1.
+                    The values ​​for r2c1–9 and r3c1–9 are placed by comparing the numerical representations of the 1x9 cell sequences for r2c1–9 and r3c1–9.<br><br>
+
+				<strog>(4)Band2,3</strog><br>
+				    Determine the minimum numerical representation for Band-2 and -3 by arranging the bands and permuting the rows within them, 
+                    then place the values ​​for r4–9, c1–9.<br>
+
+				<img src="images/img4/img04_PlacementNormalization_2.svg" alt="StandardCode" width="90%"><br><br>
+
+                Multiple exchange methods are possible for the "board index configuration pattern with the minimum value" 
+                obtained through these exchange operations.<br>
+                To establish a standard code for the puzzle, an ordering based on the board's numerical values ​​is required as the next step.<br>
+			</p><br>
+
+
+
+			<h4 id="head_bg_LightBlue" >2.2 Normalization using hint digits</h4>
+			<p>
+                Solve each puzzle converted in Step 2.1 to determine the final layout.<br>
+                Next, transform the digits in Block 1 so that they correspond to the sequence "123456789";
+                this transformation does not alter the essential nature of the puzzle.<br>
+                While listing every digit in the final layout could serve as an identifier for the puzzle, doing so is redundant.<br>
+                Instead, by reverting the transformed final layout to the state corresponding to the original puzzle and using only the given hint digits, 
+                one obtains an identifier that characterizes the puzzle.<br>
+                In the puzzle standardization process, the hint digits - arranged in row-column order - serve as a normalized indicator of the hint values.<br><br>
+                The combination of these two characteristic values—"hint placement" and "hint digits"—defines the "standard code" for a Sudoku puzzle.
 			</p>
+<div class="gnpx7_container">
+				<ol class "gnpx7_explanation">
+					<li><strong>Original_Puzzle</strong></li>
+					<li><strong>Placement_norm</strong></li>
+					<li><strong>norm_Solution</strong></li>
+					<li><strong>digits_exchange</strong></li>
+					<li><strong>Standard_Puzzle</strong></li>
+				</ol>
+
+<div class="gnpx7_matrix-wrapper">
+	<pre class="gnpx7_matrix">
+      Original Puzzle           Placement norm            norm Solution          digits exchange          Standard Puzzle
+. . . | . . . | . . .    . . . | . . . | . . .    4 5 3 | 8 7 9 | 6 2 1    1 2 3 | 6 8 4 | 5 7 9    . . . | . . . | . . .
+. 5 . | . 1 6 | 3 . .    . . 8 | . . 5 | . . 4    9 6 8 | 2 1 5 | 7 3 4    4 5 6 | 7 9 2 | 8 3 1    . . 6 | . . 2 | . . 1
+6 . . | 8 . . | . 2 .    . 7 . | . 4 . | 9 8 .    2 7 1 | 6 4 3 | 9 8 5    7 8 9 | 5 1 3 | 4 6 2    . 8 . | . 1 . | 4 6 .
+------+-------+-------   ------+-------+-------   ------+-------+-------   ------+-------+-------   ------+-------+------
+8 . 3 | . . 7 | . . 6    . . . | . . . | . . .    3 8 9 | 4 6 1 | 5 7 2    3 6 4 | 1 5 9 | 2 8 7    . . . | . . . | . . .
+1 . 9 | . . . | 7 . 4    . . 5 | 3 . . | . 1 6    7 2 5 | 3 9 8 | 4 1 6    8 7 2 | 3 4 6 | 1 9 5    . . 2 | 3 . . | . 9 5
+5 . . | 3 . . | 1 . 2    6 . . | . 2 . | 8 . .    6 1 4 | 5 2 7 | 8 9 3    5 9 1 | 2 7 8 | 6 4 3    5 . . | . 7 . | 6 . .
+------+-------+-------   ------+-------+-------   ------+-------+-------   ------+-------+-------   ------+-------+------
+. 8 . | . . 4 | . . 5    5 . . | 1 . 2 | 3 . .    5 4 7 | 1 8 2 | 3 6 9    2 1 8 | 9 6 7 | 3 5 4    2 . . | 9 . 7 | 3 . .
+. . 7 | 9 8 . | . 4 .    8 3 . | . . 6 | . . 7    8 3 2 | 9 5 6 | 1 4 7    6 3 7 | 4 2 5 | 9 1 8    6 3 . | . . 5 | . . 8
+. . . | . . . | . . .    1 9 . | 7 . 4 | . . .    1 9 6 | 7 3 4 | 2 5 8    9 4 5 | 8 3 1 | 7 2 6    9 4 . | 8 . 1 | . . .
+
+</pre>
+</div>
+</div>
+
+
+
+			<h4 id="head_bg_LightBlue" >3.Standard code (example)</h4>
+			<p>
+                The standard code is a combination of the normalized indicator for the hint position and the normalized indicator for the hint digits.<br>
+                The standard code is a character string.
+
+				<div style="background-color:rgb(192, 188, 237) ">
+				<br>
+				Puzzle Standard Code : "6218146 2395576 297363589481 0o 000 111 226 000 143 424 454 611 650"
+				<br><br>
+				</div>
+
+                The standard code possesses the characteristics of visibility and reproducibility, 
+                as each digit of the octal value directly corresponds to the presence or absence of hints in each row (based on binary representation),
+                allowing the original standard puzzle's cell layout to be reconstructed from the code alone. <br>
+
+
+<div class="gnpx7_container">
+  <div class="gnpx7_matrix-wrapper">
+    <pre class="gnpx7_matrix">
+-----------------------------------------------------------------------------------------------------------
+[Row Band Exchange]  : #4 Rotation (1,2,3)->(3,1,2)
+[Inner Row Exchange] : ├─ Row Band[0]-#4(1-3) -> Rotation (1,2,3)->(3,1,2)
+                       ├─ Row Band[1]-#0(4-6) -> None
+                       └─ Row Band[2]-#4(7-9) -> Rotation (1,2,3)->(3,1,2)
+
+[Col Band Exchange]  : #1 Band2 <-> Band3
+[Inner Col Exchange] : ├─ Col Band[0]-#1(1-3) -> Line2 <-> Line3
+                       ├─ Col Band[1]-#0(4-6) -> None
+                       └─ Col Band[2]-#0(7-9) -> None
+----------------------------------------------------------------------
+Block 1 Digit Normalization : (123456789) -> (973125864)
+Puzzle Standard Code : 6218146 2395576 297363589481 0o 000 111 226 000 143 424 454 611 650
+</pre></div>
+<br>
+
+  <div class="gnpx7_matrix-wrapper">
+    <pre class="gnpx7_matrix">
+      Original Puzzle           Placement norm            norm Solution          digits exchange          Standard Puzzle
+. . . | . . . | . . .    . . . | . . . | . . .    4 5 3 | 8 7 9 | 6 2 1    1 2 3 | 6 8 4 | 5 7 9    . . . | . . . | . . .
+. 5 . | . 1 6 | 3 . .    . . 8 | . . 5 | . . 4    9 6 8 | 2 1 5 | 7 3 4    4 5 6 | 7 9 2 | 8 3 1    . . 6 | . . 2 | . . 1
+6 . . | 8 . . | . 2 .    . 7 . | . 4 . | 9 8 .    2 7 1 | 6 4 3 | 9 8 5    7 8 9 | 5 1 3 | 4 6 2    . 8 . | . 1 . | 4 6 .
+------+-------+-------   ------+-------+-------   ------+-------+-------   ------+-------+-------   ------+-------+------
+8 . 3 | . . 7 | . . 6    . . . | . . . | . . .    3 8 9 | 4 6 1 | 5 7 2    3 6 4 | 1 5 9 | 2 8 7    . . . | . . . | . . .
+1 . 9 | . . . | 7 . 4    . . 5 | 3 . . | . 1 6    7 2 5 | 3 9 8 | 4 1 6    8 7 2 | 3 4 6 | 1 9 5    . . 2 | 3 . . | . 9 5
+5 . . | 3 . . | 1 . 2    6 . . | . 2 . | 8 . .    6 1 4 | 5 2 7 | 8 9 3    5 9 1 | 2 7 8 | 6 4 3    5 . . | . 7 . | 6 . .
+------+-------+-------   ------+-------+-------   ------+-------+-------   ------+-------+-------   ------+-------+------
+. 8 . | . . 4 | . . 5    5 . . | 1 . 2 | 3 . .    5 4 7 | 1 8 2 | 3 6 9    2 1 8 | 9 6 7 | 3 5 4    2 . . | 9 . 7 | 3 . .
+. . 7 | 9 8 . | . 4 .    8 3 . | . . 6 | . . 7    8 3 2 | 9 5 6 | 1 4 7    6 3 7 | 4 2 5 | 9 1 8    6 3 . | . . 5 | . . 8
+. . . | . . . | . . .    1 9 . | 7 . 4 | . . .    1 9 6 | 7 3 4 | 2 5 8    9 4 5 | 8 3 1 | 7 2 6    9 4 . | 8 . 1 | . . .
+</pre>
+  </div>
+</div>
 			</p>
 
+
+			<h4 id="head_bg_LightBlue" >4.Standardization Program</h4>
+			<p>
+				4.1 Standardization Program code<br>
+                The standardization program code within GNPX is structured to be largely independent of the rest of the codebase. <br>
+                This component can be extracted for learning and reuse purposes.<br><br>
+
+                The standardization program code underwent the following verification tests:<br>
+                ・For a large number of puzzles, variants were generated by applying random swaps to each original puzzle; 
+                  it was confirmed that these derived puzzles matched a single standard puzzle code.<br>
+                ・Verification was performed on a publicly available database of 17-clue puzzles (49,158 puzzles), 
+                confirming that every puzzle was unique.<br>
+                &nbsp; Additionally, a neighborhood search (-N/+N, where N=1,2) was conducted on the same database,
+                confirming that no new puzzles were generated.<br>
+                ・The sample puzzles included with GNPX contain duplicates.<br><br>
+
+			</p>
         </section>
+		
     </article>
     
 	    <a href="#" class="pagetop">Top</a>
-<footer id="foot">
-        <p id="copyright"> Copyright &copy; 2014-  GNPX. All rights reserved.</p>
-    </footer>
 
-</body>
+        <footer id="foot">
+            <p id="copyright"> Copyright &copy; 2014-  GNPX. All rights reserved.</p>
+        </footer>
+    </body>
 </html>

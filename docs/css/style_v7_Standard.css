@@ -1,0 +1,47 @@
+﻿@charset "utf-8";
+
+/*Container enclosing the entire area (safely inheriting the GNPX brand color—light purple: #bdaeea29) */
+  .gnpx7_container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #bdaeea29 !important; 
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* List of explanatory text at the top */
+  .gnpx7_explanation {
+    margin: 0 0 25px 0;
+    padding-left: 20px;
+    line-height: 1.6;
+    font-size: 15px;
+    color: black !important;
+  }
+  
+  .gnpx7_explanation li {
+    margin-bottom: 5px;
+  }
+
+  /* Horizontal scroll wrapper to prevent the fixed-width board from collapsing on narrow screens */
+  .gnpx7_matrix-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background-color: transparent !important;
+    margin-bottom: 15px;
+  }
+
+  /* Absolute monospaced font definition */
+  .gnpx7_matrix {
+    margin: 0;
+    padding: 10px 15px;
+    font-family: "Consolas", "Courier New", Courier, "Monaco", "Noto Sans Mono", monospace;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    color: #222222 !important;
+    white-space: pre !important; /* Strictly preserve spaces, indentation, and special borders. */
+    background: transparent !important;
+    border: none !important;
+  }
+

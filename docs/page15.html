@@ -85,15 +85,14 @@
 				<li><b>Step 3. Solve the set of unique previous puzzles using the TryAndError method [parallel possible]</b><br>
 					&nbsp; &nbsp; TryAndError solves Latin Squares quickly.<br>
 					&nbsp; &nbsp; Any previous Puzzle that has a unique solution in TryAndError is a candidate Sudoku problem.<br>
-					&nbsp; &nbsp; Again, this is not guaranteed to be a 'Sudoku Puzzle', as the Latin Square generated from the other parameters in step-1 may be the same.<br>
+					&nbsp; &nbsp; Each time a Sudoku puzzle is obtained in steps 1 through 3, it is sent to the Sudoku algorithm thread (using a queue).
 				</li><br>
 
 				<li><b>Step 4. Solve with Sudoku Algorithm [parallel possible]</b><br>
 					&nbsp; &nbsp; Step 3: Solve the candidate Sudoku problems using the Sudoku algorithm.<br>
 					&nbsp; &nbsp; Steps 1 to 3 and step 4 can be executed independently (in separate threads).<br>
-					&nbsp; &nbsp; In GNPX, the Sudoku algorithm thread is always running,<br>
+					&nbsp; &nbsp; In GNPX, the Sudoku algorithm thread is always running (remaining in a waiting state while the queue is empty).<br>
 					&nbsp; &nbsp; In steps 1 to 3, each time a Sudoku Puzzle candidate is found, <br>
-					&nbsp; &nbsp; it is sent to the Sudoku algorithm thread (using a Queue).
 				</li><br>
 			</ol>
 

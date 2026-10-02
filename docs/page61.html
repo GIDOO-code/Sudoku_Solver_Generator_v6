@@ -167,18 +167,29 @@
 					<ul>
 						<li>Single Candidate Digit Algorithm (Rule-1)</li>
 							<ul style="margin-left: -20px;">For each candidate digit #n
-								<li>All cells that are common to all patterns are true.  =>  <font style="color:blue">All Patterns</font></li>
-								<li>Cells that are not included in any pattern are false and can be excluded. => <font style="color:blue">No Patterns</font></li>
+								<li>All cells that are common to all patterns are true.  =>  
+									<a href="#Rule1-All_Pattern">&nbsp; all-Pattern <img src="images/imgTop/jumpTo.png" height="8"></a></li>
+
+								<li>Cells that are not included in any pattern are false and can be excluded. =>
+									<a href="#Rule1-No_Pattern">&nbsp; no-Pattern <img src="images/imgTop/jumpTo.png" height="8"></a>
+								</li>
+
 								<li>When there is only one type of pattern, the candidate digit in the cells that are common to all patterns is true.<br>
-									The candidate digit in the cells that are not included in any pattern is false. &nbsp; &nbsp; &nbsp; &nbsp;=> <font style="color:blue">All Patterns, single pattern</font><br>
+									The candidate digit in the cells that are not included in any pattern is false. &nbsp; &nbsp; &nbsp; &nbsp;=> 
+								<a href="#Rule1-Single">&nbsp; single <img src="images/imgTop/jumpTo.png" height="8"></a></font><br>
 								</li>
 							</ul>
 							<br>
 
-						<li>Algorithm based on the interaction of candidate digits (Rule-2)</li>
-						<br>
+						<li>Algorithm based on the interaction of candidate numbers(Rule-2)
+							<a href="#Rule2-Interactions">&nbsp; Interactions<img src="images/imgTop/jumpTo.png" height="8"></a><br>
+							An algorithm based on the interaction between two candidate numbers.(Rule-2 Level-2)
+							<a href="#Rule2-InteractionsLv2">&nbsp; Interactions Level2<img src="images/imgTop/jumpTo.png" height="8"></a><br>
+						</li><br>
 
-						<li>Combination algorithm for POM and Nice-Loop(Rule-3)</li>
+						<li>Combination algorithm for POM and Nice-Loop(Rule-3)
+							<a href="#Rule3_POM_NiceLoop">&nbsp; POM_NiceLoop<img src="images/imgTop/jumpTo.png" height="8"></a></li>
+						<br>
 						<br>
 					</ul>
 			</p>
@@ -187,7 +198,8 @@
 
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule1 - all patterns</H4>
+			<a id="Rule1-All_Pattern"></a>
+			<H4 id="head_bg_LightBlue">&nbsp;POM Rule1 - all patterns</H4>
 			<p>
 				There are cases where a specific cell and candidate digits are common to these patterns.
 				This cell and candidate digits are confirmed.<br>
@@ -225,7 +237,8 @@
 
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule1 - No patterns</H4>
+			<a id="Rule1-No_Pattern"></a>
+			<H4 id="head_bg_LightBlue">&nbsp;POM Rule1 - No patterns</H4>
 			<p>
 				POM analysis may reveal cells or candidate digits for which no valid placement pattern exists. 
 				These cells or candidate digits can be eliminated.<br>
@@ -262,7 +275,8 @@
 		
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM Rule1 - Single Pattarn</H4>
+			<a id="Rule1-Single"></a>
+			<H4 id="head_bg_LightBlue">&nbsp;POM Rule1 - Single Pattarn</H4>
 			<p>
 				If there is only one pattern, it applies to all patterns, satisfying the <b>All Pattern</b> condition.<br>
 				Conversely, cells or candidate digits not included in any of the patterns are false and can be excluded (<b>No Pattern</b>).<br>
@@ -314,7 +328,8 @@ Pattern Overlay Method _ No Pattern Exclusion<br>
 
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - Interactions</H4>
+			<a id="Rule2-Interactions"></a>
+			<H4 id="head_bg_LightBlue">&nbsp;POM - Interactions</H4>
 			<p>
 				The algorithm based on the <b>interaction of candidate digits</b>, is as follows:<br>
 					<ul>
@@ -425,7 +440,8 @@ Pattern Overlay Method _ No Pattern Exclusion<br>
 
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;POM - Interactions Level-2</H4>
+			<a id="Rule2-InteractionsLv2"></a>
+			<H4 id="head_bg_LightBlue">&nbsp;POM - Interactions Level-2</H4>
 			<p>
 				An algorithm based on the <b>interaction of candidate digit</b> 
 				can be naturally extended to an algorithm for the <b>interaction of two candidate digits</b>.
@@ -482,7 +498,8 @@ Pattern Overlay Interaction Lv2 _ All Pattern Fixed<br>
 
 
 		<section>
-			<H4 id="head_bg_LightBlue" id="SE">&nbsp;Pattern Overlay Method Rule3 - POM NiceLoop</H4>
+			<a id="Rule3_POM_NiceLoop"></a>
+			<H4 id="head_bg_LightBlue">&nbsp;Pattern Overlay Method Rule3 - POM NiceLoop</H4>
 			<p>
 				This is an algorithm that detects inconsistencies by <b>combining ROM analysis and Nice-Loop</b>.<br>
 				<ul style="margin-left: -20px;">
