@@ -1,4 +1,4 @@
-# GNPX v7.0
+# GNPX v6.71
 GNPX v7.0 is scheduled for February 2027.
 In v7.0, a large portion of the source code has been rewritten,
 and the definitions of element classes have been restructured.
