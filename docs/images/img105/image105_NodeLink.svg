@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="78.21389mm"
-   height="63.137844mm"
-   viewBox="0 0 78.21389 63.137844"
+   width="116.1081mm"
+   height="121.09985mm"
+   viewBox="0 0 116.1081 121.09985"
    version="1.1"
    id="svg17372"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
-   sodipodi:docname="image105.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="image105_000.svg"
    inkscape:export-filename="image105_NodeLink.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -27,21 +27,21 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.5440988"
-     inkscape:cx="190.40232"
-     inkscape:cy="465.64378"
+     inkscape:zoom="0.77262351"
+     inkscape:cx="849.70233"
+     inkscape:cy="547.48528"
      inkscape:window-width="2149"
      inkscape:window-height="1718"
-     inkscape:window-x="900"
-     inkscape:window-y="130"
+     inkscape:window-x="1607"
+     inkscape:window-y="217"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      showguides="false">
     <inkscape:grid
        type="xygrid"
        id="grid580"
-       originx="-26.007086"
-       originy="-20.739811"
+       originx="-8.0468512"
+       originy="-18.432898"
        spacingy="1"
        spacingx="1"
        units="mm"
@@ -49,14 +49,34 @@
     <inkscape:page
        x="0"
        y="0"
-       width="78.21389"
-       height="63.137844"
+       width="116.1081"
+       height="121.09985"
        id="page2"
        margin="0"
        bleed="0" />
   </sodipodi:namedview>
   <defs
      id="defs17369">
+    <marker
+       style="overflow:visible"
+       id="marker108"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="3"
+       markerHeight="3"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path108" />
+    </marker>
     <inkscape:path-effect
        effect="bspline"
        id="path-effect85"
@@ -93,37 +113,6 @@
        apply_with_weight="true"
        only_selected="false"
        uniform="false" />
-    <marker
-       style="overflow:visible"
-       id="Triangle"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Triangle arrow"
-       markerWidth="0.30000001"
-       markerHeight="0.30000001"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.5)"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         id="path135" />
-    </marker>
-    <inkscape:path-effect
-       effect="bspline"
-       id="path-effect78"
-       is_visible="true"
-       lpeversion="1.3"
-       weight="33.333333"
-       steps="2"
-       helper_size="0"
-       apply_no_weight="true"
-       apply_with_weight="true"
-       only_selected="false"
-       uniform="false" />
     <inkscape:path-effect
        effect="bspline"
        id="path-effect13"
@@ -141,41 +130,52 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-26.007085,-20.739811)">
+     transform="translate(-8.0468512,-18.432898)">
     <g
-       id="g86"
-       inkscape:export-filename="image105_NodeLink.png"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       id="g82">
       <rect
-         style="opacity:0.8;fill:none;stroke:#000000;stroke-width:0.273082;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-opacity:1;paint-order:stroke fill markers"
+         style="opacity:0.8;fill:#f9f9f9;stroke:#000000;stroke-width:0.466903;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-opacity:1;paint-order:stroke fill markers"
          id="rect1"
-         width="77.940804"
-         height="58.718849"
-         x="26.143625"
-         y="25.022268" />
+         width="115.6412"
+         height="115.69073"
+         x="8.280303"
+         y="23.608561" />
+      <text
+         xml:space="preserve"
+         id="text6297"
+         x="111.71256"
+         y="34.601231"
+         style="font-size:1.13712px;fill:#000100;fill-opacity:1;stroke:#00aa00;stroke-width:0.0947604;stroke-opacity:1"><tspan
+           sodipodi:role="line"
+           id="tspan6299"
+           x="111.71256"
+           y="34.601231" /><tspan
+           sodipodi:role="line"
+           id="tspan6301"
+           x="111.71256"
+           y="36.022629">	</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:5.64444px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-opacity:1;paint-order:stroke fill markers"
-         x="54.693539"
-         y="37.454659"
+         x="66.894073"
+         y="37.554958"
          id="text7"><tspan
            sodipodi:role="line"
            id="tspan7"
            style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.3"
-           x="54.693539"
-           y="37.454659">a a</tspan></text>
+           x="66.894073"
+           y="37.554958">a a</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:5.64444px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-opacity:1;paint-order:stroke fill markers"
-         x="63.476124"
-         y="40.497715"
+         x="75.676659"
+         y="40.598015"
          id="text8"><tspan
            sodipodi:role="line"
            id="tspan8"
            style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.3"
-           x="63.476124"
-           y="40.497715"><tspan
+           x="75.676659"
+           y="40.598015"><tspan
              style="fill:#050000;fill-opacity:1"
              id="tspan13">b c </tspan><tspan
              style="fill:#000096;fill-opacity:1"
@@ -186,58 +186,58 @@
          id="path11"
          inkscape:path-effect="#path-effect13"
          inkscape:original-d="m 36.288517,109.41079 c 10.743178,0 21.486357,0 32.229535,0 -0.04039,0.0202 -0.08077,0.0404 -0.121163,0.0606"
-         transform="matrix(-0.49054568,0,0,-0.51997934,105.12446,95.976301)" />
+         transform="matrix(-0.49054568,0,0,-0.51997934,117.32499,96.076602)" />
       <text
          xml:space="preserve"
          style="font-size:3.27434px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.17403;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         x="33.479446"
-         y="35.312519"
+         x="44.274494"
+         y="35.42588"
          id="text35"
          transform="scale(1.1301975,0.88480111)"><tspan
            sodipodi:role="line"
            id="tspan35"
            style="fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.17403"
-           x="33.479446"
-           y="35.312519">Cell</tspan></text>
+           x="44.274494"
+           y="35.42588">Cell</tspan></text>
       <text
          xml:space="preserve"
-         style="font-size:3.27434px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.17403;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         x="63.772964"
-         y="34.359993"
+         style="font-size:3.06913px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.163123;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         x="79.558746"
+         y="32.312851"
          id="text36"
-         transform="scale(1.1301975,0.88480111)"><tspan
+         transform="scale(1.0593661,0.94396073)"><tspan
            sodipodi:role="line"
            id="tspan36"
-           style="fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.17403"
-           x="63.772964"
-           y="34.359993">ALS</tspan></text>
+           style="fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.163123"
+           x="79.558746"
+           y="32.312851">ALS</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:3.27434px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.17403;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         x="32.266556"
-         y="74.230354"
+         x="43.061604"
+         y="74.343712"
          id="text37"
          transform="scale(1.1301975,0.88480111)"><tspan
            sodipodi:role="line"
            id="tspan37"
            style="fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.17403"
-           x="32.266556"
-           y="74.230354">Node</tspan></text>
+           x="43.061604"
+           y="74.343712">Node</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:5.73153px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#0029ff;fill-opacity:1;stroke:none;stroke-width:0.304629;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         x="53.773441"
-         y="57.971634"
+         x="17.645569"
+         y="67.16877"
          id="text38"
          transform="scale(0.95917971,1.0425575)"><tspan
            sodipodi:role="line"
            id="tspan38"
            style="fill:#0029ff;fill-opacity:1;stroke:none;stroke-width:0.304629"
-           x="53.773441"
-           y="57.971634">Link</tspan></text>
+           x="17.645569"
+           y="67.16877">Link</tspan></text>
       <g
          id="g80"
-         transform="translate(3.5983773,-0.3427026)">
+         transform="translate(15.798913,-0.24240207)">
         <rect
            style="opacity:0.8;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-opacity:1;paint-order:stroke fill markers"
            id="rect2"
@@ -267,14 +267,14 @@
       <text
          xml:space="preserve"
          style="font-size:5.64444px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-opacity:1;paint-order:stroke fill markers"
-         x="63.476124"
-         y="40.497715"
+         x="75.676659"
+         y="40.598015"
          id="text43"><tspan
            sodipodi:role="line"
            id="tspan43"
            style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.3"
-           x="63.476124"
-           y="40.497715"><tspan
+           x="75.676659"
+           y="40.598015"><tspan
              style="fill:#050000;fill-opacity:1"
              id="tspan41">b c </tspan><tspan
              style="fill:#000096;fill-opacity:1"
@@ -284,20 +284,20 @@
          id="rect49"
          width="30.877735"
          height="10.758044"
-         x="49.898048"
-         y="31.484543"
+         x="62.098587"
+         y="31.584843"
          ry="1.4477021" />
       <rect
          style="opacity:0.8;fill:none;fill-opacity:1;stroke:#0000ac;stroke-width:0.616855;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="rect64"
          width="65.905785"
          height="15.970964"
-         x="32.849678"
-         y="61.843414"
+         x="45.050213"
+         y="61.943714"
          ry="2.1492007" />
       <g
          id="g84"
-         transform="translate(5.3118903,3.3841859)"
+         transform="translate(17.512426,3.4844868)"
          style="stroke:#009600;stroke-opacity:1">
         <rect
            style="opacity:0.8;fill:none;fill-opacity:1;stroke:#009600;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-opacity:1;paint-order:stroke fill markers"
@@ -325,40 +325,33 @@
              x="32.496651"
              y="69.275764">+ </tspan></text>
       </g>
-      <path
-         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#00007c;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle);paint-order:normal"
-         d="m 55.860523,126.62861 c 0,1.8563 0,3.71261 0,5.56892"
-         id="path77"
-         inkscape:path-effect="#path-effect78"
-         inkscape:original-d="m 55.860523,126.62861 c 0,1.8563 0,3.71261 0,5.56892"
-         transform="matrix(1,0,0,0.89799191,7.9249976,-68.303377)" />
       <text
          xml:space="preserve"
          style="font-size:4.60208px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.244599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         x="53.175896"
-         y="77.257484"
+         x="64.59687"
+         y="77.364639"
          id="text78"
          transform="scale(1.0682571,0.93610424)"><tspan
            sodipodi:role="line"
            id="tspan78"
            style="fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.244599"
-           x="53.175896"
-           y="77.257484">almost X</tspan></text>
+           x="64.59687"
+           y="77.364639">almost X</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:3.27434px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.17403;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         x="77.598488"
-         y="73.649368"
+         x="88.393532"
+         y="73.762726"
          id="text79"
          transform="scale(1.1301975,0.88480111)"><tspan
            sodipodi:role="line"
            id="tspan79"
            style="fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.17403"
-           x="77.598488"
-           y="73.649368">Node</tspan></text>
+           x="88.393532"
+           y="73.762726">Node</tspan></text>
       <g
          id="g85"
-         transform="translate(0.8567565,-1.0281078)">
+         transform="translate(13.057292,-0.92780706)">
         <text
            xml:space="preserve"
            style="font-size:5.64444px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#000096;fill-opacity:0.8;stroke:none;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-opacity:1;paint-order:stroke fill markers"
@@ -386,18 +379,18 @@
       <text
          xml:space="preserve"
          style="font-size:4.60208px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.244599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         x="25.413006"
-         y="25.283426"
+         x="8.5168486"
+         y="22.81905"
          id="text80"
          transform="scale(1.0682571,0.93610424)"><tspan
            sodipodi:role="line"
            id="tspan80"
            style="fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.244599"
-           x="25.413006"
-           y="25.283426">Node, Link</tspan></text>
+           x="8.5168486"
+           y="22.81905">Node, Link,Network</tspan></text>
       <g
          id="g83"
-         transform="translate(0.8567565,0.89959341)"
+         transform="translate(13.057292,0.99989434)"
          style="fill:none;fill-opacity:1;stroke:#009500;stroke-opacity:0.776471">
         <text
            xml:space="preserve"
@@ -424,41 +417,96 @@
          id="path82"
          inkscape:path-effect="#path-effect83"
          inkscape:original-d="m 33.756205,35.469718 c 9.310087,0 18.620174,0 27.930263,0"
-         transform="matrix(0.7423313,0,0,1,16.408726,0.8567565)" />
+         transform="matrix(0.7423313,0,0,1,28.609263,0.95705744)" />
       <path
          style="opacity:0.8;fill:#000095;fill-opacity:0.639216;stroke:#002996;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          d="m 36.288517,109.41079 c 10.743178,0 21.486357,0 26.837751,0.0101 5.351394,0.0101 5.311013,0.0303 5.270621,0.0505"
          id="path79"
          inkscape:path-effect="#path-effect80"
          inkscape:original-d="m 36.288517,109.41079 c 10.743178,0 21.486357,0 32.229535,0 -0.04039,0.0202 -0.08077,0.0404 -0.121163,0.0606"
-         transform="matrix(-0.28515541,0,0,-0.53850447,97.911487,130.20136)" />
+         transform="matrix(-0.28515541,0,0,-0.53850447,110.11202,130.30166)" />
       <path
          style="opacity:0.8;fill:none;fill-opacity:0.8;stroke:#ff0000;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          d="m 33.756205,35.469718 c 9.310087,0 18.620174,0 27.930263,0"
          id="path84"
          inkscape:path-effect="#path-effect85"
          inkscape:original-d="m 33.756205,35.469718 c 9.310087,0 18.620174,0 27.930263,0"
-         transform="matrix(0.39263806,0,0,-1,28.727097,106.17361)" />
+         transform="matrix(0.39263806,0,0,-1,40.927633,106.27391)" />
       <text
          xml:space="preserve"
          style="font-size:3.27434px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.17403;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-         x="77.750099"
-         y="35.118858"
+         x="88.545143"
+         y="35.23222"
          id="text85"
          transform="scale(1.1301975,0.88480111)"><tspan
            sodipodi:role="line"
            id="tspan85"
            style="fill:#004918;fill-opacity:1;stroke:none;stroke-width:0.17403"
-           x="77.750099"
-           y="35.118858">Cell</tspan></text>
+           x="88.545143"
+           y="35.23222">Cell</tspan></text>
       <rect
          style="opacity:0.8;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.346534;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="rect85"
          width="30.877735"
          height="10.758044"
-         x="49.555344"
-         y="65.069397"
+         x="61.755882"
+         y="65.169693"
          ry="1.4477021" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.73153px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#0029ff;fill-opacity:1;stroke:none;stroke-width:0.304629;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         x="16.574505"
+         y="36.292671"
+         id="text65"
+         transform="scale(0.95917971,1.0425575)"><tspan
+           sodipodi:role="line"
+           id="tspan65"
+           style="fill:#0029ff;fill-opacity:1;stroke:none;stroke-width:0.304629"
+           x="16.574505"
+           y="36.292671">Node</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:5.73153px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#0029ff;fill-opacity:1;stroke:none;stroke-width:0.304629;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         x="17.645569"
+         y="99.685555"
+         id="text66"
+         transform="scale(0.95917971,1.0425575)"><tspan
+           sodipodi:role="line"
+           id="tspan66"
+           style="fill:#0029ff;fill-opacity:1;stroke:none;stroke-width:0.304629"
+           x="17.645569"
+           y="99.685555">network</tspan></text>
+      <path
+         style="fill:#0029ff;fill-opacity:1;stroke:#0003f0;stroke-width:0.253;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker108);marker-end:url(#marker108)"
+         d="M 53.781993,99.280376 H 80.635039"
+         id="path72" />
+      <path
+         style="fill:#0029ff;fill-opacity:1;stroke:#0003f0;stroke-width:0.3;stroke-opacity:1;marker-end:url(#marker108)"
+         d="M 79.908597,99.522525 99.038233,112.59848"
+         id="path73" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#0003f0;stroke-width:0.253;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker108)"
+         d="M 99.038233,112.59848 79.182155,129.30664"
+         id="path75" />
+      <ellipse
+         style="fill:#002cff;fill-opacity:1;stroke:#0003f0;stroke-width:0.253;stroke-dasharray:none;stroke-opacity:1"
+         id="path76"
+         cx="21.187889"
+         cy="42.133629"
+         rx="2.0582516"
+         ry="2.4214725" />
+      <path
+         style="fill:#002cff;fill-opacity:1;stroke:#0003f0;stroke-width:0.253;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker108);marker-end:url(#marker108)"
+         d="m 19.613928,74.823504 h 13.075951 v 0"
+         id="path77" />
+      <path
+         style="fill:#f9f9f9;fill-opacity:1;stroke:#000300;stroke-width:0.253;stroke-dasharray:1.518, 1.518;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 12.670574,52.394535 H 120.54168"
+         id="path78" />
+      <path
+         style="fill:#f9f9f9;fill-opacity:1;stroke:#000300;stroke-width:0.253;stroke-dasharray:1.518, 1.518;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 12.670574,89.378913 H 120.54168"
+         id="path80" />
     </g>
   </g>
 </svg>

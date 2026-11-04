@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="153.32983mm"
+   height="74.53698mm"
+   viewBox="0 0 153.32983 74.53698"
+   version="1.1"
+   id="svg4359"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="img45v5.svg"
+   inkscape:export-filename="image45_FinnedSueDoq_Logic.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4361"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.6190998"
+     inkscape:cx="1462.2322"
+     inkscape:cy="335.06272"
+     inkscape:window-width="1907"
+     inkscape:window-height="1574"
+     inkscape:window-x="1822"
+     inkscape:window-y="132"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid11329"
+       originx="-247.38125"
+       originy="-98.558108"
+       spacingy="1"
+       spacingx="1"
+       units="mm"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs4356">
+    <marker
+       style="overflow:visible"
+       id="DartArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Dart arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         transform="scale(-0.5)"
+         id="path6" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect225"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect223"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect221"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect219"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-247.38126,-98.558108)">
+    <g
+       id="g6"
+       transform="translate(-78.885911,-48.111579)"
+       inkscape:export-filename="image45_FinnedSueDoq_Logic.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         x="326.41718"
+         y="146.81969"
+         fill="#ffffff"
+         fill-opacity="1"
+         stroke-width="0.252214"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         width="153.02983"
+         height="74.236977"
+         id="rect186"
+         inkscape:export-filename="image45_FinnedSueDoq_Logic.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="stroke-width:0.3;stroke-dasharray:none" />
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:0.461678;stroke-linecap:butt;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="rect187"
+         width="27.949841"
+         height="8.1131449"
+         x="341.88257"
+         y="180.4928"
+         ry="1.0668613"
+         rx="0" />
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.435056;stroke-linecap:butt;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="rect188"
+         width="20.009232"
+         height="8.1767778"
+         x="339.65295"
+         y="163.27492"
+         ry="1.0752288"
+         rx="0" />
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#009600;stroke-width:0.435056;stroke-linecap:butt;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="rect189"
+         width="20.009232"
+         height="8.1767778"
+         x="352.51086"
+         y="198.18401"
+         ry="1.0752288"
+         rx="0" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="344.83261"
+         y="162.38077"
+         id="text189"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan189"
+           style="fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="344.83261"
+           y="162.38077">ALS1</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="365.87732"
+         y="196.66908"
+         id="text190"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan190"
+           style="fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="365.87732"
+           y="196.66908">ALS2(ALS)</tspan></text>
+      <path
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+         d="m 283.17952,262.24177 c 0,4.75183 0,9.50367 0,14.25548"
+         id="path190"
+         inkscape:path-effect="#path-effect219"
+         inkscape:original-d="m 283.17952,262.24177 c 0,4.75183 0,9.50367 0,14.25548"
+         transform="matrix(1.1023133,0,0,0.9132945,32.679485,-70.123017)" />
+      <path
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+         d="m 283.17952,262.24177 c 0,4.75183 0,9.50367 0,14.25548"
+         id="path191"
+         inkscape:path-effect="#path-effect221"
+         inkscape:original-d="m 283.17952,262.24177 c 0,4.75183 0,9.50367 0,14.25548"
+         transform="matrix(1.1023133,0,0,0.9132945,39.151089,-70.123027)" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="343.95395"
+         y="168.26582"
+         id="text197"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan197"
+           style="fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="343.95395"
+           y="168.26582">a<tspan
+   style="fill:#ff0000;fill-opacity:1"
+   id="tspan303">-</tspan>  b<tspan
+   style="fill:#f30000;fill-opacity:1"
+   id="tspan302">-</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="355.78928"
+         y="186.40176"
+         id="text199"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan198"
+           style="fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="355.78928"
+           y="186.40176">c<tspan
+   style="fill:#ff0000;fill-opacity:1"
+   id="tspan252">-</tspan> d<tspan
+   style="fill:#ff0000;fill-opacity:1"
+   id="tspan246">-</tspan></tspan><tspan
+           sodipodi:role="line"
+           style="fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="355.78928"
+           y="190.43016"
+           id="tspan199" /></text>
+      <path
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#009600;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+         d="m 283.17952,262.24177 c 0,4.75183 0,9.50367 0,14.25548"
+         id="path199"
+         inkscape:path-effect="#path-effect223"
+         inkscape:original-d="m 283.17952,262.24177 c 0,4.75183 0,9.50367 0,14.25548"
+         transform="matrix(1.1023133,0,0,0.9132945,44.389581,-51.701357)" />
+      <path
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#d424ff;stroke-width:0.5;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:1.5, 0.5;stroke-dashoffset:0;stroke-opacity:0.768627;paint-order:stroke fill markers"
+         d="m 283.17952,262.24177 c 0,4.75183 0,9.50367 0,14.25548"
+         id="path200"
+         inkscape:path-effect="#path-effect225"
+         inkscape:original-d="m 283.17952,262.24177 c 0,4.75183 0,9.50367 0,14.25548"
+         transform="matrix(1.1023133,0,0,2.1129978,49.896203,-370.47272)" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="344.83261"
+         y="162.38077"
+         id="text202"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan202"
+           style="fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="344.83261"
+           y="162.38077">ALS1(ALS)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#009600;fill-opacity:0.8;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="355.77606"
+         y="203.21236"
+         id="text207"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan206"
+           style="fill:#009600;fill-opacity:0.8;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="355.77606"
+           y="203.21236">c<tspan
+   style="fill:#e90000;fill-opacity:0.8"
+   id="tspan249">+</tspan> d<tspan
+   style="fill:#f00000;fill-opacity:0.8"
+   id="tspan250">- </tspan>d<tspan
+   style="fill:#f60000;fill-opacity:0.8"
+   id="tspan251">-</tspan></tspan><tspan
+           sodipodi:role="line"
+           style="fill:#009600;fill-opacity:0.8;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="355.77606"
+           y="207.24075"
+           id="tspan207" /></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#f90000;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="357.69092"
+         y="179.00514"
+         id="text208"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan208"
+           style="fill:#f90000;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="357.69092"
+           y="179.00514">Stem(A2LS)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="334.0556"
+         y="177.3118"
+         id="text209"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan209"
+           style="fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="334.0556"
+           y="177.3118">RCC1</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="345.61707"
+         y="195.7773"
+         id="text210"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan210"
+           style="fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="345.61707"
+           y="195.7773">RCC2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="365.18646"
+         y="185.51791"
+         id="text212"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan211"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="365.18646"
+           y="185.51791"> x</tspan><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="365.18646"
+           y="189.54631"
+           id="tspan212" /></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="361.53949"
+         y="211.20966"
+         id="text215"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan213"
+           style="fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="361.53949"
+           y="211.20966">d<tspan
+   style="fill:#f10000;fill-opacity:1"
+   id="tspan245">+</tspan></tspan><tspan
+           sodipodi:role="line"
+           style="fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="361.53949"
+           y="215.23805"
+           id="tspan244" /><tspan
+           sodipodi:role="line"
+           style="fill:#009600;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="361.53949"
+           y="219.26645"
+           id="tspan215" /></text>
+      <rect
+         style="opacity:0.8;fill:none;fill-opacity:1;stroke:#d425ff;stroke-width:0.335702;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:1.68858, 0.562859;stroke-dashoffset:0;stroke-opacity:0.960784"
+         id="rect215"
+         width="8.2061768"
+         height="13.033252"
+         x="360.94006"
+         y="199.90453"
+         rx="0"
+         ry="0" />
+      <path
+         style="opacity:0.8;fill:#ff00e2;fill-opacity:0.11811;stroke:#ff0000;stroke-width:0.22485;stroke-linejoin:round;stroke-miterlimit:0.5"
+         d="m 360.41914,182.21175 v 22.14215 h 10.91509 v -5.03833 h -6.61781 v -17.03753 h -4.29728 z"
+         id="path217" />
+      <text
+         xml:space="preserve"
+         style="font-size:8.35107px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#ff00e2;fill-opacity:0.11811;stroke:#ff0000;stroke-width:0.39454;stroke-linejoin:round;stroke-miterlimit:0.5"
+         x="345.94824"
+         y="208.66051"
+         id="text217"
+         transform="scale(1.0825048,0.92378343)"><tspan
+           sodipodi:role="line"
+           id="tspan217"
+           style="stroke-width:0.39454"
+           x="345.94824"
+           y="208.66051">Fin</tspan></text>
+      <path
+         style="opacity:0.8;fill:#ff00e2;fill-opacity:0.11811;stroke:#ff0000;stroke-width:0.2;stroke-linejoin:round;stroke-miterlimit:0.5"
+         d="m 363.80716,192.19361 10.53961,-1.89903"
+         id="path218" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.11533px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="377.76999"
+         y="211.37328"
+         id="text236"
+         transform="scale(0.99584693,1.0041704)"
+         inkscape:transform-center-x="1.336453"
+         inkscape:transform-center-y="-12.770551"><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="377.76999"
+           y="211.37328"
+           id="tspan236">(1) If the external element&quot;d&quot; is positive,</tspan><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="377.76999"
+           y="215.07707"
+           id="tspan241">    and negates all fins.</tspan></text>
+      <path
+         style="opacity:0.8;fill:#000092;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0.453543;marker-start:url(#DartArrow)"
+         d="m 368.19098,211.20838 h 7.28261 -0.60688"
+         id="path240" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.11533px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="382.80212"
+         y="202.16537"
+         id="text240"
+         transform="scale(0.99584693,1.0041704)"
+         inkscape:transform-center-x="1.336453"
+         inkscape:transform-center-y="-12.770551"><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="382.80212"
+           y="202.16537"
+           id="tspan240">(2) ALS2 becomes a LockedSet, </tspan><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="382.80212"
+           y="205.86917"
+           id="tspan242">     and &quot;c&quot; becomes positive in ALS2.</tspan></text>
+      <path
+         style="opacity:0.8;fill:#000092;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0.453543;marker-start:url(#DartArrow)"
+         d="m 373.20224,201.96208 h 7.28261 -0.60688"
+         id="path241" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.11533px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="385.38766"
+         y="182.50728"
+         id="text289"
+         transform="scale(0.99584693,1.0041704)"
+         inkscape:transform-center-x="1.336453"
+         inkscape:transform-center-y="-12.770551"><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="385.38766"
+           y="182.50728"
+           id="tspan289">(3) Stem becomes LockedSet from A2LS, </tspan><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="385.38766"
+           y="186.21107"
+           id="tspan296">     and “a,b” becomes positive in Stem.</tspan></text>
+      <path
+         style="opacity:0.8;fill:#000092;stroke:#000000;stroke-width:0.364538;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0.453543;marker-start:url(#DartArrow)"
+         d="m 372.80834,183.93854 h 10.753 -0.89607"
+         id="path289" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.11533px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="377.12833"
+         y="166.98024"
+         id="text298"
+         transform="scale(0.99584693,1.0041704)"
+         inkscape:transform-center-x="1.336453"
+         inkscape:transform-center-y="-12.770551"><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="377.12833"
+           y="166.98024"
+           id="tspan298">(4) In ALS1, elements are missing.</tspan><tspan
+           sodipodi:role="line"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="377.12833"
+           y="170.68404"
+           id="tspan306">Therefore, the first statement &quot;d is positive&quot; is incorrect.</tspan></text>
+      <path
+         style="opacity:0.8;fill:#000092;stroke:#000000;stroke-width:0.364478;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0.453543;marker-start:url(#DartArrow)"
+         d="m 363.25216,167.20239 h 10.74942 -0.89577"
+         id="path298" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.476px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';opacity:0.8;fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="344.31216"
+         y="184.83093"
+         id="text299"
+         transform="scale(0.99831276,1.0016901)"><tspan
+           sodipodi:role="line"
+           id="tspan299"
+           style="fill:#0000bb;fill-opacity:1;stroke:none;stroke-width:0.158599;stroke-dasharray:none"
+           x="344.31216"
+           y="184.83093">a<tspan
+   style="fill:#ff0000;fill-opacity:1"
+   id="tspan300">+</tspan>  b<tspan
+   style="fill:#ff0000;fill-opacity:1"
+   id="tspan301">+</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:0.9;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-linejoin:round;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         x="361.4715"
+         y="153.73241"
+         id="text304"
+         transform="scale(0.99584693,1.0041704)"
+         inkscape:transform-center-x="1.336453"
+         inkscape:transform-center-y="-12.770551"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'MS UI Gothic';-inkscape-font-specification:'MS UI Gothic, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.145819;stroke-dasharray:none"
+           x="361.4715"
+           y="153.73241"
+           id="tspan304">Finned SueDeCoq Logic</tspan></text>
+    </g>
+  </g>
+</svg>

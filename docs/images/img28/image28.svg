@@ -7,7 +7,7 @@
    viewBox="0 0 297 210"
    version="1.1"
    id="svg25398"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    sodipodi:docname="image28.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,218 +24,17 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.914906"
-     inkscape:cx="596.23611"
-     inkscape:cy="427.91281"
+     inkscape:zoom="0.64693624"
+     inkscape:cx="620.61758"
+     inkscape:cy="435.12789"
      inkscape:window-width="1786"
      inkscape:window-height="1230"
-     inkscape:window-x="1836"
-     inkscape:window-y="661"
+     inkscape:window-x="2856"
+     inkscape:window-y="509"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
   <defs
-     id="defs25395">
-		
-		
-		
-		
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-				
-				
-			
-				
-				
-			
-			
-			
-		
-			
-			
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-				
-				
-			
-			
-			
-		
-		
-		
-		
-	
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-				
-				
-				
-			
-				
-				
-				
-			
-				
-				
-				
-			
-				
-				
-				
-			
-				
-				
-				
-			</defs>
+     id="defs25395" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -250,239 +49,220 @@
        width="7.7974596"
        height="8.0972872"
        id="rect6090"
-       inkscape:export-filename="img28a.png"
+       inkscape:export-filename="img28a.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
        id="g6130"
        transform="matrix(0.08434674,0,0,0.08434674,-827.43996,-1105.852)">
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="14117.4"
-   x2="10833.8"
-   y2="14117.4"
-   id="line6092" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="14021.4"
-   x2="10833.8"
-   y2="14021.4"
-   id="line6094" />
-
-		<path
-   fill="#ffffff"
-   fill-opacity="1"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   d="m 9969.78,14214 v -864.6 h 864.02 v 864 h -864.02"
-   id="path6096" />
-
-		<line
-   fill="none"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="13637.4"
-   x2="10833.8"
-   y2="13637.4"
-   id="line6098" />
-
-		<line
-   fill="none"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="13925.4"
-   x2="10833.8"
-   y2="13925.4"
-   id="line6100" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10065.8"
-   y1="13349.4"
-   x2="10065.8"
-   y2="14213.4"
-   id="line6102" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10161.8"
-   y1="13349.4"
-   x2="10161.8"
-   y2="14213.4"
-   id="line6104" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10353.8"
-   y1="13349.4"
-   x2="10353.8"
-   y2="14213.4"
-   id="line6106" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10449.8"
-   y1="13349.4"
-   x2="10449.8"
-   y2="14213.4"
-   id="line6108" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10641.8"
-   y1="13349.4"
-   x2="10641.8"
-   y2="14213.4"
-   id="line6110" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10737.8"
-   y1="13349.4"
-   x2="10737.8"
-   y2="14213.4"
-   id="line6112" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="13829.4"
-   x2="10833.8"
-   y2="13829.4"
-   id="line6114" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="13733.4"
-   x2="10833.8"
-   y2="13733.4"
-   id="line6116" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9966.7803"
-   y1="13543.4"
-   x2="10830.8"
-   y2="13543.4"
-   id="line6118" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="13445.4"
-   x2="10833.8"
-   y2="13445.4"
-   id="line6120" />
-
-		<line
-   fill="none"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10257.8"
-   y1="13349.4"
-   x2="10257.8"
-   y2="14214"
-   id="line6122" />
-
-		<line
-   fill="none"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10545.8"
-   y1="13349.4"
-   x2="10545.8"
-   y2="14213.4"
-   id="line6124" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="14117.4"
-   x2="10833.8"
-   y2="14117.4"
-   id="line6126" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="9969.7803"
-   y1="14021.4"
-   x2="10833.8"
-   y2="14021.4"
-   id="line6128" />
-
-	</g>
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="14117.4"
+         x2="10833.8"
+         y2="14117.4"
+         id="line6092" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="14021.4"
+         x2="10833.8"
+         y2="14021.4"
+         id="line6094" />
+      <path
+         fill="#ffffff"
+         fill-opacity="1"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         d="m 9969.78,14214 v -864.6 h 864.02 v 864 h -864.02"
+         id="path6096" />
+      <line
+         fill="none"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="13637.4"
+         x2="10833.8"
+         y2="13637.4"
+         id="line6098" />
+      <line
+         fill="none"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="13925.4"
+         x2="10833.8"
+         y2="13925.4"
+         id="line6100" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10065.8"
+         y1="13349.4"
+         x2="10065.8"
+         y2="14213.4"
+         id="line6102" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10161.8"
+         y1="13349.4"
+         x2="10161.8"
+         y2="14213.4"
+         id="line6104" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10353.8"
+         y1="13349.4"
+         x2="10353.8"
+         y2="14213.4"
+         id="line6106" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10449.8"
+         y1="13349.4"
+         x2="10449.8"
+         y2="14213.4"
+         id="line6108" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10641.8"
+         y1="13349.4"
+         x2="10641.8"
+         y2="14213.4"
+         id="line6110" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10737.8"
+         y1="13349.4"
+         x2="10737.8"
+         y2="14213.4"
+         id="line6112" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="13829.4"
+         x2="10833.8"
+         y2="13829.4"
+         id="line6114" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="13733.4"
+         x2="10833.8"
+         y2="13733.4"
+         id="line6116" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9966.7803"
+         y1="13543.4"
+         x2="10830.8"
+         y2="13543.4"
+         id="line6118" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="13445.4"
+         x2="10833.8"
+         y2="13445.4"
+         id="line6120" />
+      <line
+         fill="none"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10257.8"
+         y1="13349.4"
+         x2="10257.8"
+         y2="14214"
+         id="line6122" />
+      <line
+         fill="none"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10545.8"
+         y1="13349.4"
+         x2="10545.8"
+         y2="14213.4"
+         id="line6124" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="14117.4"
+         x2="10833.8"
+         y2="14117.4"
+         id="line6126" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="9969.7803"
+         y1="14021.4"
+         x2="10833.8"
+         y2="14021.4"
+         id="line6128" />
+    </g>
     <text
        xml:space="preserve"
        id="text6134"
@@ -575,239 +355,220 @@
        width="7.7974596"
        height="8.0972872"
        id="rect6156"
-       inkscape:export-filename="img28b.png"
+       inkscape:export-filename="img28b.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
        id="g6196"
        transform="matrix(0.08434674,0,0,0.08434674,-827.43996,-1105.852)">
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="14117.4"
-   x2="11764.8"
-   y2="14117.4"
-   id="line6158" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="14021.4"
-   x2="11764.8"
-   y2="14021.4"
-   id="line6160" />
-
-		<path
-   fill="#ffffff"
-   fill-opacity="1"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   d="m 10900.8,14214 v -864.6 h 864 v 864 h -864"
-   id="path6162" />
-
-		<line
-   fill="none"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="13637.4"
-   x2="11764.8"
-   y2="13637.4"
-   id="line6164" />
-
-		<line
-   fill="none"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="13925.4"
-   x2="11764.8"
-   y2="13925.4"
-   id="line6166" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10996.8"
-   y1="13349.4"
-   x2="10996.8"
-   y2="14213.4"
-   id="line6168" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="11092.8"
-   y1="13349.4"
-   x2="11092.8"
-   y2="14213.4"
-   id="line6170" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="11284.8"
-   y1="13349.4"
-   x2="11284.8"
-   y2="14213.4"
-   id="line6172" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="11380.8"
-   y1="13349.4"
-   x2="11380.8"
-   y2="14213.4"
-   id="line6174" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="11572.8"
-   y1="13349.4"
-   x2="11572.8"
-   y2="14213.4"
-   id="line6176" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="11668.8"
-   y1="13349.4"
-   x2="11668.8"
-   y2="14213.4"
-   id="line6178" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="13829.4"
-   x2="11764.8"
-   y2="13829.4"
-   id="line6180" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="13733.4"
-   x2="11764.8"
-   y2="13733.4"
-   id="line6182" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10897.8"
-   y1="13543.4"
-   x2="11761.8"
-   y2="13543.4"
-   id="line6184" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="13445.4"
-   x2="11764.8"
-   y2="13445.4"
-   id="line6186" />
-
-		<line
-   fill="none"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="11188.8"
-   y1="13349.4"
-   x2="11188.8"
-   y2="14214"
-   id="line6188" />
-
-		<line
-   fill="none"
-   stroke-width="8"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="11476.8"
-   y1="13349.4"
-   x2="11476.8"
-   y2="14213.4"
-   id="line6190" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="14117.4"
-   x2="11764.8"
-   y2="14117.4"
-   id="line6192" />
-
-		<line
-   fill="none"
-   stroke-width="2.66667"
-   stroke-linejoin="round"
-   stroke="#000000"
-   stroke-opacity="1"
-   x1="10900.8"
-   y1="14021.4"
-   x2="11764.8"
-   y2="14021.4"
-   id="line6194" />
-
-	</g>
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="14117.4"
+         x2="11764.8"
+         y2="14117.4"
+         id="line6158" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="14021.4"
+         x2="11764.8"
+         y2="14021.4"
+         id="line6160" />
+      <path
+         fill="#ffffff"
+         fill-opacity="1"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         d="m 10900.8,14214 v -864.6 h 864 v 864 h -864"
+         id="path6162" />
+      <line
+         fill="none"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="13637.4"
+         x2="11764.8"
+         y2="13637.4"
+         id="line6164" />
+      <line
+         fill="none"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="13925.4"
+         x2="11764.8"
+         y2="13925.4"
+         id="line6166" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10996.8"
+         y1="13349.4"
+         x2="10996.8"
+         y2="14213.4"
+         id="line6168" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="11092.8"
+         y1="13349.4"
+         x2="11092.8"
+         y2="14213.4"
+         id="line6170" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="11284.8"
+         y1="13349.4"
+         x2="11284.8"
+         y2="14213.4"
+         id="line6172" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="11380.8"
+         y1="13349.4"
+         x2="11380.8"
+         y2="14213.4"
+         id="line6174" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="11572.8"
+         y1="13349.4"
+         x2="11572.8"
+         y2="14213.4"
+         id="line6176" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="11668.8"
+         y1="13349.4"
+         x2="11668.8"
+         y2="14213.4"
+         id="line6178" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="13829.4"
+         x2="11764.8"
+         y2="13829.4"
+         id="line6180" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="13733.4"
+         x2="11764.8"
+         y2="13733.4"
+         id="line6182" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10897.8"
+         y1="13543.4"
+         x2="11761.8"
+         y2="13543.4"
+         id="line6184" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="13445.4"
+         x2="11764.8"
+         y2="13445.4"
+         id="line6186" />
+      <line
+         fill="none"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="11188.8"
+         y1="13349.4"
+         x2="11188.8"
+         y2="14214"
+         id="line6188" />
+      <line
+         fill="none"
+         stroke-width="8"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="11476.8"
+         y1="13349.4"
+         x2="11476.8"
+         y2="14213.4"
+         id="line6190" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="14117.4"
+         x2="11764.8"
+         y2="14117.4"
+         id="line6192" />
+      <line
+         fill="none"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke="#000000"
+         stroke-opacity="1"
+         x1="10900.8"
+         y1="14021.4"
+         x2="11764.8"
+         y2="14021.4"
+         id="line6194" />
+    </g>
     <text
        xml:space="preserve"
        id="text6200"
@@ -901,7 +662,7 @@
    id="tspan6220">C</tspan>	</text>
     <g
        id="g29293"
-       inkscape:export-filename="img28c.png"
+       inkscape:export-filename="img28c.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        transform="translate(-0.86757547,-15.327166)">
@@ -1312,7 +1073,7 @@
    id="tspan11310">6</tspan>	</text>
     <g
        id="g29517"
-       inkscape:export-filename="img28e.png"
+       inkscape:export-filename="img28e.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        transform="matrix(0.93010393,0,0,1.0004421,12.514207,-0.03499789)">
@@ -1354,19 +1115,18 @@
         <g
            id="g6370"
            transform="matrix(0.08434674,0,0,0.08434674,-649.29779,-1192.6095)">
-			<path
-   fill="none"
-   stroke-width="5.33333"
-   stroke-linejoin="round"
-   stroke="#002cc8"
-   stroke-opacity="1"
-   d="m 10092.5,14870 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.6 c 0,5.9 -4.8,10.7 -10.7,10.7 h -138.6 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.6 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
-   id="path6364" />
-
-			<text
-   transform="translate(10144,14919)"
-   xml:space="preserve"
-   id="text6368">				 <tspan
+          <path
+             fill="none"
+             stroke-width="5.33333"
+             stroke-linejoin="round"
+             stroke="#002cc8"
+             stroke-opacity="1"
+             d="m 10092.5,14870 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.6 c 0,5.9 -4.8,10.7 -10.7,10.7 h -138.6 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.6 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
+             id="path6364" />
+          <text
+             transform="translate(10144,14919)"
+             xml:space="preserve"
+             id="text6368">				 <tspan
    style="font-size:48px;font-family:'メイリオ'"
    letter-spacing="0em"
    fill="#002cc8"
@@ -1375,8 +1135,7 @@
    stroke="#002cc8"
    stroke-opacity="1"
    id="tspan6366">B</tspan>			</text>
-
-		</g>
+        </g>
         <text
            xml:space="preserve"
            id="text6374"
@@ -1512,19 +1271,18 @@
         <g
            id="g6414"
            transform="matrix(0.08434674,0,0,0.08434674,-649.29779,-1192.6095)">
-				<path
-   fill="none"
-   stroke-width="5.33333"
-   stroke-linejoin="round"
-   stroke="#002cc8"
-   stroke-opacity="1"
-   d="m 10412.5,14870 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.6 c 0,5.9 -4.8,10.7 -10.7,10.7 h -138.6 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.6 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
-   id="path6408" />
-
-				<text
-   transform="translate(10464,14919)"
-   xml:space="preserve"
-   id="text6412">					 <tspan
+          <path
+             fill="none"
+             stroke-width="5.33333"
+             stroke-linejoin="round"
+             stroke="#002cc8"
+             stroke-opacity="1"
+             d="m 10412.5,14870 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.6 c 0,5.9 -4.8,10.7 -10.7,10.7 h -138.6 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.6 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
+             id="path6408" />
+          <text
+             transform="translate(10464,14919)"
+             xml:space="preserve"
+             id="text6412">					 <tspan
    style="font-size:48px;font-family:'メイリオ'"
    letter-spacing="0em"
    fill="#002cc8"
@@ -1533,8 +1291,7 @@
    stroke="#002cc8"
    stroke-opacity="1"
    id="tspan6410">B</tspan>				</text>
-
-			</g>
+        </g>
         <text
            xml:space="preserve"
            id="text6418"
@@ -1774,26 +1531,25 @@
     </g>
     <g
        id="g29386"
-       inkscape:export-filename="img28f.png"
+       inkscape:export-filename="img28f.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        transform="matrix(0.93010393,0,0,1.0004421,12.514207,-0.03499789)">
       <g
          id="g6488"
          transform="matrix(0.08434674,0,0,0.08434674,-649.29779,-1192.6095)">
-			<path
-   fill="none"
-   stroke-width="5.33333"
-   stroke-linejoin="round"
-   stroke="#00c800"
-   stroke-opacity="1"
-   d="m 10089.8,15315.3 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.7 c 0,5.9 -4.8,10.6 -10.7,10.6 h -138.6 c -5.9,0 -10.7,-4.7 -10.7,-10.6 v -42.7 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
-   id="path6482" />
-
-			<text
-   transform="translate(10142,15365)"
-   xml:space="preserve"
-   id="text6486">				 <tspan
+        <path
+           fill="none"
+           stroke-width="5.33333"
+           stroke-linejoin="round"
+           stroke="#00c800"
+           stroke-opacity="1"
+           d="m 10089.8,15315.3 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.7 c 0,5.9 -4.8,10.6 -10.7,10.6 h -138.6 c -5.9,0 -10.7,-4.7 -10.7,-10.6 v -42.7 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
+           id="path6482" />
+        <text
+           transform="translate(10142,15365)"
+           xml:space="preserve"
+           id="text6486">				 <tspan
    style="font-size:48px;font-family:'メイリオ'"
    letter-spacing="0em"
    fill="#00c800"
@@ -1802,8 +1558,7 @@
    stroke="#00c800"
    stroke-opacity="1"
    id="tspan6484">C</tspan>			</text>
-
-		</g>
+      </g>
       <rect
          x="191.62068"
          y="81.869743"
@@ -1840,19 +1595,18 @@
       <g
          id="g6510"
          transform="matrix(0.08434674,0,0,0.08434674,-649.29779,-1192.6095)">
-			<path
-   fill="none"
-   stroke-width="5.33333"
-   stroke-linejoin="round"
-   stroke="#002cc8"
-   stroke-opacity="1"
-   d="m 10092.5,15222 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.6 c 0,5.9 -4.8,10.7 -10.7,10.7 h -138.6 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.6 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
-   id="path6504" />
-
-			<text
-   transform="translate(10144,15271)"
-   xml:space="preserve"
-   id="text6508">				 <tspan
+        <path
+           fill="none"
+           stroke-width="5.33333"
+           stroke-linejoin="round"
+           stroke="#002cc8"
+           stroke-opacity="1"
+           d="m 10092.5,15222 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.6 c 0,5.9 -4.8,10.7 -10.7,10.7 h -138.6 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.6 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
+           id="path6504" />
+        <text
+           transform="translate(10144,15271)"
+           xml:space="preserve"
+           id="text6508">				 <tspan
    style="font-size:48px;font-family:'メイリオ'"
    letter-spacing="0em"
    fill="#002cc8"
@@ -1861,8 +1615,7 @@
    stroke="#002cc8"
    stroke-opacity="1"
    id="tspan6506">B</tspan>			</text>
-
-		</g>
+      </g>
       <text
          xml:space="preserve"
          id="text6514"
@@ -2039,19 +1792,18 @@
       <g
          id="g6566"
          transform="matrix(0.08434674,0,0,0.08434674,-649.29779,-1192.6095)">
-			<path
-   fill="none"
-   stroke-width="5.33333"
-   stroke-linejoin="round"
-   stroke="#00c800"
-   stroke-opacity="1"
-   d="m 10412.1,15313.3 h 138.7 c 5.9,0 10.6,4.8 10.6,10.7 v 42.7 c 0,5.9 -4.7,10.6 -10.6,10.6 h -138.7 c -5.9,0 -10.7,-4.7 -10.7,-10.6 v -42.7 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
-   id="path6560" />
-
-			<text
-   transform="translate(10464,15363)"
-   xml:space="preserve"
-   id="text6564">				 <tspan
+        <path
+           fill="none"
+           stroke-width="5.33333"
+           stroke-linejoin="round"
+           stroke="#00c800"
+           stroke-opacity="1"
+           d="m 10412.1,15313.3 h 138.7 c 5.9,0 10.6,4.8 10.6,10.7 v 42.7 c 0,5.9 -4.7,10.6 -10.6,10.6 h -138.7 c -5.9,0 -10.7,-4.7 -10.7,-10.6 v -42.7 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
+           id="path6560" />
+        <text
+           transform="translate(10464,15363)"
+           xml:space="preserve"
+           id="text6564">				 <tspan
    style="font-size:48px;font-family:'メイリオ'"
    letter-spacing="0em"
    fill="#00c800"
@@ -2060,8 +1812,7 @@
    stroke="#00c800"
    stroke-opacity="1"
    id="tspan6562">C</tspan>			</text>
-
-		</g>
+      </g>
       <rect
          x="245.60423"
          y="81.869743"
@@ -2119,19 +1870,18 @@
       <g
          id="g6586"
          transform="matrix(0.08434674,0,0,0.08434674,-649.29779,-1192.6095)">
-			<path
-   fill="none"
-   stroke-width="5.33333"
-   stroke-linejoin="round"
-   stroke="#002cc8"
-   stroke-opacity="1"
-   d="m 10732.5,15222 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.6 c 0,5.9 -4.8,10.7 -10.7,10.7 h -138.6 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.6 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
-   id="path6580" />
-
-			<text
-   transform="translate(10784,15271)"
-   xml:space="preserve"
-   id="text6584">				 <tspan
+        <path
+           fill="none"
+           stroke-width="5.33333"
+           stroke-linejoin="round"
+           stroke="#002cc8"
+           stroke-opacity="1"
+           d="m 10732.5,15222 h 138.6 c 5.9,0 10.7,4.8 10.7,10.7 v 42.6 c 0,5.9 -4.8,10.7 -10.7,10.7 h -138.6 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.6 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
+           id="path6580" />
+        <text
+           transform="translate(10784,15271)"
+           xml:space="preserve"
+           id="text6584">				 <tspan
    style="font-size:48px;font-family:'メイリオ'"
    letter-spacing="0em"
    fill="#002cc8"
@@ -2140,8 +1890,7 @@
    stroke="#002cc8"
    stroke-opacity="1"
    id="tspan6582">B</tspan>			</text>
-
-		</g>
+      </g>
       <text
          xml:space="preserve"
          id="text6590"
@@ -2184,19 +1933,18 @@
       <g
          id="g6606"
          transform="matrix(0.08434674,0,0,0.08434674,-649.29779,-1192.6095)">
-			<path
-   fill="none"
-   stroke-width="5.33333"
-   stroke-linejoin="round"
-   stroke="#00c800"
-   stroke-opacity="1"
-   d="m 10732.1,15313.3 h 138.7 c 5.8,0 10.6,4.8 10.6,10.7 v 42.7 c 0,5.9 -4.8,10.6 -10.6,10.6 h -138.7 c -5.9,0 -10.7,-4.7 -10.7,-10.6 v -42.7 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
-   id="path6600" />
-
-			<text
-   transform="translate(10784,15363)"
-   xml:space="preserve"
-   id="text6604">				 <tspan
+        <path
+           fill="none"
+           stroke-width="5.33333"
+           stroke-linejoin="round"
+           stroke="#00c800"
+           stroke-opacity="1"
+           d="m 10732.1,15313.3 h 138.7 c 5.8,0 10.6,4.8 10.6,10.7 v 42.7 c 0,5.9 -4.8,10.6 -10.6,10.6 h -138.7 c -5.9,0 -10.7,-4.7 -10.7,-10.6 v -42.7 c 0,-5.9 4.8,-10.7 10.7,-10.7 z"
+           id="path6600" />
+        <text
+           transform="translate(10784,15363)"
+           xml:space="preserve"
+           id="text6604">				 <tspan
    style="font-size:48px;font-family:'メイリオ'"
    letter-spacing="0em"
    fill="#00c800"
@@ -2205,8 +1953,7 @@
    stroke="#00c800"
    stroke-opacity="1"
    id="tspan6602">C</tspan>			</text>
-
-		</g>
+      </g>
       <text
          xml:space="preserve"
          id="text6610"
@@ -2248,7 +1995,7 @@
     </g>
     <g
        id="g29261"
-       inkscape:export-filename="img28d.png"
+       inkscape:export-filename="img28d.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
        transform="translate(-0.79598114,13.302824)">
@@ -2409,19 +2156,18 @@
       <g
          id="g6270"
          transform="matrix(0.08434674,0,0,0.08434674,-649.29779,-1192.6095)">
-				<path
-   fill="none"
-   stroke-width="5.33333"
-   stroke-linejoin="round"
-   stroke="#00c800"
-   stroke-opacity="1"
-   d="m 10667.9,14423.8 h 138.7 c 5.9,0 10.6,4.8 10.6,10.6 v 42.7 c 0,5.9 -4.7,10.7 -10.6,10.7 h -138.7 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.7 c 0,-5.8 4.8,-10.6 10.7,-10.6 z"
-   id="path6264" />
-
-				<text
-   transform="translate(10720,14473)"
-   xml:space="preserve"
-   id="text6268">					 <tspan
+        <path
+           fill="none"
+           stroke-width="5.33333"
+           stroke-linejoin="round"
+           stroke="#00c800"
+           stroke-opacity="1"
+           d="m 10667.9,14423.8 h 138.7 c 5.9,0 10.6,4.8 10.6,10.6 v 42.7 c 0,5.9 -4.7,10.7 -10.6,10.7 h -138.7 c -5.9,0 -10.7,-4.8 -10.7,-10.7 v -42.7 c 0,-5.8 4.8,-10.6 10.7,-10.6 z"
+           id="path6264" />
+        <text
+           transform="translate(10720,14473)"
+           xml:space="preserve"
+           id="text6268">					 <tspan
    style="font-size:48px;font-family:'メイリオ'"
    letter-spacing="0em"
    fill="#00c800"
@@ -2430,8 +2176,7 @@
    stroke="#00c800"
    stroke-opacity="1"
    id="tspan6266">C</tspan>				</text>
-
-			</g>
+      </g>
       <text
          xml:space="preserve"
          id="text6276"
@@ -2499,7 +2244,7 @@
     </g>
     <g
        id="g30993"
-       inkscape:export-filename="img28g1.png"
+       inkscape:export-filename="img28g1.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
       <g
@@ -2711,7 +2456,7 @@
     </g>
     <g
        id="g31023"
-       inkscape:export-filename="img28g2.png"
+       inkscape:export-filename="img28g2.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
       <g
@@ -2923,7 +2668,7 @@
     </g>
     <g
        id="g31055"
-       inkscape:export-filename="img28g3.png"
+       inkscape:export-filename="img28g3.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
       <g

@@ -29,7 +29,7 @@
 
 
 <body id="page">
-	<header id="head"> <strong><i>Sudoku Algorithm 5.1</i></strong>
+	<header id="head"> <strong><i>Sudoku Algorithm 7.1</i></strong>
         <script type="text/javascript"> writeNaviHeader(); </script>
 	</header>
 
@@ -118,30 +118,32 @@
 				Stem is also an example of Subset, SubsetExclusion, and SubsetExclusio_ALS (same situation). <br>
 				In the third sample, the cells with orange dots in the upper left are areas where ALS overlaps.
 			</p>
-            <p>
+           <p>
                 <img src="images/img57/image57_Subset_20.png" width="30%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
                 <strong>SubsetExclusion<br></strong>
 					Stem: r14c6 #1679<br>
 					Leaf: Cell r6c6 #17<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cell r2c6 #19<br>
-				<p class="newLine"></p>3...4...8..8.6.7...7.382.5...7.3.8.51..8.5..9..5.9.6...2.954.8...4...5..5...1...2</p>
+					&nbsp; &nbsp; &nbsp; &nbsp;Cell r2c6 #19<br>
+				<p class="newLine"/><tt>3...4...8 ..8.6.7.. .7.382.5. ..7.3.8.5 1..8.5..9 ..5.9.6.. .2.954.8. ..4...5.. 5...1...2</tt></p>
             </p>
 			<p>
                 <img src="images/img57/image57_Subset_21.png" width="30%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
 				<strong>SubsetExclusion_with_ALS</strong><br>
 					Stem: r1c7 r3c57 #3569<br>
 					Leaf: Cell r3c9 #56<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r579c7 #3456 RCC#35<br>
-				<p class="newLine"></p>1.2.7...4..9...2...784.2.1.2.3.5.7..8..7.9..37.6.4.1...2.687.91..1...8..987.3...2</p>
+					&nbsp; &nbsp; &nbsp; &nbsp;ALS r579c7 #3456 RCC#35<br>
+				<p class="newLine"/><tt>1.2.7...4 ..9...2.. .784.2.1. 2.3.5.7.. 8..7.9..3 7.6.4.1.. .2.687.91 ..1...8.. 987.3...2</tt></p>
             </p>
 			<p>
                 <img src="images/img57/image57_Subset_22.png" width="30%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
-				<strong>em: r7c1 r9c3 #2457</strong><br>
+				<strong>SubsetExclusion_with_ALS</strong><br>
+					Sem: r7c1 r9c3 #2457</strong><br>
 					Leaf: Cell r7c3 #45<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r7c39 #245 RCC#24<br>
+					&nbsp; &nbsp; &nbsp; &nbsp;ALS r7c39 #245 RCC#24<br>
 					Overlap : r7c3<br>
-				<p class="newLine"></p>712.568.4..6...2.1.8.1.2.6.659.214..8..5.91.6..1.6.5...3.68791...8.1.6..16..9...8</p>
+				<p class="newLine"/><tt>712.568.4 ..6...2.1 .8.1.2.6. 659.214.. 8..5.91.6 ..1.6.5.. .3.68791. ..8.1.6.. 16..9...8</tt></p>
             </p>
+
 		</section>
 	</article>
 

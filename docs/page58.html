@@ -29,7 +29,7 @@
 
 
 <body id="page">
-	<header id="head"> <strong><i>Sudoku Algorithm 5.1</i></strong>
+	<header id="head"> <strong><i>Sudoku Algorithm 7.1</i></strong>
         <script type="text/javascript"> writeNaviHeader(); </script>
 	</header>
 
@@ -81,13 +81,13 @@
 						In this case as well, cell B or cell C is the digit "n" and the proposition is correct. </li>
 					<li>In Firework-s, the states of cells B and C are the same. </li>
 				</ul>
-				<img src="images/img58/image58_10_firework_def.png" width="60%" alt="Force Algorithm"><br><br>
+				<img src="images/img58/image58_10_firework_def.svg" width="60%" alt="Force Algorithm"><br><br>
 				
 				In the following, Firework will be expressed as follows.<br>
-				<img src="images/img58/image58_11_firework_def.png" width="55%" alt="Force Algorithm"><br><br>
+				<img src="images/img58/image58_11_firework_def.svg" width="55%" alt="Force Algorithm"><br><br>
 					
 				Some firework algorithms use overlapping fireworks.<br>
-				<img src="images/img58/image58_12_firework_def.png" width="80%" alt="Force Algorithm"><br><br>
+				<img src="images/img58/image58_12_firework_def.svg" width="80%" alt="Force Algorithm"><br><br>
 					
 				Firework also has special types:
 				<ul>
@@ -101,123 +101,149 @@
 
 			<!-- ============================================================ -->
 				<H3 id="head_bg_Blue">Fireworks analysis algorithms</H3>
-				<h4 id="head_bg_LightBlue">(1) Firework triple</h4>
+				<h4 id="head_bg_LightBlue" id="FW_Triple">(1) Firework Triple</h4>
 				<p>
-					<stong>Firework triple</stong> is a state in which three fireworks overlap 
-					(3DFirework,stem and Leaf-1,2 match in all fireworks). <br>
-					At this time, the cells of stem and Leaf-1,2 are Locked with 3 numbers,
-					and candidates other than 3 numbers can be excluded.
+					A "Firework triple" occurs when three fireworks overlap
+					(meaning the stem and Leaf-1 and Leaf-2 cells are identical for all three fireworks).<br>
+					In this configuration, the cells forming the stem, Leaf-1, and Leaf-2 are
+					"locked" to a specific set of three digits; any candidates other than these three digits can be eliminated.
+
 				</p>
-				<img src="images/img58/image58_20_Firework_triple.png" width="50%" alt="Firework triple"><br><br>
+				<img src="images/img58/image58_20_Firework_triple.svg" width="50%" alt="Firework triple"><br>
 				<p>
-					<img src="images/img58/image58_30_FW_triple.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
-					<strong>Firework_Triple<br></strong>
-						Stem : r7c3 #12459<br>
-						Leaf:r6c3 r7c4<br>
-					<p class="newLine">1.....5.82.........4..9.7.6..3..2....26.8.9..5....92......73....8....1.....9...42</p>
+					A "Firework triple" can exist even within an incomplete Firework pattern—specifically, 
+					in cases where the "leaf" portion consists of two numbers. 
+					Firework triples are frequently found within such incomplete patterns.<br><br>
+					<img src="images/img58/image58_30b_FW_triple.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
+					<strong>Firework_Triple</strong><br>
+						Firework: r6c8 <#246> / r2c8 r6c1<br>
+					<p class="newLine">..128495.82.597..1945361872.5782.1.9...94.5.7..9715...562138794398472615..46592..</p>
+					<img src="images/img58/image58_30c_FW_triple.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
+					<strong>Firework_Triple</strong><br>
+						Firework: r5c2 <#269> / r5c8 r8c2<br>
+				<p class="newLine"/><tt></tt>712.568.4 ..6...2.1 .8.1.2.6. 659.214.. 8..5.91.6 ..1.6.5.. .3.68791. ..8.1.6.. 16..9...8</tt></p>
+					<p class="newLine">1457326..936185472.8.9641535..4..7.6....7...4..4..6.1..5..198474...58931819347265</p>
 				</p>
 
 
-				<h4 id="head_bg_LightBlue">(2) Firework triple</h4>
+				<h4 id="head_bg_LightBlue" id="FW_Quadruple">(2) Firework Quadruple</h4>
 				<p>
-					The state in which two fireworks overlap is referred to as 2-Firework (all Stems and Leaves match). <br>
-					<stong> Firework quadruple </stong> is a state in which two sets of 2-Firework Leaf-1,2 overlap 
-					(the two Stems are in different positions). <br>
-					This has 4 digits in 4 cells marked as Locked.
-					Therefore, candidates other than the 4 digits in 4 cells can be excluded.
+					A state in which two "fireworks" overlap (with identical stems and leaves) is denoted as "Firework x2."<br>
+					A "Firework quadruple" refers to a configuration where the "Leaf-1" and "Leaf-2" components of two separate "fireworks" overlap
+					(while their stems occupy different positions).<br>
+					In this configuration, four specific digits are "locked" into four cells. 
+					Consequently, any other candidates within those four cells can be eliminated.<br>
+					A "Firework quadruple" can also occur using "incomplete" fireworks.
 				</p>
-				<img src="images/img58/image58_21_Firework_quadruple.png" width="50%" alt="Firework_quadruple"><br><br>
+				<img src="images/img58/image58_21_Firework_quadruple.svg" width="50%" alt="Firework_quadruple"><br><br>
 				<p>
 					<img src="images/img58/image58_31_FW_Quadruple.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
 					<strong>Firework_Quadruple<br></strong>
-						Stem : r5c1#17 r7c8#26<br>
-						Leaf : r5c8#12679  r7c1#12367<br>
-					<p class="newLine">1.....5.82.........4..9.7.6..3..2....26.8.9..5....92......73....8....1.....9...42</p>
+						Firework1 : r8c2 <#35> / r3c2 r8c5<br>
+						Firework2 : r3c5 <#78> / r3c2 r8c5 <br>
+					<p class="newLine"<tt>189365472 3.....8.5 ......3.1 893521746 617843259 425796138 9.8...5.7 7.....9.4 .4.9.7683</tt></p>
+
+					<img src="images/img58/image58_31b_FW_Quadruple.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
+					<strong>Firework_Quadruple<br></strong>
+						Firework1 : r4c2 <#15> / r1c2 r4c8<br>
+						Firework2 : r1c8 <#23> / r1c2 r4c8 <br>
+					<p class="newLine"><tt>1.5984..6 ..9.65.84 486.....9 ...64.9.8 .948.1.6. 6.8.93.4. 5..416892 9427386.. 861..9473</tt></p>
 				</p>
 
 
-
-				<h4 id="head_bg_LightBlue">(3) Firework W-Wing</h4>
+				<h4 id="head_bg_LightBlue" id="FW_WWing">(3) Firework WWing</h4>
 				<p>
-					Suppose that 2-Firework and two bivalue cells (ALS) are arranged as shown in the following figure. <br>
-					This state is Locked, and the numeric element at the intersection ("a" in the following figure) can be excluded.
+					Suppose two "Firework" structures and two bivalue cells (forming an ALS) are arranged as shown in the following diagram.<br>
+					This configuration is "locked," and the digit located at the intersection (labeled "a" in the diagram) can be eliminated.<br>
 				</p>
-				<img src="images/img58/image58_22_Firework_WWing.png" width="50%" alt="Firework_WWing"><br>
+				<img src="images/img58/image58_22_Firework_WWing.svg" width="50%" alt="Firework_WWing"><br>
 				<p>
 					<img src="images/img58/image58_32_FW_WWing.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
 					<strong>Firework_WWing</strong><br>
-						Stem : r3c3#26<br>
-						Leaf : r3c5#346  r5c3#2679<br>
+						Firework : r3c3 <#26> / r3c5 r5c3<br>
 						Assist : r4c5#26  r5c9#26<br>
 						Exclude : r5c5#26<br>
 					<p class="newLine">1..89..4.8..21...7...7.59813154.9..8.8.5..41...41.8395..1382.646.89..1...236.18.9</p>
-				</p>
+					<img src="images/img58/image58_32a_FW_WWing.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
+					<strong>Firework_WWing</strong><br>
+						Firework : r8c7 <#68> / r6c7 r8c6<br>
+						Assist : r6c2#68  r5c6#68<br>
+						Exclude : r6c6#68<br>
+					<p class="newLine"><tt>6793..214 213964758 458217396 73...15.9 9.57..132 1..5...47 3..8..421 5..1....3 821...975</tt></p></p>
 
 
 
-				<h4 id="head_bg_LightBlue">(4) Firework L-Wing</h4>
+
+
+				<h4 id="head_bg_LightBlue" id="FW_LWing">(4) Firework LWing</h4>
 				<p>
-					Suppose a 2-Firework and one strong firework share a Leaf. <br>
-					In this state, exclude digits other than Firework("x" in the following figure) from the Leaf cell.
-				</p>
-				<img src="images/img58/image58_23_Firework_LWing.png" width="50%" alt="Firework_LWing"><br><br>
-
+					Suppose two "Firework" cells and one "strong Firework" cell share a "Leaf" cell.<br>
+					In this configuration, the value associated with the "strong Firework" (represented by "x" in the figure below) 
+					can be excluded from both the "Firework" cells and the "Leaf" cell.<br><br>
 				
+					<img src="images/img58/image58_24_Firework_LWing.svg" width="50%" alt="Firework_LWing"><br><br>
 
-				<h4 id="head_bg_LightBlue">(5) Firework ALP-s</h4>
-				<p>
-					Suppose 2-Firework and one Bivalue cell are arranged as shown in the following image.<br>
-					In this state, exclude digits other than Firework("z" in the image below) from the Stem cell. <br>
-				</p>
-				<img src="images/img58/image58_24_Firework_ALP-s.png" width="50%" alt="Firework_LWing"><br><br>
-				<p>
-					<img src="images/img58/image58_34_FW_ALP-s.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
-					<strong>Firework_ALP-s</strong><br>
-						Stem : r7c3#69<br>
-						Leaf : r5c3#34679 r7c5#16789<br>
-						Assist : r5c5#69<br>
-						Exclude : r7c3#69<br>
-					<p class="newLine">.9.....4.6...2...8...1.4.....2..758..8.5...1...584.3.....4.5...1...3...6.7.....9.</p>
-				</p>
+					<img src="images/img58/image58_33_FW_LWing.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
+					<strong>Firework_WWing</strong><br>
+						Firework : r4c7 <#34> / r4c3 r9c7<br>
+						Assist : r9c3 <#2> / r4c3 r9c7v<br>
+						Exclude : r4c3#2 r9c7#2v<br>
+					<p class="newLine"><tt>148753.6. 635942187 729168534 98.516.7. 367429815 .51387..6 .1.8756.. 896234751 57.691.48</tt></p>
+				
+					<img src="images/img58/image58_33a_FW_LWing.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
+					<strong>Firework_WWing</strong><br>
+						Firework : r6c3 <#36> / r6c8 r7c3<br>
+						Assist : r7c8 <#9> / r6c8 r7c3<br>
+						Exclude : r6c8#9 r7c3#9<br>
+					<p class="newLine"><tt>148753.6. 635942187 729168534 98.516.7. 367429815 .51387..6 .1.8756.. 896234751 57.691.48</tt></p>
+					</p>
 
-			<h3 id="head_bg_LightBlue">SubsetExclusion サンプル</h3>
-			<p>
-				SubsetExclusion、SubsetExclusio_ALSの例です。<br>
-				2、3番目のサンプルの、セル左上にオレンジの小丸を表示したセルは、ALSの重なりのある個所です。
-			</p>
-            <p>
-                <img src="images/img57/image57_Subset_20.png" width="30%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
-                <strong>SubsetExclusion<br></strong>
-				Stem: r1c5 r2c39 #1789<br>
-				Leaf: Cell r2c6 #179<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cell r2c4 #189<br>
-				<p class="newLine"></p>.2...36.434..6.25.69..243.82564.8.3.48.396.25.3925.48687463.5.2563..2.4.912745863</p>
-            </p>
-			<p>
-                <img src="images/img57/image57_Subset_21.png" width="30%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
-				<strong>SubsetExclusion_with_ALS</strong><br>
-				Stem: r7c8 r9c7 #5689<br>
-				Leaf: Cell r8c7 #58<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r28c7 #568 RCC#68
-				<p class="newLine"></p>6..2..9.1.8.9.4.2...9.1.3..796821435..34..7..45.39716...7.4.2...6.7.9.149....2.73</p>
-            </p>
-			<p>
-                <img src="images/img57/image57_Subset_22.png" width="30%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
-				<strong>SubsetExclusion_with_ALS</strong><br>
-				Stem: r1c2 r7c9 r8c7 #3456789<br>
-				Leaf:  ALS r79c2 #134 RCC#34<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r29c7 #568 RCC#58<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r579c2 #1234 RCC#34<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r359c2 #1247 RCC#47<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r1c3 r2c13 #1345 RCC#34<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r1c3 r3c12 #2457 RCC#47<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r1c368 #3458 RCC#34<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r1c3 r2c13 r3c1 #12345 RCC#34<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r1c3568 #34578 RCC#347<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALS r1c56 r3c46 #35678 RCC#37<br>
-				<p class="newLine"></p>6..2..9.1.8.9.4.2...9.1.3..796821435..34..7..45.39716...7.4.2...6.7.9.149....2.73</p>
-            </p>
--->
+
+
+				<h4 id="head_bg_LightBlue" id="FW_ALP">(5) Firework ALP</h4>
+				<p>
+					Suppose a "Fireworkx2" and a bivalue cell are arranged as shown in Fig. 1.<br>
+					Based on the definition of a "Firework," 
+					there are two possible patterns for the placement of the digits "a" and "b" within the bivalue cell and the stem (Fig. 2).<br>
+					Consequently, the digits "a" and "b" form a "locked" set across the stem and the bivalue cell.<br>
+					Therefore, any digits other than "a" and "b" can be eliminated from the stem (Fig. 3).
+				</p>
+					<img src="images/img58/image58_25_Firework_ALP.svg" width="80%" alt="Firework_ALP"><br>
+
+					<img src="images/img58/image58_35_FW_ALP.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
+					<strong>Firework_ALPs</strong><br>
+					Forework : r4c3 <#35> / r4c7 r9c3<br>
+					rcIntersect : Intersect_Cell:r9c7v
+					<p class="newLine"><tt>.37986.14 914752683 ..841379. 8..179.4. 192364857 47.5281.9 .218479.. 789635421 .4.291.78</tt></p>
+
+
+
+					
+				<h4 id="head_bg_LightBlue" id="FW_Double_ALP">(6) Firework Double_ALP</h4>
+				<p>
+					A "Double_ALP" is a configuration in which two ALPs are linked symmetrically, centered on a bivalue cell.<br>
+					In each ALP, the logic of the ALP allows for the elimination of any digits other than "a" and "b" from the "stem."<br>
+					Within an ALP, once the digits for the bivalue cell are determined, 
+					the placement of the digits "a" and "b" throughout the ALP is fixed (fig-2).<br>
+					Furthermore, the digits "a" and "b" are restricted in areas outside of the "firework" structure (fig-2, 3).
+				</p>
+					<img src="images/img58/image58_26_Firework_DALP.svg" width="80%" alt="Firework_DALP"><br>
+
+					<p>
+						<img src="images/img58/image58_36_FW_DALP.png" width="25%" style="float:left;  margin-right:8px;" alt="SubSetExclusion">
+						<strong> Firework_DALP</strong><br>
+							Forework1:<br>
+							&nbsp;&nbsp;Stem;r4c5 sw:False FreeB:38<br>
+							&nbsp;&nbsp;(rc1,rc2):r3c5 r4c7<br>
+							Forework2:<br>
+							&nbsp;&nbsp;Stem;r4c5 sw:False FreeB:38<br>
+							&nbsp;&nbsp;(rc1,rc2):r3c5 r4c7<br>
+							<br>
+							rcIntersect:r3c7<br>
+
+						<p class="newLine"><tt>32..1.78. 89.7.2135 71.8...42 5792...61 26.971.54 14...5297 .571.8.23 432..7.18 .81.2..7.</tt></p>
+					</p>
+
 		</section>
 	</article>
 

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20.000002mm"
+   height="19.999998mm"
+   viewBox="0 0 20.000002 19.999998"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="SearchMark_000.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="4.7244613"
+     inkscape:cx="94.508129"
+     inkscape:cy="91.333164"
+     inkscape:window-width="2203"
+     inkscape:window-height="1425"
+     inkscape:window-x="1611"
+     inkscape:window-y="251"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid2"
+       units="mm"
+       originx="-9.9999971"
+       originy="-10"
+       spacingx="1"
+       spacingy="0.99999998"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+    <inkscape:page
+       x="1.2440648e-38"
+       y="0"
+       width="20.000002"
+       height="19.999998"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Dot"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="0.2"
+       markerHeight="0.2"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-9.9999975,-10)">
+    <rect
+       style="fill:none;stroke:none;stroke-width:0.184;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="20"
+       height="20"
+       x="9.9999971"
+       y="10"
+       rx="0.1220432"
+       ry="0.269885"
+       inkscape:export-filename="SearchMark_Black.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+       id="path1"
+       cx="19"
+       cy="18.385601"
+       r="5.3856001" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Dot)"
+       d="m 22.499999,22.5 5,5.000001"
+       id="path2" />
+    <rect
+       style="fill:none;stroke:none;stroke-width:0.184;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3"
+       width="20"
+       height="20"
+       x="9.9999971"
+       y="10"
+       rx="0.1220432"
+       ry="0.269885"
+       inkscape:export-filename="SearchMark_Black.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+       id="circle3"
+       cx="19"
+       cy="18.385601"
+       r="5.3856001" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Dot)"
+       d="m 22.499999,22.5 5,5.000001"
+       id="path3" />
+  </g>
+</svg>

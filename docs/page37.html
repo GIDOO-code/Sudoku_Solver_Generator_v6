@@ -29,7 +29,7 @@
 </head>
 	
 <body id="page">
-	<header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
+	<header id="head"> <strong><i>Sudoku Algorithm 7</i></strong>
 		<script type="text/javascript"> writeNaviHeader(); </script>
 	</header>
 
@@ -40,7 +40,7 @@
 <!-- -------------------------------------------------------------------------- -->
 <article id="main">
 	<section>
-	<h3 id="head_bg_Blue">Endo Fins/Cannibalism</h3>
+	<h3 id="head_bg_Blue">&nbsp; Endo Fins/Cannibalism</h3>
 	<p>Algorithms based on
 	<a href="page34.html#BaseCoverSet"><strong>BaseSet and CoverSet</strong></a>
 	can be extended step by step to
@@ -48,25 +48,25 @@
 	<a href="page35.html"><strong>Finned Fish</strong></a>,
 	<a href="page36.html"><strong>Franken/Mutant Fish</strong></a>.
 	In the definition of these FISHs, "House groups of BaseSet and CoverSet do not overlap" condition.
-	Loosen this condition here.</p>
+	Here will relax this condition.</p>
 	
-	<h4 id="head_bg_Blue">Endo Fin Fish</h4>
+	<h4 id="head_bg_Blue">&nbsp; Endo Fin Fish</h4>
 	<p>Endo Fins Fish is a case where the House group of BaseSet overlaps.
 	It is a Franken/Mutant type where rows, columns, and blocks are mixed because the House groups of BaseSet overlap.
 	The cell in the overlapped part of BaseSet is <strong>Endo Fins</strong>.
 	EndoFin is true, and candidates to exclude EndoFin are false.</p>
 	<p>
-	Explain in stages from the condition/logic of Fish.<br><br>
+	i will provide a step-by-step explanation, starting from the condition of the fish and the underlying logic.<br><br>
 
 
 	
-	<h4 id="head_bg_LightBlue">(1)Fish, Finned Fish（Base Fish, BaseSet/CoverSet is not overlap）</h4>
-		<ul>
-			<li>Left figue: Consider Nth Fish.
+	<h4 id="head_bg_LightBlue">&nbsp; (1)Fish, Finned Fish（Base Fish, BaseSet/CoverSet is not overlap）</h4>
+		<ul><b>Left figue:</b>
+			<li> Consider N-th Fish.
 				Cells constituting Fish are included in House of BaseSet(BaseSet fully covers Fish）.<br><br></li>
 			
 			<li>CoverSet(do not overlap with BaseSet) is a group of N houses including all cells constituting Fish(CoverSet fully covers Fish).
-				Suppose there is a cell(▲ in the following left figure)) included in any House of CoverSet and not included in Fish.<br><br></li>
+				Suppose there is a cell(▲ in the following left figure) included in any House of CoverSet and not included in Fish.<br><br></li>
 				
 			<Li>The cell that constitutes Fish does not determine the true position,
 				but there is a true position somewhere in Fish (Locked state)。
@@ -76,16 +76,18 @@
 				
 			<Li>If a cell▲ that is not included in Fish is true,
 				the House of the corresponding CoverSet does not include the true cell of Fish.
-				With this, CoverSet has only (N-1)true. The cell▲ is false.<br><br></li>
-				
-			<li>Right figure: Consider Nth Finned Fish.
+				With this, CoverSet has only (N-1)true. The cell▲ is false.<br></li>
+		</ul>
+
+		<ul><b>Right figue:</b>
+			<li>Consider N-th Finned Fish.
 				Fin cell is attached to normal Fish. The Fin cell is a cell included in BaseSet and not included in CoverSet.
 				Fin is not included in the Fish configuration cell.<br><br></li>
 
 			<li>CoverSet contains all the cells that make up Fish.
 				Also assume there is a cell▲ not included in Fish.<br><br></li>
 
-			<li>Cell▲ scopes all Fin. If cell▲ is true, one CoverSet covering Fish is decreased by one.
+			<li>Assume that cell▲ and Fin cell belong to the same House (but are different from both BseSet and CoverSet Houses).
 				In other words, there are only (N-1)trues in CoverSet. Therefore, cell▲ is false.
 				(There may be more than one Fin)<br></Li>
 		</ul>
@@ -94,31 +96,35 @@
 	</p>
 
 
-	<h4 id="head_bg_LightBlue">(2)Franken/Mutant Fish（F/M Fish)</h4>
+	<h4 id="head_bg_LightBlue">&nbsp; (2)Franken/Mutant Fish（F/M Fish)</h4>
 	<p>
 		Franken/Mutant Fish has rows, columns, and blocks mixed in BaseSet and CoverSet.</p>
 		<img src="images/img37/img37b.svg" alt="(Finned)Franken/Mutant Fish" width="95%"><br><br><br>
 
-	<h4 id="head_bg_LightBlue">(3)Endo Fin Fish</h4>
+
+
+
+
+	<h4 id="head_bg_LightBlue">&nbsp; (3)Endo Fin Fish</h4>
 		<ul>
-			<li>Left figure: Consider the case where there is an overlap in BaseSet in Nth order F/M Fish.
+			<li>Left figure: Consider the case where there is an overlap in BaseSet in N-th order F/M Fish.
 				The cell in the overlapping part is Endo Fin.</li><br>
 			<li>A cell belonging to House including Endofin cell of CoveSet and not belonging to BaseSet is false.
 				If this is true, this House has no true Fish and
 				can not place N truths in the remaining (N-1)CoverSet House.<br><br></li>
 	
-			<li>Right figure: It is a case where BaseSet overlaps with Nth order F/M Fish with Fin.<br><br></li>
+			<li>Right figure: It is a case where BaseSet overlaps with N-th order F/M Fish with Fin.<br><br></li>
 		
 			<li>If cell▲ scopes all Fin (normal Fin and EndoFin), cell▲ is false.<br><br></li>
 		</ul>
 		<img src="images/img37/img37c.svg" alt="Franken/Mutant Fish" width="80%" alt="Endo Fin Fish">
 		<br>
 	<p>
-		The following figure is an example of Endo Fin Fish. 
+		The following figure is an example of Endo Fin Fish.
 		The left is Endo Fin Fish without Fin, the right is Endo Fin Fish with Fin.
 		This is only a part, the Endo Fin Fish of the same scene of the same puzzle. With Fin/Without total
-		there are SwordFish [26 solution], JellyFish [121 solution], 
-		Squirmbag [223 solution], Whale [31 solution].
+		there are SwordFish [26 solutions], JellyFish [121 solutions],
+		Squirmbag [223 solutions], Whale [31 solutions].
 		These can be seen with multiple solution analysis of <a href="page17.html">GNPX</a>.<br>
 		In this scene, There is a solution of Locked Pair, Finned Xwing, Finned Sword Fish, 
 		Finned JellyFish, Skyscraper, EmptyRectangl, W_Wing, Coloring Wrap, Remote Pair,
@@ -159,20 +165,20 @@
 			Endo Fin: r7c13<br></p>
 		<p style="clear: both"/>
 		<p>	Paste the next 81 digits onto the grid and solve with /Solve/MultiSolve/<br>
-			....2.6..7.41.9....3.847.1..7.9.1.541.3...7.9.9.2.8.36.4.683.7.3.75.4.......1.4..</p><br><br><br>
+			<tt>....2.6.. 7.41.9... .3.847.1. .7.9.1.54 1.3...7.9 .9.2.8.36 .4.683.7. 3.75.4... ....1.4..</tt></p>
 			
 
 
-	<h3 id="head_bg_Blue" id="Cannibalism">(4)Cannibalism</h3>
+	<h3 id="head_bg_Blue" id="Cannibalism">&nbsp; (4)Cannibalism</h3>
 	
 	<ul>
-			<li>The figure on the left shows the overlap of CoverSet with Nth order F/M Fish.
+			<li>The figure on the left shows the overlap of CoverSet with N-th order F/M Fish.
 				This is Cannibalistic cell.<br><br></li>
 				
 			<li>The Cannibalistic cell is fake.
 				If this is true, N House of CoverSet contains only (N-1) Truth of Fish configuration cell.<br><br></li>
 
-			<li>The right figure is the Nth F/M Fish with Fin.
+			<li>The right figure is the N-th F/M Fish with Fin.
 				CoverSet is overlap (Cannibalistic cell) and there is normal Fin. 
 				Normal Fin is a cell that is included in the BaseSet and is not included in CoverSet.
 				If the Cannibalistic cell is scoped with fin, the Cannibalistic cell is false.
@@ -197,7 +203,7 @@
 
 	<p style="clear: both"/>
 	<p>Paste the next 81 digits onto the grid and solve with /Solve/MultiSolve/<br>
-	....9.6..4.61.8....8.462.5..6.2.1.373.5...2.8.4.3.6.95.3.914.7.6.18.5.......2.8..</p><br>
+	<tt>....9.6.. 4.61.8... .8.462.5. .6.2.1.37 3.5...2.8 .4.3.6.95 .3.914.7. 6.18.5... ....2.8..</tt></p>
 
 	</section>
 	

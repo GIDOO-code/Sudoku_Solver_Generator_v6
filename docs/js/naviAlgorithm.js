@@ -131,8 +131,7 @@ function writeNaviAlgorithm(){
 	    	html += '<ul class="navigationC">';
 				html += '<li><a href="page21.html">Cell(UCell)</a></li>';
 				html += '<li><a href="page22.html">Problem(UProblem)</a></li>';
-				html += '<li><a href="page23.html">Bit81</a></li>';
-				html += '<li><a href="page24.html">FishUFish FishMan)</a></li>';
+					html += '<li><a href="page24.html">FishUFish FishMan)</a></li>';
 				html += '<li><a href="page25.html">Link(UCellLink、CellLinkMan)</a></li>';
 				html += '<li><a href="page26.html">ALS(UALS,ALSMan）</a></li>';
 				html += '<li><a href="page27.html">Link2(Cell-ALS)</a></li>';
@@ -144,7 +143,7 @@ function writeNaviAlgorithm(){
 	    	html += '<ul class="navigationC">';
 				html += '<li><a href="page11.html">Permutation</a></li>';
 				html += '<li><a href="page12.html">Combination</a></li>';
-				html += '<li><a href="page14_v6.html">Latin Square</a></li>';
+				html += '<li><a href="page14.html">Latin Square</a></li>';
 				html += '<li><a href="page15.html">Generate Puzzle</a></li>';
 				html += '<li><a href="page4.html">Conversion/standardization of Sudoku problem</a></li>';
 	    html += '</ul>';

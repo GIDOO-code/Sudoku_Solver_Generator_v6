@@ -30,7 +30,7 @@
 </head>
 	
 <body id="page">
-	<header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
+	<header id="head"> <strong><i>Sudoku Algorithm 7</i></strong>
 		<script type="text/javascript"> writeNaviHeader(); </script>
 	</header>
 
@@ -40,7 +40,7 @@
 <!-- -------------------------------------------------------------------------- -->
 <article id="main">
 	<section>
-		<h3 id="head_bg_Blue">X-Wing（Fish)</h2>
+		<h3 id="head_bg_Blue">&nbsp; X-Wing（Fish)</h2>
 		<p>
 			Assume that the digit X is arranged as follows.<br>
 			In column c0, the position of the digit X is one of the rows r01, and also in row c1,
@@ -53,7 +53,7 @@
 
 
 
-		<h4 id="head_bg_LightBlue">X-Wing</h4>
+		<h4 id="head_bg_LightBlue">&nbsp; X-Wing</h4>
 		<p></p>
 			In the BaseSet(solid line) column, one of the two cells X is true.<br>
 			CoverSet(dashed line) completely includes BaseSet. CoverSet also
@@ -63,13 +63,13 @@
 			The digit X at the position of the circle is excluded.(BaseSet, CoverSet described below)
 		</p>
 		<p class="newLine"></p>
-		<img src="images/img34/img34_10.png" alt="X-Wing" width="30%"><br>
-
-		<p><br>X-Wing sample
+		<img src="images/img34/img34_10.png" alt="X-Wing" width="30%">
+		<p class="newLine"><tt>4....9.5. 23..58.67 ...4.7... ......325 3.2....8. 5.1...7.. ...89.... 9......7. .1.72..46</tt></p>
+		<p>X-Wing sample
 			Focusing on the digit 4, the establishment of X-Wing of BaseSet(r57), CoverSet(c26).<br>
 			The digit 4 is excluded from the cell of r47c2.
 		</p>
-		<p class="newLine">4....9.5.23..58.67...4.7.........3253.2....8.5.1...7.....89....9......7..1.72..46"</p>
+
 
 		<p>
 			X-Wing sometimes uses another name, "Fish".
@@ -102,7 +102,7 @@
 		
 
 
-		<h4 id="head_bg_LightBlue" id="BaseCoverSet"><strong>BseSet/CoverSet(no overlap)</strong></h4>
+		<h4 id="head_bg_LightBlue" id="BaseCoverSet"><strong>&nbsp; BaseSet/CoverSet(no overlap)</strong></h4>
 		<p>
 			In Fish based solution, use 2 sets of house.
 			Focus on the digit X, select N houses containing up to N digits X (N is the order) and call this <strong>BaseSet</strong>.
@@ -122,7 +122,7 @@
 		
 		
 
-		<h4 id="head_bg_LightBlue"><strong>Nth Fish</strong></h4>
+		<h4 id="head_bg_LightBlue"><strong>&nbsp; N-th Fish</strong></h4>
 		<p>
 			Focus on the digit X.
 			If N houses containing N or fewer X are selected(BaseSet) and
@@ -132,8 +132,8 @@
 		</p>
 
 		<p><br><br>
-			he following figure is an example of SwordFish (3D-Fish) and JellyFish (4D-Fish).
-			These are Complementary Fish of the same scene of the same puzzle. Excluded cells·Candidate digits are the same.
+			The following figure is an example of SwordFish (3D-Fish) and JellyFish (4D-Fish).
+			These are Complementary Fish of the same scene of the same puzzle. Excluded cells/Candidate digits are the same.
 		</p>
 
 
@@ -149,8 +149,7 @@
 			(4D-Fish）<br>
 			BaseSet  : r2345<br>
 			CoverSet : c2567<br>
-		<p style="clear: both" ><br>
-		...6.8...6...9...529.....483.1...4.64..3.1..2...8.6....1.4.2.7..6.7.9.5.....8....</p>
+		<p style="clear: both" ><tt>...6.8... 6...9...5 29.....48 3.1...4.6 4..3.1..2 ...8.6... .1.4.2.7. .6.7.9.5. ....8....</tt></p><br>
 		<br>
 	
 

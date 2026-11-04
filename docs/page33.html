@@ -28,7 +28,7 @@
 </head>
 	
 	<body id="page">
-		<header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
+		<header id="head"> <strong><i>Sudoku Algorithm 7</i></strong>
 			<script type="text/javascript"> writeNaviHeader(); </script>
 		</header>
 	
@@ -40,82 +40,82 @@
 	<section>
 		<h3 id="head_bg_Blue">Locked</h2>
 		<p>For Sudoku's advanced analysis algorithms, the concept <strong>"Locked"</strong> is important.
-		Locked is a limitation on the cell(s) candidate diigits, the diigit of candidate digits, and the arrangement of cells,
-		Candidate diigits are limited, or candidate diigits are excluded.<br>
+		Locked is a limitation on the cell(s) candidate digits, the digit of candidate digits, and the arrangement of cells,
+		Candidate digits are limited, or candidate digits are excluded.<br>
 
 		There are several types of Locked, and there are as many analysis algorithms as there are<br>
 		
 		<h4 id="head_bg_LightBlue">Naked LockedSet</h4>
 		<p>
 			LockedSet is the simplest <strong>Locked</strong> analysis algorithm.<br>
-			Focusing on n cells in a house, when these candidate diigits are #n, candidate diigits of this cell group are locked.
+			Focusing on n cells in a house, when these candidate digits are #n, candidate digits of this cell group are locked.
 			Exclude candidate #n from other cells in the same House. Let's call this the N-th order LockedSet.
-			When the diigit of cells/candidate is 5 or more, the remaining cell group of the same House is LockedSet.
+			When the digits of cells/candidate are 5 or more, the remaining cell group of the same House is LockedSet.
 			It is not necessary if you want to find the numeric array on the whole board.
 			However, to pursue Sudoku's way of solving, is not it fun to find a big LockedSet?
 			Later, i will show them.<br>
-			The following figure is an image of "LockedSet" of "2 cell 2 diigit".
-			When Locked to ab, cd, ef, these candidate can be excluded from candidate diigits of gray cells.
+			The following figure is an image of "LockedSet" of "2 cell 2 digit".
+			When Locked to ab, cd, ef, these candidate can be excluded from candidate digits of gray cells.
 			When a human searches for LockedSet,
 			the LockedSet between blocks (center in the figure below) is more difficult than it is in the same block,
 			but in the case of a program it is almost unchanged.
 		</p>
 
-		<img src="images/img33/img33a1.png" alt="Naked LockedSet" width="25%">
-		<img src="images/img33/img33a2.png" alt="Naked LockedSet" width="25%">
-		<img src="images/img33/img33a3.png" alt="Naked LockedSet" width="25%">
+		<img src="images/img33/img33a1.svg" alt="Naked LockedSet" width="25%">
+		<img src="images/img33/img33a2.svg" alt="Naked LockedSet" width="25%">
+		<img src="images/img33/img33a3.svg" alt="Naked LockedSet" width="25%">
 		<p style="clear: both" >
 
 		<p>
-			The following figure shows an image of a cell group in which LockedSets of 3 cells 3 diigits(left) and
-			4 cells 4 diigits (right) are established.
+			The following figure shows an image of a cell group in which LockedSets of 3 cells 3 digits(left) and
+			4 cells 4 digits (right) are established.
 			It means that the outer frame belongs to the same house (row, column, block).
-			The figure above is a case where each cell contains the candidate diigit in the same way.
-			Some candidate diigits may be missing as shown in the bottom row.
+			The figure above is a case where each cell contains the candidate digit in the same way.
+			Some candidate digits may be missing as shown in the bottom row.
 		</p>
 		
-		<img src="images/img33/img33b.png" alt="Naked LockedSet" width="50%">
+		<img src="images/img33/img33b.svg" alt="Naked LockedSet" width="50%">
 		<p style="clear: both" ><br>
 
 
 		<h4 id="head_bg_LightBlue">Hidden LockedSet</h4>
 		<p>
-			Naked LockedSet is a case where candidate diigits clearly appear in the cell.
-			Hidden LockedSet is when there are other candidate digits in the cell and the group of diigits making up LockedSet is hidden.<br>
+			Naked LockedSet is a case where candidate digits clearly appear in the cell.
+			Hidden LockedSet is when there are other candidate digits in the cell and the group of digits making up LockedSet is hidden.<br>
 			In the following figure, the top three rows are extracted.
-			Focusing on candidate diigit #26 is only in r1c13,
+			Focusing on candidate digit #26 is only in r1c13,
 			and a Hidden LockedSet is established.<br>
 			The definition of Hidden LockedSet is as follows.<br>
-			For a house, when n candidate diigits are in only n cells, the diigit in this cell is locked.
-			Therefore, non-target candidate diigits in the same cell group are excluded.<br>
+			For a house, when n candidate digits are in only n cells, the digits in this cells are locked.
+			Therefore, non-target candidate digits in the same cell group are excluded.<br>
 		</p>
-		<img src="images/img33/img33c.jpg" alt="Hidden LockedSet" width="30%">
+		<img src="images/img33/img33c.svg" alt="Hidden LockedSet" width="30%">
 		
 		<p>
 			The following figure is an example of LockedSet.<br>
-			The left figure is 2-LockedSet(Naked), r6c45(block b5) are candidate diigits #38.<br>
+			The left figure is 2-LockedSet(Naked), r6c45(block b5) are candidate digits #38.<br>
 			The right figure is 2-LockedSet(Hidden).
-			Focusing on c8, the diigit #16 enters only 2 cells of r19c8.
-			Therefore, in this two cells the remaining diigit #349 can be excluded from the candidate.
+			Focusing on c8, the digit #16 enters only 2 cells of r19c8.
+			Therefore, in this two cells the remaining digit #349 can be excluded from the candidate.
 		</p>
 	
 		<img src="images/img33/img33d.jpg" alt="Hidden LockedSet" width="25%">
-		<p class="newLine">2.891..54....4..7.41.5..6.2...7...61....2....69...1...5.2..7.16.4..6....16..594.3<br>
-							...857.....736.2...6...48..142..86..57......26.35..47..216.3........1.......2....</p>
-
+		<img src="images/img33/img33e.jpg" alt="Hidden LockedSet" width="25%">
+		<p class="newLine"><tt>2.891..54 ....4..7. 41.5..6.2 ...7...61 ....2.... 69...1... 5.2..7.16 .4..6.... 16..594.3<br>
+							   ...857... ..736.2.. .6...48.. 142..86.. 57......2 6.35..47. .216.3... .....1... ....2....</tt></p>
 		<p>
 			The following left figure is an example of 3-LockedSet(Hidden).
-			For r4c23 and r5c2 of block b4, 3-LockedSet of 3 cells and 3 diigits is established for candidate diigit #249.
+			For r4c23 and r5c2 of block b4, 3-LockedSet of 3 cells and 3 digits is established for candidate digits #249.
 			The figure on the right is an example of 4-LockedSet (Naked).
-			Focusing on r3789c9, 4-Locked Set of 4 cells 4 diigits is established for the diigit #3459.
+			Focusing on r3789c9, 4-Locked Set of 4 cells 4 digits is established for the digits #3459.
 			Also, 4 rows 4 digits 4-LockedSet(Hidden) is established for r1456c9#1678.
 			It is a LockedSet paired with a yellow cell group. <br>
 		</P>
 		
 		<img src="images/img33/img33f.jpg" alt="Hidden LockedSet" width="25%">
 		<img src="images/img33/img33g.jpg" alt="Hidden LockedSet" width="25%">
-		<p class="newLine">4......6..1..62..9.624.........8..5.1.8..7.4.......9..9...3.2..58....63..36.5...7<br>
-							.8.........4..71.2.6718.39..2..3.9....38.52....5.1..3..18.4.67.4.96..8.........1.</p>
+			<p class="newLine"><tt>4......6. .1..62..9 .624..... ....8..5. 1.8..7.4. ......9.. 9...3.2.. 58....63. .36.5...7<br>
+								   .8....... ..4..71.2 .6718.39. .2..3.9.. ..38.52.. ..5.1..3. .18.4.67. 4.96..8.. .......1.</tt></p>
 
 		<br>
 		<p>

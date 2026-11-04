@@ -28,7 +28,7 @@
 </head>
 	
 <body id="page">
-	<header id="head"> <strong><i>Sudoku Algorithm 4</i></strong>
+	<header id="head"> <strong><i>Sudoku Algorithm 7</i></strong>
 		<script type="text/javascript"> writeNaviHeader(); </script>
 	</header>
 
@@ -53,29 +53,79 @@
 			then all the ALSs become LockedSet and the candidate digits of the axis cells disappear.<br>
 			ALS has no overlap (left figure) and overlap allowance (right figure).<br>
 
-			<img src="images/img53/img53a.png" width="50%">
+			<img src="images/img53/img53a.svg" width="50%">
 				<p style="clear: both"> </p><br>
+           
+            <p>ALS DeathBlossom Example</p>
 
-			○ALS DeathBlossom sample:
-			<img src="images/img53/img53_10.png" width="30%" style="float:left;  margin-right:8px;" alt="ALS DeathBlossom">
-			<strong>ALS Death Blossom<br></strong>
-			Stem : r2c3 #69<br>
-			-#6-ALS1 : r27c7 #567<br>
-			-#9-ALS2 : r12368c2 #345679<br>
-			eliminated : r7c2 #7<br>
-				<p style="clear: both"></p><br>
-			
-			<img src="images/img53/img53_11.png" width="30%" style="float:left;  margin-right:8px;" alt="ALS DeathBlossom">
-			<strong>ALS Death Blossom [overlap]<br></strong>
-				Stem : r1c7 #37<br>
-			-#7-ALS1 : r2c459 #1347<br>
-			-#3-ALS2 : r234c9 #1347<br>
-			eliminated : r4c5 #4<br>
-				<p style="clear: both" ></p>
-				...8...4....21...7...7.5981315..9..8.8....4....41.83.5..1.82.646.8...1...236.18..<br>
-				..2956.485.6....9.4...7.5...538...1.2.......6.1...582...1.8...2.9....1.582.4316..<br>
-		</p>
-	
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/><br>
+1..89..4. 8..21...7 ...7.5981 3154.9..8 .8.5..41. ..41.8395 ..1382.64 6.89..1.. .236.18.9 Puzzle<br>
+1..89..4. 8..21...7 ...7.5981 3154.9..8 .8.5..41. ..41.8395 ..1382.64 6.89..1.. .236.18.9 Current<br></p>
+<img src="images/img53/ALS_DeathBlossom_1.png" width="30%" style="float:left;  margin-right:8px;" alt="ALS_DeathBlossom (Lv.8)"><br>
+
+<p>
+ALS Death Blossom<br>
+ Stem cell: r2c3 #69<br>
+   -#6-ALS1 : r27c7 #567<br>
+   -#9-ALS2 : r12368c2 #345679<br>
+ eliminated : r7c2 #7</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/><br>
+1..89..4. 8..21...7 ...7.5981 3154.9..8 .8.5..41. ..41.8395 ..1382.64 6.89..1.. .236.18.9 Puzzle<br>
+1..89..4. 8..21...7 ...7.5981 3154.9..8 .8.5..41. ..41.8395 ..1382.64 6.89..1.. .236.18.9 Current<br></p>
+<img src="images/img53/ALS_DeathBlossom_2.png" width="30%" style="float:left;  margin-right:8px;" alt="ALS_DeathBlossom (Lv.8)"><br>
+
+<p>
+ALS Death Blossom<br>
+ Stem cell: r1c6 #36<br>
+   -#3-ALS1 : r3c135 #2346<br>
+   -#6-ALS2 : r1c79 r2c8 #2356<br>
+ eliminated : r1c3 #2</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/><br>
+1.2956.48 5.6...29. 4.9.7.56. .538...1. 248....56 .17..582. 761589432 394...185 825431679 Puzzle<br>
+1.2956.48 5.6...29. 4.9.7.56. .538...1. 248....56 .17..582. 761589432 394...185 825431679 Current<br></p>
+<img src="images/img53/ALS_DeathBlossom_3.png" width="30%" style="float:left;  margin-right:8px;" alt="ALS_DeathBlossom (Lv.8)"><br>
+
+<p>
+ALS Death Blossom [overlap]<br>
+ Stem cell: r2c5 #14<br>
+   -#1-ALS1 : r26c4 #136<br>
+   -#4-ALS2 : r6c145 #3469<br>
+ eliminated : r35c4 #3</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+
+<div><tt>
+<p><p style="clear: both"/><p class="newLine"/><br>
+1.2956.48 5.6...29. 4.9.7.56. .538...1. 248....56 .17..582. 761589432 394...185 825431679 Puzzle<br>
+1.2956.48 5.6...29. 4.9.7.56. .538...1. 248....56 .17..582. 761589432 394...185 825431679 Current<br></p>
+<img src="images/img53/ALS_DeathBlossom_4.png" width="30%" style="float:left;  margin-right:8px;" alt="ALS_DeathBlossom (Lv.8)"><br>
+
+<p>
+ALS Death Blossom [overlap]<br>
+ Stem cell: r2c4 #13<br>
+   -#3-ALS1 : r6c14 #369<br>
+   -#1-ALS2 : r5c46 r6c4 #1367<br>
+ eliminated : r6c5 #6</p>
+<p style="clear: both"/>
+<br><hr>
+</tt></div>
+
+        </section>
 </article>
 
 	    <a href="#" class="pagetop">Top</a>
